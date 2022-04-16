@@ -4,14 +4,14 @@ namespace Template {
 
   console.log("Artemis Mysterium starting");
 
-  // define Transitions 
-  // export let transistions = {
-  //   puzzle: {
-  //     duration: 1,
-  //     alpha: "Link zum Bild",
-  //     edge: 1 //härtegrad
-  //   }
-  // }
+  //define transistions
+  export let transistions = {
+    puzzle: {
+      duration: 1,
+      alpha: "./.././../Transistion/02.png",
+      edge: 1 //härtegrad
+    }
+  }
 
   export let sound = {
     //Themes
@@ -22,12 +22,25 @@ namespace Template {
   }
 
   export let location = {
-    vollGuterName: {
-      name: "",
-      background: "Pfad",
+    infrontOfManorDay: {
+      name: "manorDay",
+      background: "./../../Assets/backgrounds/vorDemManorBackground.png",
 
     },
-    vollGuterNameZweiter: {
+
+    infrontOfManorNight: {
+      name: "",
+      background: "",
+
+    },
+
+    entrance: {
+      name: "",
+      background: "",
+
+    },
+
+    saloon: {
       name: "",
       background: "",
 
@@ -36,10 +49,23 @@ namespace Template {
 
   export let charaktere = {
     bronte: {
-      name: "Bronte",
+      name: "Brontë",
       origin: ƒS.ORIGIN.BOTTOMCENTER, //Ankerpunkt im Bild
       pose: {
-        neutral: "pfad"
+        neutral: ""
+      }
+    }, 
+
+    maire: {
+      name: "Mairé",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        neutral: "./../../Assets/characters/maire/Assestentin-neutral.png",
+        embarrassed: "./../../Assets/characters/maire/Assestentin-emberassed.png",
+        fear: "./../../Assets/characters/maire/Assestentin-fear.png",
+        happy: "./../../Assets/characters/maire/Assestentin-happy.png",
+        sad:"./../../Assets/characters/maire/Assestentin-sad.png",
+        laugh:"./../../Assets/characters/maire/Assestentin-laugh.png"
       }
     }
   }

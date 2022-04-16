@@ -1,0 +1,108 @@
+scene {
+  width: 1280px;
+  height: 720px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+html {
+  background-image: url("./../Assets/backgroundImage.png");
+  background-size: cover;
+}
+
+dialog[type=splash] {
+  margin: 0px;
+  padding: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+dialog[type=splash]>img#FudgeStoryLogo {
+  width: 100%;
+}
+
+dialog {
+  padding: 1em; 
+  border: 0px; 
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.309);
+}
+
+button {
+  padding: 1em;
+  margin-left: 2em;
+  margin-top: 20%;
+  border: 0px;
+  font-family: 'Playfair Display', serif;
+  background: url("./../Assets/labels-4963742_1280.png");
+  background-size: cover;
+  width: 300px;
+  height: 110px;
+}
+
+button:hover {
+  filter: grayscale(100);
+}
+
+speech {
+  padding: 1em;
+  width: 700px;
+  height: 150px;
+  margin: auto;
+  position: absolute;
+  display: block;
+  left: 0px;
+  right: 0px;
+  background: rgb(255, 249, 231);
+  visibility: hidden;
+}
+
+content {
+  color: rgb(18, 18, 18);
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 2em;
+  width: 500px;
+  height: 150px;
+}
+
+.textEffectBig  {
+  font-size: 8em;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  display: block;
+  left: 0px;
+  right: 0px;
+}
+
+name {
+  color: rgb(157, 157, 157);
+  font-size: 1.2em;
+  display: block;
+  font-family: 'Playfair Display', serif;
+}
+
+/*Text ist not able to be selected = better clicking thru*/
+content,
+name,
+speech {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
