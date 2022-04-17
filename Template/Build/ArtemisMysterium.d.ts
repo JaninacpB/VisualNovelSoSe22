@@ -9,7 +9,8 @@ declare namespace Template {
         };
     };
     let sound: {
-        themeMitGutenNamen: string;
+        themeinfrontManor: string;
+        themeEntrance: string;
         guterNameSoundEffekt: string;
     };
     let location: {
@@ -25,7 +26,23 @@ declare namespace Template {
             name: string;
             background: string;
         };
-        saloon: {
+        saalon: {
+            name: string;
+            background: string;
+        };
+        gardenDark: {
+            name: string;
+            background: string;
+        };
+        gardenLight: {
+            name: string;
+            background: string;
+        };
+        cabin: {
+            name: string;
+            background: string;
+        };
+        studyroom: {
             name: string;
             background: string;
         };
@@ -114,5 +131,8 @@ declare namespace Template {
     };
 }
 declare namespace Template {
-    function Scene(): ƒS.SceneReturn;
+    function SceneOneInfront(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function SceneTwoEntrance(): ƒS.SceneReturn;
 }

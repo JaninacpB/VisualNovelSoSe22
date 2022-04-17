@@ -1,5 +1,5 @@
 namespace Template {
-  export async function Scene(): ƒS.SceneReturn {
+  export async function SceneOneInfront(): ƒS.SceneReturn {
     console.log("FudgeStory Template Scene starting");
 
     //Alle Wahlmöglichkeiten in Szene 
@@ -11,6 +11,8 @@ namespace Template {
 
     // Text geschwindigkeit regulieren (was ist basic)
     //  await ƒS.Speech.setTickerDelays(1);
+
+    await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
 
     await ƒS.Location.show(location.infrontOfManorDay);
     await ƒS.update(transistions.puzzle.duration, transistions.puzzle.alpha, transistions.puzzle.edge);
@@ -58,6 +60,10 @@ namespace Template {
     await ƒS.Speech.tell(charaktere.bronte, "");
 
     await ƒS.Speech.tell(charaktere.maire, "");
+
+    await ƒS.Sound.fade(sound.themeinfrontManor, 0, 0.4, false);
+
+    return "SceneTwoEntrance"; 
 
   }
 }

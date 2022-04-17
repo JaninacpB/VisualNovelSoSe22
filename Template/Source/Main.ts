@@ -15,7 +15,10 @@ namespace Template {
 
   export let sound = {
     //Themes
-    themeMitGutenNamen: "",
+    //Scene 1
+    themeinfrontManor: "./../../Assets/sounds/infrontOfManorScene1PianoElegeant.mp3",
+    
+    themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
 
     //SFX
     guterNameSoundEffekt: ""
@@ -25,25 +28,41 @@ namespace Template {
     infrontOfManorDay: {
       name: "manorDay",
       background: "./../../Assets/backgrounds/vorDemManorBackground.png",
-
     },
 
     infrontOfManorNight: {
-      name: "",
-      background: "",
-
+      name: "manorNight",
+      background: "./../../Assets/backgrounds/vorDemManorBackground-night.png",
     },
 
     entrance: {
-      name: "",
-      background: "",
-
+      name: "entrance",
+      background: "./../../Assets/backgrounds/entryBackground.png",
     },
 
-    saloon: {
-      name: "",
-      background: "",
+    saalon: {
+      name: "saalon",
+      background: "./../../Assets/backgrounds/saalon.png",
+    }, 
 
+    gardenDark: {
+      name: "gardenDark",
+      background: "./../../Assets/backgrounds/garden-night.png"
+    },
+
+    gardenLight: {
+      name: "gardenLight",
+      background: "./../../Assets/backgrounds/gardenOn.png"
+    }, 
+
+    cabin: {
+      name: "cabin",
+      background: "./../../Assets/backgrounds/doorSheat.png"
+    }, 
+
+    studyroom: {
+      name: "studyroom",
+      background: "./../../Assets/backgrounds/studyroomBackground.png"
     }
   }
 
@@ -142,7 +161,8 @@ namespace Template {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     let scenes: ƒS.Scenes = [
-      { scene: Scene, name: "Scene" }
+      {scene: SceneOneInfront, name: "Scene" },
+      {id: "SceneTwoEntrance", scene: SceneTwoEntrance, name: "SceneTwoEntrance"}
     ];
 
     // start the sequence

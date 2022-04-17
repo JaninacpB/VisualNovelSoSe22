@@ -14,7 +14,9 @@ var Template;
     };
     Template.sound = {
         //Themes
-        themeMitGutenNamen: "",
+        //Scene 1
+        themeinfrontManor: "./../../Assets/sounds/infrontOfManorScene1PianoElegeant.mp3",
+        themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
         //SFX
         guterNameSoundEffekt: ""
     };
@@ -24,16 +26,32 @@ var Template;
             background: "./../../Assets/backgrounds/vorDemManorBackground.png",
         },
         infrontOfManorNight: {
-            name: "",
-            background: "",
+            name: "manorNight",
+            background: "./../../Assets/backgrounds/vorDemManorBackground-night.png",
         },
         entrance: {
-            name: "",
-            background: "",
+            name: "entrance",
+            background: "./../../Assets/backgrounds/entryBackground.png",
         },
-        saloon: {
-            name: "",
-            background: "",
+        saalon: {
+            name: "saalon",
+            background: "./../../Assets/backgrounds/saalon.png",
+        },
+        gardenDark: {
+            name: "gardenDark",
+            background: "./../../Assets/backgrounds/garden-night.png"
+        },
+        gardenLight: {
+            name: "gardenLight",
+            background: "./../../Assets/backgrounds/gardenOn.png"
+        },
+        cabin: {
+            name: "cabin",
+            background: "./../../Assets/backgrounds/doorSheat.png"
+        },
+        studyroom: {
+            name: "studyroom",
+            background: "./../../Assets/backgrounds/studyroomBackground.png"
         }
     };
     Template.charaktere = {
@@ -122,7 +140,8 @@ var Template;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: Template.Scene, name: "Scene" }
+            { scene: Template.SceneOneInfront, name: "Scene" },
+            { id: "SceneTwoEntrance", scene: Template.SceneTwoEntrance, name: "SceneTwoEntrance" }
         ];
         // start the sequence
         Template.ƒS.Progress.go(scenes);
@@ -130,7 +149,7 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
-    async function Scene() {
+    async function SceneOneInfront() {
         console.log("FudgeStory Template Scene starting");
         //Alle Wahlmöglichkeiten in Szene 
         let chooseCatNoise = {
@@ -140,6 +159,7 @@ var Template;
         };
         // Text geschwindigkeit regulieren (was ist basic)
         //  await ƒS.Speech.setTickerDelays(1);
+        await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
         await Template.ƒS.update(Template.transistions.puzzle.duration, Template.transistions.puzzle.alpha, Template.transistions.puzzle.edge);
         await Template.ƒS.Speech.tell(Template.charaktere.maire, "	Oh, was für ein prächtiges Anwesen. Und wir sind hier wirklich richtig?");
@@ -168,7 +188,21 @@ var Template;
         }
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, "");
         await Template.ƒS.Speech.tell(Template.charaktere.maire, "");
+        await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0, 0.4, false);
+        return "SceneTwoEntrance";
     }
-    Template.Scene = Scene;
+    Template.SceneOneInfront = SceneOneInfront;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function SceneTwoEntrance() {
+        await Template.ƒS.Sound.play(Template.sound.themeEntrance, 0.1, true);
+        await Template.ƒS.Location.show(Template.location.entrance);
+        await Template.ƒS.update(Template.transistions.puzzle.duration, Template.transistions.puzzle.alpha, Template.transistions.puzzle.edge);
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, "Oh, was für ein prächtiges Anwesen. Und wir sind hier wirklich richtig?");
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(75, 100));
+        await Template.ƒS.update(1);
+    }
+    Template.SceneTwoEntrance = SceneTwoEntrance;
 })(Template || (Template = {}));
 //# sourceMappingURL=ArtemisMysterium.js.map
