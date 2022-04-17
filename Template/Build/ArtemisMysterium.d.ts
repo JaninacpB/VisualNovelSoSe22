@@ -7,6 +7,11 @@ declare namespace Template {
             alpha: string;
             edge: number;
         };
+        wallpaper: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
     };
     let sound: {
         themeinfrontManor: string;
@@ -132,6 +137,9 @@ declare namespace Template {
 }
 declare namespace Template {
     function SceneOneInfront(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function SceneThreeSaalon(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function SceneTwoEntrance(): ƒS.SceneReturn;

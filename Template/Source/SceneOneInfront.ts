@@ -15,7 +15,7 @@ namespace Template {
     await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
 
     await ƒS.Location.show(location.infrontOfManorDay);
-    await ƒS.update(transistions.puzzle.duration, transistions.puzzle.alpha, transistions.puzzle.edge);
+    await ƒS.update(transistions.wallpaper.duration, transistions.wallpaper.alpha, transistions.wallpaper.edge);
     
     await ƒS.Speech.tell(charaktere.maire, "	Oh, was für ein prächtiges Anwesen. Und wir sind hier wirklich richtig?");
 

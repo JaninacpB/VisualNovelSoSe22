@@ -10,6 +10,11 @@ var Template;
             duration: 1,
             alpha: "./.././../Transistion/02.png",
             edge: 1 //härtegrad
+        },
+        wallpaper: {
+            duration: 1,
+            alpha: "./../../Transistion/transistionWallpaper.png",
+            edge: 1
         }
     };
     Template.sound = {
@@ -141,7 +146,8 @@ var Template;
     function start(_event) {
         let scenes = [
             { scene: Template.SceneOneInfront, name: "Scene" },
-            { id: "SceneTwoEntrance", scene: Template.SceneTwoEntrance, name: "SceneTwoEntrance" }
+            { id: "SceneTwoEntrance", scene: Template.SceneTwoEntrance, name: "SceneTwoEntrance" },
+            { id: "SceneThreeSaalon", scene: Template.SceneThreeSaalon, name: "SceneThreeSaalon" },
         ];
         // start the sequence
         Template.ƒS.Progress.go(scenes);
@@ -161,7 +167,7 @@ var Template;
         //  await ƒS.Speech.setTickerDelays(1);
         await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
-        await Template.ƒS.update(Template.transistions.puzzle.duration, Template.transistions.puzzle.alpha, Template.transistions.puzzle.edge);
+        await Template.ƒS.update(Template.transistions.wallpaper.duration, Template.transistions.wallpaper.alpha, Template.transistions.wallpaper.edge);
         await Template.ƒS.Speech.tell(Template.charaktere.maire, "	Oh, was für ein prächtiges Anwesen. Und wir sind hier wirklich richtig?");
         await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(75, 100));
         await Template.ƒS.update(1);
@@ -195,6 +201,18 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    async function SceneThreeSaalon() {
+        //await ƒS.Sound.play(sound.themeEntrance, 0.1, true); 
+        await Template.ƒS.Location.show(Template.location.saalon);
+        await Template.ƒS.update(Template.transistions.puzzle.duration, Template.transistions.puzzle.alpha, Template.transistions.puzzle.edge);
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, "Oh, was für ein prächtiges Anwesen. Und wir sind hier wirklich richtig?");
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(75, 100));
+        await Template.ƒS.update(1);
+    }
+    Template.SceneThreeSaalon = SceneThreeSaalon;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
     async function SceneTwoEntrance() {
         await Template.ƒS.Sound.play(Template.sound.themeEntrance, 0.1, true);
         await Template.ƒS.Location.show(Template.location.entrance);
@@ -202,6 +220,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.charaktere.maire, "Oh, was für ein prächtiges Anwesen. Und wir sind hier wirklich richtig?");
         await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(75, 100));
         await Template.ƒS.update(1);
+        return "SceneThreeSaalon";
     }
     Template.SceneTwoEntrance = SceneTwoEntrance;
 })(Template || (Template = {}));

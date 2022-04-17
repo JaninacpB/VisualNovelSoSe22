@@ -10,6 +10,11 @@ namespace Template {
       duration: 1,
       alpha: "./.././../Transistion/02.png",
       edge: 1 //härtegrad
+    },
+    wallpaper: {
+      duration: 1,
+      alpha: "./../../Transistion/transistionWallpaper.png",
+      edge: 1
     }
   }
 
@@ -162,7 +167,8 @@ namespace Template {
   function start(_event: Event): void {
     let scenes: ƒS.Scenes = [
       {scene: SceneOneInfront, name: "Scene" },
-      {id: "SceneTwoEntrance", scene: SceneTwoEntrance, name: "SceneTwoEntrance"}
+      {id: "SceneTwoEntrance", scene: SceneTwoEntrance, name: "SceneTwoEntrance"},
+      {id: "SceneThreeSaalon", scene: SceneThreeSaalon, name: "SceneThreeSaalon"},
     ];
 
     // start the sequence
