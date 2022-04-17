@@ -35,7 +35,12 @@ declare namespace Template {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
-                neutral: string;
+                happy: string;
+                angry: string;
+                laugh: string;
+                sad: string;
+                shout: string;
+                think: string;
             };
         };
         maire: {
@@ -48,6 +53,57 @@ declare namespace Template {
                 happy: string;
                 sad: string;
                 laugh: string;
+            };
+        };
+        alaistar: {
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                angry: string;
+                happy: string;
+                neutral: string;
+            };
+        };
+        grace: {
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                angry: string;
+                happy: string;
+                laugh: string;
+                sad: string;
+                think: string;
+            };
+        };
+        isaac: {
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                cry: string;
+                crying: string;
+                happy: string;
+                neutral: string;
+                sad: string;
+            };
+        };
+        odette: {
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                happy: string;
+                angry: string;
+            };
+        };
+        remington: {
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                angry: string;
+                neutral: string;
+            };
+        };
+        stella: {
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                frighten: string;
+                happy: string;
+                laugh: string;
+                sad: string;
             };
         };
     };

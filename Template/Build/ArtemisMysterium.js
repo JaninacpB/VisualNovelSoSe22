@@ -41,7 +41,12 @@ var Template;
             name: "Brontë",
             origin: Template.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                neutral: ""
+                happy: "./../../Assets/characters/bronte/Bronte-happy.png",
+                angry: "./../../Assets/characters/bronte/Bronte-angry.png",
+                laugh: "./../../Assets/characters/bronte/Bronte-laugh.png",
+                sad: "./../../Assets/characters/bronte/Bronte-sad.png",
+                shout: "./../../Assets/characters/bronte/Bronte-shout.png",
+                think: "./../../Assets/characters/bronte/Bronte-think.png"
             }
         },
         maire: {
@@ -54,6 +59,57 @@ var Template;
                 happy: "./../../Assets/characters/maire/Assestentin-happy.png",
                 sad: "./../../Assets/characters/maire/Assestentin-sad.png",
                 laugh: "./../../Assets/characters/maire/Assestentin-laugh.png"
+            }
+        },
+        alaistar: {
+            origin: Template.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                angry: "./../../Assets/characters/alaistar/Alaistar-angry.png",
+                happy: "./../../Assets/characters/alaistar/Alaistar-happy.png",
+                neutral: "./../../Assets/characters/alaistar/Alaistar-neutral.png"
+            }
+        },
+        grace: {
+            origin: Template.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                angry: "./../../Assets/characters/grace/Grace-angry.png",
+                happy: "./../../Assets/characters/grace/Grace-happy.png",
+                laugh: "./../../Assets/characters/grace/Grace-laugh.png",
+                sad: "./../../Assets/characters/grace/Grace-sad.png",
+                think: "./../../Assets/characters/grace/Grace-thinking.png"
+            }
+        },
+        isaac: {
+            origin: Template.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                cry: "./../../Assets/characters/isaac/Isaac-cry.png",
+                crying: "./../../Assets/characters/isaac/Isaac-crying.png",
+                happy: "./../../Assets/characters/isaac/Isaac-happy.png",
+                neutral: "./../../Assets/characters/isaac/Isaac-neutral.png",
+                sad: "./../../Assets/characters/isaac/Isaac-sad.png"
+            }
+        },
+        odette: {
+            origin: Template.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                happy: "./../../Assets/characters/odette/odette-happy.png",
+                angry: "./../../Assets/characters/odette/odette.angry.png"
+            }
+        },
+        remington: {
+            origin: Template.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                angry: "./../../Assets/characters/remington/Remington-angry.png",
+                neutral: "./../../Assets/characters/remington/Remington-neutral-first.png"
+            }
+        },
+        stella: {
+            origin: Template.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                frighten: "./../../Assets/characters/stella/stella-frighten.png",
+                happy: "./../../Assets/characters/stella/stella-happy-first.png",
+                laugh: "./../../Assets/characters/stella/stella-happy-laugh.png",
+                sad: "./../../Assets/characters/stella/stella-sad.png"
             }
         }
     };
