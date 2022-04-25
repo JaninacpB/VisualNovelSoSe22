@@ -19,6 +19,8 @@ declare namespace Template {
     let sound: {
         themeinfrontManor: string;
         themeEntrance: string;
+        themeSaloon: string;
+        dramaInSaloon: string;
         catMeow: string;
     };
     let location: {
@@ -151,6 +153,9 @@ declare namespace Template {
             saveTheCat: boolean;
         };
     };
+}
+declare namespace Template {
+    function SceneFourSaalonDrama(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function SceneOneInfront(): ƒS.SceneReturn;

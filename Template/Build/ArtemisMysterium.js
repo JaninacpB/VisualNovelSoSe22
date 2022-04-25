@@ -31,6 +31,8 @@ var Template;
         //Scene 1
         themeinfrontManor: "./../../Assets/sounds/infrontOfManorScene1PianoElegeant.mp3",
         themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
+        themeSaloon: "./../../Assets/sounds/peter-tchaikovsky-march-from-nutcracker-classical-remix-7691.mp3",
+        dramaInSaloon: "./../../Assets/sounds/classical-piano-peter-tchaikovsky-chant-sans-paroles-opus-40-6-21872.mp3",
         //SFX
         catMeow: "./../../Assets/sounds/cat-meow-6226.mp3"
     };
@@ -111,7 +113,7 @@ var Template;
             }
         },
         grace: {
-            name: "Garce",
+            name: "Grace",
             origin: Template.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
                 angry: "./../../Assets/characters/grace/Grace-angry.png",
@@ -171,11 +173,58 @@ var Template;
             { scene: Template.SceneOneInfront, name: "Scene" },
             { id: "SceneTwoEntrance", scene: Template.SceneTwoEntrance, name: "SceneTwoEntrance" },
             { id: "SceneThreeSaalon", scene: Template.SceneThreeSaalon, name: "SceneThreeSaalon" },
+            { id: "SceneFourSaalonDrama", scene: Template.SceneFourSaalonDrama, name: "SceneFourSaalonDrama" },
             { id: "EndScreen", scene: Template.EndScreen, name: "EndScreen" }
         ];
         // start the sequence
         Template.ƒS.Progress.go(scenes);
     }
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function SceneFourSaalonDrama() {
+        let chooseBeRespectfull = {
+            //todo: Pointsystem
+            yes: "Ja",
+            no: "Nein"
+        };
+        await Template.ƒS.Sound.fade(Template.sound.themeSaloon, 0, 0.3);
+        await Template.ƒS.Sound.play(Template.sound.dramaInSaloon, 0.1, true);
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " !!!!! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Artemis! Jemand hat meine Artemis gestohlen!");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Sie fällt! Oh jemand sollte sie- Fangen… Das gibt eine Beule. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Nein schau, ihr Kopf ist sanft auf einen der Kissen gelandet. Sie ist geübt. Mrs. Grace? Alles in Ordnung? ");
+        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Ich… oh… Nein! Meine Artemis wurde gestohlen! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Gestohlen? Die Katze. Grace stell dich doch bitte nicht so an. Und rede deutlich! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Bestimmt gestohlen! Ich war im Arbeitszimmer, wo sie immer ist, wenn Mrs. May-Porter sie nicht in den Garten lässt und dort war sie nicht! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Aber Schwester. Das ist doch lächerlich. Sie wird hier irgendwo im Haus sein. Sieh doch wie viel Angst du der armen Stella einjagst! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Nein! Sie wurde gestohlen! Ich weiß es einfach. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Entschuldigung Mr. Blackburn. Meine Begleitung und ich haben draußen bei der Ankunft tatsächlich eine Katze gesehen. Wenn es Ihnen nichts ausmacht, könnten wir kurz raus gehen und schauen, ob wir sie finden. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Oh meine arme Artemis… Ganz alleine in dieser schrecklichen Welt! Was ist wenn sie irgend so einen Streuner trifft. Oh weh, die Arme zittert bestimmt vor Angst! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Kaum vorzustellen, warum sie weglaufen sollte… ");
+        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Bitte Miss Bronte! Helfen sie mir! Bitte. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Natürlich. Wenn wir sie gerade wirklich draußen gesehen haben, kann sie ja nicht weit sein. Maire und ich schauen es uns kurz an. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Einen Moment noch. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ja? ");
+        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Bitte denken sie daran, dass Sie sich immer noch auf einem alten und sehr Ehrenwerten Anwesen befinden. Verhalten Sie sich dementsprechend.");
+        let beeingRespectfullDecision = await Template.ƒS.Menu.getInput(chooseBeRespectfull);
+        //todo: point system (?)
+        switch (beeingRespectfullDecision) {
+            case chooseBeRespectfull.yes:
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Natürlich. Meine Untersuchungen nehmen immer Rücksicht auf die Betroffenen. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Danke.");
+                break;
+            case chooseBeRespectfull.no:
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Dass ist nicht akzeptabel. Meine Untersuchungen werden so geführt, wie ich es für richtig halte!");
+                await Template.ƒS.Speech.tell(Template.charaktere.alaistar, "Sie vergessen wohl, dass sie nur Gäste sind. Sollten Ihre „Untersuchungen“ unseren Frieden stören, werde ich sie auffordern zu gehen.");
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Mhm…");
+                break;
+        }
+        //todo: Gemüteleiste einführen
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, "Wir sollten wirklich vorsichtig sein nicht den guten Willen unserer Gastgeber zu stören. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Scheinbar… lass uns gehen.");
+    }
+    Template.SceneFourSaalonDrama = SceneFourSaalonDrama;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -187,6 +236,7 @@ var Template;
             window: "Untersuche Fenster",
             knock: "Klopfe an der Tür"
         };
+        return "SceneThreeSaalon";
         //  Text geschwindigkeit regulieren (was ist basic)
         //  await ƒS.Speech.setTickerDelays(1);
         //  wie funktionieren  animationen?
@@ -343,7 +393,18 @@ var Template;
 var Template;
 (function (Template) {
     async function SceneThreeSaalon() {
-        //await ƒS.Sound.play(sound.themeEntrance, 0.1, true); 
+        await Template.ƒS.Sound.play(Template.sound.themeSaloon, 0.1, true);
+        let chooseWeirdPerson = {
+            //todo: Pointsystem
+            stella: "Stella",
+            grace: "Grace",
+            lordBlackburn: "Lord Blackburn"
+        };
+        let chooseHaggis = {
+            //todo: Pointsystem
+            lie: "Lüge",
+            truth: "Erzähle Wahrheit"
+        };
         await Template.ƒS.Location.show(Template.location.saalon);
         await Template.ƒS.update(Template.transistions.inToOut.duration, Template.transistions.inToOut.alpha, Template.transistions.inToOut.edge);
         await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(75, 100));
@@ -365,7 +426,21 @@ var Template;
         await Template.ƒS.Speech.tell(Template.charaktere.remington, " Ehm… My Lord, my Lady, auch Mister Rothchester ist nun endlich eingetroffen. ");
         await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Wurde ja auch Zeit… Dieser Mann hat einfach keine Manieren. Bitte setzt euch alle schon Mal, ich werde Ihn kurz begrüßen und zur Eile mahnen. ");
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Was für… Charaktere. Ich hätte mich wirklich besser anziehen sollen. Aber selbst mein bestes Kleid würde neben Lady Stella wie ein Putzlappen wirken. Aber… findest du nicht auch, dass einer der drei merkwürdig ist?");
-        //WAHL Merkwürige Person komplett todo
+        let weirdPersonDecision = await Template.ƒS.Menu.getInput(chooseWeirdPerson);
+        switch (weirdPersonDecision) {
+            case chooseWeirdPerson.stella:
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Allerding, Stella sieht wirklich etwas blass aus. Ob sie wohl krank ist? ");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Hoffentlich stecke ich mich nicht an!");
+                break;
+            case chooseWeirdPerson.grace:
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Allerding, Grace ist eine sehr eigene Persönlichkeit. Und nicht sonderlich gut darin ihre Ansichten zu verstecke. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, "Ich dachte ehrlich gesagt eher an Stella. Sie sieht etwas blass aus. ");
+                break;
+            case chooseWeirdPerson.lordBlackburn:
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Allerdings, Lord Blackburns Einstellungen zu Frauen sind wohl bereits einige Jahrtausende alt… Wenn auch nicht ungewöhnlich für einen Mann seiner Stellung, leider.");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, "Ich dachte ehrlich gesagt eher an Stella. Sie sieht etwas blass aus. ");
+                break;
+        }
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Da scheint der letzte Gast zu kommen. ");
         await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Guten Abend. Ich entschuldige meine Verspätung. ");
         await Template.ƒS.Speech.tell(Template.charaktere.grace, " Nun… Als Gerichtsvertreter wird man wohl nicht pünktlich entlassen. Aber so ist die Mittelschicht wohl. ");
@@ -376,7 +451,36 @@ var Template;
         await Template.ƒS.Speech.tell(Template.charaktere.grace, " Oh, das Essen! Mrs. May-Porter hat wieder ihr Bestes gegeben. Es gibt Haggis! ");
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Bronte, bitte sag mir das ist keines dieser merkwürdigen britischen Gerichte?! ");
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Es ist tatsächlich Schottisch…");
-        //WAHL Haggis komplett todo: 
+        let haggisDecision = await Template.ƒS.Menu.getInput(chooseHaggis);
+        //todo: point system 
+        switch (haggisDecision) {
+            case chooseHaggis.lie:
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Aber mach dir keine Sorge. Es ist ein sehr leckeres Gericht was aus etwas Lammfleisch besteht. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Phu… da bin ich erleichtert. Hatte mit dem schlimmsten gerechnet. Dann guten Appetit!");
+                //todo: fade to black and back
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Danke für das leckere Essen.");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, "Ja vielen Dank!");
+                await Template.ƒS.Speech.tell(Template.charaktere.grace, " Freut mich, dass es ihnen wohlbekommen ist. Mein Vater ist gebürtiger Schotte und so sind wir alle große Bewunderer der Schottischen Küche. Jetzt wo um unseren körperlichen Leib gesorgt ist, lasst uns den restlichen Abend genießen. Oh Miss Bronte ich habe noch eine kleine Überraschung für sie! Warten sie kurz. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Meine Schwägerin ist wohl sehr angetan von ihren Geschichten. Sie konnte beim Essen ja gar nicht von Ihnen ablassen. Ich hoffe sie konnten das Essen trotzdem genießen. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh ja keine Sorge und ich bin wohl auch zu Eitel um mir so eine Gelegenheit des Erzählens entgehen zu lassen. Wobei ich noch einmal betonnen muss, dass gerade Maire mir immer eine große Hilfe ist. Sie führt immerhin die Bücher");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Oh… äh… Bronte dass ist ja keine große Sache. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Wirklich sehr beeindruckend Maire.");
+                break;
+            case chooseHaggis.truth:
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Der Paunch – Magen eines Schafes – wird mit Herz, Niere, Leber und anderen Innereien gefüllt. Und das ergibt dann eine Art Wurst. Sehr lecker eigentlich, wenn auch ungewöhnlich. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Ich glaube mir wird schlecht…");
+                //todo: fade to black and back
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Danke für das leckere Essen.");
+                await Template.ƒS.Speech.tell(Template.charaktere.grace, " Und Sie denken Ihrer Assistentin geht es wirklich gut? ");
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh ja, Sie pudert sich bestimmt nur schnell die Nase.");
+                await Template.ƒS.Speech.tell(Template.charaktere.grace, " Freut mich, dass es ihnen wohlbekommen ist. Mein Vater ist gebürtiger Schotte und so sind wir alle große Bewunderer der Schottischen Küche. Jetzt wo um unseren körperlichen Leib gesorgt ist, lasst uns den restlichen Abend genießen. Oh Miss Bronte ich habe noch eine kleine Überraschung für sie! Warten sie kurz. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Meine Schwägerin ist wohl sehr angetan von ihren Geschichten. Sie konnte beim Essen ja gar nicht von Ihnen ablassen. Ich hoffe sie konnten das Essen trotzdem genießen. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh ja keine Sorge und ich bin wohl auch zu Eitel um mir so eine Gelegenheit des Erzählens entgehen zu lassen. Wobei ich noch einmal betonnen muss, dass gerade Maire mir immer eine große Hilfe ist. Sie führt immerhin die Bücher");
+                await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Oh wo wir gerade über sie sprechen… ");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Bronte… Du kennst doch meinen Magen… das nächste Mal lüge mich einfach an. Ich habe mich ja komplett zum Deppen gemacht. Jetzt denken alle Irren hätten keine Manieren. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Dass tut mir sehr Leid… Aber ich denke niemand ist es wirklich aufgefallen. (Sie scheint es mir echt böse zu nehmen, ich sollte in nächster Zeit netter zu ihr sein).");
+                break;
+        }
     }
     Template.SceneThreeSaalon = SceneThreeSaalon;
 })(Template || (Template = {}));

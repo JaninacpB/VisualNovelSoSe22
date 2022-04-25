@@ -25,6 +25,10 @@ namespace Template {
     
     themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
 
+    themeSaloon: "./../../Assets/sounds/peter-tchaikovsky-march-from-nutcracker-classical-remix-7691.mp3",
+
+    dramaInSaloon: "./../../Assets/sounds/classical-piano-peter-tchaikovsky-chant-sans-paroles-opus-40-6-21872.mp3",
+
     //SFX
     catMeow: "./../../Assets/sounds/cat-meow-6226.mp3"
   }
@@ -117,7 +121,7 @@ namespace Template {
     }, 
 
     grace: {
-      name: "Garce",
+      name: "Grace",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         angry: "./../../Assets/characters/grace/Grace-angry.png",
@@ -183,6 +187,7 @@ namespace Template {
       {scene: SceneOneInfront, name: "Scene" },
       {id: "SceneTwoEntrance", scene: SceneTwoEntrance, name: "SceneTwoEntrance"},
       {id: "SceneThreeSaalon", scene: SceneThreeSaalon, name: "SceneThreeSaalon"},
+      {id: "SceneFourSaalonDrama", scene: SceneFourSaalonDrama, name:"SceneFourSaalonDrama"},
       
       {id: "EndScreen", scene: EndScreen, name: "EndScreen"}
     ];

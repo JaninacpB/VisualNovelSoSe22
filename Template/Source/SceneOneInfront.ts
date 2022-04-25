@@ -9,6 +9,8 @@ namespace Template {
       knock: "Klopfe an der Tür"
     }
 
+    return "SceneThreeSaalon"; 
+
     //  Text geschwindigkeit regulieren (was ist basic)
     //  await ƒS.Speech.setTickerDelays(1);
     //  wie funktionieren  animationen?
