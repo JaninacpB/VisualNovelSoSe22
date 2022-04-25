@@ -6,7 +6,7 @@ namespace Template {
 
   //define transistions
   export let transistions = {
-    puzzle: {
+    inToOut: {
       duration: 1,
       alpha: "./.././../Transistion/02.png",
       edge: 1 //härtegrad
@@ -26,7 +26,7 @@ namespace Template {
     themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
 
     //SFX
-    guterNameSoundEffekt: ""
+    catMeow: "./../../Assets/sounds/cat-meow-6226.mp3"
   }
 
   export let location = {
@@ -82,6 +82,10 @@ namespace Template {
         sad: "./../../Assets/characters/bronte/Bronte-sad.png",
         shout: "./../../Assets/characters/bronte/Bronte-shout.png",
         think: "./../../Assets/characters/bronte/Bronte-think.png"
+      },
+      positionStandard: {
+        x: 20,
+        y: 130
       }
     }, 
 
@@ -95,10 +99,15 @@ namespace Template {
         happy: "./../../Assets/characters/maire/Assestentin-happy.png",
         sad:"./../../Assets/characters/maire/Assestentin-sad.png",
         laugh:"./../../Assets/characters/maire/Assestentin-laugh.png"
+      }, 
+      positionStandard: {
+        x: 75,
+        y: 120
       }
     },
 
     alaistar: {
+      name: "Alaistar",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         angry: "./../../Assets/characters/alaistar/Alaistar-angry.png",
@@ -108,6 +117,7 @@ namespace Template {
     }, 
 
     grace: {
+      name: "Garce",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         angry: "./../../Assets/characters/grace/Grace-angry.png",
@@ -119,6 +129,7 @@ namespace Template {
     }, 
 
     isaac: {
+      name: "Isaac",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         cry: "./../../Assets/characters/isaac/Isaac-cry.png",
@@ -130,6 +141,7 @@ namespace Template {
     },
 
     odette: {
+      name: "Odette",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         happy: "./../../Assets/characters/odette/odette-happy.png",
@@ -138,6 +150,7 @@ namespace Template {
     },
 
     remington: {
+      name: "Remington",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         angry: "./../../Assets/characters/remington/Remington-angry.png",
@@ -146,6 +159,7 @@ namespace Template {
     },
 
     stella: {
+      name: "Stella",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         frighten: "./../../Assets/characters/stella/stella-frighten.png",
@@ -169,6 +183,8 @@ namespace Template {
       {scene: SceneOneInfront, name: "Scene" },
       {id: "SceneTwoEntrance", scene: SceneTwoEntrance, name: "SceneTwoEntrance"},
       {id: "SceneThreeSaalon", scene: SceneThreeSaalon, name: "SceneThreeSaalon"},
+      
+      {id: "EndScreen", scene: EndScreen, name: "EndScreen"}
     ];
 
     // start the sequence

@@ -1,8 +1,11 @@
 declare namespace Template {
+    function EndScreen(): ƒS.SceneReturn;
+}
+declare namespace Template {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let transistions: {
-        puzzle: {
+        inToOut: {
             duration: number;
             alpha: string;
             edge: number;
@@ -16,7 +19,7 @@ declare namespace Template {
     let sound: {
         themeinfrontManor: string;
         themeEntrance: string;
-        guterNameSoundEffekt: string;
+        catMeow: string;
     };
     let location: {
         infrontOfManorDay: {
@@ -64,6 +67,10 @@ declare namespace Template {
                 shout: string;
                 think: string;
             };
+            positionStandard: {
+                x: number;
+                y: number;
+            };
         };
         maire: {
             name: string;
@@ -76,8 +83,13 @@ declare namespace Template {
                 sad: string;
                 laugh: string;
             };
+            positionStandard: {
+                x: number;
+                y: number;
+            };
         };
         alaistar: {
+            name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
                 angry: string;
@@ -86,6 +98,7 @@ declare namespace Template {
             };
         };
         grace: {
+            name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
                 angry: string;
@@ -96,6 +109,7 @@ declare namespace Template {
             };
         };
         isaac: {
+            name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
                 cry: string;
@@ -106,6 +120,7 @@ declare namespace Template {
             };
         };
         odette: {
+            name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
                 happy: string;
@@ -113,6 +128,7 @@ declare namespace Template {
             };
         };
         remington: {
+            name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
                 angry: string;
@@ -120,6 +136,7 @@ declare namespace Template {
             };
         };
         stella: {
+            name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
                 frighten: string;
