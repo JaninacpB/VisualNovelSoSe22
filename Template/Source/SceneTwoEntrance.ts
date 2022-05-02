@@ -5,12 +5,29 @@ namespace Template {
         await ƒS.Location.show(location.entrance);
         await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
     
-        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(75,100))
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.happy, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y))
         await ƒS.update(1);
 
         await ƒS.Speech.tell(charaktere.maire, " Wow… was für eine schöne Eingangshalle ");
-        await ƒS.Speech.tell(charaktere.remington, " Das Manor ist im Besitz der Familie Blackburn seit 1705. Nach 100 Jahren erlag es jedoch dem Ratcliff Feuer und musste zum großen Teil neu errichtet werden. In den fünfziger Jahren bekam es dann noch einmal eine Renovierung von dem ehrenwerten Lord Blackburn Sr. – Gott habe ihn selig – und ist nun unter der Obhut und Lord Blackburn, welcher seine ehrenwerte Schwester Lady Blackburn hier wohnen lässt. Entschuldigung, langweile ich sie? ");
+
+        await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.neutral, ƒS.positionPercent(charaktere.remington.positionStandard.x , charaktere.remington.positionStandard.y));
+        await ƒS.update(0.4);
+
+        await ƒS.Speech.tell(charaktere.remington, "Das Manor ist im Besitz der Familie Blackburn seit 1705. Nach 100 Jahren erlag es jedoch dem Ratcliff Feuer und musste zum großen Teil neu errichtet werden.");
+        await ƒS.Speech.tell(charaktere.remington, "In den fünfziger Jahren bekam es dann noch einmal eine Renovierung von dem ehrenwerten Lord Blackburn Sr. – Gott habe ihn selig –");
+        await ƒS.Speech.tell(charaktere.remington, "und ist nun unter der Obhut und Lord Blackburn, welcher seine ehrenwerte Schwester Lady Blackburn hier wohnen lässt. Entschuldigung, langweile ich sie? ");
+
+        await ƒS.Character.hide(charaktere.remington); 
+        await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.angry, ƒS.positionPercent(charaktere.remington.positionStandard.x , charaktere.remington.positionStandard.y));
+        await ƒS.update(0.4);
+
+        await ƒS.Speech.tell(charaktere.remington, " Entschuldigung, langweile ich sie? ");
         await ƒS.Speech.tell(charaktere.maire, " Zzz Oh! Äh nein… natürlich nicht. Faszinierend… ");
+
+        await ƒS.Character.hide(charaktere.remington); 
+        await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.neutral, ƒS.positionPercent(charaktere.remington.positionStandard.x , charaktere.remington.positionStandard.y));
+        await ƒS.update(0.4);
+
         await ƒS.Speech.tell(charaktere.bronte, " Und wie. Wir haben Glück das die Familie in einen so guten Zustand hält. Es ist wirklich prächtig. ");
         await ƒS.Speech.tell(charaktere.remington, " Da stimme ich ihnen zu. Darf ich Ihnen Ihren Mantel abnehmen, Miss? ");
         await ƒS.Speech.tell(charaktere.maire, " Oh… vielen Dank, aber ich denke ich behalte ihn lieber an. Ich äh… erkälte mich so schnell… ");

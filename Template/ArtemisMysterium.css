@@ -12,9 +12,6 @@ canvas {
   margin: auto;
 }
 
-dialog[type=splash]>img#FudgeStoryLogo {
-  width: auto !important;
-}
 
 html {
   background-image: url("./../Assets/backgroundImage.png");
@@ -67,8 +64,6 @@ button:hover {
 
 .basicChoice {
   width: 1280px;
-  display: flex;
-  justify-content: space-around;
 }
 
 speech {

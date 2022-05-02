@@ -83,8 +83,8 @@ var Template;
                 think: "./../../Assets/characters/bronte/Bronte-think.png"
             },
             positionStandard: {
-                x: 20,
-                y: 130
+                x: 15,
+                y: 110
             }
         },
         maire: {
@@ -99,8 +99,8 @@ var Template;
                 laugh: "./../../Assets/characters/maire/Assestentin-laugh.png"
             },
             positionStandard: {
-                x: 75,
-                y: 120
+                x: 80,
+                y: 110
             }
         },
         alaistar: {
@@ -148,6 +148,10 @@ var Template;
             pose: {
                 angry: "./../../Assets/characters/remington/Remington-angry.png",
                 neutral: "./../../Assets/characters/remington/Remington-neutral-first.png"
+            },
+            positionStandard: {
+                x: 50,
+                y: 100
             }
         },
         stella: {
@@ -299,7 +303,7 @@ var Template;
             knock: "Klopfe an der Tür"
         };
         await await Template.ƒS.Speech.tell("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
-        //return "SceneThreeSaalon"; 
+        return "SceneTwoEntrance";
         //  Text geschwindigkeit regulieren (was ist basic)
         //  await ƒS.Speech.setTickerDelays(1);
         //  wie funktionieren  animationen?
@@ -307,7 +311,7 @@ var Template;
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
         await Template.ƒS.update(Template.transistions.wallpaper.duration, Template.transistions.wallpaper.alpha, Template.transistions.wallpaper.edge);
         await Template.ƒS.Speech.tell(Template.charaktere.maire, "Oh, was für ein prächtiges Anwesen. Und wir sind hier wirklich richtig?");
-        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(75, 120));
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
         await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
         await Template.ƒS.update(1);
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Ja, die Blackburns haben schon seit vielen Jahren diesen Wohnsitz. Ich habe dir doch gesagt, dass es heute Abend eine sehr vornehme Veranstaltung wird.");
@@ -318,7 +322,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Habe ich ja auch. Wobei es eher ein Zufall war, dass der Crossstreet-Bandit auch ihre Smaragd Brosche gestohlen hatte.");
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Aber so oder so war die Lady jedoch so dankbar, dass sie mich reichlich belohnt hat und zu einem Essen eingeladen hat.");
         await Template.ƒS.Character.hide(Template.charaktere.maire);
-        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.embarrassed, Template.ƒS.positionPercent(75, 120));
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.embarrassed, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
         await Template.ƒS.update(0.1);
         document.getElementById('speechContent').classList.add('textEffectBig');
         await Template.ƒS.Speech.tell(Template.charaktere.maire, "!!! ");
@@ -330,7 +334,7 @@ var Template;
         await Template.ƒS.update(0.3);
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Ach was Maire, du siehst wie immer fantastisch aus. Mach dir keine Sorge-");
         await Template.ƒS.Character.hide(Template.charaktere.maire);
-        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(75, 120));
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
         await Template.ƒS.Character.hide(Template.charaktere.bronte);
         await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.shout, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
         await Template.ƒS.update(0.1);
@@ -340,7 +344,7 @@ var Template;
         document.getElementById('speechContent').classList.remove('textEffectBig');
         await Template.ƒS.Speech.tell(Template.charaktere.maire, "AHH!");
         await Template.ƒS.Character.hide(Template.charaktere.maire);
-        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(75, 120));
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
         await Template.ƒS.Character.hide(Template.charaktere.bronte);
         await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
         await Template.ƒS.update(0.3);
@@ -353,7 +357,7 @@ var Template;
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Nur ein Moment.");
                 await Template.ƒS.Speech.tell(Template.charaktere.maire, "…Deshalb sind wir immer zu spät.");
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
-                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.sad, Template.ƒS.positionPercent(75, 120));
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.sad, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.3);
@@ -369,15 +373,15 @@ var Template;
                 await Template.ƒS.update(0.3);
                 await Template.ƒS.Speech.tell(Template.charaktere.maire, "Oh, da kommt jemand!");
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
-                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(75, 120));
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.update(0.3);
                 //todo: positionieren XXX
-                await Template.ƒS.Character.show(Template.charaktere.remington, Template.charaktere.remington.pose.neutral, Template.ƒS.positionPercent(0, 100));
+                await Template.ƒS.Character.show(Template.charaktere.remington, Template.charaktere.remington.pose.neutral, Template.ƒS.positionPercent(50, 100));
                 await Template.ƒS.update(1);
                 await Template.ƒS.Speech.tell(Template.charaktere.remington, "Entschuldigen Sie. Sind Sie Miss Bronte und ihre Begleitung?");
                 // todo: klein oder kursiv, für Flüstern?
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
-                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.laugh, Template.ƒS.positionPercent(75, 120));
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.laugh, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.update(0.3);
                 await Template.ƒS.Speech.tell(Template.charaktere.maire, "Miss Bronte hihi");
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
@@ -385,18 +389,18 @@ var Template;
                 await Template.ƒS.update(0.3);
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Guten Abend. Genau, die sind wir. Freut mich sie kennenzulernen, Herr?");
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
-                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.happy, Template.ƒS.positionPercent(75, 120));
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.happy, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.update(0.3);
                 await Template.ƒS.Speech.tell(Template.charaktere.remington, "Bitte folgen sie mir doch hinein.");
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
-                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(75, 120));
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.update(0.3);
                 await Template.ƒS.Speech.tell(Template.charaktere.maire, "Nicht sehr gesprächig...");
                 break;
             case chooseCatNoise.window:
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Ich frag mich wer uns da heimlich beobachtet. ");
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
-                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.sad, Template.ƒS.positionPercent(75, 120));
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.sad, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.3);
@@ -404,10 +408,10 @@ var Template;
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Es dauert nur einen Moment… Hier sehe ich die Küche. Eine ältere Frau an einer Feuerstelle… Oh das Essen sieht klasse aus!");
                 await Template.ƒS.Speech.tell(Template.charaktere.remington, "Entschuldigen Sie?");
                 //todo: position siehe oben
-                await Template.ƒS.Character.show(Template.charaktere.remington, Template.charaktere.remington.pose.neutral, Template.ƒS.positionPercent(0, 100));
+                await Template.ƒS.Character.show(Template.charaktere.remington, Template.charaktere.remington.pose.neutral, Template.ƒS.positionPercent(50, 100));
                 await Template.ƒS.update(0.1);
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
-                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(75, 120));
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.shout, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.3);
@@ -415,28 +419,28 @@ var Template;
                 await Template.ƒS.Speech.tell(Template.charaktere.maire, "AHH!");
                 document.getElementById('speechContent').classList.remove('textEffectBig');
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
-                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.embarrassed, Template.ƒS.positionPercent(75, 120));
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.embarrassed, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.sad, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.3);
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Oh... äh... Hallo, wir sind die Gäste für den Abend.");
                 await Template.ƒS.Speech.tell(Template.charaktere.remington, "Dass dachte ich mir. Bitte folgen sie mir herein. Und denken Sie heute Abend bitte an ihre Manieren. ");
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
-                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(75, 120));
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.3);
                 await Template.ƒS.Speech.tell(Template.charaktere.maire, "Da hast du ja einen tollen ersten Eindruck gemacht…");
                 break;
             case chooseCatNoise.knock:
-                await Template.ƒS.Character.show(Template.charaktere.remington, Template.charaktere.remington.pose.neutral, Template.ƒS.positionPercent(0, 100));
+                await Template.ƒS.Character.show(Template.charaktere.remington, Template.charaktere.remington.pose.neutral, Template.ƒS.positionPercent(50, 100));
                 await Template.ƒS.update(0.1);
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
-                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(75, 120));
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.update(0.1);
                 await Template.ƒS.Speech.tell(Template.charaktere.remington, " Willkommen, treten sie doch gerne ein.");
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
-                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.embarrassed, Template.ƒS.positionPercent(75, 120));
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.embarrassed, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.update(0.3);
                 await Template.ƒS.Speech.tell(Template.charaktere.maire, " AH! Oh… Entschuldigung… Sie standen direkt hinter der Tür? Äh ich meine… guten Abend. ");
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
@@ -553,11 +557,22 @@ var Template;
         await Template.ƒS.Sound.play(Template.sound.themeEntrance, 0.1, true);
         await Template.ƒS.Location.show(Template.location.entrance);
         await Template.ƒS.update(Template.transistions.inToOut.duration, Template.transistions.inToOut.alpha, Template.transistions.inToOut.edge);
-        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(75, 100));
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.happy, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
         await Template.ƒS.update(1);
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Wow… was für eine schöne Eingangshalle ");
-        await Template.ƒS.Speech.tell(Template.charaktere.remington, " Das Manor ist im Besitz der Familie Blackburn seit 1705. Nach 100 Jahren erlag es jedoch dem Ratcliff Feuer und musste zum großen Teil neu errichtet werden. In den fünfziger Jahren bekam es dann noch einmal eine Renovierung von dem ehrenwerten Lord Blackburn Sr. – Gott habe ihn selig – und ist nun unter der Obhut und Lord Blackburn, welcher seine ehrenwerte Schwester Lady Blackburn hier wohnen lässt. Entschuldigung, langweile ich sie? ");
+        await Template.ƒS.Character.show(Template.charaktere.remington, Template.charaktere.remington.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.remington.positionStandard.x, Template.charaktere.remington.positionStandard.y));
+        await Template.ƒS.update(0.4);
+        await Template.ƒS.Speech.tell(Template.charaktere.remington, "Das Manor ist im Besitz der Familie Blackburn seit 1705. Nach 100 Jahren erlag es jedoch dem Ratcliff Feuer und musste zum großen Teil neu errichtet werden.");
+        await Template.ƒS.Speech.tell(Template.charaktere.remington, "In den fünfziger Jahren bekam es dann noch einmal eine Renovierung von dem ehrenwerten Lord Blackburn Sr. – Gott habe ihn selig –");
+        await Template.ƒS.Speech.tell(Template.charaktere.remington, "und ist nun unter der Obhut und Lord Blackburn, welcher seine ehrenwerte Schwester Lady Blackburn hier wohnen lässt. Entschuldigung, langweile ich sie? ");
+        await Template.ƒS.Character.hide(Template.charaktere.remington);
+        await Template.ƒS.Character.show(Template.charaktere.remington, Template.charaktere.remington.pose.angry, Template.ƒS.positionPercent(Template.charaktere.remington.positionStandard.x, Template.charaktere.remington.positionStandard.y));
+        await Template.ƒS.update(0.4);
+        await Template.ƒS.Speech.tell(Template.charaktere.remington, " Entschuldigung, langweile ich sie? ");
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Zzz Oh! Äh nein… natürlich nicht. Faszinierend… ");
+        await Template.ƒS.Character.hide(Template.charaktere.remington);
+        await Template.ƒS.Character.show(Template.charaktere.remington, Template.charaktere.remington.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.remington.positionStandard.x, Template.charaktere.remington.positionStandard.y));
+        await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Und wie. Wir haben Glück das die Familie in einen so guten Zustand hält. Es ist wirklich prächtig. ");
         await Template.ƒS.Speech.tell(Template.charaktere.remington, " Da stimme ich ihnen zu. Darf ich Ihnen Ihren Mantel abnehmen, Miss? ");
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Oh… vielen Dank, aber ich denke ich behalte ihn lieber an. Ich äh… erkälte mich so schnell… ");

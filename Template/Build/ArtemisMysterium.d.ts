@@ -136,6 +136,10 @@ declare namespace Template {
                 angry: string;
                 neutral: string;
             };
+            positionStandard: {
+                x: number;
+                y: number;
+            };
         };
         stella: {
             name: string;

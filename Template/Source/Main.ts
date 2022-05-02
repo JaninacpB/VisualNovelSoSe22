@@ -88,8 +88,8 @@ namespace Template {
         think: "./../../Assets/characters/bronte/Bronte-think.png"
       },
       positionStandard: {
-        x: 20,
-        y: 130
+        x: 15,
+        y: 110
       }
     }, 
 
@@ -105,8 +105,8 @@ namespace Template {
         laugh:"./../../Assets/characters/maire/Assestentin-laugh.png"
       }, 
       positionStandard: {
-        x: 75,
-        y: 120
+        x: 80,
+        y: 110
       }
     },
 
@@ -159,6 +159,10 @@ namespace Template {
       pose: {
         angry: "./../../Assets/characters/remington/Remington-angry.png",
         neutral: "./../../Assets/characters/remington/Remington-neutral-first.png"
+      },
+      positionStandard: {
+        x: 50,
+        y: 100
       }
     },
 

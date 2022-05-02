@@ -11,7 +11,7 @@ namespace Template {
 
     await  await ƒS.Speech.tell("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
 
-    //return "SceneThreeSaalon"; 
+    return "SceneTwoEntrance"; 
 
     //  Text geschwindigkeit regulieren (was ist basic)
     //  await ƒS.Speech.setTickerDelays(1);
@@ -23,7 +23,7 @@ namespace Template {
     await ƒS.update(transistions.wallpaper.duration, transistions.wallpaper.alpha, transistions.wallpaper.edge);
     
     await ƒS.Speech.tell(charaktere.maire, "Oh, was für ein prächtiges Anwesen. Und wir sind hier wirklich richtig?");
-    await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(75,120));
+    await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
 
     await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y))
     await ƒS.update(1);
@@ -41,7 +41,7 @@ namespace Template {
     await ƒS.Speech.tell(charaktere.bronte, "Aber so oder so war die Lady jedoch so dankbar, dass sie mich reichlich belohnt hat und zu einem Essen eingeladen hat.");
 
     await ƒS.Character.hide(charaktere.maire); 
-    await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.embarrassed, ƒS.positionPercent(75,120))
+    await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.embarrassed, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y))
     await ƒS.update(0.1);
 
     document.getElementById('speechContent').classList.add('textEffectBig');
@@ -57,7 +57,7 @@ namespace Template {
     await ƒS.Speech.tell(charaktere.bronte, "Ach was Maire, du siehst wie immer fantastisch aus. Mach dir keine Sorge-");
 
     await ƒS.Character.hide(charaktere.maire); 
-    await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(75,120))
+    await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y))
     await ƒS.Character.hide(charaktere.bronte); 
     await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y))
     await ƒS.update(0.1);
@@ -70,7 +70,7 @@ namespace Template {
     await ƒS.Speech.tell(charaktere.maire, "AHH!");
 
     await ƒS.Character.hide(charaktere.maire); 
-    await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(75,120))
+    await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y))
     await ƒS.Character.hide(charaktere.bronte); 
     await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y))
     await ƒS.update(0.3);
@@ -88,7 +88,7 @@ namespace Template {
         await ƒS.Speech.tell(charaktere.maire, "…Deshalb sind wir immer zu spät.");
 
         await ƒS.Character.hide(charaktere.maire); 
-        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.sad, ƒS.positionPercent(75,120))
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.sad, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y))
         await ƒS.Character.hide(charaktere.bronte); 
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y))
         await ƒS.update(0.3);
@@ -108,11 +108,11 @@ namespace Template {
         await ƒS.Speech.tell(charaktere.maire, "Oh, da kommt jemand!");
 
         await ƒS.Character.hide(charaktere.maire); 
-        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(75,120));
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
         await ƒS.update(0.3);
 
         //todo: positionieren XXX
-        await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.neutral, ƒS.positionPercent(0,100))
+        await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.neutral, ƒS.positionPercent(50,100))
         await ƒS.update(1);
 
         await ƒS.Speech.tell(charaktere.remington, "Entschuldigen Sie. Sind Sie Miss Bronte und ihre Begleitung?");
@@ -120,7 +120,7 @@ namespace Template {
 
         
         await ƒS.Character.hide(charaktere.maire); 
-        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.laugh, ƒS.positionPercent(75,120));
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.laugh, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
         await ƒS.update(0.3);
 
         await ƒS.Speech.tell(charaktere.maire, "Miss Bronte hihi");     
@@ -132,13 +132,13 @@ namespace Template {
         await ƒS.Speech.tell(charaktere.bronte, "Guten Abend. Genau, die sind wir. Freut mich sie kennenzulernen, Herr?");
 
         await ƒS.Character.hide(charaktere.maire); 
-        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.happy, ƒS.positionPercent(75,120));
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.happy, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
         await ƒS.update(0.3);
 
         await ƒS.Speech.tell(charaktere.remington, "Bitte folgen sie mir doch hinein.");
 
         await ƒS.Character.hide(charaktere.maire); 
-        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(75, 120));
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
         await ƒS.update(0.3);
 
         await ƒS.Speech.tell(charaktere.maire, "Nicht sehr gesprächig...");    
@@ -149,7 +149,7 @@ namespace Template {
       await ƒS.Speech.tell(charaktere.bronte, "Ich frag mich wer uns da heimlich beobachtet. ");
 
       await ƒS.Character.hide(charaktere.maire); 
-      await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.sad, ƒS.positionPercent(75,120))
+      await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.sad, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y))
       await ƒS.Character.hide(charaktere.bronte); 
       await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y))
       await ƒS.update(0.3);
@@ -159,11 +159,11 @@ namespace Template {
 
       await ƒS.Speech.tell(charaktere.remington, "Entschuldigen Sie?");
       //todo: position siehe oben
-      await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.neutral, ƒS.positionPercent(0,100))
+      await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.neutral, ƒS.positionPercent(50,100))
       await ƒS.update(0.1);
 
       await ƒS.Character.hide(charaktere.maire); 
-      await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(75,120))
+      await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y))
       await ƒS.Character.hide(charaktere.bronte); 
       await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y))
       await ƒS.update(0.3);
@@ -173,7 +173,7 @@ namespace Template {
       document.getElementById('speechContent').classList.remove('textEffectBig');
 
       await ƒS.Character.hide(charaktere.maire); 
-      await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.embarrassed, ƒS.positionPercent(75,120))
+      await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.embarrassed, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y))
       await ƒS.Character.hide(charaktere.bronte); 
       await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y))
       await ƒS.update(0.3);
@@ -182,7 +182,7 @@ namespace Template {
       await ƒS.Speech.tell(charaktere.remington, "Dass dachte ich mir. Bitte folgen sie mir herein. Und denken Sie heute Abend bitte an ihre Manieren. ");
       
       await ƒS.Character.hide(charaktere.maire); 
-      await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(75,120))
+      await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y))
       await ƒS.Character.hide(charaktere.bronte); 
       await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y))
       await ƒS.update(0.3);
@@ -193,17 +193,17 @@ namespace Template {
 
       case chooseCatNoise.knock:
 
-      await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.neutral, ƒS.positionPercent(0,100))
+      await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.neutral, ƒS.positionPercent(50,100))
       await ƒS.update(0.1);
 
       await ƒS.Character.hide(charaktere.maire); 
-      await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(75,120))
+      await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y))
       await ƒS.update(0.1);
 
       await ƒS.Speech.tell(charaktere.remington, " Willkommen, treten sie doch gerne ein.");
 
       await ƒS.Character.hide(charaktere.maire); 
-      await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.embarrassed, ƒS.positionPercent(75,120))
+      await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.embarrassed, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y))
       await ƒS.update(0.3);
 
       await ƒS.Speech.tell(charaktere.maire, " AH! Oh… Entschuldigung… Sie standen direkt hinter der Tür? Äh ich meine… guten Abend. ");
