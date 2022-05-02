@@ -180,9 +180,87 @@ namespace Template {
       saveTheCat: false
     }
   }
+  
+  // Menü 
+
+  export function showCredits(): void {
+    ƒS.Text.addClass("credit");
+    ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com <br> <b> Tester:</b> XXX");
+    //todo: Tester
+
+  }
+
+  let inGameMenuButtons = {
+      save: "Speichern",
+      load: "Laden",
+      credit: "Mitwirkende",
+      close: "Schließen"
+  };
+
+  let gameMenu: ƒS.Menu; 
+
+  let menueIsOpen: boolean = true; 
+
+  async function buttonFunctionalities(_option:string): Promise <void> {
+    console.log(_option); 
+    switch (_option){
+      case inGameMenuButtons.save:
+          await ƒS.Progress.save();
+      break;
+      case inGameMenuButtons.load:
+          await ƒS.Progress.load();
+      break;
+      case inGameMenuButtons.close:
+         gameMenu.close();
+         menueIsOpen = false; 
+      break;
+      case inGameMenuButtons.credit:
+          showCredits();
+      break;
+    }
+    
+  }
+
+  //Shortcuts fürs Menü 
+
+  document.addEventListener("keydown", hdnKeyPress);
+
+  async function hdnKeyPress(_event:KeyboardEvent): Promise<void> {
+    switch (_event.code){
+
+      case ƒ.KEYBOARD_CODE.F8:
+        console.log("Save");
+        await ƒS.Progress.save();
+        break
+
+        case ƒ.KEYBOARD_CODE.F9:
+          await ƒS.Progress.load(); 
+          break; 
+
+        case ƒ.KEYBOARD_CODE.M: 
+        if(menueIsOpen){
+          console.log("Close");
+          gameMenu.close();
+          menueIsOpen = false;
+        } else {
+          console.log("Open");
+          gameMenu.open();
+          menueIsOpen = true; 
+        }
+        break;
+    }
+  }
+
 
   window.addEventListener("load", start);
   function start(_event: Event): void {
+
+    gameMenu = ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenu");
+    buttonFunctionalities("Close");
+
+    gameMenu.close();
+    menueIsOpen = false;
+
     let scenes: ƒS.Scenes = [
       {scene: SceneOneInfront, name: "Scene" },
       {id: "SceneTwoEntrance", scene: SceneTwoEntrance, name: "SceneTwoEntrance"},

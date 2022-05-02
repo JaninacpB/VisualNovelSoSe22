@@ -30,7 +30,7 @@ namespace Template {
         await ƒS.Speech.tell(charaktere.alaistar, " Bitte denken sie daran, dass Sie sich immer noch auf einem alten und sehr Ehrenwerten Anwesen befinden. Verhalten Sie sich dementsprechend.");
 
 
-        let beeingRespectfullDecision = await ƒS.Menu.getInput(chooseBeRespectfull);
+        let beeingRespectfullDecision = await ƒS.Menu.getInput(chooseBeRespectfull, "basicChoice");
         //todo: point system (?)
         switch (beeingRespectfullDecision) {
             case chooseBeRespectfull.yes:

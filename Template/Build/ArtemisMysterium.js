@@ -167,8 +167,70 @@ var Template;
             saveTheCat: false
         }
     };
+    // Menü 
+    function showCredits() {
+        Template.ƒS.Text.addClass("credit");
+        Template.ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com <br> <b> Tester:</b> XXX");
+        //todo: Tester
+    }
+    Template.showCredits = showCredits;
+    let inGameMenuButtons = {
+        save: "Speichern",
+        load: "Laden",
+        credit: "Mitwirkende",
+        close: "Schließen"
+    };
+    let gameMenu;
+    let menueIsOpen = true;
+    async function buttonFunctionalities(_option) {
+        console.log(_option);
+        switch (_option) {
+            case inGameMenuButtons.save:
+                await Template.ƒS.Progress.save();
+                break;
+            case inGameMenuButtons.load:
+                await Template.ƒS.Progress.load();
+                break;
+            case inGameMenuButtons.close:
+                gameMenu.close();
+                menueIsOpen = false;
+                break;
+            case inGameMenuButtons.credit:
+                showCredits();
+                break;
+        }
+    }
+    //Shortcuts fürs Menü 
+    document.addEventListener("keydown", hdnKeyPress);
+    async function hdnKeyPress(_event) {
+        switch (_event.code) {
+            case Template.ƒ.KEYBOARD_CODE.F8:
+                console.log("Save");
+                await Template.ƒS.Progress.save();
+                break;
+            case Template.ƒ.KEYBOARD_CODE.F9:
+                await Template.ƒS.Progress.load();
+                break;
+            case Template.ƒ.KEYBOARD_CODE.M:
+                if (menueIsOpen) {
+                    console.log("Close");
+                    gameMenu.close();
+                    menueIsOpen = false;
+                }
+                else {
+                    console.log("Open");
+                    gameMenu.open();
+                    menueIsOpen = true;
+                }
+                break;
+        }
+    }
     window.addEventListener("load", start);
     function start(_event) {
+        gameMenu = Template.ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenu");
+        buttonFunctionalities("Close");
+        gameMenu.close();
+        menueIsOpen = false;
         let scenes = [
             { scene: Template.SceneOneInfront, name: "Scene" },
             { id: "SceneTwoEntrance", scene: Template.SceneTwoEntrance, name: "SceneTwoEntrance" },
@@ -207,7 +269,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Einen Moment noch. ");
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ja? ");
         await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Bitte denken sie daran, dass Sie sich immer noch auf einem alten und sehr Ehrenwerten Anwesen befinden. Verhalten Sie sich dementsprechend.");
-        let beeingRespectfullDecision = await Template.ƒS.Menu.getInput(chooseBeRespectfull);
+        let beeingRespectfullDecision = await Template.ƒS.Menu.getInput(chooseBeRespectfull, "basicChoice");
         //todo: point system (?)
         switch (beeingRespectfullDecision) {
             case chooseBeRespectfull.yes:
@@ -236,7 +298,8 @@ var Template;
             window: "Untersuche Fenster",
             knock: "Klopfe an der Tür"
         };
-        return "SceneThreeSaalon";
+        await await Template.ƒS.Speech.tell("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
+        //return "SceneThreeSaalon"; 
         //  Text geschwindigkeit regulieren (was ist basic)
         //  await ƒS.Speech.setTickerDelays(1);
         //  wie funktionieren  animationen?
@@ -284,7 +347,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.charaktere.maire, "Was... war das eine Katze?");
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Und eine schnelle dazu… sieht so aus als wäre sie in die Hecke verschwunden. Komisch, ich frag mich was sie da gesehen hat.");
         await Template.ƒS.Speech.tell(Template.charaktere.maire, "Vermutlich einen Vogel. Wir sollten glaube ich langsam Klopfen. Ich glaube jemand hat gerade durch das Fenster geschaut. Wir sehen ja aus wie gewöhnliche Straßendiebe für diese Leute. ");
-        let userChooseCatNoise = await Template.ƒS.Menu.getInput(chooseCatNoise, "XXX");
+        let userChooseCatNoise = await Template.ƒS.Menu.getInput(chooseCatNoise, "basicChoice");
         switch (userChooseCatNoise) {
             case chooseCatNoise.bush:
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Nur ein Moment.");
@@ -426,7 +489,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.charaktere.remington, " Ehm… My Lord, my Lady, auch Mister Rothchester ist nun endlich eingetroffen. ");
         await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Wurde ja auch Zeit… Dieser Mann hat einfach keine Manieren. Bitte setzt euch alle schon Mal, ich werde Ihn kurz begrüßen und zur Eile mahnen. ");
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Was für… Charaktere. Ich hätte mich wirklich besser anziehen sollen. Aber selbst mein bestes Kleid würde neben Lady Stella wie ein Putzlappen wirken. Aber… findest du nicht auch, dass einer der drei merkwürdig ist?");
-        let weirdPersonDecision = await Template.ƒS.Menu.getInput(chooseWeirdPerson);
+        let weirdPersonDecision = await Template.ƒS.Menu.getInput(chooseWeirdPerson, "basicChoice");
         switch (weirdPersonDecision) {
             case chooseWeirdPerson.stella:
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Allerding, Stella sieht wirklich etwas blass aus. Ob sie wohl krank ist? ");
@@ -451,7 +514,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.charaktere.grace, " Oh, das Essen! Mrs. May-Porter hat wieder ihr Bestes gegeben. Es gibt Haggis! ");
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Bronte, bitte sag mir das ist keines dieser merkwürdigen britischen Gerichte?! ");
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Es ist tatsächlich Schottisch…");
-        let haggisDecision = await Template.ƒS.Menu.getInput(chooseHaggis);
+        let haggisDecision = await Template.ƒS.Menu.getInput(chooseHaggis, "basicChoice");
         //todo: point system 
         switch (haggisDecision) {
             case chooseHaggis.lie:

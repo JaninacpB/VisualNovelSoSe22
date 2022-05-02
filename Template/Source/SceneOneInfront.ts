@@ -9,7 +9,9 @@ namespace Template {
       knock: "Klopfe an der Tür"
     }
 
-    return "SceneThreeSaalon"; 
+    await  await ƒS.Speech.tell("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
+
+    //return "SceneThreeSaalon"; 
 
     //  Text geschwindigkeit regulieren (was ist basic)
     //  await ƒS.Speech.setTickerDelays(1);
@@ -79,7 +81,7 @@ namespace Template {
 
     await ƒS.Speech.tell(charaktere.maire, "Vermutlich einen Vogel. Wir sollten glaube ich langsam Klopfen. Ich glaube jemand hat gerade durch das Fenster geschaut. Wir sehen ja aus wie gewöhnliche Straßendiebe für diese Leute. ");
 
-    let userChooseCatNoise = await ƒS.Menu.getInput(chooseCatNoise, "XXX");
+    let userChooseCatNoise = await ƒS.Menu.getInput(chooseCatNoise, "basicChoice");
     switch(userChooseCatNoise) {
       case chooseCatNoise.bush:
         await ƒS.Speech.tell(charaktere.bronte, "Nur ein Moment.");      

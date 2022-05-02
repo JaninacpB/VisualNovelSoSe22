@@ -153,6 +153,7 @@ declare namespace Template {
             saveTheCat: boolean;
         };
     };
+    function showCredits(): void;
 }
 declare namespace Template {
     function SceneFourSaalonDrama(): ƒS.SceneReturn;

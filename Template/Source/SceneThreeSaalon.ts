@@ -41,7 +41,7 @@ namespace Template {
         await ƒS.Speech.tell(charaktere.maire, " Was für… Charaktere. Ich hätte mich wirklich besser anziehen sollen. Aber selbst mein bestes Kleid würde neben Lady Stella wie ein Putzlappen wirken. Aber… findest du nicht auch, dass einer der drei merkwürdig ist?");
 
 
-        let weirdPersonDecision = await ƒS.Menu.getInput(chooseWeirdPerson);
+        let weirdPersonDecision = await ƒS.Menu.getInput(chooseWeirdPerson, "basicChoice");
         switch (weirdPersonDecision) {
             case chooseWeirdPerson.stella:
                 await ƒS.Speech.tell(charaktere.bronte, " Allerding, Stella sieht wirklich etwas blass aus. Ob sie wohl krank ist? ");
@@ -71,7 +71,7 @@ namespace Template {
         await ƒS.Speech.tell(charaktere.maire, " Bronte, bitte sag mir das ist keines dieser merkwürdigen britischen Gerichte?! ");
         await ƒS.Speech.tell(charaktere.bronte, " Es ist tatsächlich Schottisch…");
 
-        let haggisDecision = await ƒS.Menu.getInput(chooseHaggis);
+        let haggisDecision = await ƒS.Menu.getInput(chooseHaggis, "basicChoice");
         //todo: point system 
         switch (haggisDecision) {
             case chooseHaggis.lie:
