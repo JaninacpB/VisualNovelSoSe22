@@ -27,6 +27,9 @@ var Template;
         }
     };
     Template.sound = {
+        //AUFGABE PARTY
+        party: "./../../Assets/TestParty/Party.mp3",
+        //AUFGABE PARTY
         //Themes
         //Scene 1
         themeinfrontManor: "./../../Assets/sounds/infrontOfManorScene1PianoElegeant.mp3",
@@ -37,6 +40,12 @@ var Template;
         catMeow: "./../../Assets/sounds/cat-meow-6226.mp3"
     };
     Template.location = {
+        //Aufgabe PARTY TODO
+        party: {
+            name: "party",
+            background: "./../../Assets/TestParty/partyBackground.jpg",
+        },
+        //AUFGABE PARTY ENDE
         infrontOfManorDay: {
             name: "manorDay",
             background: "./../../Assets/backgrounds/vorDemManorBackground.png",
@@ -71,6 +80,30 @@ var Template;
         }
     };
     Template.charaktere = {
+        // AUFGABE PARTY
+        anna: {
+            name: "Anna",
+            origin: Template.ƒS.ORIGIN.BOTTOMRIGHT,
+            pose: {
+                neutral: "./../../Assets/TestParty/anna.png"
+            },
+            positionStandard: {
+                x: -80,
+                y: 0
+            }
+        },
+        bob: {
+            name: "Bob",
+            origin: Template.ƒS.ORIGIN.BOTTOMRIGHT,
+            pose: {
+                neutral: "./../../Assets/TestParty/bob.png"
+            },
+            positionStandard: {
+                x: 150,
+                y: 0
+            }
+        },
+        //AUSGABE PARTY
         bronte: {
             name: "Brontë",
             origin: Template.ƒS.ORIGIN.BOTTOMCENTER,
@@ -236,11 +269,12 @@ var Template;
         gameMenu.close();
         menueIsOpen = false;
         let scenes = [
-            { scene: Template.SceneOneInfront, name: "Scene" },
-            { id: "SceneTwoEntrance", scene: Template.SceneTwoEntrance, name: "SceneTwoEntrance" },
-            { id: "SceneThreeSaalon", scene: Template.SceneThreeSaalon, name: "SceneThreeSaalon" },
-            { id: "SceneFourSaalonDrama", scene: Template.SceneFourSaalonDrama, name: "SceneFourSaalonDrama" },
-            { id: "EndScreen", scene: Template.EndScreen, name: "EndScreen" }
+            { scene: Template.TestParty, name: "Party" },
+            // {scene: SceneOneInfront, name: "Scene" },
+            //{id: "SceneTwoEntrance", scene: SceneTwoEntrance, name: "SceneTwoEntrance"},
+            //{id: "SceneThreeSaalon", scene: SceneThreeSaalon, name: "SceneThreeSaalon"},
+            //{id: "SceneFourSaalonDrama", scene: SceneFourSaalonDrama, name:"SceneFourSaalonDrama"},
+            //{id: "EndScreen", scene: EndScreen, name: "EndScreen"}
         ];
         // start the sequence
         Template.ƒS.Progress.go(scenes);
@@ -587,11 +621,34 @@ var Template;
         await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
         await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.remington, " Da stimme ich ihnen zu. Darf ich Ihnen Ihren Mantel abnehmen, Miss? ");
+        await Template.ƒS.Character.hide(Template.charaktere.maire);
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.embarrassed, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+        await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Oh… vielen Dank, aber ich denke ich behalte ihn lieber an. Ich äh… erkälte mich so schnell… ");
+        await Template.ƒS.Character.hide(Template.charaktere.maire);
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+        await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.remington, " Wie Sie wünschen. Geben sie mir einen Moment. Ich werde Sie den Anwesenden Ankündigen. Nutzen Sie die Zeit gerne um sich… herzurichten. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Oh weh… ich glaube er kann uns nicht leiden. Dabei haben wir gar nichts gemacht Er denkt wohl wir schnüffeln hier herum Wir hätten nicht im Garten rumschnüffeln sollen. ");
+        await Template.ƒS.Character.hide(Template.charaktere.remington);
+        await Template.ƒS.update(0.8);
+        //todo: hier unterschiedlicher Dialog
+        await Template.ƒS.Character.hide(Template.charaktere.maire);
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.sad, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+        await Template.ƒS.update(0.4);
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Oh weh… ich glaube er kann uns nicht leiden. Dabei haben wir gar nichts gemacht Er denkt wohl wir schnüffeln hier herum. Wir hätten nicht im Garten rumschnüffeln sollen. ");
+        await Template.ƒS.Character.hide(Template.charaktere.bronte);
+        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+        await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ach was. Er ist halt ein wenig reserviert. Viele Butler sind so. Aber Maire, warum klammerst du dich so an denen Mantel? Geht es dir nicht gut? ");
+        await Template.ƒS.Character.hide(Template.charaktere.maire);
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.embarrassed, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+        await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Oh nein… alles ist gut… Ich habe nur vorhin auf mein Kleid gekleckert. Ich wusste ja nicht, dass wir mit einer echten Lady essen. ");
+        await Template.ƒS.Character.hide(Template.charaktere.maire);
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+        await Template.ƒS.Character.hide(Template.charaktere.bronte);
+        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.laugh, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+        await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " hihi… nun gut, dass erklärt es natürlich. Ah, der Butler winkt uns herein.");
         await Template.ƒS.Character.hide(Template.charaktere.maire);
         await Template.ƒS.Character.hide(Template.charaktere.remington);
@@ -600,5 +657,25 @@ var Template;
         return "SceneThreeSaalon";
     }
     Template.SceneTwoEntrance = SceneTwoEntrance;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function TestParty() {
+        await Template.ƒS.Sound.fade(Template.sound.party, 0.1, 0.5, true);
+        await Template.ƒS.Sound.play("./../../Assets/TestParty/Close Door 01.wav", 0.7);
+        await Template.ƒS.Sound.fade(Template.sound.party, 1, 1, true);
+        await Template.ƒS.Sound.fade("./../../Assets/TestParty/Crowd Talking.mp3", 0.4, 1, true);
+        await Template.ƒS.Location.show(Template.location.party);
+        await Template.ƒS.update(Template.transistions.wallpaper.duration, Template.transistions.wallpaper.alpha, Template.transistions.wallpaper.edge);
+        await Template.ƒS.Speech.tell(Template.charaktere.anna, "Hi, ich heiße Anna");
+        await Template.ƒS.Character.show(Template.charaktere.anna, Template.charaktere.anna.pose.neutral, Template.ƒS.positions.bottomright);
+        await Template.ƒS.update(1);
+        await Template.ƒS.Character.show(Template.charaktere.bob, Template.charaktere.bob.pose.neutral, Template.ƒS.positions.bottomcenter);
+        await Template.ƒS.update(1);
+        await Template.ƒS.Sound.fade("./../../Assets/TestParty/Laugh Male.wav", 0.4, 1);
+        await Template.ƒS.Speech.tell(Template.charaktere.bob, "Hi, wie geht es dir?");
+        // await ƒS.Character.show(charaktere.bob, charaktere.bob.pose.neutral, ƒS.positionPercent(charaktere.bob.positionStandard.x , charaktere.bob.positionStandard.y))
+    }
+    Template.TestParty = TestParty;
 })(Template || (Template = {}));
 //# sourceMappingURL=ArtemisMysterium.js.map

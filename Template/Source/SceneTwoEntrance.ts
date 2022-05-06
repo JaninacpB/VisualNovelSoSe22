@@ -48,11 +48,49 @@ namespace Template {
         await ƒS.update(0.4);
 
         await ƒS.Speech.tell(charaktere.remington, " Da stimme ich ihnen zu. Darf ich Ihnen Ihren Mantel abnehmen, Miss? ");
+        
+        
+        await ƒS.Character.hide(charaktere.maire); 
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.embarrassed, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        await ƒS.update(0.4);
+
         await ƒS.Speech.tell(charaktere.maire, " Oh… vielen Dank, aber ich denke ich behalte ihn lieber an. Ich äh… erkälte mich so schnell… ");
+
+        await ƒS.Character.hide(charaktere.maire); 
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        await ƒS.update(0.4);
+
         await ƒS.Speech.tell(charaktere.remington, " Wie Sie wünschen. Geben sie mir einen Moment. Ich werde Sie den Anwesenden Ankündigen. Nutzen Sie die Zeit gerne um sich… herzurichten. ");
-        await ƒS.Speech.tell(charaktere.maire, " Oh weh… ich glaube er kann uns nicht leiden. Dabei haben wir gar nichts gemacht Er denkt wohl wir schnüffeln hier herum Wir hätten nicht im Garten rumschnüffeln sollen. ");
+        
+        await ƒS.Character.hide(charaktere.remington); 
+        await ƒS.update(0.8);
+        
+        //todo: hier unterschiedlicher Dialog
+        await ƒS.Character.hide(charaktere.maire); 
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.sad, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        await ƒS.update(0.4);
+
+        await ƒS.Speech.tell(charaktere.maire, " Oh weh… ich glaube er kann uns nicht leiden. Dabei haben wir gar nichts gemacht Er denkt wohl wir schnüffeln hier herum. Wir hätten nicht im Garten rumschnüffeln sollen. ");
+        
+        await ƒS.Character.hide(charaktere.bronte); 
+        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        await ƒS.update(0.4);
+        
         await ƒS.Speech.tell(charaktere.bronte, " Ach was. Er ist halt ein wenig reserviert. Viele Butler sind so. Aber Maire, warum klammerst du dich so an denen Mantel? Geht es dir nicht gut? ");
+
+        await ƒS.Character.hide(charaktere.maire); 
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.embarrassed, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        await ƒS.update(0.4);
+
         await ƒS.Speech.tell(charaktere.maire, " Oh nein… alles ist gut… Ich habe nur vorhin auf mein Kleid gekleckert. Ich wusste ja nicht, dass wir mit einer echten Lady essen. ");
+
+        await ƒS.Character.hide(charaktere.maire); 
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        await ƒS.Character.hide(charaktere.bronte); 
+        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.laugh, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+
+        await ƒS.update(0.4);
+
         await ƒS.Speech.tell(charaktere.bronte, " hihi… nun gut, dass erklärt es natürlich. Ah, der Butler winkt uns herein.");
 
         await ƒS.Character.hide(charaktere.maire);

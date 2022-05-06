@@ -19,6 +19,11 @@ namespace Template {
   }
 
   export let sound = {
+
+    //AUFGABE PARTY
+    party: "./../../Assets/TestParty/Party.mp3",
+    //AUFGABE PARTY
+
     //Themes
     //Scene 1
     themeinfrontManor: "./../../Assets/sounds/infrontOfManorScene1PianoElegeant.mp3",
@@ -34,6 +39,16 @@ namespace Template {
   }
 
   export let location = {
+
+    //Aufgabe PARTY TODO
+
+    party: {
+      name: "party",
+      background: "./../../Assets/TestParty/partyBackground.jpg",
+    },
+
+    //AUFGABE PARTY ENDE
+
     infrontOfManorDay: {
       name: "manorDay",
       background: "./../../Assets/backgrounds/vorDemManorBackground.png",
@@ -76,6 +91,38 @@ namespace Template {
   }
 
   export let charaktere = {
+
+    // AUFGABE PARTY
+
+    anna: {
+      name: "Anna", 
+      origin: ƒS.ORIGIN.BOTTOMRIGHT,
+      pose: {
+        neutral: "./../../Assets/TestParty/anna.png"
+      },
+      positionStandard: {
+        x: -80,
+        y: 0
+      }
+    },
+
+    bob: {
+      name: "Bob", 
+      origin: ƒS.ORIGIN.BOTTOMRIGHT,
+      pose: {
+        neutral: "./../../Assets/TestParty/bob.png"
+      },
+      positionStandard: {
+        x: 150,
+        y: 0
+      }
+    },
+
+
+    //AUSGABE PARTY
+
+
+
     bronte: {
       name: "Brontë",
       origin: ƒS.ORIGIN.BOTTOMCENTER, //Ankerpunkt im Bild
@@ -266,12 +313,13 @@ namespace Template {
     menueIsOpen = false;
 
     let scenes: ƒS.Scenes = [
-      {scene: SceneOneInfront, name: "Scene" },
-      {id: "SceneTwoEntrance", scene: SceneTwoEntrance, name: "SceneTwoEntrance"},
-      {id: "SceneThreeSaalon", scene: SceneThreeSaalon, name: "SceneThreeSaalon"},
-      {id: "SceneFourSaalonDrama", scene: SceneFourSaalonDrama, name:"SceneFourSaalonDrama"},
+      {scene: TestParty, name: "Party"}, 
+      // {scene: SceneOneInfront, name: "Scene" },
+      //{id: "SceneTwoEntrance", scene: SceneTwoEntrance, name: "SceneTwoEntrance"},
+      //{id: "SceneThreeSaalon", scene: SceneThreeSaalon, name: "SceneThreeSaalon"},
+      //{id: "SceneFourSaalonDrama", scene: SceneFourSaalonDrama, name:"SceneFourSaalonDrama"},
       
-      {id: "EndScreen", scene: EndScreen, name: "EndScreen"}
+      //{id: "EndScreen", scene: EndScreen, name: "EndScreen"}
     ];
 
     // start the sequence
