@@ -17,7 +17,6 @@ declare namespace Template {
         };
     };
     let sound: {
-        party: string;
         themeinfrontManor: string;
         themeEntrance: string;
         themeSaloon: string;
@@ -25,10 +24,6 @@ declare namespace Template {
         catMeow: string;
     };
     let location: {
-        party: {
-            name: string;
-            background: string;
-        };
         infrontOfManorDay: {
             name: string;
             background: string;
@@ -63,28 +58,6 @@ declare namespace Template {
         };
     };
     let charaktere: {
-        anna: {
-            name: string;
-            origin: ƒ.ORIGIN2D;
-            pose: {
-                neutral: string;
-            };
-            positionStandard: {
-                x: number;
-                y: number;
-            };
-        };
-        bob: {
-            name: string;
-            origin: ƒ.ORIGIN2D;
-            pose: {
-                neutral: string;
-            };
-            positionStandard: {
-                x: number;
-                y: number;
-            };
-        };
         bronte: {
             name: string;
             origin: ƒ.ORIGIN2D;
@@ -197,7 +170,4 @@ declare namespace Template {
 }
 declare namespace Template {
     function SceneTwoEntrance(): ƒS.SceneReturn;
-}
-declare namespace Template {
-    function TestParty(): ƒS.SceneReturn;
 }

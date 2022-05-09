@@ -14,7 +14,7 @@ canvas {
 
 
 html {
-  /* todo: background-image: url("./../Assets/backgroundImage.png"); */
+  background-image: url("./../Assets/backgroundImage.png");
   background-color: rgb(37, 37, 37);
   background-size: cover;
 }
@@ -28,7 +28,7 @@ dialog[type=splash] {
   border: none;
   cursor: pointer;
   text-align: center;
-  /* todo: background-image: url("../Assets/backgroundImage.png"); */
+  background-image: url("../Assets/backgroundImage.png"); 
   background-size: cover;
 }
 
@@ -76,8 +76,7 @@ speech {
   display: block;
   left: 0px;
   right: 0px;
-  /*todo:  background: rgb(255, 249, 231); */
-  background: rgb(83, 83, 83);
+  background: rgb(255, 249, 231);
   visibility: hidden;
   border-radius: 5px;
   position: relative;

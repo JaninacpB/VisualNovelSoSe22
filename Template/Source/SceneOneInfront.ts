@@ -8,8 +8,8 @@ namespace Template {
       window: "Untersuche Fenster",
       knock: "Klopfe an der Tür"
     }
-
-    await  await ƒS.Speech.tell("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
+   
+    await ƒS.Speech.tell("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
 
     return "SceneTwoEntrance"; 
 
