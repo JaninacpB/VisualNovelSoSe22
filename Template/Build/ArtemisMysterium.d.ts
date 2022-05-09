@@ -98,6 +98,14 @@ declare namespace Template {
                 happy: string;
                 neutral: string;
             };
+            positionStandard: {
+                x: number;
+                y: number;
+            };
+            positionRightMiddle: {
+                x: number;
+                y: number;
+            };
         };
         grace: {
             name: string;
@@ -108,6 +116,14 @@ declare namespace Template {
                 laugh: string;
                 sad: string;
                 think: string;
+            };
+            positionStandard: {
+                x: number;
+                y: number;
+            };
+            positionLeftMiddle: {
+                x: number;
+                y: number;
             };
         };
         isaac: {
@@ -153,6 +169,11 @@ declare namespace Template {
         };
     };
     let dataForSave: {
+        foundRing: boolean;
+        spiedThroughWindow: boolean;
+        pointDetectiv: number;
+        pointFriend: number;
+        pointAngryGrace: number;
         Achievment: {
             saveTheCat: boolean;
         };

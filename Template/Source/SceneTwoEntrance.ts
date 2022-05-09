@@ -19,7 +19,7 @@ namespace Template {
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
         await ƒS.update(0.4);
 
-        await ƒS.Speech.tell(charaktere.remington, "und ist nun unter der Obhut und Lord Blackburn, welcher seine ehrenwerte Schwester Lady Blackburn hier wohnen lässt. Entschuldigung, langweile ich sie? ");
+        await ƒS.Speech.tell(charaktere.remington, "und ist nun unter der Obhut und Lord Blackburn, welcher seine ehrenwerte Schwester Lady Blackburn hier wohnen lässt.");
 
         await ƒS.Character.hide(charaktere.remington); 
         await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.angry, ƒS.positionPercent(charaktere.remington.positionStandard.x , charaktere.remington.positionStandard.y));
@@ -65,12 +65,22 @@ namespace Template {
         await ƒS.Character.hide(charaktere.remington); 
         await ƒS.update(0.8);
         
-        //todo: hier unterschiedlicher Dialog
         await ƒS.Character.hide(charaktere.maire); 
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.sad, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
         await ƒS.update(0.4);
 
-        await ƒS.Speech.tell(charaktere.maire, " Oh weh… ich glaube er kann uns nicht leiden. Dabei haben wir gar nichts gemacht Er denkt wohl wir schnüffeln hier herum. Wir hätten nicht im Garten rumschnüffeln sollen. ");
+        await ƒS.Speech.tell(charaktere.maire, " Oh weh… ich glaube er kann uns nicht leiden.");
+
+        //todo: hier unterschiedlicher Dialog
+        if(dataForSave.foundRing == true){
+            await ƒS.Speech.tell(charaktere.maire, "Wir hätten nicht im Garten rumschnüffeln sollen.");
+
+        } else if (dataForSave.spiedThroughWindow == true) {
+            await ƒS.Speech.tell(charaktere.maire, "Er denkt wohl wir schnüffeln hier herum.");
+
+        } else {
+            await ƒS.Speech.tell(charaktere.maire, "Dabei haben wir gar nichts gemacht.");
+        }
         
         await ƒS.Character.hide(charaktere.bronte); 
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));

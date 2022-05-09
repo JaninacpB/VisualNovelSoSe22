@@ -107,7 +107,7 @@ namespace Template {
         laugh:"./../../Assets/characters/maire/Assestentin-laugh.png"
       }, 
       positionStandard: {
-        x: 80,
+        x: 84,
         y: 110
       }
     },
@@ -119,6 +119,14 @@ namespace Template {
         angry: "./../../Assets/characters/alaistar/Alaistar-angry.png",
         happy: "./../../Assets/characters/alaistar/Alaistar-happy.png",
         neutral: "./../../Assets/characters/alaistar/Alaistar-neutral.png"
+      },
+      positionStandard: {
+        x: 50,
+        y: 105
+      },
+      positionRightMiddle: {
+        x: 63,
+        y: 115
       }
     }, 
 
@@ -131,6 +139,14 @@ namespace Template {
         laugh: "./../../Assets/characters/grace/Grace-laugh.png",
         sad: "./../../Assets/characters/grace/Grace-sad.png",
         think: "./../../Assets/characters/grace/Grace-thinking.png"
+      },
+      positionStandard: {
+        x: 50,
+        y: 105
+      },
+      positionLeftMiddle: {
+        x: 35,
+        y: 105
       }
     }, 
 
@@ -182,6 +198,16 @@ namespace Template {
 
   export let dataForSave = {
     //Sachen die Gespeichert werden müssen
+
+    //StoryTracker
+    foundRing: false, 
+    spiedThroughWindow: false,
+
+    //Pointsystem
+    pointDetectiv: 0, 
+    pointFriend: 0,
+    pointAngryGrace: 0,
+
     Achievment: {
       saveTheCat: false
     }

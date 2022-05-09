@@ -9,13 +9,10 @@ namespace Template {
       knock: "Klopfe an der Tür"
     }
    
-    await ƒS.Speech.tell("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
+    ƒS.Speech.set("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
 
-    return "SceneTwoEntrance"; 
-
-    //  Text geschwindigkeit regulieren (was ist basic)
-    //  await ƒS.Speech.setTickerDelays(1);
-    //  wie funktionieren  animationen?
+    // return "SceneTwoEntrance"; 
+    return "SceneThreeSaalon";
 
     await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
 
@@ -84,6 +81,9 @@ namespace Template {
     let userChooseCatNoise = await ƒS.Menu.getInput(chooseCatNoise, "basicChoice");
     switch(userChooseCatNoise) {
       case chooseCatNoise.bush:
+
+        dataForSave.foundRing = true; 
+
         await ƒS.Speech.tell(charaktere.bronte, "Nur ein Moment.");      
         await ƒS.Speech.tell(charaktere.maire, "…Deshalb sind wir immer zu spät.");
 
@@ -111,14 +111,11 @@ namespace Template {
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
         await ƒS.update(0.3);
 
-        //todo: positionieren XXX
         await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.neutral, ƒS.positionPercent(50,100))
         await ƒS.update(1);
 
         await ƒS.Speech.tell(charaktere.remington, "Entschuldigen Sie. Sind Sie Miss Bronte und ihre Begleitung?");
-        // todo: klein oder kursiv, für Flüstern?
 
-        
         await ƒS.Character.hide(charaktere.maire); 
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.laugh, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
         await ƒS.update(0.3);
@@ -146,6 +143,9 @@ namespace Template {
       break; 
 
       case chooseCatNoise.window: 
+
+      dataForSave.spiedThroughWindow = true; 
+
       await ƒS.Speech.tell(charaktere.bronte, "Ich frag mich wer uns da heimlich beobachtet. ");
 
       await ƒS.Character.hide(charaktere.maire); 
@@ -158,7 +158,8 @@ namespace Template {
       await ƒS.Speech.tell(charaktere.bronte, "Es dauert nur einen Moment… Hier sehe ich die Küche. Eine ältere Frau an einer Feuerstelle… Oh das Essen sieht klasse aus!");
 
       await ƒS.Speech.tell(charaktere.remington, "Entschuldigen Sie?");
-      //todo: position siehe oben
+      
+
       await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.neutral, ƒS.positionPercent(50,100))
       await ƒS.update(0.1);
 

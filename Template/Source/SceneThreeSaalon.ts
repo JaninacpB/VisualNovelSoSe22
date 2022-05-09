@@ -19,24 +19,69 @@ namespace Template {
         await ƒS.Location.show(location.saalon);
         await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
 
-        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(75, 100))
+        await ƒS.Character.hide(charaktere.bronte); 
+        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+
+        await ƒS.Character.hide(charaktere.maire); 
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
         await ƒS.update(1);
 
+        await ƒS.Character.hide(charaktere.grace); 
+        await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.laugh, ƒS.positionPercent(charaktere.grace.positionStandard.x , charaktere.grace.positionStandard.y));
+        await ƒS.update(0.8);
+
         await ƒS.Speech.tell(charaktere.grace, " Oh! Miss Bronte! Welch eine Freude. Und oh… welch ein ungewöhnliches Outfit sie tragen. Sind das Hosen? Wie… modern. ");
+
+        await ƒS.Character.hide(charaktere.grace); 
+        await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.happy, ƒS.positionPercent(charaktere.grace.positionStandard.x , charaktere.grace.positionStandard.y));
+        await ƒS.update(0.4);
+
         await ƒS.Speech.tell(charaktere.bronte, " Vielen Dank. Sie sehen auch fantastisch aus Lady Blackburn. Darf ich Ihnen meine Begleitung vorstellen, dass hier ist Miss MacGinnis. ");
+
+        await ƒS.Character.hide(charaktere.maire); 
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.happy, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        await ƒS.update(0.4);
+
         await ƒS.Speech.tell(charaktere.maire, " Oh, nennen sie mich Maire. ");
-        await ƒS.Speech.tell(charaktere.grace, " Vornamen… wie… modern! Dann nennen sie mich doch gerne Grace. Die Etikette können Sie sich für meinen Bruder aufheben. Oh, da kommt er auch schon. ");
-        await ƒS.Speech.tell(charaktere.alaistar, " Guten Abend. Freut mich sie kennenzulernen. ");
-        await ƒS.Speech.tell(charaktere.bronte, " Lord Blackburn, die Freude ist ganz unsererseits, vielen Dank für die Einladung zum Abendessen. ");
-        await ƒS.Speech.tell(charaktere.alaistar, " Meine Schwester hat so von Ihnen geschwärmt, da wollte auch ich Sie kennenlernen. Ein Detektiv ist immer ein interessanter Gast. Auch wenn Ihre Fälle sich sicherlich eher mit verlorenen Schmuckstücken und verlegten Kleidern beschäftigten. HoHo. Frauen Probleme. ");
-        await ƒS.Speech.tell(charaktere.bronte, " Tatsächlich befassen sich meine Fälle mit allen Problemen, die in London auftauchen. Erst neulich habe ich die Napoleon Büchse- ");
-        await ƒS.Speech.tell(charaktere.grace, " Oh Stella! Komm schnell rüber meine Liebe. Dann sind wir ja fast alle komplett. Komm schnell kleines und stell dich vor. Miss Bronte, dies ist meine Cousine, Stella Blackburn. ");
-        await ƒS.Speech.tell(charaktere.stella, " Guten Abend. ");
-        await ƒS.Speech.tell(charaktere.bronte, " Freud mich Sie kennenzulernen. ");
-        await ƒS.Speech.tell(charaktere.grace, " Stella ist ein fabelhaftes Mädchen. Sie verbringt den Sommer bei mir, um sich ein wenig an die Londoner Luft zu gewöhnen. Aber schauen sie sich mal diese wunderschönen Haare an. Ich denke wir werden nächste Season einen tollen Partner für sie finden. ");
-        await ƒS.Speech.tell(charaktere.bronte, " Oh ja, sie müssen mir später unbedingt erklären, wie sie so großartige Locken herzaubern. ");
-        await ƒS.Speech.tell(charaktere.stella, " Sicherlich. ");
-        await ƒS.Speech.tell(charaktere.remington, " Ehm… My Lord, my Lady, auch Mister Rothchester ist nun endlich eingetroffen. ");
+
+        await ƒS.Character.hide(charaktere.grace); 
+        await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.laugh, ƒS.positionPercent(charaktere.grace.positionStandard.x , charaktere.grace.positionStandard.y));
+        await ƒS.update(0.4);
+
+        await ƒS.Speech.tell(charaktere.grace, "Vornamen… wie… modern! Dann nennen sie mich doch gerne Grace. Die Etikette können Sie sich für meinen Bruder aufheben. Oh, da kommt er auch schon. ");
+
+        await ƒS.Character.hide(charaktere.bronte); 
+        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(10, 110));
+
+        await ƒS.Character.hide(charaktere.maire); 
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.happy, ƒS.positionPercent(90, 110));
+        await ƒS.update(0.2);
+
+        await ƒS.Character.hide(charaktere.grace); 
+        await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.happy, ƒS.positionPercent(charaktere.grace.positionLeftMiddle.x , charaktere.grace.positionLeftMiddle.y));
+        
+        await ƒS.Character.hide(charaktere.alaistar); 
+        await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.happy, ƒS.positionPercent(charaktere.alaistar.positionRightMiddle.x , charaktere.alaistar.positionRightMiddle.y));
+        await ƒS.update(0.4);
+
+        await ƒS.Speech.tell(charaktere.alaistar, "Guten Abend. Freut mich sie kennenzulernen. ");
+
+        await ƒS.Character.hide(charaktere.alaistar); 
+        await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.neutral, ƒS.positionPercent(charaktere.alaistar.positionRightMiddle.x , charaktere.alaistar.positionRightMiddle.y));
+        await ƒS.update(0.4);
+
+        await ƒS.Speech.tell(charaktere.bronte, "Lord Blackburn, die Freude ist ganz unsererseits, vielen Dank für die Einladung zum Abendessen. ");
+        await ƒS.Speech.tell(charaktere.alaistar, "Meine Schwester hat so von Ihnen geschwärmt, da wollte auch ich Sie kennenlernen. Ein Detektiv ist immer ein interessanter Gast. Auch wenn Ihre Fälle sich sicherlich eher mit verlorenen Schmuckstücken und verlegten Kleidern beschäftigten. ");
+        await ƒS.Speech.tell(charaktere.alaistar, " HoHo. Frauen Probleme.");
+
+        await ƒS.Speech.tell(charaktere.bronte, "Tatsächlich befassen sich meine Fälle mit allen Problemen, die in London auftauchen. Erst neulich habe ich die Napoleon Büchse- ");
+        await ƒS.Speech.tell(charaktere.grace, "Oh Stella! Komm schnell rüber meine Liebe. Dann sind wir ja fast alle komplett. Komm schnell kleines und stell dich vor. Miss Bronte, dies ist meine Cousine, Stella Blackburn. ");
+        await ƒS.Speech.tell(charaktere.stella, "Guten Abend. ");
+        await ƒS.Speech.tell(charaktere.bronte, "Freud mich Sie kennenzulernen. ");
+        await ƒS.Speech.tell(charaktere.grace, "Stella ist ein fabelhaftes Mädchen. Sie verbringt den Sommer bei mir, um sich ein wenig an die Londoner Luft zu gewöhnen. Aber schauen sie sich mal diese wunderschönen Haare an. Ich denke wir werden nächste Season einen tollen Partner für sie finden. ");
+        await ƒS.Speech.tell(charaktere.bronte, "Oh ja, sie müssen mir später unbedingt erklären, wie sie so großartige Locken herzaubern. ");
+        await ƒS.Speech.tell(charaktere.stella, "Sicherlich. ");
+        await ƒS.Speech.tell(charaktere.remington, "Ehm… My Lord, my Lady, auch Mister Rothchester ist nun endlich eingetroffen. ");
         await ƒS.Speech.tell(charaktere.alaistar, " Wurde ja auch Zeit… Dieser Mann hat einfach keine Manieren. Bitte setzt euch alle schon Mal, ich werde Ihn kurz begrüßen und zur Eile mahnen. ");
         await ƒS.Speech.tell(charaktere.maire, " Was für… Charaktere. Ich hätte mich wirklich besser anziehen sollen. Aber selbst mein bestes Kleid würde neben Lady Stella wie ein Putzlappen wirken. Aber… findest du nicht auch, dass einer der drei merkwürdig ist?");
 
