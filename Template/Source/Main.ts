@@ -76,6 +76,14 @@ namespace Template {
     }
   }
 
+  export let items = {
+    ring: {
+      name: "Ring",
+      description: "Die Buchstaben O.R. stehen drauf. Wie merkwürdig",
+      image: ""
+    }
+  }
+
   export let charaktere = {
 
     bronte: {
@@ -159,6 +167,10 @@ namespace Template {
         happy: "./../../Assets/characters/isaac/Isaac-happy.png",
         neutral: "./../../Assets/characters/isaac/Isaac-neutral.png",
         sad: "./../../Assets/characters/isaac/Isaac-sad.png"
+      },
+      positionStandard: {
+        x: 50,
+        y: 110
       }
     },
 
@@ -192,6 +204,10 @@ namespace Template {
         happy: "./../../Assets/characters/stella/stella-happy-first.png",
         laugh: "./../../Assets/characters/stella/stella-happy-laugh.png",
         sad: "./../../Assets/characters/stella/stella-sad.png"
+      }, 
+      positionRightMiddle: {
+        x: 63,
+        y: 110
       }
     }
   }

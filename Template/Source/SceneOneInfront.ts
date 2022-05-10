@@ -12,7 +12,7 @@ namespace Template {
     ƒS.Speech.set("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
 
     // return "SceneTwoEntrance"; 
-    return "SceneThreeSaalon";
+     return "SceneThreeSaalon";
 
     await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
 
@@ -94,6 +94,8 @@ namespace Template {
         await ƒS.update(0.3);
 
         await ƒS.Speech.tell(charaktere.bronte, "Nun lass mal schauen... Oh!");
+
+        // await ƒS.Inventory.add(items.ring);
         // todo: XXX Item einblenden nutzen und speichern das ausgewählt
 
         await ƒS.Character.hide(charaktere.bronte); 

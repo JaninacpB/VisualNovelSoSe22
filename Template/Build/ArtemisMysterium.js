@@ -70,6 +70,13 @@ var Template;
             background: "./../../Assets/backgrounds/studyroomBackground.png"
         }
     };
+    Template.items = {
+        ring: {
+            name: "Ring",
+            description: "Die Buchstaben O.R. stehen drauf. Wie merkwürdig",
+            image: ""
+        }
+    };
     Template.charaktere = {
         bronte: {
             name: "Brontë",
@@ -148,6 +155,10 @@ var Template;
                 happy: "./../../Assets/characters/isaac/Isaac-happy.png",
                 neutral: "./../../Assets/characters/isaac/Isaac-neutral.png",
                 sad: "./../../Assets/characters/isaac/Isaac-sad.png"
+            },
+            positionStandard: {
+                x: 50,
+                y: 110
             }
         },
         odette: {
@@ -178,6 +189,10 @@ var Template;
                 happy: "./../../Assets/characters/stella/stella-happy-first.png",
                 laugh: "./../../Assets/characters/stella/stella-happy-laugh.png",
                 sad: "./../../Assets/characters/stella/stella-sad.png"
+            },
+            positionRightMiddle: {
+                x: 63,
+                y: 110
             }
         }
     };
@@ -384,6 +399,7 @@ var Template;
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.3);
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Nun lass mal schauen... Oh!");
+                // await ƒS.Inventory.add(items.ring);
                 // todo: XXX Item einblenden nutzen und speichern das ausgewählt
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
@@ -494,79 +510,150 @@ var Template;
         };
         await Template.ƒS.Location.show(Template.location.saalon);
         await Template.ƒS.update(Template.transistions.inToOut.duration, Template.transistions.inToOut.alpha, Template.transistions.inToOut.edge);
-        await Template.ƒS.Character.hide(Template.charaktere.bronte);
-        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
-        await Template.ƒS.Character.hide(Template.charaktere.maire);
-        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
-        await Template.ƒS.update(1);
-        await Template.ƒS.Character.hide(Template.charaktere.grace);
-        await Template.ƒS.Character.show(Template.charaktere.grace, Template.charaktere.grace.pose.laugh, Template.ƒS.positionPercent(Template.charaktere.grace.positionStandard.x, Template.charaktere.grace.positionStandard.y));
-        await Template.ƒS.update(0.8);
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Oh! Miss Bronte! Welch eine Freude. Und oh… welch ein ungewöhnliches Outfit sie tragen. Sind das Hosen? Wie… modern. ");
-        await Template.ƒS.Character.hide(Template.charaktere.grace);
-        await Template.ƒS.Character.show(Template.charaktere.grace, Template.charaktere.grace.pose.happy, Template.ƒS.positionPercent(Template.charaktere.grace.positionStandard.x, Template.charaktere.grace.positionStandard.y));
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        // await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        // await ƒS.update(1);
+        // await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.laugh, ƒS.positionPercent(charaktere.grace.positionStandard.x , charaktere.grace.positionStandard.y));
+        // await ƒS.update(0.8);
+        // await ƒS.Speech.tell(charaktere.grace, " Oh! Miss Bronte! Welch eine Freude. Und oh… welch ein ungewöhnliches Outfit sie tragen. Sind das Hosen? Wie… modern. ");
+        // await ƒS.Character.hide(charaktere.grace); 
+        // await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.happy, ƒS.positionPercent(charaktere.grace.positionStandard.x , charaktere.grace.positionStandard.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.bronte, " Vielen Dank. Sie sehen auch fantastisch aus Lady Blackburn. Darf ich Ihnen meine Begleitung vorstellen, dass hier ist Miss MacGinnis. ");
+        // await ƒS.Character.hide(charaktere.maire); 
+        // await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.happy, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.maire, " Oh, nennen sie mich Maire. ");
+        // await ƒS.Character.hide(charaktere.grace); 
+        // await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.laugh, ƒS.positionPercent(charaktere.grace.positionStandard.x , charaktere.grace.positionStandard.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.grace, "Vornamen… wie… modern! Dann nennen sie mich doch gerne Grace. Die Etikette können Sie sich für meinen Bruder aufheben. Oh, da kommt er auch schon. ");
+        // await ƒS.Character.hide(charaktere.bronte); 
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(10, 110));
+        // await ƒS.Character.hide(charaktere.maire); 
+        // await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.happy, ƒS.positionPercent(90, 110));
+        // await ƒS.update(0.2);
+        // await ƒS.Character.hide(charaktere.grace); 
+        // await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.happy, ƒS.positionPercent(charaktere.grace.positionLeftMiddle.x , charaktere.grace.positionLeftMiddle.y));
+        // await ƒS.Character.hide(charaktere.alaistar); 
+        // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.happy, ƒS.positionPercent(charaktere.alaistar.positionRightMiddle.x , charaktere.alaistar.positionRightMiddle.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.alaistar, "Guten Abend. Freut mich sie kennenzulernen. ");
+        // await ƒS.Character.hide(charaktere.alaistar); 
+        // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.neutral, ƒS.positionPercent(charaktere.alaistar.positionRightMiddle.x , charaktere.alaistar.positionRightMiddle.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.bronte, "Lord Blackburn, die Freude ist ganz unsererseits, vielen Dank für die Einladung zum Abendessen. ");
+        // await ƒS.Speech.tell(charaktere.alaistar, "Meine Schwester hat so von Ihnen geschwärmt, da wollte auch ich Sie kennenlernen. Ein Detektiv ist immer ein interessanter Gast. Auch wenn Ihre Fälle sich sicherlich eher mit verlorenen Schmuckstücken und verlegten Kleidern beschäftigten. ");
+        // await ƒS.Character.hide(charaktere.alaistar); 
+        // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.happy, ƒS.positionPercent(charaktere.alaistar.positionRightMiddle.x , charaktere.alaistar.positionRightMiddle.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.alaistar, " HoHo. Frauen Probleme.");
+        // await ƒS.Character.hide(charaktere.alaistar); 
+        // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.neutral, ƒS.positionPercent(charaktere.alaistar.positionRightMiddle.x , charaktere.alaistar.positionRightMiddle.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Character.hide(charaktere.bronte); 
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(10, 110));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.bronte, "Tatsächlich befassen sich meine Fälle mit allen Problemen, die in London auftauchen. Erst neulich habe ich die Napoleon Büchse- ");
+        // await ƒS.Character.hide(charaktere.bronte); 
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(10, 110));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.grace, "Oh Stella! Komm schnell rüber meine Liebe. Dann sind wir ja fast alle komplett. Komm schnell kleines und stell dich vor. Miss Bronte, dies ist meine Cousine, Stella Blackburn. ");
+        // await ƒS.Character.hide(charaktere.grace); 
+        // await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.happy, ƒS.positionPercent(charaktere.grace.positionLeftMiddle.x , charaktere.grace.positionLeftMiddle.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Character.hide(charaktere.stella); 
+        // await ƒS.Character.hide(charaktere.alaistar);
+        // await ƒS.Character.show(charaktere.stella, charaktere.stella.pose.sad, ƒS.positionPercent(charaktere.stella.positionRightMiddle.x , charaktere.stella.positionRightMiddle.y));
+        // await ƒS.update(0.8);
+        // await ƒS.Speech.tell(charaktere.stella, "Guten Abend. ");
+        // await ƒS.Character.hide(charaktere.bronte); 
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(10, 110));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.bronte, "Freut mich Sie kennenzulernen. ");
+        // await ƒS.Character.hide(charaktere.grace); 
+        // await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.laugh, ƒS.positionPercent(charaktere.grace.positionLeftMiddle.x , charaktere.grace.positionLeftMiddle.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.grace, "Stella ist ein fabelhaftes Mädchen. Sie verbringt den Sommer bei mir, um sich ein wenig an die Londoner Luft zu gewöhnen.");
+        // await ƒS.Character.hide(charaktere.grace); 
+        // await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.happy, ƒS.positionPercent(charaktere.grace.positionLeftMiddle.x , charaktere.grace.positionLeftMiddle.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.grace, "Aber schauen sie sich mal diese wunderschönen Haare an. Ich denke wir werden nächste Season einen tollen Partner für sie finden. ");
+        // await ƒS.Character.hide(charaktere.bronte); 
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.laugh, ƒS.positionPercent(10, 110));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.bronte, "Oh ja, sie müssen mir später unbedingt erklären, wie sie so großartige Locken herzaubern. ");
+        // await ƒS.Speech.tell(charaktere.stella, "Sicherlich. ");
+        // await ƒS.Character.hide(charaktere.bronte); 
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(10, 110));
+        // await ƒS.update(0.4);
+        // await ƒS.Character.hide(charaktere.bronte); 
+        // await ƒS.Character.hide(charaktere.maire); 
+        // await ƒS.Character.hide(charaktere.stella); 
+        // await ƒS.Character.hide(charaktere.grace); 
+        // await ƒS.update(0.4);
+        // await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.neutral, ƒS.positionPercent(charaktere.remington.positionStandard.x, charaktere.remington.positionStandard.y));
+        // await ƒS.update(0.8);
+        // await ƒS.Speech.tell(charaktere.remington, "Ehm… My Lord, my Lady, auch Mister Rothchester ist nun endlich eingetroffen. ");
+        // await ƒS.Character.hide(charaktere.remington); 
+        // await ƒS.update(0.4);
+        // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.angry, ƒS.positionPercent(50 , charaktere.alaistar.positionRightMiddle.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.alaistar, " Wurde ja auch Zeit… Dieser Mann hat einfach keine Manieren. Bitte setzt euch alle schon Mal, ich werde Ihn kurz begrüßen und zur Eile mahnen. ");
+        // await ƒS.Character.hide(charaktere.alaistar); 
+        // await ƒS.update(0.8);
+        // await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.maire, " Was für… Charaktere. Ich hätte mich wirklich besser anziehen sollen. Aber selbst mein bestes Kleid würde neben Lady Stella wie ein Putzlappen wirken. Aber… findest du nicht auch, dass einer der drei merkwürdig ist?");
+        // let weirdPersonDecision = await ƒS.Menu.getInput(chooseWeirdPerson, "basicChoice");
+        // switch (weirdPersonDecision) {
+        //     case chooseWeirdPerson.stella:
+        //         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        //         await ƒS.update(0.4);
+        //         await ƒS.Speech.tell(charaktere.bronte, " Allerding, Stella sieht wirklich etwas blass aus. Ob sie wohl krank ist? ");
+        //         await ƒS.Character.hide(charaktere.maire);
+        //         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        //         await ƒS.update(0.4);
+        //         await ƒS.Speech.tell(charaktere.maire, " Hoffentlich stecke ich mich nicht an!");
+        //         break;
+        //         //todo: detectiv punkte
+        //     case chooseWeirdPerson.grace:
+        //         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        //         await ƒS.update(0.4);
+        //         await ƒS.Speech.tell(charaktere.bronte, " Allerding, Grace ist eine sehr eigene Persönlichkeit. Und nicht sonderlich gut darin ihre Ansichten zu verstecke. ");
+        //         await ƒS.Speech.tell(charaktere.maire, "Ich dachte ehrlich gesagt eher an Stella. Sie sieht etwas blass aus. ");
+        //         break;
+        //     case chooseWeirdPerson.lordBlackburn:
+        //         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        //         await ƒS.update(0.4);
+        //         await ƒS.Speech.tell(charaktere.bronte, " Allerdings, Lord Blackburns Einstellungen zu Frauen sind wohl bereits einige Jahrtausende alt… Wenn auch nicht ungewöhnlich für einen Mann seiner Stellung, leider.");
+        //         await ƒS.Speech.tell(charaktere.maire, "Ich dachte ehrlich gesagt eher an Stella. Sie sieht etwas blass aus. ");
+        //         break;
+        // }
+        // await ƒS.Character.hide(charaktere.bronte);
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        // await ƒS.Character.hide(charaktere.maire);
+        // await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.bronte, "Da scheint der letzte Gast zu kommen. ");
+        // await ƒS.Character.hide(charaktere.maire);
+        // await ƒS.Character.hide(charaktere.bronte);
+        // await ƒS.update(0.4);
+        await Template.ƒS.Character.show(Template.charaktere.isaac, Template.charaktere.isaac.pose.neutral, Template.ƒS.positionPercent(85, Template.charaktere.isaac.positionStandard.y));
         await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Vielen Dank. Sie sehen auch fantastisch aus Lady Blackburn. Darf ich Ihnen meine Begleitung vorstellen, dass hier ist Miss MacGinnis. ");
-        await Template.ƒS.Character.hide(Template.charaktere.maire);
-        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.happy, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+        await Template.ƒS.Speech.tell(Template.charaktere.isaac, "Guten Abend. Ich entschuldige meine Verspätung. ");
+        await Template.ƒS.Character.show(Template.charaktere.grace, Template.charaktere.grace.pose.laugh, Template.ƒS.positionPercent(20, Template.charaktere.grace.positionStandard.y));
         await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Oh, nennen sie mich Maire. ");
-        await Template.ƒS.Character.hide(Template.charaktere.grace);
-        await Template.ƒS.Character.show(Template.charaktere.grace, Template.charaktere.grace.pose.laugh, Template.ƒS.positionPercent(Template.charaktere.grace.positionStandard.x, Template.charaktere.grace.positionStandard.y));
+        await Template.ƒS.Speech.tell(Template.charaktere.grace, "Nun… Als Gerichtsvertreter wird man wohl nicht pünktlich entlassen. Aber so ist die Mittelschicht wohl. ");
+        await Template.ƒS.Character.show(Template.charaktere.isaac, Template.charaktere.isaac.pose.happy, Template.ƒS.positionPercent(85, Template.charaktere.isaac.positionStandard.y));
         await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, "Vornamen… wie… modern! Dann nennen sie mich doch gerne Grace. Die Etikette können Sie sich für meinen Bruder aufheben. Oh, da kommt er auch schon. ");
-        await Template.ƒS.Character.hide(Template.charaktere.bronte);
-        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(10, 110));
-        await Template.ƒS.Character.hide(Template.charaktere.maire);
-        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.happy, Template.ƒS.positionPercent(90, 110));
-        await Template.ƒS.update(0.2);
-        await Template.ƒS.Character.hide(Template.charaktere.grace);
-        await Template.ƒS.Character.show(Template.charaktere.grace, Template.charaktere.grace.pose.happy, Template.ƒS.positionPercent(Template.charaktere.grace.positionLeftMiddle.x, Template.charaktere.grace.positionLeftMiddle.y));
-        await Template.ƒS.Character.hide(Template.charaktere.alaistar);
-        await Template.ƒS.Character.show(Template.charaktere.alaistar, Template.charaktere.alaistar.pose.happy, Template.ƒS.positionPercent(Template.charaktere.alaistar.positionRightMiddle.x, Template.charaktere.alaistar.positionRightMiddle.y));
-        await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, "Guten Abend. Freut mich sie kennenzulernen. ");
-        await Template.ƒS.Character.hide(Template.charaktere.alaistar);
-        await Template.ƒS.Character.show(Template.charaktere.alaistar, Template.charaktere.alaistar.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.alaistar.positionRightMiddle.x, Template.charaktere.alaistar.positionRightMiddle.y));
-        await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Lord Blackburn, die Freude ist ganz unsererseits, vielen Dank für die Einladung zum Abendessen. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, "Meine Schwester hat so von Ihnen geschwärmt, da wollte auch ich Sie kennenlernen. Ein Detektiv ist immer ein interessanter Gast. Auch wenn Ihre Fälle sich sicherlich eher mit verlorenen Schmuckstücken und verlegten Kleidern beschäftigten. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " HoHo. Frauen Probleme.");
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Tatsächlich befassen sich meine Fälle mit allen Problemen, die in London auftauchen. Erst neulich habe ich die Napoleon Büchse- ");
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, "Oh Stella! Komm schnell rüber meine Liebe. Dann sind wir ja fast alle komplett. Komm schnell kleines und stell dich vor. Miss Bronte, dies ist meine Cousine, Stella Blackburn. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.stella, "Guten Abend. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Freud mich Sie kennenzulernen. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, "Stella ist ein fabelhaftes Mädchen. Sie verbringt den Sommer bei mir, um sich ein wenig an die Londoner Luft zu gewöhnen. Aber schauen sie sich mal diese wunderschönen Haare an. Ich denke wir werden nächste Season einen tollen Partner für sie finden. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Oh ja, sie müssen mir später unbedingt erklären, wie sie so großartige Locken herzaubern. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.stella, "Sicherlich. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.remington, "Ehm… My Lord, my Lady, auch Mister Rothchester ist nun endlich eingetroffen. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Wurde ja auch Zeit… Dieser Mann hat einfach keine Manieren. Bitte setzt euch alle schon Mal, ich werde Ihn kurz begrüßen und zur Eile mahnen. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Was für… Charaktere. Ich hätte mich wirklich besser anziehen sollen. Aber selbst mein bestes Kleid würde neben Lady Stella wie ein Putzlappen wirken. Aber… findest du nicht auch, dass einer der drei merkwürdig ist?");
-        let weirdPersonDecision = await Template.ƒS.Menu.getInput(chooseWeirdPerson, "basicChoice");
-        switch (weirdPersonDecision) {
-            case chooseWeirdPerson.stella:
-                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Allerding, Stella sieht wirklich etwas blass aus. Ob sie wohl krank ist? ");
-                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Hoffentlich stecke ich mich nicht an!");
-                break;
-            case chooseWeirdPerson.grace:
-                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Allerding, Grace ist eine sehr eigene Persönlichkeit. Und nicht sonderlich gut darin ihre Ansichten zu verstecke. ");
-                await Template.ƒS.Speech.tell(Template.charaktere.maire, "Ich dachte ehrlich gesagt eher an Stella. Sie sieht etwas blass aus. ");
-                break;
-            case chooseWeirdPerson.lordBlackburn:
-                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Allerdings, Lord Blackburns Einstellungen zu Frauen sind wohl bereits einige Jahrtausende alt… Wenn auch nicht ungewöhnlich für einen Mann seiner Stellung, leider.");
-                await Template.ƒS.Speech.tell(Template.charaktere.maire, "Ich dachte ehrlich gesagt eher an Stella. Sie sieht etwas blass aus. ");
-                break;
-        }
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Da scheint der letzte Gast zu kommen. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Guten Abend. Ich entschuldige meine Verspätung. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Nun… Als Gerichtsvertreter wird man wohl nicht pünktlich entlassen. Aber so ist die Mittelschicht wohl. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Ja… nun… Ah! Miss Bronte, richtig? Und sie müssen ihre Assistentin sein. Mac- Mac-? ");
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Maire reicht aus. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Sehr erfreut. Ich bin Issac. Ich habe in Gericht ein paar Mal ihre Arbeit betrachten können. Sie scheinen sehr sorgfältig zu arbeiten! ");
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh vielen dank. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Oh, das Essen! Mrs. May-Porter hat wieder ihr Bestes gegeben. Es gibt Haggis! ");
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Bronte, bitte sag mir das ist keines dieser merkwürdigen britischen Gerichte?! ");
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Es ist tatsächlich Schottisch…");
+        await Template.ƒS.Speech.tell(Template.charaktere.isaac, "Ja… nun… Ah! Miss Bronte, richtig? Und sie müssen ihre Assistentin sein. Mac- Mac-? ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, "Maire reicht aus. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.isaac, "Sehr erfreut. Ich bin Issac. Ich habe in Gericht ein paar Mal ihre Arbeit betrachten können. Sie scheinen sehr sorgfältig zu arbeiten! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Oh vielen dank. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.grace, "Oh, das Essen! Mrs. May-Porter hat wieder ihr Bestes gegeben. Es gibt Haggis! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, "Bronte, bitte sag mir das ist keines dieser merkwürdigen britischen Gerichte?! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Es ist tatsächlich Schottisch…");
         let haggisDecision = await Template.ƒS.Menu.getInput(chooseHaggis, "basicChoice");
         //todo: point system 
         switch (haggisDecision) {

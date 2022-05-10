@@ -57,6 +57,13 @@ declare namespace Template {
             background: string;
         };
     };
+    let items: {
+        ring: {
+            name: string;
+            description: string;
+            image: string;
+        };
+    };
     let charaktere: {
         bronte: {
             name: string;
@@ -136,6 +143,10 @@ declare namespace Template {
                 neutral: string;
                 sad: string;
             };
+            positionStandard: {
+                x: number;
+                y: number;
+            };
         };
         odette: {
             name: string;
@@ -165,6 +176,10 @@ declare namespace Template {
                 happy: string;
                 laugh: string;
                 sad: string;
+            };
+            positionRightMiddle: {
+                x: number;
+                y: number;
             };
         };
     };
