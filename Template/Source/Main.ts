@@ -73,14 +73,10 @@ namespace Template {
     studyroom: {
       name: "studyroom",
       background: "./../../Assets/backgrounds/studyroomBackground.png"
-    }
-  }
-
-  export let items = {
-    ring: {
-      name: "Ring",
-      description: "Die Buchstaben O.R. stehen drauf. Wie merkwürdig",
-      image: ""
+    }, 
+    black: {
+      name: "black",
+      background: "./../../Assets/backgrounds/black.png"
     }
   }
 
@@ -150,11 +146,11 @@ namespace Template {
       },
       positionStandard: {
         x: 50,
-        y: 105
+        y: 110
       },
       positionLeftMiddle: {
         x: 35,
-        y: 105
+        y: 110
       }
     }, 
 
@@ -170,6 +166,10 @@ namespace Template {
       },
       positionStandard: {
         x: 50,
+        y: 110
+      },
+      positionLeftMiddle: {
+        x: 35,
         y: 110
       }
     },
@@ -212,6 +212,45 @@ namespace Template {
     }
   }
 
+  export let inventory = {
+      //todo: static doesnt work
+    ring: {
+        name: "Ring", 
+        description: "Ein Siegelring mit den Initalien O.R., im Busch vor dem Manor gefunden.",
+        image: "./../../Assets/achievment/Achivment-cat_001.png",
+        static: true
+    },
+
+    cat: {
+        name: "angryMaire", 
+        description: " Don't get angry",
+        image: "./../../Assets/achievment/Achivment-angryMaire.png",
+        static: true
+    }
+
+  }
+
+
+  //Animation todo: 
+  export function fromLeftToRight(startX: number, startY: number, endX: number, endY: number): ƒS.AnimationDefinition {
+    return {
+      start: { translation: ƒS.positionPercent(startX, startY) },
+      end: { translation: ƒS.positionPercent(endX, endY) },
+      duration: 2,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+    };
+  }
+
+  //grace falling
+  export function fromMiddleDown(startX: number, startY: number, endY: number): ƒS.AnimationDefinition {
+    return {
+      start: { translation: ƒS.positionPercent(startX, startY), rotation: 0 },
+      end: { translation: ƒS.positionPercent(startX, endY), rotation: 180 },
+      duration: 2,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+    };
+  }
+
   export let dataForSave = {
     //Sachen die Gespeichert werden müssen
 
@@ -248,6 +287,8 @@ namespace Template {
   let gameMenu: ƒS.Menu; 
 
   let menueIsOpen: boolean = true; 
+
+  let inventoryOpen: boolean = false; 
 
   async function buttonFunctionalities(_option:string): Promise <void> {
     console.log(_option); 
@@ -296,6 +337,33 @@ namespace Template {
           menueIsOpen = true; 
         }
         break;
+
+        case ƒ.KEYBOARD_CODE.I: 
+        if(inventoryOpen){
+          console.log("Close");
+          ƒS.Inventory.close();
+          inventoryOpen = false;
+        } else {
+          console.log("Open");
+          ƒS.Inventory.open();
+          inventoryOpen = true; 
+        }
+        break;
+    }
+  }
+
+  // Iventory and Menue Button 
+  document.getElementById("inventoryBtn")?.addEventListener("click", openOrcloseInventory)
+
+  function openOrcloseInventory(){
+    if(inventoryOpen){
+      console.log("Close");
+      ƒS.Inventory.close();
+      inventoryOpen = false;
+    } else {
+      console.log("Open");
+      ƒS.Inventory.open();
+      inventoryOpen = true; 
     }
   }
 
@@ -314,6 +382,7 @@ namespace Template {
       {id: "SceneTwoEntrance", scene: SceneTwoEntrance, name: "SceneTwoEntrance"},
       {id: "SceneThreeSaalon", scene: SceneThreeSaalon, name: "SceneThreeSaalon"},
       {id: "SceneFourSaalonDrama", scene: SceneFourSaalonDrama, name:"SceneFourSaalonDrama"},
+      {id: "SceneFiveOutside", scene: SceneFiveOutside, name: "SceneFiveOutside"}
       
       //{id: "EndScreen", scene: EndScreen, name: "EndScreen"}
     ];

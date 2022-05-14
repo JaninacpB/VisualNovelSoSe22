@@ -9,10 +9,13 @@ namespace Template {
       knock: "Klopfe an der Tür"
     }
    
-    ƒS.Speech.set("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
+    //ƒS.Speech.set("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
+
+    //todo: Input einbauen und stylen, gleich auf DataForSave speichern
+    // let test = await ƒS.Speech.getInput();
 
     // return "SceneTwoEntrance"; 
-     return "SceneThreeSaalon";
+    return "SceneFourSaalonDrama";
 
     await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
 
@@ -36,6 +39,7 @@ namespace Template {
     await ƒS.Speech.tell(charaktere.bronte, "Habe ich ja auch. Wobei es eher ein Zufall war, dass der Crossstreet-Bandit auch ihre Smaragd Brosche gestohlen hatte.");
 
     await ƒS.Speech.tell(charaktere.bronte, "Aber so oder so war die Lady jedoch so dankbar, dass sie mich reichlich belohnt hat und zu einem Essen eingeladen hat.");
+
 
     await ƒS.Character.hide(charaktere.maire); 
     await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.embarrassed, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y))
@@ -95,8 +99,8 @@ namespace Template {
 
         await ƒS.Speech.tell(charaktere.bronte, "Nun lass mal schauen... Oh!");
 
-        // await ƒS.Inventory.add(items.ring);
-        // todo: XXX Item einblenden nutzen und speichern das ausgewählt
+        await ƒS.Inventory.add(inventory.ring);
+        await ƒS.Inventory.open(); 
 
         await ƒS.Character.hide(charaktere.bronte); 
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y))

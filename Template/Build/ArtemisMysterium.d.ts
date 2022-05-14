@@ -56,12 +56,9 @@ declare namespace Template {
             name: string;
             background: string;
         };
-    };
-    let items: {
-        ring: {
+        black: {
             name: string;
-            description: string;
-            image: string;
+            background: string;
         };
     };
     let charaktere: {
@@ -147,6 +144,10 @@ declare namespace Template {
                 x: number;
                 y: number;
             };
+            positionLeftMiddle: {
+                x: number;
+                y: number;
+            };
         };
         odette: {
             name: string;
@@ -183,6 +184,22 @@ declare namespace Template {
             };
         };
     };
+    let inventory: {
+        ring: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+        cat: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+    };
+    function fromLeftToRight(startX: number, startY: number, endX: number, endY: number): ƒS.AnimationDefinition;
+    function fromMiddleDown(startX: number, startY: number, endY: number): ƒS.AnimationDefinition;
     let dataForSave: {
         foundRing: boolean;
         spiedThroughWindow: boolean;
@@ -197,6 +214,9 @@ declare namespace Template {
 }
 declare namespace Template {
     function SceneFourSaalonDrama(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function SceneFiveOutside(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function SceneOneInfront(): ƒS.SceneReturn;
