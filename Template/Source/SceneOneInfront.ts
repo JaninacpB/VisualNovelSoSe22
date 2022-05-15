@@ -15,7 +15,7 @@ namespace Template {
     // let test = await ƒS.Speech.getInput();
 
     // return "SceneTwoEntrance"; 
-    return "SceneFourSaalonDrama";
+    // return "SceneFourSaalonDrama";
 
     await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
 
@@ -96,6 +96,8 @@ namespace Template {
         await ƒS.Character.hide(charaktere.bronte); 
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y))
         await ƒS.update(0.3);
+
+        await ƒS.Sound.fade(sound.themeinfrontManor, 0.3, 1, false); 
 
         await ƒS.Speech.tell(charaktere.bronte, "Nun lass mal schauen... Oh!");
 

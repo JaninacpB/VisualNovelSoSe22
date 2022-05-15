@@ -490,7 +490,7 @@ var Template;
         //todo: Input einbauen und stylen, gleich auf DataForSave speichern
         // let test = await ƒS.Speech.getInput();
         // return "SceneTwoEntrance"; 
-        return "SceneFourSaalonDrama";
+        // return "SceneFourSaalonDrama";
         await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
         await Template.ƒS.update(Template.transistions.wallpaper.duration, Template.transistions.wallpaper.alpha, Template.transistions.wallpaper.edge);
@@ -546,6 +546,7 @@ var Template;
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.3);
+                await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.3, 1, false);
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Nun lass mal schauen... Oh!");
                 await Template.ƒS.Inventory.add(Template.inventory.ring);
                 await Template.ƒS.Inventory.open();
