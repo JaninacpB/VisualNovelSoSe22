@@ -22,6 +22,7 @@ namespace Template {
     //Themes
     //Scene 1
     themeinfrontManor: "./../../Assets/sounds/infrontOfManorScene1PianoElegeant.mp3",
+    themeinfrontManorNight: "/Assets/sounds/forest-chorus-12444.mp3",
     
     themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
 
@@ -38,7 +39,7 @@ namespace Template {
 
     alaisterLaugh: "./../../Assets/sounds/fx/alaistarLaugh.wav", 
 
-    dinnerSound: "/.//Assets/sounds/fx/dinnerdishesmp3-14762.wav",
+    dinnerSound: "./../../Assets/sounds/fx/dinnerdishesmp3-14762.wav",
     waterGlass: "/Assets/sounds/fx/water-filled-cup-9901.mp3"
   }
 

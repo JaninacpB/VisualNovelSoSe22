@@ -166,6 +166,10 @@ namespace Template {
         await ƒS.Speech.tell(charaktere.maire, "Wir sollten wirklich vorsichtig sein nicht den guten Willen unserer Gastgeber zu stören. ");
         await ƒS.Speech.tell(charaktere.bronte, "Scheinbar… lass uns gehen.");
 
+        await ƒS.Character.hide(charaktere.maire);
+        await ƒS.Character.hide(charaktere.bronte);
+        await ƒS.update(0.8);
+
         return "SceneFiveOutside";
     }
 }

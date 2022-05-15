@@ -18,6 +18,7 @@ declare namespace Template {
     };
     let sound: {
         themeinfrontManor: string;
+        themeinfrontManorNight: string;
         themeEntrance: string;
         themeSaloon: string;
         dramaInSaloon: string;
