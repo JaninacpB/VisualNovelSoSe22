@@ -22,6 +22,11 @@ declare namespace Template {
         themeSaloon: string;
         dramaInSaloon: string;
         catMeow: string;
+        goingThrouBushes: string;
+        knockDoor: string;
+        alaisterLaugh: string;
+        dinnerSound: string;
+        waterGlass: string;
     };
     let location: {
         infrontOfManorDay: {
@@ -203,6 +208,7 @@ declare namespace Template {
     let dataForSave: {
         foundRing: boolean;
         spiedThroughWindow: boolean;
+        mairePuked: boolean;
         pointDetectiv: number;
         pointFriend: number;
         pointAngryGrace: number;
@@ -220,6 +226,9 @@ declare namespace Template {
 }
 declare namespace Template {
     function SceneOneInfront(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function SceneSixGarden(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function SceneThreeSaalon(): ƒS.SceneReturn;

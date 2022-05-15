@@ -34,7 +34,12 @@ var Template;
         themeSaloon: "./../../Assets/sounds/peter-tchaikovsky-march-from-nutcracker-classical-remix-7691.mp3",
         dramaInSaloon: "./../../Assets/sounds/classical-piano-peter-tchaikovsky-chant-sans-paroles-opus-40-6-21872.mp3",
         //SFX
-        catMeow: "./../../Assets/sounds/cat-meow-6226.mp3"
+        catMeow: "./../../Assets/sounds/cat-meow-6226.mp3",
+        goingThrouBushes: "./../../Assets/sounds/fx/shaken-bushes.mp3",
+        knockDoor: "./../../Assets/sounds/fx/knockDoor.wav",
+        alaisterLaugh: "./../../Assets/sounds/fx/alaistarLaugh.wav",
+        dinnerSound: "/.//Assets/sounds/fx/dinnerdishesmp3-14762.wav",
+        waterGlass: "/Assets/sounds/fx/water-filled-cup-9901.mp3"
     };
     Template.location = {
         infrontOfManorDay: {
@@ -237,6 +242,7 @@ var Template;
         //StoryTracker
         foundRing: false,
         spiedThroughWindow: false,
+        mairePuked: false,
         //Pointsystem
         pointDetectiv: 0,
         pointFriend: 0,
@@ -473,6 +479,58 @@ var Template;
 var Template;
 (function (Template) {
     async function SceneFiveOutside() {
+        //Alle Wahlmöglichkeiten in Szene 
+        let choosePerson = {
+            Grace: "Die Lady",
+            Stella: "Die Nichte",
+            Butler: "Der Butler",
+            Alaistar: "Der Lord",
+            Isaac: "Der Schwager"
+        };
+        let chooseWhatToDoInfrontGarden = {
+            garden: "Spuren folgen",
+            go: "Aufgeben"
+        };
+        if (Template.dataForSave.mairePuked == true) {
+            await Template.ƒS.Speech.tell(Template.charaktere.maire, " Endlich frische Luft! Schafsmagen… Mich schüttelt es immer noch. ");
+            await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Arme Maire, das Essen hat sie wirklich mitgenommen.");
+        }
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Also vorhin ist sie in Richtung des Gebüsches gelaufe.");
+        if (Template.dataForSave.foundRing == true) {
+            await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Und ziemlich schnell, immerhin haben wir sie danach nicht mehr gesehen.");
+        }
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Mhm, hast du noch den Ring? ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Klar hier…");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Also mal schauen, was dort ist. Mhm… oh! Was ist das? ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Ein Siegelring? Was macht der dann hier? ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Er sieht durchaus edel aus. Ein wenig dreckig nur. Mit den Buchstaben O.R. soweit ich es erkennen kann. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " O und R…. oh! Wir kennen jemanden zu dem R. passen würde!");
+        //todo: Punkte System 
+        let userChoosePersonToRing = await Template.ƒS.Menu.getInput(choosePerson, "basicChoice");
+        switch (userChoosePersonToRing) {
+            case choosePerson.Butler:
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Gute Schlussfolgerung… Der Butler heißt Remington. Aber ob der Vorname passt?");
+                break;
+            default:
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ah! Äh… nein das passt ja gar nicht… ");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Aber der Butler passt! Es hat sich mit Remington vorgestellt!");
+        }
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Oh er hat vorhin sich auch so merkwürdig benommen. Wie er vor der Tür gelauert hat! Wie er uns hier draußen aufgelauert hat! Der ist bestimmt der Übeltäter. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Gute Theorie, aber noch ist ja nicht bewiesen, dass die Katze nicht einfach weggelaufen ist. Das würde ich zumindest auch tun wenn ich immer in einem Zimmer eingesperrt wäre. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Mhm… Ein Fall wäre spannender. Aber so oder so hier ist die Katze nicht. Was machen wir jetzt?");
+        let userChooseWhatToDoInfrontGarden = await Template.ƒS.Menu.getInput(chooseWhatToDoInfrontGarden, "basicChoice");
+        switch (userChooseWhatToDoInfrontGarden) {
+            case chooseWhatToDoInfrontGarden.go:
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Weißt du was… lass einfach aufhören. Ich glaube das ist zu schwierig für uns. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Was! Aber du bist Bronte! Die Meister Detektivin! ");
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ja ich weiß, war doch nur ein Witz ");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Mhm… witzig. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " (Den Witz fand sie wohl nicht gut… sie sieht tatsächlich ziemlich genervt aus… ich sollte netter zu ihr sein.)");
+            case chooseWhatToDoInfrontGarden.go:
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Vielleicht sind hier ja Spuren. Mhm.. Ja… Mhm… Autsch! Blöde Dornen! Oh hier! Tatsache sie führen in den Garten. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Hinterher!");
+        }
+        return "SceneSixGarden";
     }
     Template.SceneFiveOutside = SceneFiveOutside;
 })(Template || (Template = {}));
@@ -489,8 +547,8 @@ var Template;
         //ƒS.Speech.set("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
         //todo: Input einbauen und stylen, gleich auf DataForSave speichern
         // let test = await ƒS.Speech.getInput();
-        // return "SceneTwoEntrance"; 
-        // return "SceneFourSaalonDrama";
+        return "SceneThreeSaalon";
+        // return "SceneFiveOutside";
         await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
         await Template.ƒS.update(Template.transistions.wallpaper.duration, Template.transistions.wallpaper.alpha, Template.transistions.wallpaper.edge);
@@ -546,7 +604,7 @@ var Template;
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.3);
-                await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.3, 1, false);
+                await Template.ƒS.Sound.play(Template.sound.goingThrouBushes, 1);
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Nun lass mal schauen... Oh!");
                 await Template.ƒS.Inventory.add(Template.inventory.ring);
                 await Template.ƒS.Inventory.open();
@@ -618,6 +676,8 @@ var Template;
                 await Template.ƒS.Speech.tell(Template.charaktere.maire, "Da hast du ja einen tollen ersten Eindruck gemacht…");
                 break;
             case chooseCatNoise.knock:
+                await Template.ƒS.Sound.play(Template.sound.knockDoor, 1);
+                await Template.ƒS.update(0.4);
                 await Template.ƒS.Character.show(Template.charaktere.remington, Template.charaktere.remington.pose.neutral, Template.ƒS.positionPercent(50, 100));
                 await Template.ƒS.update(0.1);
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
@@ -644,8 +704,54 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    async function SceneSixGarden() {
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " sie fuhren bis... Oh... Autsch! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " alles okay? Oh man sieht ja die Hand vor Augen nicht. Was machen wir jetzt");
+        //auswahl Untersuchen
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Mhm… vielleicht… ich habe so ein Gefühl hier könnte etwas sein das Hilft. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Pass bloß auf! Bei dieser Dunkelheit ist es leicht sich zu verletzten. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ich bin schon vorsichtig… Autsch! Mhm… vielleicht hast du Recht.");
+        // Unter Auswahl: zurückgehen
+        //weiter untersuchen
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh! Hier! ");
+        //todo: Laterne
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Oh wow! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ein kleines Wunder der Technik. Und sehr praktisch dazu. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Aber weitgeholfen hat uns das noch nicht…");
+        //Ende unter auswahl
+        //Weitergehen 
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " So ein bisschen Dunkelheit wird uns doch nicht aufhalten. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Wenn du meinst Bronte...  Pass nur auf hier ist");
+        // <platsch>wasserbecken…
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " AH! Ich ertrinke… Bronte ich… Ich… ich kann stehen… Aber meine ganzen Kleider… Tolle Idee von dir…");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh weh, dass tut mir Leid, ich wollte dich gerade warnen. Lass uns schnell zurück ins warme gehen.");
+        // Zurückgehen (Methode)
+        //charaktere.saalon
+        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Oh da kommen Sie! <wenn nicht nass> Haben Sie sie gefunden? <wenn nass> Oh Gott, was ist denn mit Ihnen passiert? ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " <nass> Wir haben leider buchstäblich im Dunklen getappt. Am besten wir erzählen alles am Kamin. <nicht nass>Wir haben Artemis leider noch nicht gefunden, jedoch ihre Spuren. Wir bräuchten nur ein bisschen Licht im Garten. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Licht? Oh, gehen die Laternen schon wieder nicht. Ich verstehe nichts von dieser Technik, aber wirklich zu verlässlich scheint sie mir ja nicht. Aber ich lasse gleich Remington danach sehen. <nass> Aber… Oh sind das etwa Blüten meiner Seerosen! Oh weh. Die sind preisgekrönt! Das wird Monate dauern, die wieder so hinzubekommen. Passen sie doch besser auf! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " T’schuldigung…");
+        // alle zusammen
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Schau mit etwas Licht ist es gleich viel besser. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Und wie. Siehst du die Spuren? ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Mhm einen Moment… Wo würde ich hingehen wenn ich eine Katze wäre?");
+        // Auswahl 
+        // lampe
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Welch beeindruckende Technologie. Schau der Strom kommt über Kabel in der Erde bis hier und schon haben wir Licht! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Spannend… aber sollten wir nicht was anderes machen? ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh… ja vermutlich…");
+        // neustarten 
+        //Wasserbecken 
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Vielleicht ist sie ins Wasser gefallen? ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Ich glaube Katzen halten sich eher fern von Wasser. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Mhm… da hast du wohl recht. Ich kann auch nichts erkennen.");
+        // Hütte --> 
+    }
+    Template.SceneSixGarden = SceneSixGarden;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
     async function SceneThreeSaalon() {
-        await Template.ƒS.Sound.play(Template.sound.themeSaloon, 0.1, true);
         let chooseWeirdPerson = {
             //todo: Pointsystem
             stella: "Stella",
@@ -657,6 +763,7 @@ var Template;
             lie: "Lüge",
             truth: "Erzähle Wahrheit"
         };
+        await Template.ƒS.Sound.play(Template.sound.themeSaloon, 0.1, true);
         await Template.ƒS.Location.show(Template.location.saalon);
         await Template.ƒS.update(Template.transistions.inToOut.duration, Template.transistions.inToOut.alpha, Template.transistions.inToOut.edge);
         await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
@@ -692,7 +799,9 @@ var Template;
         await Template.ƒS.Character.show(Template.charaktere.alaistar, Template.charaktere.alaistar.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.alaistar.positionRightMiddle.x, Template.charaktere.alaistar.positionRightMiddle.y));
         await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Lord Blackburn, die Freude ist ganz unsererseits, vielen Dank für die Einladung zum Abendessen. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, "Meine Schwester hat so von Ihnen geschwärmt, da wollte auch ich Sie kennenlernen. Ein Detektiv ist immer ein interessanter Gast. Auch wenn Ihre Fälle sich sicherlich eher mit verlorenen Schmuckstücken und verlegten Kleidern beschäftigten. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, "Meine Schwester hat so von Ihnen geschwärmt, da wollte auch ich Sie kennenlernen. Ein Detektiv ist immer ein interessanter Gast. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Auch wenn Ihre Fälle sich sicherlich eher mit verlorenen Schmuckstücken und verlegten Kleidern beschäftigten.");
+        await Template.ƒS.Sound.play(Template.sound.alaisterLaugh, 0.6);
         await Template.ƒS.Character.hide(Template.charaktere.alaistar);
         await Template.ƒS.Character.show(Template.charaktere.alaistar, Template.charaktere.alaistar.pose.happy, Template.ƒS.positionPercent(Template.charaktere.alaistar.positionRightMiddle.x, Template.charaktere.alaistar.positionRightMiddle.y));
         await Template.ƒS.update(0.4);
@@ -753,7 +862,9 @@ var Template;
         await Template.ƒS.update(0.8);
         await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
         await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Was für… Charaktere. Ich hätte mich wirklich besser anziehen sollen. Aber selbst mein bestes Kleid würde neben Lady Stella wie ein Putzlappen wirken. Aber… findest du nicht auch, dass einer der drei merkwürdig ist?");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Was für… Charaktere. Ich hätte mich wirklich besser anziehen sollen. Aber selbst mein bestes Kleid würde neben Lady Stella wie ein Putzlappen wirken. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, "Aber… findest du nicht auch, dass einer der drei merkwürdig ist?");
+        // todo: Point detectiv 
         let weirdPersonDecision = await Template.ƒS.Menu.getInput(chooseWeirdPerson, "basicChoice");
         switch (weirdPersonDecision) {
             case chooseWeirdPerson.stella:
@@ -837,9 +948,10 @@ var Template;
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
                 await Template.ƒS.update(0.8);
-                //todo: sound food
                 await Template.ƒS.Location.show(Template.location.black);
                 await Template.ƒS.update(Template.transistions.inToOut.duration, Template.transistions.inToOut.alpha, Template.transistions.inToOut.edge);
+                await Template.ƒS.Sound.play(Template.sound.dinnerSound, 0.5);
+                await Template.ƒS.Sound.play(Template.sound.waterGlass, 0.1);
                 await Template.ƒS.update(0.8);
                 await Template.ƒS.Location.show(Template.location.saalon);
                 await Template.ƒS.update(Template.transistions.inToOut.duration, Template.transistions.inToOut.alpha, Template.transistions.inToOut.edge);
@@ -874,6 +986,7 @@ var Template;
                 await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Wirklich sehr beeindruckend Maire.");
                 break;
             case chooseHaggis.truth:
+                Template.dataForSave.mairePuked = true;
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Der Paunch – Magen eines Schafes – wird mit Herz, Niere, Leber und anderen Innereien gefüllt. Und das ergibt dann eine Art Wurst. Sehr lecker eigentlich, wenn auch ungewöhnlich. ");
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
                 await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
@@ -885,6 +998,8 @@ var Template;
                 await Template.ƒS.update(0.8);
                 await Template.ƒS.Location.show(Template.location.black);
                 await Template.ƒS.update(Template.transistions.inToOut.duration, Template.transistions.inToOut.alpha, Template.transistions.inToOut.edge);
+                await Template.ƒS.Sound.play(Template.sound.dinnerSound, 0.5);
+                await Template.ƒS.Sound.play(Template.sound.waterGlass, 0.1);
                 await Template.ƒS.update(0.8);
                 await Template.ƒS.Location.show(Template.location.saalon);
                 await Template.ƒS.update(Template.transistions.inToOut.duration, Template.transistions.inToOut.alpha, Template.transistions.inToOut.edge);
@@ -999,6 +1114,7 @@ var Template;
         await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.laugh, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
         await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " hihi… nun gut, dass erklärt es natürlich. Ah, der Butler winkt uns herein.");
+        await Template.ƒS.Sound.fade(Template.sound.themeEntrance, 0, 1, false);
         await Template.ƒS.Character.hide(Template.charaktere.maire);
         await Template.ƒS.Character.hide(Template.charaktere.remington);
         await Template.ƒS.Character.hide(Template.charaktere.bronte);

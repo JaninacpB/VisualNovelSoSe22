@@ -103,6 +103,8 @@ namespace Template {
 
         await ƒS.Speech.tell(charaktere.bronte, " hihi… nun gut, dass erklärt es natürlich. Ah, der Butler winkt uns herein.");
 
+        await ƒS.Sound.fade(sound.themeEntrance, 0, 1, false);
+
         await ƒS.Character.hide(charaktere.maire);
         await ƒS.Character.hide(charaktere.remington);
         await ƒS.Character.hide(charaktere.bronte);

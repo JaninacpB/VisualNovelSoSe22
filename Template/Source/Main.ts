@@ -30,7 +30,16 @@ namespace Template {
     dramaInSaloon: "./../../Assets/sounds/classical-piano-peter-tchaikovsky-chant-sans-paroles-opus-40-6-21872.mp3",
 
     //SFX
-    catMeow: "./../../Assets/sounds/cat-meow-6226.mp3"
+    catMeow: "./../../Assets/sounds/cat-meow-6226.mp3",
+
+    goingThrouBushes: "./../../Assets/sounds/fx/shaken-bushes.mp3",
+
+    knockDoor: "./../../Assets/sounds/fx/knockDoor.wav", 
+
+    alaisterLaugh: "./../../Assets/sounds/fx/alaistarLaugh.wav", 
+
+    dinnerSound: "/.//Assets/sounds/fx/dinnerdishesmp3-14762.wav",
+    waterGlass: "/Assets/sounds/fx/water-filled-cup-9901.mp3"
   }
 
   export let location = {
@@ -257,6 +266,7 @@ namespace Template {
     //StoryTracker
     foundRing: false, 
     spiedThroughWindow: false,
+    mairePuked: false,
 
     //Pointsystem
     pointDetectiv: 0, 

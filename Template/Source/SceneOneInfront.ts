@@ -14,8 +14,8 @@ namespace Template {
     //todo: Input einbauen und stylen, gleich auf DataForSave speichern
     // let test = await ƒS.Speech.getInput();
 
-    // return "SceneTwoEntrance"; 
-    // return "SceneFourSaalonDrama";
+    return "SceneThreeSaalon"; 
+    // return "SceneFiveOutside";
 
     await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
 
@@ -97,7 +97,7 @@ namespace Template {
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y))
         await ƒS.update(0.3);
 
-        await ƒS.Sound.fade(sound.themeinfrontManor, 0.3, 1, false); 
+        await ƒS.Sound.play(sound.goingThrouBushes, 1); 
 
         await ƒS.Speech.tell(charaktere.bronte, "Nun lass mal schauen... Oh!");
 
@@ -201,6 +201,9 @@ namespace Template {
       break; 
 
       case chooseCatNoise.knock:
+
+      await ƒS.Sound.play(sound.knockDoor, 1);
+      await ƒS.update(0.4);
 
       await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.neutral, ƒS.positionPercent(50,100))
       await ƒS.update(0.1);
