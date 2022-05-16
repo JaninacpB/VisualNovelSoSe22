@@ -175,6 +175,10 @@ namespace Template {
                 await ƒS.Speech.tell(charaktere.maire, " Hinterher!");
         }
 
+        await ƒS.Character.hide(charaktere.maire);
+        await ƒS.Character.hide(charaktere.bronte);
+        await ƒS.update(0.8); 
+
         return "SceneSixGarden";
     }
 }

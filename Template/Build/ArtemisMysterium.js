@@ -348,7 +348,8 @@ var Template;
             { id: "SceneTwoEntrance", scene: Template.SceneTwoEntrance, name: "SceneTwoEntrance" },
             { id: "SceneThreeSaalon", scene: Template.SceneThreeSaalon, name: "SceneThreeSaalon" },
             { id: "SceneFourSaalonDrama", scene: Template.SceneFourSaalonDrama, name: "SceneFourSaalonDrama" },
-            { id: "SceneFiveOutside", scene: Template.SceneFiveOutside, name: "SceneFiveOutside" }
+            { id: "SceneFiveOutside", scene: Template.SceneFiveOutside, name: "SceneFiveOutside" },
+            { id: "SceneSixGarden", scene: Template.SceneSixGarden, name: "SceneSixGarden" }
             //{id: "EndScreen", scene: EndScreen, name: "EndScreen"}
         ];
         // start the sequence
@@ -606,6 +607,9 @@ var Template;
                 await Template.ƒS.update(0.4);
                 await Template.ƒS.Speech.tell(Template.charaktere.maire, " Hinterher!");
         }
+        await Template.ƒS.Character.hide(Template.charaktere.maire);
+        await Template.ƒS.Character.hide(Template.charaktere.bronte);
+        await Template.ƒS.update(0.8);
         return "SceneSixGarden";
     }
     Template.SceneFiveOutside = SceneFiveOutside;
@@ -623,7 +627,7 @@ var Template;
         //ƒS.Speech.set("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
         //todo: Input einbauen und stylen, gleich auf DataForSave speichern
         // let test = await ƒS.Speech.getInput();
-        return "SceneFiveOutside";
+        return "SceneSixGarden";
         // return "SceneFiveOutside";
         await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
@@ -781,47 +785,87 @@ var Template;
 var Template;
 (function (Template) {
     async function SceneSixGarden() {
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " sie fuhren bis... Oh... Autsch! ");
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " alles okay? Oh man sieht ja die Hand vor Augen nicht. Was machen wir jetzt");
-        //auswahl Untersuchen
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Mhm… vielleicht… ich habe so ein Gefühl hier könnte etwas sein das Hilft. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Pass bloß auf! Bei dieser Dunkelheit ist es leicht sich zu verletzten. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ich bin schon vorsichtig… Autsch! Mhm… vielleicht hast du Recht.");
-        // Unter Auswahl: zurückgehen
-        //weiter untersuchen
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh! Hier! ");
-        //todo: Laterne
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Oh wow! ");
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ein kleines Wunder der Technik. Und sehr praktisch dazu. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Aber weitgeholfen hat uns das noch nicht…");
-        //Ende unter auswahl
-        //Weitergehen 
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " So ein bisschen Dunkelheit wird uns doch nicht aufhalten. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Wenn du meinst Bronte...  Pass nur auf hier ist");
-        // <platsch>wasserbecken…
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " AH! Ich ertrinke… Bronte ich… Ich… ich kann stehen… Aber meine ganzen Kleider… Tolle Idee von dir…");
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh weh, dass tut mir Leid, ich wollte dich gerade warnen. Lass uns schnell zurück ins warme gehen.");
-        // Zurückgehen (Methode)
-        //charaktere.saalon
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Oh da kommen Sie! <wenn nicht nass> Haben Sie sie gefunden? <wenn nass> Oh Gott, was ist denn mit Ihnen passiert? ");
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " <nass> Wir haben leider buchstäblich im Dunklen getappt. Am besten wir erzählen alles am Kamin. <nicht nass>Wir haben Artemis leider noch nicht gefunden, jedoch ihre Spuren. Wir bräuchten nur ein bisschen Licht im Garten. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Licht? Oh, gehen die Laternen schon wieder nicht. Ich verstehe nichts von dieser Technik, aber wirklich zu verlässlich scheint sie mir ja nicht. Aber ich lasse gleich Remington danach sehen. <nass> Aber… Oh sind das etwa Blüten meiner Seerosen! Oh weh. Die sind preisgekrönt! Das wird Monate dauern, die wieder so hinzubekommen. Passen sie doch besser auf! ");
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " T’schuldigung…");
+        let chooseWhatToDoGardenDark = {
+            search: "Untersuchen",
+            goFurther: "Weitergehen",
+            goBack: "Zurückgehen",
+        };
+        let chooseWhatToDoGardenAfterInvestigation = {
+            goBack: "Zurückgehen",
+            searchMore: "Weiter untersuchen"
+        };
+        let chooseWhereWouldCatGo = {
+            lamp: "Lampe",
+            waterpond: "Wasserbecken",
+            cabin: "Hütte"
+        };
+        await Template.ƒS.Location.show(Template.location.gardenDark);
+        await Template.ƒS.update(Template.transistions.inToOut.duration, Template.transistions.inToOut.alpha, Template.transistions.inToOut.edge);
+        await Template.ƒS.Sound.fade(Template.sound.themeinfrontManorNight, 0.1, 0.2, true);
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+        await Template.ƒS.update(0.8);
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Sie führen bis... Oh... Autsch! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, "Alles okay? Oh man sieht ja die Hand vor Augen nicht. Was machen wir jetzt");
+        let userChooseWhatToDoGardenDark = await Template.ƒS.Menu.getInput(chooseWhatToDoGardenDark, "basicChoice");
+        switch (userChooseWhatToDoGardenDark) {
+            case chooseWhatToDoGardenDark.search:
+                //auswahl Untersuchen
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Mhm… vielleicht… ich habe so ein Gefühl hier könnte etwas sein das Hilft. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Pass bloß auf! Bei dieser Dunkelheit ist es leicht sich zu verletzten. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ich bin schon vorsichtig… Autsch! Mhm… vielleicht hast du Recht.");
+                // Unter Auswahl: zurückgehen
+                let userChooseWhatToDoGardenAfterInvestigation = await Template.ƒS.Menu.getInput(chooseWhatToDoGardenAfterInvestigation, "basicChoice");
+                switch (userChooseWhatToDoGardenAfterInvestigation) {
+                    case chooseWhatToDoGardenAfterInvestigation.searchMore:
+                        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh! Hier!");
+                        //todo: Laterne
+                        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Oh wow! ");
+                        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ein kleines Wunder der Technik. Und sehr praktisch dazu. ");
+                        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Aber weitgeholfen hat uns das noch nicht…");
+                        break;
+                    case chooseWhatToDoGardenAfterInvestigation.goBack:
+                        goBack();
+                        break;
+                }
+                break;
+            case chooseWhatToDoGardenDark.goFurther:
+                //Weitergehen 
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " So ein bisschen Dunkelheit wird uns doch nicht aufhalten. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Wenn du meinst Bronte...  Pass nur auf hier ist");
+                // <platsch>wasserbecken…
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " AH! Ich ertrinke… Bronte ich… Ich… ich kann stehen… Aber meine ganzen Kleider… Tolle Idee von dir…");
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh weh, dass tut mir Leid, ich wollte dich gerade warnen. Lass uns schnell zurück ins warme gehen.");
+                break;
+            case chooseWhatToDoGardenDark.goBack:
+                // Zurückgehen (Methode)
+                goBack();
+                break;
+        }
         // alle zusammen
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Schau mit etwas Licht ist es gleich viel besser. ");
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Und wie. Siehst du die Spuren? ");
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Mhm einen Moment… Wo würde ich hingehen wenn ich eine Katze wäre?");
         // Auswahl 
-        // lampe
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Welch beeindruckende Technologie. Schau der Strom kommt über Kabel in der Erde bis hier und schon haben wir Licht! ");
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Spannend… aber sollten wir nicht was anderes machen? ");
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh… ja vermutlich…");
-        // neustarten 
-        //Wasserbecken 
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Vielleicht ist sie ins Wasser gefallen? ");
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Ich glaube Katzen halten sich eher fern von Wasser. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Mhm… da hast du wohl recht. Ich kann auch nichts erkennen.");
-        // Hütte --> 
+        let userchooseWhereWouldCatGo = await Template.ƒS.Menu.getInput(chooseWhereWouldCatGo, "basicChoice");
+        switch (userchooseWhereWouldCatGo) {
+            case chooseWhereWouldCatGo.lamp:
+                // lampe
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Welch beeindruckende Technologie. Schau der Strom kommt über Kabel in der Erde bis hier und schon haben wir Licht! ");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Spannend… aber sollten wir nicht was anderes machen? ");
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh… ja vermutlich…");
+                // todo: neustarten 
+                break;
+            case chooseWhereWouldCatGo.waterpond:
+                //Wasserbecken 
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Vielleicht ist sie ins Wasser gefallen? ");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Ich glaube Katzen halten sich eher fern von Wasser. ");
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Mhm… da hast du wohl recht. Ich kann auch nichts erkennen.");
+                break;
+            case chooseWhereWouldCatGo.cabin:
+                // todo: return
+                break;
+        }
     }
     Template.SceneSixGarden = SceneSixGarden;
 })(Template || (Template = {}));
