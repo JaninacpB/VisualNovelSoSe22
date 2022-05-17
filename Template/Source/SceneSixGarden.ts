@@ -32,55 +32,65 @@ namespace Template {
 		await ƒS.Speech.tell(charaktere.bronte, "Sie führen bis... Oh... Autsch! ");
 		await ƒS.Speech.tell(charaktere.maire, "Alles okay? Oh man sieht ja die Hand vor Augen nicht. Was machen wir jetzt");
 
-		let userChooseWhatToDoGardenDark = await ƒS.Menu.getInput(chooseWhatToDoGardenDark, "basicChoice");
-		switch (userChooseWhatToDoGardenDark) {
-			case chooseWhatToDoGardenDark.search:
-				//auswahl Untersuchen
-				await ƒS.Speech.tell(charaktere.bronte, " Mhm… vielleicht… ich habe so ein Gefühl hier könnte etwas sein das Hilft. ");
-				await ƒS.Speech.tell(charaktere.maire, " Pass bloß auf! Bei dieser Dunkelheit ist es leicht sich zu verletzten. ");
-				await ƒS.Speech.tell(charaktere.bronte, " Ich bin schon vorsichtig… Autsch! Mhm… vielleicht hast du Recht.");
+		while (true) {
 
+			let userChooseWhatToDoGardenDark = await ƒS.Menu.getInput(chooseWhatToDoGardenDark, "basicChoice");
+			switch (userChooseWhatToDoGardenDark) {
+				case chooseWhatToDoGardenDark.search:
+					//auswahl Untersuchen
+					await ƒS.Speech.tell(charaktere.bronte, " Mhm… vielleicht… ich habe so ein Gefühl hier könnte etwas sein das Hilft. ");
+					await ƒS.Speech.tell(charaktere.maire, " Pass bloß auf! Bei dieser Dunkelheit ist es leicht sich zu verletzten. ");
+					await ƒS.Speech.tell(charaktere.bronte, " Ich bin schon vorsichtig… Autsch! Mhm… vielleicht hast du Recht.");
 
-				// Unter Auswahl: zurückgehen
+					// ausblenden 
+					chooseWhatToDoGardenDark.search = null; 
+
+					// Unter Auswahl: zurückgehen
+					//todo: hä?
 				let userChooseWhatToDoGardenAfterInvestigation = await ƒS.Menu.getInput(chooseWhatToDoGardenAfterInvestigation, "basicChoice");
-				switch (userChooseWhatToDoGardenAfterInvestigation) {
-					case chooseWhatToDoGardenAfterInvestigation.searchMore:
+					switch (userChooseWhatToDoGardenAfterInvestigation) {
+						case chooseWhatToDoGardenAfterInvestigation.searchMore:
 
-						await ƒS.Speech.tell(charaktere.bronte, " Oh! Hier!");
-						//todo: Laterne
-						await ƒS.Speech.tell(charaktere.maire, " Oh wow! ");
-						await ƒS.Speech.tell(charaktere.bronte, " Ein kleines Wunder der Technik. Und sehr praktisch dazu. ");
-						await ƒS.Speech.tell(charaktere.maire, " Aber weitgeholfen hat uns das noch nicht…");
+							await ƒS.Speech.tell(charaktere.bronte, " Oh! Hier!");
+							//todo: Laterne
+							await ƒS.Speech.tell(charaktere.maire, " Oh wow! ");
+							await ƒS.Speech.tell(charaktere.bronte, " Ein kleines Wunder der Technik. Und sehr praktisch dazu. ");
+							await ƒS.Speech.tell(charaktere.maire, " Aber weitgeholfen hat uns das noch nicht…");
 
 
-						break;
-					case chooseWhatToDoGardenAfterInvestigation.goBack:
 
-						goBack();
+							break;
+						case chooseWhatToDoGardenAfterInvestigation.goBack:
 
-						break;
+							goBack();
 
-				}
+							break;
 
-				break;
+					}
 
-			case chooseWhatToDoGardenDark.goFurther:
-				//Weitergehen 
-				await ƒS.Speech.tell(charaktere.bronte, " So ein bisschen Dunkelheit wird uns doch nicht aufhalten. ");
-				await ƒS.Speech.tell(charaktere.maire, " Wenn du meinst Bronte...  Pass nur auf hier ist");
-				// <platsch>wasserbecken…
-				await ƒS.Speech.tell(charaktere.maire, " AH! Ich ertrinke… Bronte ich… Ich… ich kann stehen… Aber meine ganzen Kleider… Tolle Idee von dir…");
-				await ƒS.Speech.tell(charaktere.bronte, " Oh weh, dass tut mir Leid, ich wollte dich gerade warnen. Lass uns schnell zurück ins warme gehen.");
-				break;
+					break;
 
-			case chooseWhatToDoGardenDark.goBack:
+				case chooseWhatToDoGardenDark.goFurther:
+					//Weitergehen 
+					await ƒS.Speech.tell(charaktere.bronte, " So ein bisschen Dunkelheit wird uns doch nicht aufhalten. ");
+					await ƒS.Speech.tell(charaktere.maire, " Wenn du meinst Bronte...  Pass nur auf hier ist");
+					// <platsch>wasserbecken…
+					await ƒS.Speech.tell(charaktere.maire, " AH! Ich ertrinke… Bronte ich… Ich… ich kann stehen… Aber meine ganzen Kleider… Tolle Idee von dir…");
+					await ƒS.Speech.tell(charaktere.bronte, " Oh weh, dass tut mir Leid, ich wollte dich gerade warnen. Lass uns schnell zurück ins warme gehen.");
+					break;
 
-				// Zurückgehen (Methode)
+				case chooseWhatToDoGardenDark.goBack:
 
-				goBack();
+					// Zurückgehen (Methode)
 
-				break;
+					goBack();
+
+					break;
+			}
+
 		}
+
+
 
 		// alle zusammen
 		await ƒS.Speech.tell(charaktere.bronte, " Schau mit etwas Licht ist es gleich viel besser. ");
@@ -118,7 +128,25 @@ namespace Template {
 
 		}
 
+		async function goBack(): Promise<void> {
 
+			//Saalon anzeigen
+			await ƒS.Speech.tell(charaktere.grace, " Oh da kommen Sie! ");
 
+			if (dataForSave.maireFellInPond) {
+				await ƒS.Speech.tell(charaktere.grace, "Oh Gott, was ist denn mit Ihnen passiert?");
+				await ƒS.Speech.tell(charaktere.bronte, "Wir haben leider buchstäblich im Dunklen getappt. Am besten wir erzählen alles am Kamin. ");
+				// fade to black
+				//todo: Minus Punkte Grace
+				await ƒS.Speech.tell(charaktere.grace, "Aber… Oh sind das etwa Blüten meiner Seerosen! Oh weh. Die sind preisgekrönt! Das wird Monate dauern, die wieder so hinzubekommen. Passen sie doch besser auf! ");
+			} else {
+				await ƒS.Speech.tell(charaktere.grace, "Haben Sie sie gefunden?");
+				await ƒS.Speech.tell(charaktere.bronte, "Wir haben Artemis leider noch nicht gefunden, jedoch ihre Spuren. Wir bräuchten nur ein bisschen Licht im Garten.");
+				await ƒS.Speech.tell(charaktere.grace, " Licht? Oh, gehen die Laternen schon wieder nicht. Ich verstehe nichts von dieser Technik, aber wirklich zu verlässlich scheint sie mir ja nicht.");
+				await ƒS.Speech.tell(charaktere.grace, " Aber ich lasse gleich Remington danach sehen. ");
+			}
+			await ƒS.Speech.tell(charaktere.bronte, " Okay, ich denke wir können unsere Investigation fortsetzen. Lass uns gehen!");
+
+		}
 	}
 }

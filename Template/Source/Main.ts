@@ -268,6 +268,7 @@ namespace Template {
     foundRing: false, 
     spiedThroughWindow: false,
     mairePuked: false,
+    maireFellInPond: false,
 
     //Pointsystem
     pointDetectiv: 0, 
