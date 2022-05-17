@@ -10,6 +10,7 @@ namespace Template {
         //todo am ende kann location einblenden weg
         await ƒS.Location.show(location.saalon);
         await ƒS.update(0.1);
+        //
 
         await ƒS.Sound.fade(sound.themeSaloon, 0, 0.3);
         await ƒS.Sound.play(sound.dramaInSaloon, 0.1, true);

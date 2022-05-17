@@ -7,5 +7,7 @@ namespace Template {
         //todo: Music? 
 		await ƒS.Sound.fade(sound.themeinfrontManorNight, 0.1, 0.2, true);
 
+        
+
     }
 }

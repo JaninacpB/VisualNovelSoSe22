@@ -369,6 +369,7 @@ var Template;
         //todo am ende kann location einblenden weg
         await Template.ƒS.Location.show(Template.location.saalon);
         await Template.ƒS.update(0.1);
+        //
         await Template.ƒS.Sound.fade(Template.sound.themeSaloon, 0, 0.3);
         await Template.ƒS.Sound.play(Template.sound.dramaInSaloon, 0.1, true);
         //todo: add hide für issac, bronte, maire
@@ -629,7 +630,7 @@ var Template;
         //ƒS.Speech.set("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
         //todo: Input einbauen und stylen, gleich auf DataForSave speichern
         // let test = await ƒS.Speech.getInput();
-        return "SceneSixGarden";
+        return "SceneSevenCabin";
         // return "SceneFiveOutside";
         await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
@@ -980,7 +981,7 @@ var Template;
                 await Template.ƒS.update(Template.transistions.inToOut.duration, Template.transistions.inToOut.alpha, Template.transistions.inToOut.edge);
                 await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.Character.show(Template.charaktere.grace, Template.charaktere.grace.pose.think, Template.ƒS.positionPercent(Template.charaktere.grace.positionStandard.x, Template.charaktere.grace.positionStandard.y));
-                await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+                await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.sad, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.8);
                 await Template.ƒS.Character.hide(Template.charaktere.grace);
                 await Template.ƒS.Character.show(Template.charaktere.grace, Template.charaktere.grace.pose.angry, Template.ƒS.positionPercent(Template.charaktere.grace.positionStandard.x, Template.charaktere.grace.positionStandard.y));
@@ -1007,11 +1008,6 @@ var Template;
                 await Template.ƒS.update(0.4);
                 await Template.ƒS.Speech.tell(Template.charaktere.grace, " Aber ich lasse gleich Remington danach sehen. ");
             }
-            await Template.ƒS.Character.hide(Template.charaktere.maire);
-            await Template.ƒS.Character.hide(Template.charaktere.bronte);
-            await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.happy, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
-            await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
-            await Template.ƒS.update(0.4);
             await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Okay, ich denke wir können unsere Investigation fortsetzen. Lass uns gehen!");
             await Template.ƒS.Character.hide(Template.charaktere.maire);
             await Template.ƒS.Character.hide(Template.charaktere.grace);

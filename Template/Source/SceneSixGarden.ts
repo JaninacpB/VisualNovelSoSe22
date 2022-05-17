@@ -251,15 +251,15 @@ namespace Template {
 
 				await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
 				await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.think, ƒS.positionPercent(charaktere.grace.positionStandard.x, charaktere.grace.positionStandard.y));
-				await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
+				await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
 				await ƒS.update(0.8);
-				
 
 				await ƒS.Character.hide(charaktere.grace);
 				await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.angry, ƒS.positionPercent(charaktere.grace.positionStandard.x, charaktere.grace.positionStandard.y));
 				await ƒS.update(0.4);
 				//todo: Minus Punkte Grace		
 				await ƒS.Speech.tell(charaktere.grace, "Aber… Oh sind das etwa Blüten meiner Seerosen! Oh weh. Die sind preisgekrönt! Das wird Monate dauern, die wieder so hinzubekommen. Passen sie doch besser auf! ");
+			
 			} else {
 				await ƒS.Speech.tell(charaktere.grace, "Haben Sie sie gefunden?");
 
@@ -286,19 +286,12 @@ namespace Template {
 				await ƒS.Speech.tell(charaktere.grace, " Aber ich lasse gleich Remington danach sehen. ");
 			}
 
-			await ƒS.Character.hide(charaktere.maire);
-			await ƒS.Character.hide(charaktere.bronte);
-			await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.happy, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
-			await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
-			await ƒS.update(0.4);
-
 			await ƒS.Speech.tell(charaktere.bronte, " Okay, ich denke wir können unsere Investigation fortsetzen. Lass uns gehen!");
 
 			await ƒS.Character.hide(charaktere.maire);
 			await ƒS.Character.hide(charaktere.grace);
 			await ƒS.Character.hide(charaktere.bronte);
 			await ƒS.update(0.8);
-
 
 			await ƒS.Location.show(location.gardenLight);
 			await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
