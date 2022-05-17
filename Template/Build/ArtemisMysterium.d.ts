@@ -229,6 +229,9 @@ declare namespace Template {
     function SceneOneInfront(): ƒS.SceneReturn;
 }
 declare namespace Template {
+    function SceneSevenCabin(): ƒS.SceneReturn;
+}
+declare namespace Template {
     function SceneSixGarden(): ƒS.SceneReturn;
 }
 declare namespace Template {

@@ -349,7 +349,8 @@ var Template;
             { id: "SceneThreeSaalon", scene: Template.SceneThreeSaalon, name: "SceneThreeSaalon" },
             { id: "SceneFourSaalonDrama", scene: Template.SceneFourSaalonDrama, name: "SceneFourSaalonDrama" },
             { id: "SceneFiveOutside", scene: Template.SceneFiveOutside, name: "SceneFiveOutside" },
-            { id: "SceneSixGarden", scene: Template.SceneSixGarden, name: "SceneSixGarden" }
+            { id: "SceneSixGarden", scene: Template.SceneSixGarden, name: "SceneSixGarden" },
+            { id: "SceneSevenCabin", scene: Template.SceneSevenCabin, name: "SceneSevenCabin" }
             //{id: "EndScreen", scene: EndScreen, name: "EndScreen"}
         ];
         // start the sequence
@@ -781,6 +782,16 @@ var Template;
         return "SceneTwoEntrance";
     }
     Template.SceneOneInfront = SceneOneInfront;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function SceneSevenCabin() {
+        await Template.ƒS.Location.show(Template.location.cabin);
+        await Template.ƒS.update(Template.transistions.inToOut.duration, Template.transistions.inToOut.alpha, Template.transistions.inToOut.edge);
+        //todo: Music? 
+        await Template.ƒS.Sound.fade(Template.sound.themeinfrontManorNight, 0.1, 0.2, true);
+    }
+    Template.SceneSevenCabin = SceneSevenCabin;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
