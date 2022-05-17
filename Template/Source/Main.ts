@@ -394,7 +394,8 @@ namespace Template {
       {id: "SceneThreeSaalon", scene: SceneThreeSaalon, name: "SceneThreeSaalon"},
       {id: "SceneFourSaalonDrama", scene: SceneFourSaalonDrama, name:"SceneFourSaalonDrama"},
       {id: "SceneFiveOutside", scene: SceneFiveOutside, name: "SceneFiveOutside"},
-      {id: "SceneSixGarden", scene: SceneSixGarden, name: "SceneSixGarden"}
+      {id: "SceneSixGarden", scene: SceneSixGarden, name: "SceneSixGarden"},
+      {id: "SceneSevenCabin", scene: SceneSevenCabin, name: "SceneSevenCabin"}
       
       //{id: "EndScreen", scene: EndScreen, name: "EndScreen"}
     ];
