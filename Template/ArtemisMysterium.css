@@ -59,6 +59,10 @@ button {
   height: 110px;
 }
 
+button:empty {
+  display: none;
+}
+
 button:hover {
   filter: grayscale(100);
 }

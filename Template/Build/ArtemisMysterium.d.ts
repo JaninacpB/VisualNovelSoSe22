@@ -210,6 +210,7 @@ declare namespace Template {
         foundRing: boolean;
         spiedThroughWindow: boolean;
         mairePuked: boolean;
+        maireFellInPond: boolean;
         pointDetectiv: number;
         pointFriend: number;
         pointAngryGrace: number;
