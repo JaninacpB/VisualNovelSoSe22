@@ -208,13 +208,13 @@ var Template;
         ring: {
             name: "Ring",
             description: "Ein Siegelring mit den Initalien O.R., im Busch vor dem Manor gefunden.",
-            image: "./../../Assets/achievment/Achivment-cat_001.png",
+            image: "./../../Assets/item/ring.png",
             static: true
         },
         cat: {
-            name: "angryMaire",
-            description: " Don't get angry",
-            image: "./../../Assets/achievment/Achivment-angryMaire.png",
+            name: "Halsband",
+            description: "Ein Halsband für eine Katze oder Hund. ",
+            image: "./../../Assets/item/halsbandReal.png",
             static: true
         }
     };
@@ -245,6 +245,7 @@ var Template;
         spiedThroughWindow: false,
         mairePuked: false,
         maireFellInPond: false,
+        maireHurtHerselfInCabin: false,
         //Pointsystem
         pointDetectiv: 0,
         pointFriend: 0,
@@ -256,8 +257,8 @@ var Template;
     // Menü 
     function showCredits() {
         Template.ƒS.Text.addClass("credit");
-        Template.ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com <br> <b> Tester:</b> XXX");
-        //todo: Tester
+        Template.ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder <br> <b> Tester:</b> XXX");
+        //todo: Tester Und Musik ergänzen
     }
     Template.showCredits = showCredits;
     let inGameMenuButtons = {
@@ -351,7 +352,8 @@ var Template;
             { id: "SceneFourSaalonDrama", scene: Template.SceneFourSaalonDrama, name: "SceneFourSaalonDrama" },
             { id: "SceneFiveOutside", scene: Template.SceneFiveOutside, name: "SceneFiveOutside" },
             { id: "SceneSixGarden", scene: Template.SceneSixGarden, name: "SceneSixGarden" },
-            { id: "SceneSevenCabin", scene: Template.SceneSevenCabin, name: "SceneSevenCabin" }
+            { id: "SceneSevenCabin", scene: Template.SceneSevenCabin, name: "SceneSevenCabin" },
+            { id: "SceneEightSaalonInterview", scene: Template.SceneEightSaalonInterview, name: "SceneEightSaalonInterview" }
             //{id: "EndScreen", scene: EndScreen, name: "EndScreen"}
         ];
         // start the sequence
@@ -483,6 +485,36 @@ var Template;
         return "SceneFiveOutside";
     }
     Template.SceneFourSaalonDrama = SceneFourSaalonDrama;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function SceneEightSaalonInterview() {
+        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Da kommen sie ja schon… ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Was ist passiert? ");
+        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Ja uns geht es gut. Die gute Stella hat sich nur erschreckt. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.stella, " … ");
+        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Sie hat wohl draußen einen Baum gesehen, der sie erschreckt hat oder so. Ein wenig hysterisch die Gute. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.stella, " … ");
+        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Wie sind ihre „Ermittlungen“ vorangekommen. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Gut. Wir haben ein Hinweis auf den Verbleib der Katze gefunden. Sie ist");
+        //Auswahl
+        //Dunkel ins Wasser 
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Aufgrund der Dunkelheit vor dem Manor ins Wasser gefallen.");
+        await wrongAssumptionBronteFirstChoice();
+        //in die hütte eingebrochen    
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "   In die Gartenhütte eingebrochen!");
+        await wrongAssumptionBronteFirstChoice();
+        //in die hütte einsperrt 
+        //Auswahl Halsband geben ja nein 
+        //Auswahl Ende Halsband 
+        //AUSWAHL ENDE 
+        //Wenn Dialog in zwei Auswahlen sich wiederholt
+        async function wrongAssumptionBronteFirstChoice() {
+            await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " … Das ist ein Witz, richtig? ");
+            await Template.ƒS.Speech.tell(Template.charaktere.maire, " Oh ja… Bronte erzähl was wirklich passiert ist du Scherzkeks.");
+        }
+    }
+    Template.SceneEightSaalonInterview = SceneEightSaalonInterview;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -631,7 +663,7 @@ var Template;
         //todo: Input einbauen und stylen, gleich auf DataForSave speichern
         // let test = await ƒS.Speech.getInput();
         return "SceneSevenCabin";
-        // return "SceneFiveOutside";
+        //return "SceneFiveOutside";
         await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
         await Template.ƒS.update(Template.transistions.wallpaper.duration, Template.transistions.wallpaper.alpha, Template.transistions.wallpaper.edge);
@@ -792,6 +824,26 @@ var Template;
         await Template.ƒS.update(Template.transistions.inToOut.duration, Template.transistions.inToOut.alpha, Template.transistions.inToOut.edge);
         //todo: Music? 
         await Template.ƒS.Sound.fade(Template.sound.themeinfrontManorNight, 0.1, 0.2, true);
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Schau eine Säule steht vor der Hütte! ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Und die Spuren führen eindeutig hierher. Vermutlich ist sie eingesperrt. Ein Moment… So jetzt sollte sie aufgehen. Mhm… Schaufeln, Eimer und weitere Gartengeräte. Aber keine Katze. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Schau! Dort. Die Dachluke ist ein Stück offen und dort hängt etwas dran. Wir sollten versuchen ranzukommen!");
+        //Auswahl Wie in Hütte kommen 
+        // Selber
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Ein Moment das habe ich gleich! Perfekt. Gutes Auge Maire! Das ist ein Halsband.");
+        //Maire machen lassen: 
+        //todo: Freundschaft Minus
+        Template.dataForSave.maireHurtHerselfInCabin = true;
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Versuch hochzuklettern. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Okay… ich… autsch! Mein Knöchel! Aber hier… ein Halsband. ");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " (Oh weh, Maire scheint sich wirklich verletzt zu haben. Ich sollte netter zu ihr sein in nächster Zeit)");
+        // Ende auswahl
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Hier ist eine Inschrift drauf. Artemis. Mhm… es fühlt sich an als wäre hier noch was drunter-  ");
+        //todo: SCHREI 
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " !!! Das kam vom Haus! Schnell Maire!");
+        if (Template.dataForSave.maireHurtHerselfInCabin) {
+            await Template.ƒS.Speech.tell(Template.charaktere.maire, " Ich komme… mein Knöchel… Au… Au… Au… ");
+        }
+        return "SceneEightSaalonInterview";
     }
     Template.SceneSevenCabin = SceneSevenCabin;
 })(Template || (Template = {}));

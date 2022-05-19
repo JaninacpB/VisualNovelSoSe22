@@ -227,14 +227,14 @@ namespace Template {
     ring: {
         name: "Ring", 
         description: "Ein Siegelring mit den Initalien O.R., im Busch vor dem Manor gefunden.",
-        image: "./../../Assets/achievment/Achivment-cat_001.png",
+        image: "./../../Assets/item/ring.png",
         static: true
     },
 
     cat: {
-        name: "angryMaire", 
-        description: " Don't get angry",
-        image: "./../../Assets/achievment/Achivment-angryMaire.png",
+        name: "Halsband", 
+        description: "Ein Halsband für eine Katze oder Hund. ",
+        image: "./../../Assets/item/halsbandReal.png",
         static: true
     }
 
@@ -269,6 +269,7 @@ namespace Template {
     spiedThroughWindow: false,
     mairePuked: false,
     maireFellInPond: false,
+    maireHurtHerselfInCabin: false, 
 
     //Pointsystem
     pointDetectiv: 0, 
@@ -284,8 +285,9 @@ namespace Template {
 
   export function showCredits(): void {
     ƒS.Text.addClass("credit");
-    ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com <br> <b> Tester:</b> XXX");
-    //todo: Tester
+    ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder <br> <b> Tester:</b> XXX");
+    //todo: Tester Und Musik ergänzen
+
 
   }
 
@@ -396,7 +398,8 @@ namespace Template {
       {id: "SceneFourSaalonDrama", scene: SceneFourSaalonDrama, name:"SceneFourSaalonDrama"},
       {id: "SceneFiveOutside", scene: SceneFiveOutside, name: "SceneFiveOutside"},
       {id: "SceneSixGarden", scene: SceneSixGarden, name: "SceneSixGarden"},
-      {id: "SceneSevenCabin", scene: SceneSevenCabin, name: "SceneSevenCabin"}
+      {id: "SceneSevenCabin", scene: SceneSevenCabin, name: "SceneSevenCabin"},
+      {id: "SceneEightSaalonInterview", scene: SceneEightSaalonInterview, name: "SceneEightSaalonInterview"}
       
       //{id: "EndScreen", scene: EndScreen, name: "EndScreen"}
     ];

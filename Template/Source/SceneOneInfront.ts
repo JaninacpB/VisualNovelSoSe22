@@ -15,7 +15,7 @@ namespace Template {
     // let test = await ƒS.Speech.getInput();
 
     return "SceneSevenCabin"; 
-    // return "SceneFiveOutside";
+    //return "SceneFiveOutside";
 
     await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
 

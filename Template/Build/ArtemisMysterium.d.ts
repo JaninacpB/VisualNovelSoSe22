@@ -211,6 +211,7 @@ declare namespace Template {
         spiedThroughWindow: boolean;
         mairePuked: boolean;
         maireFellInPond: boolean;
+        maireHurtHerselfInCabin: boolean;
         pointDetectiv: number;
         pointFriend: number;
         pointAngryGrace: number;
@@ -222,6 +223,9 @@ declare namespace Template {
 }
 declare namespace Template {
     function SceneFourSaalonDrama(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function SceneEightSaalonInterview(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function SceneFiveOutside(): ƒS.SceneReturn;
