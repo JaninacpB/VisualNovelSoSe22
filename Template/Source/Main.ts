@@ -30,6 +30,8 @@ namespace Template {
 
     dramaInSaloon: "./../../Assets/sounds/classical-piano-peter-tchaikovsky-chant-sans-paroles-opus-40-6-21872.mp3",
 
+    saloonAfterScrem : "./../../Assets/sounds/frederic-chopin-nocturne-21-classical-remix-7611.mp3",
+
     //SFX
     catMeow: "./../../Assets/sounds/cat-meow-6226.mp3",
 

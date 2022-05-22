@@ -34,6 +34,7 @@ var Template;
         themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
         themeSaloon: "./../../Assets/sounds/peter-tchaikovsky-march-from-nutcracker-classical-remix-7691.mp3",
         dramaInSaloon: "./../../Assets/sounds/classical-piano-peter-tchaikovsky-chant-sans-paroles-opus-40-6-21872.mp3",
+        saloonAfterScrem: "./../../Assets/sounds/frederic-chopin-nocturne-21-classical-remix-7611.mp3",
         //SFX
         catMeow: "./../../Assets/sounds/cat-meow-6226.mp3",
         goingThrouBushes: "./../../Assets/sounds/fx/shaken-bushes.mp3",
@@ -489,6 +490,12 @@ var Template;
 var Template;
 (function (Template) {
     async function SceneEightSaalonInterview() {
+        await Template.ƒS.Location.show(Template.location.saalon);
+        await Template.ƒS.update(Template.transistions.inToOut.duration, Template.transistions.inToOut.alpha, Template.transistions.inToOut.edge);
+        await Template.ƒS.Sound.fade(Template.sound.saloonAfterScrem, 0.1, 0.2, true);
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+        await Template.ƒS.update(0.8);
         await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Da kommen sie ja schon… ");
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Was ist passiert? ");
         await Template.ƒS.Speech.tell(Template.charaktere.grace, " Ja uns geht es gut. Die gute Stella hat sich nur erschreckt. ");
@@ -697,7 +704,7 @@ var Template;
         //ƒS.Speech.set("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
         //todo: Input einbauen und stylen, gleich auf DataForSave speichern
         // let test = await ƒS.Speech.getInput();
-        return "SceneSevenCabin";
+        return "SceneEightSaalonInterview";
         //return "SceneFiveOutside";
         await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
@@ -858,26 +865,83 @@ var Template;
         await Template.ƒS.Location.show(Template.location.cabin);
         await Template.ƒS.update(Template.transistions.inToOut.duration, Template.transistions.inToOut.alpha, Template.transistions.inToOut.edge);
         //todo: Music? 
+        let chooseHowToGetToRoof = {
+            maire: "Maire machen lassen",
+            bronte: "Selber machen"
+        };
+        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+        await Template.ƒS.update(0.8);
         await Template.ƒS.Sound.fade(Template.sound.themeinfrontManorNight, 0.1, 0.2, true);
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Schau eine Säule steht vor der Hütte! ");
+        await Template.ƒS.Character.hide(Template.charaktere.bronte);
+        await Template.ƒS.Character.hide(Template.charaktere.maire);
+        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.happy, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+        await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Und die Spuren führen eindeutig hierher. Vermutlich ist sie eingesperrt. Ein Moment… So jetzt sollte sie aufgehen. Mhm… Schaufeln, Eimer und weitere Gartengeräte. Aber keine Katze. ");
+        await Template.ƒS.Character.hide(Template.charaktere.bronte);
+        await Template.ƒS.Character.hide(Template.charaktere.maire);
+        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+        await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Schau! Dort. Die Dachluke ist ein Stück offen und dort hängt etwas dran. Wir sollten versuchen ranzukommen!");
         //Auswahl Wie in Hütte kommen 
         // Selber
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Ein Moment das habe ich gleich! Perfekt. Gutes Auge Maire! Das ist ein Halsband.");
-        //Maire machen lassen: 
-        //todo: Freundschaft Minus
-        Template.dataForSave.maireHurtHerselfInCabin = true;
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Versuch hochzuklettern. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Okay… ich… autsch! Mein Knöchel! Aber hier… ein Halsband. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " (Oh weh, Maire scheint sich wirklich verletzt zu haben. Ich sollte netter zu ihr sein in nächster Zeit)");
-        // Ende auswahl
+        let userChooseHowToGetToRoof = await Template.ƒS.Menu.getInput(chooseHowToGetToRoof, "basicChoice");
+        switch (userChooseHowToGetToRoof) {
+            case chooseHowToGetToRoof.bronte:
+                await Template.ƒS.Character.hide(Template.charaktere.bronte);
+                await Template.ƒS.Character.hide(Template.charaktere.maire);
+                await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+                await Template.ƒS.update(0.4);
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Ein Moment das habe ich gleich! Perfekt. Gutes Auge Maire! Das ist ein Halsband.");
+                //todo: öffne inventory
+                break;
+            case chooseHowToGetToRoof.maire:
+                //Maire machen lassen: 
+                //todo: Freundschaft Minus
+                Template.dataForSave.maireHurtHerselfInCabin = true;
+                await Template.ƒS.Character.hide(Template.charaktere.bronte);
+                await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+                await Template.ƒS.update(0.4);
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Versuch hochzuklettern. ");
+                await Template.ƒS.Character.hide(Template.charaktere.maire);
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.embarrassed, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+                await Template.ƒS.update(0.4);
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Okay… ich… autsch! Mein Knöchel! Aber hier… ein Halsband. ");
+                // todo: Inventory öffnen
+                await Template.ƒS.Character.hide(Template.charaktere.bronte);
+                await Template.ƒS.Character.hide(Template.charaktere.maire);
+                await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.sad, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+                await Template.ƒS.update(0.4);
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " (Oh weh, Maire scheint sich wirklich verletzt zu haben. Ich sollte netter zu ihr sein in nächster Zeit)");
+                break;
+        }
+        await Template.ƒS.Character.hide(Template.charaktere.bronte);
+        await Template.ƒS.Character.hide(Template.charaktere.maire);
+        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+        await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Hier ist eine Inschrift drauf. Artemis. Mhm… es fühlt sich an als wäre hier noch was drunter-  ");
         //todo: SCHREI 
+        await Template.ƒS.Character.hide(Template.charaktere.bronte);
+        await Template.ƒS.Character.hide(Template.charaktere.maire);
+        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.shout, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+        await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " !!! Das kam vom Haus! Schnell Maire!");
         if (Template.dataForSave.maireHurtHerselfInCabin) {
+            await Template.ƒS.Character.hide(Template.charaktere.maire);
+            await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+            await Template.ƒS.update(0.4);
             await Template.ƒS.Speech.tell(Template.charaktere.maire, " Ich komme… mein Knöchel… Au… Au… Au… ");
         }
+        await Template.ƒS.Character.hide(Template.charaktere.bronte);
+        await Template.ƒS.Character.hide(Template.charaktere.maire);
+        await Template.ƒS.update(0.8);
         return "SceneEightSaalonInterview";
     }
     Template.SceneSevenCabin = SceneSevenCabin;

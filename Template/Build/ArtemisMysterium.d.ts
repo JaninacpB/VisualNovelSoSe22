@@ -22,6 +22,7 @@ declare namespace Template {
         themeEntrance: string;
         themeSaloon: string;
         dramaInSaloon: string;
+        saloonAfterScrem: string;
         catMeow: string;
         goingThrouBushes: string;
         knockDoor: string;

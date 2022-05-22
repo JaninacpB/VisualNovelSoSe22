@@ -1,6 +1,14 @@
 namespace Template {
     export async function SceneEightSaalonInterview(): ƒS.SceneReturn {
 
+        await ƒS.Location.show(location.saalon);
+		await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
+
+		await ƒS.Sound.fade(sound.saloonAfterScrem, 0.1, 0.2, true);
+
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
+		await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
+		await ƒS.update(0.8);
 
         await ƒS.Speech.tell(charaktere.alaistar, " Da kommen sie ja schon… ");
         await ƒS.Speech.tell(charaktere.bronte, " Was ist passiert? ");
