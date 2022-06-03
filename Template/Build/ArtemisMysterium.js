@@ -704,8 +704,9 @@ var Template;
         //ƒS.Speech.set("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
         //todo: Input einbauen und stylen, gleich auf DataForSave speichern
         // let test = await ƒS.Speech.getInput();
-        return "SceneEightSaalonInterview";
+        // return "SceneEightSaalonInterview"; 
         //return "SceneFiveOutside";
+        Template.dataForSave.pointAngryGrace += 20;
         await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
         await Template.ƒS.update(Template.transistions.wallpaper.duration, Template.transistions.wallpaper.alpha, Template.transistions.wallpaper.edge);

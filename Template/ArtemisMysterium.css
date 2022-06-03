@@ -238,6 +238,12 @@ name {
   margin: 0 auto;
 }
 
+/*meter*/
+
+meter[id="scaleGedult"] {
+  color: red;
+}
+
 /* .inventoryButtonTop {
   background-image: none;
   display: block;
