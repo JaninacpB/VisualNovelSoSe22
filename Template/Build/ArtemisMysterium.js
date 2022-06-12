@@ -506,7 +506,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Gut. Wir haben ein Hinweis auf den Verbleib der Katze gefunden. Sie ist");
         //Auswahl1 todo: detectives points
         //Dunkel ins Wasser 
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Aufgrund der Dunkelheit vor dem Manor ins Wasser gefallen.");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "  Aufgrund der Dunkelheit vor dem Manor ins Wasser gefallen.");
         await wrongAssumptionBronteFirstChoice();
         //in die hütte eingebrochen    
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, "   In die Gartenhütte eingebrochen!");
@@ -704,7 +704,7 @@ var Template;
         //ƒS.Speech.set("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
         //todo: Input einbauen und stylen, gleich auf DataForSave speichern
         // let test = await ƒS.Speech.getInput();
-        // return "SceneEightSaalonInterview"; 
+        //return "SceneEightSaalonInterview"; 
         //return "SceneFiveOutside";
         Template.dataForSave.pointAngryGrace += 20;
         await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);

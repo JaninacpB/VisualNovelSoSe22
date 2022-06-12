@@ -22,7 +22,7 @@ namespace Template {
         //Auswahl1 todo: detectives points
 
         //Dunkel ins Wasser 
-        await ƒS.Speech.tell(charaktere.bronte, " Aufgrund der Dunkelheit vor dem Manor ins Wasser gefallen.");
+        await ƒS.Speech.tell(charaktere.bronte, "  Aufgrund der Dunkelheit vor dem Manor ins Wasser gefallen.");
 
         await wrongAssumptionBronteFirstChoice();
 
