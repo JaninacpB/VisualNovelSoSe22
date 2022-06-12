@@ -8,12 +8,12 @@ namespace Template {
   export let transistions = {
     inToOut: {
       duration: 1,
-      alpha: "./.././../Transistion/02.png",
+      alpha: "Assets/Transistion/02.png",
       edge: 1 //härtegrad
     },
     wallpaper: {
       duration: 1,
-      alpha: "./../../Transistion/transistionWallpaper.png",
+      alpha: "Assets/Transistion/transistionWallpaper.png",
       edge: 1
     }
   }
