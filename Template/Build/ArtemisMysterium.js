@@ -29,7 +29,7 @@ var Template;
     Template.sound = {
         //Themes
         //Scene 1
-        themeinfrontManor: "../Asset/background/vorDemManorBackground.png",
+        themeinfrontManor: "blalElegant",
         themeinfrontManorNight: "./../Assets/sounds/forest-chorus-12444.mp3",
         themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
         themeSaloon: "./../../Assets/sounds/peter-tchaikovsky-march-from-nutcracker-classical-remix-7691.mp3",
@@ -46,7 +46,7 @@ var Template;
     Template.location = {
         infrontOfManorDay: {
             name: "manorDay",
-            background: "./../../Assets/backgrounds/vorDemManorBackground.png",
+            background: "./../Assets/backgrounds/vorDemManorBackground.png",
         },
         infrontOfManorNight: {
             name: "manorNight",

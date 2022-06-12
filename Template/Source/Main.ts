@@ -23,7 +23,7 @@ namespace Template {
   export let sound = {
     //Themes
     //Scene 1
-    themeinfrontManor: "../Asset/background/vorDemManorBackground.png",
+    themeinfrontManor: "blalElegant",
     themeinfrontManorNight: "./../Assets/sounds/forest-chorus-12444.mp3",
     
     themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
@@ -51,7 +51,7 @@ namespace Template {
 
     infrontOfManorDay: {
       name: "manorDay",
-      background: "./../../Assets/backgrounds/vorDemManorBackground.png",
+      background: "./../Assets/backgrounds/vorDemManorBackground.png",
     },
 
     infrontOfManorNight: {
