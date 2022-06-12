@@ -29,14 +29,14 @@ var Template;
     Template.sound = {
         //Themes
         //Scene 1
-        themeinfrontManor: "./../Assets/sounds/infrontOfManorScene1PianoElegeant.mp3",
+        themeinfrontManor: "./../../Assets/sounds/infrontOfManorScene1PianoElegeant.mp3",
         themeinfrontManorNight: "./../Assets/sounds/forest-chorus-12444.mp3",
         themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
         themeSaloon: "./../../Assets/sounds/peter-tchaikovsky-march-from-nutcracker-classical-remix-7691.mp3",
         dramaInSaloon: "./../../Assets/sounds/classical-piano-peter-tchaikovsky-chant-sans-paroles-opus-40-6-21872.mp3",
         saloonAfterScrem: "./../../Assets/sounds/frederic-chopin-nocturne-21-classical-remix-7611.mp3",
         //SFX
-        catMeow: "./Assets/sounds/cat-meow-6226.mp3",
+        catMeow: "./../../Assets/sounds/cat-meow-6226.mp3",
         goingThrouBushes: "./../../Assets/sounds/fx/shaken-bushes.mp3",
         knockDoor: "./../../Assets/sounds/fx/knockDoor.wav",
         alaisterLaugh: "./../../Assets/sounds/fx/alaistarLaugh.wav",
@@ -46,7 +46,7 @@ var Template;
     Template.location = {
         infrontOfManorDay: {
             name: "manorDay",
-            background: "./../Assets/backgrounds/vorDemManorBackground.png",
+            background: "./../../Assets/backgrounds/vorDemManorBackground.png",
         },
         infrontOfManorNight: {
             name: "manorNight",

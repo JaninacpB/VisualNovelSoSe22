@@ -23,7 +23,7 @@ namespace Template {
   export let sound = {
     //Themes
     //Scene 1
-    themeinfrontManor: "./../Assets/sounds/infrontOfManorScene1PianoElegeant.mp3",
+    themeinfrontManor: "./../../Assets/sounds/infrontOfManorScene1PianoElegeant.mp3",
     themeinfrontManorNight: "./../Assets/sounds/forest-chorus-12444.mp3",
     
     themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
@@ -35,7 +35,7 @@ namespace Template {
     saloonAfterScrem : "./../../Assets/sounds/frederic-chopin-nocturne-21-classical-remix-7611.mp3",
 
     //SFX
-    catMeow: "./Assets/sounds/cat-meow-6226.mp3",
+    catMeow: "./../../Assets/sounds/cat-meow-6226.mp3",
 
     goingThrouBushes: "./../../Assets/sounds/fx/shaken-bushes.mp3",
 
@@ -51,7 +51,7 @@ namespace Template {
 
     infrontOfManorDay: {
       name: "manorDay",
-      background: "./../Assets/backgrounds/vorDemManorBackground.png",
+      background: "./../../Assets/backgrounds/vorDemManorBackground.png",
     },
 
     infrontOfManorNight: {
