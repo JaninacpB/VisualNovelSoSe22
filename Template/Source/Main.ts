@@ -51,7 +51,7 @@ namespace Template {
 
     infrontOfManorDay: {
       name: "manorDay",
-      background: "Asset/background/vorDemManorBackground.png",
+      background: "Assets/background/vorDemManorBackground.png",
     },
 
     infrontOfManorNight: {

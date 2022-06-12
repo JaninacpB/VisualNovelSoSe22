@@ -46,7 +46,7 @@ var Template;
     Template.location = {
         infrontOfManorDay: {
             name: "manorDay",
-            background: "Asset/background/vorDemManorBackground.png",
+            background: "Assets/background/vorDemManorBackground.png",
         },
         infrontOfManorNight: {
             name: "manorNight",
