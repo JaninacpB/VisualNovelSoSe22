@@ -17,9 +17,6 @@ namespace Template {
     //return "SceneEightSaalonInterview"; 
     //return "SceneFiveOutside";
 
-    //todo: 
-    console.log("Version 8");
-
     dataForSave.pointAngryGrace += 20; 
 
    // await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 

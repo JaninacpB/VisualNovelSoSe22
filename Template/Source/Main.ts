@@ -8,12 +8,12 @@ namespace Template {
   export let transistions = {
     inToOut: {
       duration: 1,
-      alpha: "/Assets/Transition/02.png",
+      alpha: "Asset/Transition/02.png",
       edge: 1 //härtegrad
     },
     wallpaper: {
       duration: 1,
-      alpha: "/Assets/Transition/transistionWallpaper.png",
+      alpha: "Asset/Transition/transistionWallpaper.png",
       edge: 1
     }
   }
@@ -25,35 +25,30 @@ namespace Template {
     //Scene 1
     themeinfrontManor: "",
 
-    themeinfrontManorNight: "./../Assets/sounds/forest-chorus-12444.mp3",
+    themeinfrontManorNight: "Asset/sound/forest-chorus-12444.mp3",
     
-    themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
+    themeEntrance: "Asset/sound/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
 
-    themeSaloon: "./../../Assets/sounds/peter-tchaikovsky-march-from-nutcracker-classical-remix-7691.mp3",
+    themeSaloon: "Asset/sound/peter-tchaikovsky-march-from-nutcracker-classical-remix-7691.mp3",
 
-    dramaInSaloon: "./../../Assets/sounds/classical-piano-peter-tchaikovsky-chant-sans-paroles-opus-40-6-21872.mp3",
+    dramaInSaloon: "Asset/sound/classical-piano-peter-tchaikovsky-chant-sans-paroles-opus-40-6-21872.mp3",
 
-    saloonAfterScrem : "./../../Assets/sounds/frederic-chopin-nocturne-21-classical-remix-7611.mp3",
+    saloonAfterScrem : "Asset/sound/frederic-chopin-nocturne-21-classical-remix-7611.mp3",
 
     //SFX
-    catMeow: "./../../Assets/sounds/cat-meow-6226.mp3",
+    catMeow: "Asset/sound/cat-meow-6226.mp3",
 
-    goingThrouBushes: "./../../Assets/sounds/fx/shaken-bushes.mp3",
+    goingThrouBushes: "Asset/sound/fx/shaken-bushes.mp3",
 
-    knockDoor: "./../../Assets/sounds/fx/knockDoor.wav", 
+    knockDoor: "Asset/sound/fx/knockDoor.wav", 
 
-    alaisterLaugh: "./../../Assets/sounds/fx/alaistarLaugh.wav", 
+    alaisterLaugh: "Asset/sound/fx/alaistarLaugh.wav", 
 
-    dinnerSound: "./../../Assets/sounds/fx/dinnerdishesmp3-14762.wav",
-    waterGlass: "/Assets/sounds/fx/water-filled-cup-9901.mp3"
+    dinnerSound: "Asset/sound/fx/dinnerdishesmp3-14762.wav",
+    waterGlass: "Asset/sound/fx/water-filled-cup-9901.mp3"
   }
 
   export let location = {
-
-    //todo: 
-    // ../../Assets/backgrounds/vorDemManorBackground.png
-    // ../../../Assets/backgrounds/vorDemManorBackground.png
-    // Asset/backgrounds/vorDemManorBackground.png
 
     infrontOfManorDay: {
       name: "manorDay",
@@ -62,41 +57,41 @@ namespace Template {
 
     infrontOfManorNight: {
       name: "manorNight",
-      background: "./../../Assets/backgrounds/vorDemManorBackground-night.png",
+      background: "Asset/background/vorDemManorBackground-night.png",
     },
 
     entrance: {
       name: "entrance",
-      background: "./../../Assets/backgrounds/entryBackground.png",
+      background: "Asset/background/entryBackground.png",
     },
 
     saalon: {
       name: "saalon",
-      background: "./../../Assets/backgrounds/saalon.png",
+      background: "Asset/background/saalon.png",
     }, 
 
     gardenDark: {
       name: "gardenDark",
-      background: "./../../Assets/backgrounds/garden-night.png"
+      background: "Asset/background/garden-night.png"
     },
 
     gardenLight: {
       name: "gardenLight",
-      background: "./../../Assets/backgrounds/gardenOn.png"
+      background: "Asset/background/gardenOn.png"
     }, 
 
     cabin: {
       name: "cabin",
-      background: "./../../Assets/backgrounds/doorSheat.png"
+      background: "Asset/background/doorSheat.png"
     }, 
 
     studyroom: {
       name: "studyroom",
-      background: "./../../Assets/backgrounds/studyroomBackground.png"
+      background: "Asset/background/studyroomBackground.png"
     }, 
     black: {
       name: "black",
-      background: "./../../Assets/backgrounds/black.png"
+      background: "Asset/background/backgrounds/black.png"
     }
   }
 
@@ -106,12 +101,12 @@ namespace Template {
       name: "Brontë",
       origin: ƒS.ORIGIN.BOTTOMCENTER, //Ankerpunkt im Bild
       pose: {
-        happy: "./../../Assets/characters/bronte/Bronte-happy.png",
-        angry: "./../../Assets/characters/bronte/Bronte-angry.png",
-        laugh: "./../../Assets/characters/bronte/Bronte-laugh.png",
-        sad: "./../../Assets/characters/bronte/Bronte-sad.png",
-        shout: "./../../Assets/characters/bronte/Bronte-shout.png",
-        think: "./../../Assets/characters/bronte/Bronte-think.png"
+        happy: "Asset/character/bronte/Bronte-happy.png",
+        angry: "Asset/character/bronte/Bronte-angry.png",
+        laugh: "Asset/character/bronte/Bronte-laugh.png",
+        sad: "Asset/character/bronte/Bronte-sad.png",
+        shout: "Asset/character/bronte/Bronte-shout.png",
+        think: "Asset/character/bronte/Bronte-think.png"
       },
       positionStandard: {
         x: 15,
@@ -123,12 +118,12 @@ namespace Template {
       name: "Mairé",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        neutral: "./../../Assets/characters/maire/Assestentin-neutral.png",
-        embarrassed: "./../../Assets/characters/maire/Assestentin-emberassed.png",
-        fear: "./../../Assets/characters/maire/Assestentin-fear.png",
-        happy: "./../../Assets/characters/maire/Assestentin-happy.png",
-        sad:"./../../Assets/characters/maire/Assestentin-sad.png",
-        laugh:"./../../Assets/characters/maire/Assestentin-laugh.png"
+        neutral: "Asset/character/maire/Assestentin-neutral.png",
+        embarrassed: "Asset/character/maire/Assestentin-emberassed.png",
+        fear: "Asset/character/maire/Assestentin-fear.png",
+        happy: "Asset/character/maire/Assestentin-happy.png",
+        sad:"Asset/character/characters/maire/Assestentin-sad.png",
+        laugh:"Asset/character/characters/maire/Assestentin-laugh.png"
       }, 
       positionStandard: {
         x: 84,

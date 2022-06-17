@@ -14,7 +14,7 @@ canvas {
 
 
 html {
-  background-image: url("./../Assets/backgroundImage.png");
+  background-image: url("Asset/backgroundImage.png");
   background-color: rgb(37, 37, 37);
   background-size: cover;
 }
@@ -28,7 +28,7 @@ dialog[type=splash] {
   border: none;
   cursor: pointer;
   text-align: center;
-  background-image: url("../Assets/backgroundImage.png"); 
+  background-image: url("Asset/backgroundImage.png"); 
   background-size: cover;
 }
 
@@ -53,7 +53,7 @@ button {
   font-size: 20px;
   padding-left: 100px;
   font-weight: bolder;
-  background: url("./../Assets/labels-4963742_1280.png");
+  background: url("Asset/labels-4963742_1280.png");
   background-size: cover;
   width: 300px;
   height: 110px;
@@ -140,7 +140,7 @@ name {
 }
 
 .credit {
-  background-image: url("../Assets/backgroundImage.png");
+  background-image: url("Asset/backgroundImage.png");
   text-align: center;
   font-size: 2em;
   font-family: 'Playfair Display', serif;
