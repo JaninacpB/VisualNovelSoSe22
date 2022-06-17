@@ -47,9 +47,10 @@ var Template;
         //todo: 
         // ../../Assets/backgrounds/vorDemManorBackground.png
         // ../../../Assets/backgrounds/vorDemManorBackground.png
+        // Asset/backgrounds/vorDemManorBackground.png
         infrontOfManorDay: {
             name: "manorDay",
-            background: "../../../Assets/backgrounds/vorDemManorBackground.png",
+            background: "Asset/background/vorDemManorBackground.png",
         },
         infrontOfManorNight: {
             name: "manorNight",
@@ -710,7 +711,7 @@ var Template;
         //return "SceneEightSaalonInterview"; 
         //return "SceneFiveOutside";
         //todo: 
-        console.log("Version 7");
+        console.log("Version 8");
         Template.dataForSave.pointAngryGrace += 20;
         // await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);

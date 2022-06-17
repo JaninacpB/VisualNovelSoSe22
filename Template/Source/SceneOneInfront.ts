@@ -18,7 +18,7 @@ namespace Template {
     //return "SceneFiveOutside";
 
     //todo: 
-    console.log("Version 7");
+    console.log("Version 8");
 
     dataForSave.pointAngryGrace += 20; 
 
