@@ -708,7 +708,7 @@ var Template;
         //return "SceneEightSaalonInterview"; 
         //return "SceneFiveOutside";
         //todo: 
-        console.log("Version 4");
+        console.log("Version 5");
         Template.dataForSave.pointAngryGrace += 20;
         // await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
