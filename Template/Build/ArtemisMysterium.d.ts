@@ -4,6 +4,9 @@ declare namespace Template {
 declare namespace Template {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
+    let emotionen: {
+        ausrufezeichen: string;
+    };
     let transistions: {
         inToOut: {
             duration: number;
@@ -221,6 +224,7 @@ declare namespace Template {
         };
     };
     function showCredits(): void;
+    function showEmotion(name: string, durationBreak: number): Promise<void>;
 }
 declare namespace Template {
     function SceneFourSaalonDrama(): ƒS.SceneReturn;

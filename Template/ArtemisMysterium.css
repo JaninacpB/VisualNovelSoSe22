@@ -28,7 +28,7 @@ dialog[type=splash] {
   border: none;
   cursor: pointer;
   text-align: center;
-  background-image: url("Asset/backgroundImage.png"); 
+  background-image: url("Asset/backgroundImage.png");
   background-size: cover;
 }
 
@@ -37,8 +37,8 @@ dialog[type=splash]>img#FudgeStoryLogo {
 }
 
 dialog {
-  padding: 1em; 
-  border: 0px; 
+  padding: 1em;
+  border: 0px;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.309);
@@ -95,7 +95,7 @@ content {
   height: 150px;
 }
 
-.textEffectBig  {
+.textEffectBig {
   font-size: 8em;
   text-align: center;
   margin: auto;
@@ -158,7 +158,10 @@ name {
   height: 700px;
 }
 
-#save, #load, #credit, #close {
+#save,
+#load,
+#credit,
+#close {
   margin-top: 0px;
   margin-left: 0px;
 }
@@ -170,7 +173,7 @@ button#save {
 /*Text ist not able to be selected = better clicking thru*/
 content,
 name,
-speech, 
+speech,
 button {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -180,7 +183,7 @@ button {
   user-select: none;
 }
 
- ul {
+ul {
   background-color: rgba(255, 255, 255, 0.402);
   color: black;
   list-style: none;
@@ -197,8 +200,8 @@ li {
   background-color: rgba(213, 204, 159, 0.534);
 }
 
-/*Inventory*/ 
-/*don't show number*/ 
+/*Inventory*/
+/*don't show number*/
 amount {
   display: none;
 }
@@ -225,24 +228,62 @@ name {
   display: block;
   margin: 0 auto;
   height: 50px;
-} 
+}
 
 .inventoryList {
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
 .inventoryList img {
-  display:block;
+  display: block;
   margin: 0 auto;
 }
 
 /*meter*/
 
-meter[id="scaleGedult"] {
-  color: red;
+meter {
+  position: absolute;
+  transform:rotate(-90deg);
+  bottom: 50%;
+  left: -14%;
+  width: 35%;
+  height: 10%;
 }
+
+meter::-webkit-meter-optimum-value {
+  background-image: linear-gradient(
+    90deg, 
+    grey  55%,
+    red 100%
+  );
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+input[id="grace"]{
+  color: rgb(255, 248, 253);
+  background-color:rgb(155, 42, 95);
+  font-size: 11pt;
+  position: absolute;
+  left: 1.2%;
+  bottom: 19.5%;
+  width: 4%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 
 /* .inventoryButtonTop {
   background-image: none;
@@ -268,3 +309,27 @@ meter[id="scaleGedult"] {
   width: auto;
   height: auto;
 } */
+
+/*emotion
+~~ Große Bildschirm ~~
+*/
+
+#e-ausruf {
+  position: fixed;
+  top: 40%;
+  left: 35%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 20;
+}
+
+@media screen and (max-width: 1200px) {
+  
+  #e-ausruf {
+    top: 35%;
+    left: 30%;
+    max-width: 55%;
+  }
+
+}

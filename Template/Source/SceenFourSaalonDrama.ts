@@ -10,12 +10,9 @@ namespace Template {
         //todo am ende kann location einblenden weg
         await ƒS.Location.show(location.saalon);
         await ƒS.update(0.1);
-        //
 
         await ƒS.Sound.fade(sound.themeSaloon, 0, 0.3);
         await ƒS.Sound.play(sound.dramaInSaloon, 0.1, true);
-
-        //todo: add hide für issac, bronte, maire
 
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
         await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.sad, ƒS.positionPercent(charaktere.isaac.positionStandard.x , charaktere.isaac.positionStandard.y));
@@ -23,6 +20,8 @@ namespace Template {
         await ƒS.update(0.4);
 
         //todo: scream
+
+        await showEmotion(emotionen.ausrufezeichen, 1);
 
         document.getElementById('speechContent').classList.add('textEffectBig');
         await ƒS.Speech.tell(charaktere.bronte, " !!!!! ");

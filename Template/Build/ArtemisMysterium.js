@@ -13,6 +13,10 @@ var Template;
     Template.ƒ = FudgeCore;
     Template.ƒS = FudgeStory;
     console.log("Artemis Mysterium starting");
+    // emotionen
+    Template.emotionen = {
+        ausrufezeichen: "e-ausruf"
+    };
     //define transistions
     Template.transistions = {
         inToOut: {
@@ -106,8 +110,8 @@ var Template;
                 embarrassed: "Asset/character/maire/Assestentin-emberassed.png",
                 fear: "Asset/character/maire/Assestentin-fear.png",
                 happy: "Asset/character/maire/Assestentin-happy.png",
-                sad: "Asset/character/characters/maire/Assestentin-sad.png",
-                laugh: "Asset/character/characters/maire/Assestentin-laugh.png"
+                sad: "Asset/character/maire/Assestentin-sad.png",
+                laugh: "Asset/character/maire/Assestentin-laugh.png"
             },
             positionStandard: {
                 x: 84,
@@ -360,6 +364,13 @@ var Template;
         // start the sequence
         Template.ƒS.Progress.go(scenes);
     }
+    // Helper Methodes
+    async function showEmotion(name, durationBreak) {
+        document.getElementById(name).setAttribute("style", "display: inline;");
+        await Template.ƒS.Progress.delay(durationBreak);
+        document.getElementById(name).setAttribute("style", "display: none;");
+    }
+    Template.showEmotion = showEmotion;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -372,15 +383,14 @@ var Template;
         //todo am ende kann location einblenden weg
         await Template.ƒS.Location.show(Template.location.saalon);
         await Template.ƒS.update(0.1);
-        //
         await Template.ƒS.Sound.fade(Template.sound.themeSaloon, 0, 0.3);
         await Template.ƒS.Sound.play(Template.sound.dramaInSaloon, 0.1, true);
-        //todo: add hide für issac, bronte, maire
         await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
         await Template.ƒS.Character.show(Template.charaktere.isaac, Template.charaktere.isaac.pose.sad, Template.ƒS.positionPercent(Template.charaktere.isaac.positionStandard.x, Template.charaktere.isaac.positionStandard.y));
         await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.shout, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
         await Template.ƒS.update(0.4);
         //todo: scream
+        await Template.showEmotion(Template.emotionen.ausrufezeichen, 1);
         document.getElementById('speechContent').classList.add('textEffectBig');
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " !!!!! ");
         await Template.ƒS.Speech.tell(Template.charaktere.grace, " Artemis!");
@@ -705,11 +715,11 @@ var Template;
         //todo: Input einbauen und stylen, gleich auf DataForSave speichern
         // let test = await ƒS.Speech.getInput();
         //return "SceneEightSaalonInterview"; 
-        //return "SceneFiveOutside";
+        //return "SceneFourSaalonDrama";
         Template.dataForSave.pointAngryGrace += 20;
-        // await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
+        await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
-        // await ƒS.update(transistions.wallpaper.duration, transistions.wallpaper.alpha, transistions.wallpaper.edge);
+        await Template.ƒS.update(Template.transistions.wallpaper.duration, Template.transistions.wallpaper.alpha, Template.transistions.wallpaper.edge);
         await Template.ƒS.update();
         await Template.ƒS.Speech.tell(Template.charaktere.maire, "Oh, was für ein prächtiges Anwesen. Und wir sind hier wirklich richtig?");
         await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
@@ -739,6 +749,7 @@ var Template;
         await Template.ƒS.Character.hide(Template.charaktere.bronte);
         await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.shout, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
         await Template.ƒS.update(0.1);
+        await Template.showEmotion(Template.emotionen.ausrufezeichen, 1);
         await Template.ƒS.Sound.fade(Template.sound.catMeow, 0.8, 1, false);
         document.getElementById('speechContent').classList.add('textEffectBig');
         await Template.ƒS.Speech.tell("", "MAUI!");
