@@ -135,9 +135,9 @@ namespace Template {
       name: "Alaistar",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        angry: "./../../Assets/characters/alaistar/Alaistar-angry.png",
-        happy: "./../../Assets/characters/alaistar/Alaistar-happy.png",
-        neutral: "./../../Assets/characters/alaistar/Alaistar-neutral.png"
+        angry: "Asset/character/alaistar/Alaistar-angry.png",
+        happy: "Asset/character/alaistar/Alaistar-happy.png",
+        neutral: "Asset/character/alaistar/Alaistar-neutral.png"
       },
       positionStandard: {
         x: 50,
@@ -153,11 +153,11 @@ namespace Template {
       name: "Grace",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        angry: "./../../Assets/characters/grace/Grace-angry.png",
-        happy: "./../../Assets/characters/grace/Grace-happy.png",
-        laugh: "./../../Assets/characters/grace/Grace-laugh.png",
-        sad: "./../../Assets/characters/grace/Grace-sad.png",
-        think: "./../../Assets/characters/grace/Grace-thinking.png"
+        angry: "Asset/character/grace/Grace-angry.png",
+        happy: "Asset/character/grace/Grace-happy.png",
+        laugh: "Asset/character/grace/Grace-laugh.png",
+        sad: "Asset/character/grace/Grace-sad.png",
+        think: "Asset/character/grace/Grace-thinking.png"
       },
       positionStandard: {
         x: 50,
@@ -173,11 +173,11 @@ namespace Template {
       name: "Isaac",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        cry: "./../../Assets/characters/isaac/Isaac-cry.png",
-        crying: "./../../Assets/characters/isaac/Isaac-crying.png",
-        happy: "./../../Assets/characters/isaac/Isaac-happy.png",
-        neutral: "./../../Assets/characters/isaac/Isaac-neutral.png",
-        sad: "./../../Assets/characters/isaac/Isaac-sad.png"
+        cry: "Asset/character/isaac/Isaac-cry.png",
+        crying: "Asset/character/isaac/Isaac-crying.png",
+        happy: "Asset/character/isaac/Isaac-happy.png",
+        neutral: "Asset/character/isaac/Isaac-neutral.png",
+        sad: "Asset/character/isaac/Isaac-sad.png"
       },
       positionStandard: {
         x: 50,
@@ -193,8 +193,8 @@ namespace Template {
       name: "Odette",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        happy: "./../../Assets/characters/odette/odette-happy.png",
-        angry: "./../../Assets/characters/odette/odette.angry.png"
+        happy: "Asset/character/odette/odette-happy.png",
+        angry: "Asset/character/odette/odette.angry.png"
       }
     },
 
@@ -202,8 +202,8 @@ namespace Template {
       name: "Remington",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        angry: "./../../Assets/characters/remington/Remington-angry.png",
-        neutral: "./../../Assets/characters/remington/Remington-neutral-first.png"
+        angry: "Asset/character/remington/Remington-angry.png",
+        neutral: "Asset/character/remington/Remington-neutral-first.png"
       },
       positionStandard: {
         x: 50,
@@ -215,10 +215,10 @@ namespace Template {
       name: "Stella",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        frighten: "./../../Assets/characters/stella/stella-frighten.png",
-        happy: "./../../Assets/characters/stella/stella-happy-first.png",
-        laugh: "./../../Assets/characters/stella/stella-happy-laugh.png",
-        sad: "./../../Assets/characters/stella/stella-sad.png"
+        frighten: "Asset/character/stella/stella-frighten.png",
+        happy: "Asset/character/stella/stella-happy-first.png",
+        laugh: "Asset/character/stella/stella-happy-laugh.png",
+        sad: "Asset/character/stella/stella-sad.png"
       }, 
       positionRightMiddle: {
         x: 63,
@@ -232,14 +232,14 @@ namespace Template {
     ring: {
         name: "Ring", 
         description: "Ein Siegelring mit den Initalien O.R., im Busch vor dem Manor gefunden.",
-        image: "./../../Assets/item/ring.png",
+        image: "Asset/item/ring.png",
         static: true
     },
 
     cat: {
         name: "Halsband", 
         description: "Ein Halsband für eine Katze oder Hund. ",
-        image: "./../../Assets/item/halsbandReal.png",
+        image: "Asset/item/halsbandReal.png",
         static: true
     }
 
