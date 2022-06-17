@@ -414,6 +414,9 @@ namespace Template {
       //{id: "EndScreen", scene: EndScreen, name: "EndScreen"}
     ];
 
+    let uiElement: HTMLElement = document.querySelector("[type=interface]");
+    dataForSave = ƒS.Progress.setData(dataForSave, uiElement);
+
     // start the sequence
     ƒS.Progress.go(scenes);
   }

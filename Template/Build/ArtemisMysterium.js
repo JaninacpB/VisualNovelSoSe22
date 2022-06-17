@@ -361,6 +361,8 @@ var Template;
             { id: "SceneEightSaalonInterview", scene: Template.SceneEightSaalonInterview, name: "SceneEightSaalonInterview" }
             //{id: "EndScreen", scene: EndScreen, name: "EndScreen"}
         ];
+        let uiElement = document.querySelector("[type=interface]");
+        Template.dataForSave = Template.ƒS.Progress.setData(Template.dataForSave, uiElement);
         // start the sequence
         Template.ƒS.Progress.go(scenes);
     }
