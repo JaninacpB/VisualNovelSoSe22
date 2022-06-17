@@ -8,12 +8,12 @@ namespace Template {
   export let transistions = {
     inToOut: {
       duration: 1,
-      alpha: "Assets/Transistion/02.png",
+      alpha: "/Assets/Transition/02.png",
       edge: 1 //härtegrad
     },
     wallpaper: {
       duration: 1,
-      alpha: "Assets/Transistion/transistionWallpaper.png",
+      alpha: "/Assets/Transition/transistionWallpaper.png",
       edge: 1
     }
   }
@@ -23,7 +23,7 @@ namespace Template {
   export let sound = {
     //Themes
     //Scene 1
-    themeinfrontManor: "blalElegant",
+    themeinfrontManor: "./../../Assets/sounds/infrontOfManorScene1PianoElegeant.mp3",
     themeinfrontManorNight: "./../Assets/sounds/forest-chorus-12444.mp3",
     
     themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
@@ -49,9 +49,10 @@ namespace Template {
 
   export let location = {
 
+    //todo: 
     infrontOfManorDay: {
       name: "manorDay",
-      background: "Asset/background/vorDemManorBackground.png",
+      background: "/Assets/backgrounds/entryBackground.png",
     },
 
     infrontOfManorNight: {

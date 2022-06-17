@@ -17,19 +17,19 @@ var Template;
     Template.transistions = {
         inToOut: {
             duration: 1,
-            alpha: "Assets/Transistion/02.png",
+            alpha: "/Assets/Transition/02.png",
             edge: 1 //härtegrad
         },
         wallpaper: {
             duration: 1,
-            alpha: "Assets/Transistion/transistionWallpaper.png",
+            alpha: "/Assets/Transition/transistionWallpaper.png",
             edge: 1
         }
     };
     Template.sound = {
         //Themes
         //Scene 1
-        themeinfrontManor: "blalElegant",
+        themeinfrontManor: "./../../Assets/sounds/infrontOfManorScene1PianoElegeant.mp3",
         themeinfrontManorNight: "./../Assets/sounds/forest-chorus-12444.mp3",
         themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
         themeSaloon: "./../../Assets/sounds/peter-tchaikovsky-march-from-nutcracker-classical-remix-7691.mp3",
@@ -44,9 +44,10 @@ var Template;
         waterGlass: "/Assets/sounds/fx/water-filled-cup-9901.mp3"
     };
     Template.location = {
+        //todo: 
         infrontOfManorDay: {
             name: "manorDay",
-            background: "Asset/background/vorDemManorBackground.png",
+            background: "/Assets/backgrounds/entryBackground.png",
         },
         infrontOfManorNight: {
             name: "manorNight",
