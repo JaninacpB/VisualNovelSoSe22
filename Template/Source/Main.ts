@@ -51,9 +51,11 @@ namespace Template {
   export let location = {
 
     //todo: 
+    // ../../Assets/backgrounds/vorDemManorBackground.png
+    
     infrontOfManorDay: {
       name: "manorDay",
-      background: "/Template/Asset/background/vorDemManorBackground.png",
+      background: "../../Assets/backgrounds/vorDemManorBackground.png",
     },
 
     infrontOfManorNight: {
