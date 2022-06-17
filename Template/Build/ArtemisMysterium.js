@@ -29,7 +29,7 @@ var Template;
     Template.sound = {
         //Themes
         //Scene 1
-        themeinfrontManor: "./../../Assets/sounds/infrontOfManorScene1PianoElegeant.mp3",
+        themeinfrontManor: "/Template/Asset/background/vorDemManorBackground.png",
         themeinfrontManorNight: "./../Assets/sounds/forest-chorus-12444.mp3",
         themeEntrance: "./../../Assets/sounds/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
         themeSaloon: "./../../Assets/sounds/peter-tchaikovsky-march-from-nutcracker-classical-remix-7691.mp3",
@@ -708,9 +708,9 @@ var Template;
         //return "SceneEightSaalonInterview"; 
         //return "SceneFiveOutside";
         //todo: 
-        console.log("Version 2");
+        console.log("Version 3");
         Template.dataForSave.pointAngryGrace += 20;
-        await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
+        // await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
         // await ƒS.update(transistions.wallpaper.duration, transistions.wallpaper.alpha, transistions.wallpaper.edge);
         await Template.ƒS.update();

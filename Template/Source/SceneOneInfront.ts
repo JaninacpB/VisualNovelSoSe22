@@ -18,11 +18,11 @@ namespace Template {
     //return "SceneFiveOutside";
 
     //todo: 
-    console.log("Version 2");
+    console.log("Version 3");
 
     dataForSave.pointAngryGrace += 20; 
 
-    await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
+   // await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
 
     await ƒS.Location.show(location.infrontOfManorDay);
     // await ƒS.update(transistions.wallpaper.duration, transistions.wallpaper.alpha, transistions.wallpaper.edge);
