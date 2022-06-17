@@ -707,8 +707,10 @@ var Template;
         // let test = await ƒS.Speech.getInput();
         //return "SceneEightSaalonInterview"; 
         //return "SceneFiveOutside";
+        //todo: 
+        console.log("Version 1");
         Template.dataForSave.pointAngryGrace += 20;
-        // await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
+        await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
         await Template.ƒS.update(Template.transistions.wallpaper.duration, Template.transistions.wallpaper.alpha, Template.transistions.wallpaper.edge);
         await Template.ƒS.Speech.tell(Template.charaktere.maire, "Oh, was für ein prächtiges Anwesen. Und wir sind hier wirklich richtig?");
