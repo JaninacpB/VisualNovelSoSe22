@@ -52,10 +52,11 @@ namespace Template {
 
     //todo: 
     // ../../Assets/backgrounds/vorDemManorBackground.png
-    
+    // ../../../Assets/backgrounds/vorDemManorBackground.png
+
     infrontOfManorDay: {
       name: "manorDay",
-      background: "../../Assets/backgrounds/vorDemManorBackground.png",
+      background: "../../../Assets/backgrounds/vorDemManorBackground.png",
     },
 
     infrontOfManorNight: {
