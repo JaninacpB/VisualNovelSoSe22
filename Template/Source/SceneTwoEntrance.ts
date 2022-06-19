@@ -103,6 +103,26 @@ namespace Template {
 
         await ƒS.Speech.tell(charaktere.bronte, " hihi… nun gut, dass erklärt es natürlich. Ah, der Butler winkt uns herein.");
 
+
+        await ƒS.Speech.tell(charaktere.maire, "Mhm, aber irgendwas gefällt mir an der ganzen Sache nicht. Weißt du, ich glaube ich werde den Abend heute dokumentieren.")
+
+        await ƒS.Character.hide(charaktere.bronte); 
+        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        await ƒS.update(0.4);
+
+        await ƒS.Speech.tell(charaktere.bronte, "So wie bei unseren Fällen? Keine schlechte Idee und eine gute Übung. Auch wenn du es nicht notwendig hast.")
+
+        await ƒS.Character.hide(charaktere.maire); 
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.happy, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        await ƒS.update(0.4);
+
+        await ƒS.Speech.tell(charaktere.maire, "Genau. Und wer weiß, vielleicht wird der Abend spanneder als gedacht.")
+
+        ƒS.Text.addClass("diaryUnlocked");
+        ƒS.Text.print("<h4> Tagebuch freigeschaltet </h4> <p>Das Tagebuch von Maire steht dir jederzeit im Menü zuverfügung. Drücke <b>'M'</b> um es jederzeit zu öffnen</p>");
+        
+        await ƒS.Speech.tell(charaktere.bronte, "Oh der Butler winkt uns rein. Lass uns gehen!");
+
         await ƒS.Sound.fade(sound.themeEntrance, 0, 1, false);
 
         await ƒS.Character.hide(charaktere.maire);

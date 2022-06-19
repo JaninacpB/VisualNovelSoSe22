@@ -14,8 +14,8 @@ namespace Template {
     //todo: Input einbauen und stylen, gleich auf DataForSave speichern
     // let test = await ƒS.Speech.getInput();
 
-    //return "SceneEightSaalonInterview"; 
-    //return "SceneFourSaalonDrama";
+    return "SceneTwoEntrance"; 
+    // return "SceneFourSaalonDrama";
 
     dataForSave.pointAngryGrace += 20;
 

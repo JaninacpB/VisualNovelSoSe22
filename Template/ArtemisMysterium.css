@@ -149,6 +149,29 @@ name {
   line-height: 60px;
 }
 
+.diaryUnlocked {
+  background-image: url("Asset/backgroundImage.png");
+  text-align: center;
+  font-size: 1.4em;
+  font-family: 'Playfair Display', serif;
+  width: 700px;
+  height: 400px;
+  line-height: 60px;
+}
+
+.diaryEntrys{
+  background-image: url("Asset/paperDiary.jpg");
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  width: 600px;
+  height: 650px;
+}
+
+.diaryEntrys p {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
 .gameMenu {
   background-color: rgba(0, 0, 0, 0.603);
   position: absolute;
@@ -161,13 +184,27 @@ name {
 #save,
 #load,
 #credit,
-#close {
+#close,
+#diary {
   margin-top: 0px;
   margin-left: 0px;
 }
 
 button#save {
   margin-top: 290px;
+}
+
+button#close {
+  background-image: url("Asset/backgroundImage.png");
+  font-size: 2em;
+  color: rgb(90, 16, 16);
+  margin: auto;
+  margin-top: 20px;
+  display: grid;
+  padding: 10px;
+  height: auto;
+  border-radius: 10px;
+  width: 100%;
 }
 
 /*Text ist not able to be selected = better clicking thru*/
@@ -242,6 +279,10 @@ name {
 }
 
 /*meter*/
+
+#meterScale {
+  display: none;
+}
 
 meter {
   position: relative;

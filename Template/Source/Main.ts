@@ -297,14 +297,20 @@ namespace Template {
     ƒS.Text.addClass("credit");
     ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder <br> <b> Tester:</b> XXX");
     //todo: Tester Und Musik ergänzen
+  }
 
-
+  export function showDiary(): void {
+    ƒS.Text.addClass("diaryEntrys");
+    let diaryText = "<p> Früher Abend: Wir sind vor dem Anwesen der Blackburns angekommen. Hier erschreckte uns eine Katze, bevor wir hinein gehen können. </p>";
+    //todo: beenden
+    ƒS.Text.print(diaryText.toString());
   }
 
   let inGameMenuButtons = {
     save: "Speichern",
     load: "Laden",
     credit: "Mitwirkende",
+    diary: "Tagebuch",
     close: "Schließen"
   };
 
@@ -330,6 +336,8 @@ namespace Template {
       case inGameMenuButtons.credit:
         showCredits();
         break;
+      case inGameMenuButtons.diary:
+         showDiary();
     }
 
   }
@@ -423,8 +431,6 @@ namespace Template {
 
 
   // Helper Methodes
-
-
   export async function showEmotion(name: string, durationBreak: number): Promise<void> {
 
     document.getElementById(name).setAttribute("style", "display: inline;");
@@ -432,6 +438,4 @@ namespace Template {
     document.getElementById(name).setAttribute("style", "display: none;");
 
   }
-
-
 }

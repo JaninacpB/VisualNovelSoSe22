@@ -224,6 +224,7 @@ declare namespace Template {
         };
     };
     function showCredits(): void;
+    function showDiary(): void;
     function showEmotion(name: string, durationBreak: number): Promise<void>;
 }
 declare namespace Template {

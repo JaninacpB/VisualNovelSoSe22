@@ -266,10 +266,18 @@ var Template;
         //todo: Tester Und Musik ergänzen
     }
     Template.showCredits = showCredits;
+    function showDiary() {
+        Template.ƒS.Text.addClass("diaryEntrys");
+        let diaryText = "<p> Früher Abend: Wir sind vor dem Anwesen der Blackburns angekommen. Hier erschreckte uns eine Katze, bevor wir hinein gehen können. </p>";
+        //todo: beenden
+        Template.ƒS.Text.print(diaryText.toString());
+    }
+    Template.showDiary = showDiary;
     let inGameMenuButtons = {
         save: "Speichern",
         load: "Laden",
         credit: "Mitwirkende",
+        diary: "Tagebuch",
         close: "Schließen"
     };
     let gameMenu;
@@ -291,6 +299,8 @@ var Template;
             case inGameMenuButtons.credit:
                 showCredits();
                 break;
+            case inGameMenuButtons.diary:
+                showDiary();
         }
     }
     //Shortcuts fürs Menü 
@@ -392,100 +402,100 @@ var Template;
         await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.shout, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
         await Template.ƒS.update(0.4);
         //todo: scream
-        await Template.showEmotion(Template.emotionen.ausrufezeichen, 1);
-        document.getElementById('speechContent').classList.add('textEffectBig');
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " !!!!! ");
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Artemis!");
-        document.getElementById('speechContent').classList.remove('textEffectBig');
-        await Template.ƒS.Character.hide(Template.charaktere.isaac);
-        await Template.ƒS.Character.hide(Template.charaktere.bronte);
-        await Template.ƒS.Character.hide(Template.charaktere.maire);
-        await Template.ƒS.Character.show(Template.charaktere.grace, Template.charaktere.grace.pose.sad, Template.ƒS.positionPercent(Template.charaktere.grace.positionStandard.x, Template.charaktere.grace.positionStandard.y));
-        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
-        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
-        await Template.ƒS.update(0.8);
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, "Jemand hat meine Artemis gestohlen!");
-        await Template.ƒS.Character.hide(Template.charaktere.bronte);
-        await Template.ƒS.Character.hide(Template.charaktere.maire);
-        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
-        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.shout, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
-        await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Sie fällt! Oh jemand sollte sie- Fangen… ");
-        await Template.ƒS.Character.animate(Template.charaktere.grace, Template.charaktere.grace.pose.sad, Template.fromMiddleDown(Template.charaktere.grace.positionStandard.x, Template.charaktere.grace.positionStandard.y, 100));
-        await Template.ƒS.Character.hide(Template.charaktere.maire);
-        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
-        await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.maire, " Das gibt eine Beule. ");
-        await Template.ƒS.Character.hide(Template.charaktere.bronte);
-        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
-        await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Nein schau, ihr Kopf ist sanft auf einen der Kissen gelandet. Sie ist geübt. Mrs. Grace? Alles in Ordnung? ");
-        await Template.ƒS.Character.show(Template.charaktere.grace, Template.charaktere.grace.pose.sad, Template.ƒS.positionPercent(Template.charaktere.grace.positionLeftMiddle.x, Template.charaktere.grace.positionLeftMiddle.y));
-        await Template.ƒS.update(0.8);
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Ich… oh… Nein! Meine Artemis wurde gestohlen! ");
-        await Template.ƒS.Character.hide(Template.charaktere.bronte);
-        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.sad, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
-        await Template.ƒS.update(0.4);
-        await Template.ƒS.Character.show(Template.charaktere.alaistar, Template.charaktere.alaistar.pose.angry, Template.ƒS.positionPercent(Template.charaktere.alaistar.positionRightMiddle.x, Template.charaktere.alaistar.positionRightMiddle.y));
-        await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Gestohlen? Die Katze. Grace stell dich doch bitte nicht so an. Und rede deutlich! ");
-        await Template.ƒS.Character.hide(Template.charaktere.alaistar);
-        await Template.ƒS.Character.show(Template.charaktere.alaistar, Template.charaktere.alaistar.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.alaistar.positionRightMiddle.x, Template.charaktere.alaistar.positionRightMiddle.y));
-        await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Bestimmt gestohlen! Ich war im Arbeitszimmer, wo sie immer ist, wenn Mrs. May-Porter sie nicht in den Garten lässt und dort war sie nicht! ");
-        await Template.ƒS.Character.hide(Template.charaktere.alaistar);
-        await Template.ƒS.Character.show(Template.charaktere.alaistar, Template.charaktere.alaistar.pose.angry, Template.ƒS.positionPercent(Template.charaktere.alaistar.positionRightMiddle.x, Template.charaktere.alaistar.positionRightMiddle.y));
-        await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Aber Schwester. Das ist doch lächerlich. Sie wird hier irgendwo im Haus sein. Sieh doch wie viel Angst du der armen Stella einjagst! ");
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Nein! Sie wurde gestohlen! Ich weiß es einfach. ");
-        await Template.ƒS.Character.hide(Template.charaktere.alaistar);
-        await Template.ƒS.Character.show(Template.charaktere.alaistar, Template.charaktere.alaistar.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.alaistar.positionRightMiddle.x, Template.charaktere.alaistar.positionRightMiddle.y));
-        await Template.ƒS.Character.hide(Template.charaktere.bronte);
-        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
-        await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Entschuldigung Mr. Blackburn. Meine Begleitung und ich haben draußen bei der Ankunft tatsächlich eine Katze gesehen. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Wenn es Ihnen nichts ausmacht, könnten wir kurz raus gehen und schauen, ob wir sie finden.  ");
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Oh meine arme Artemis… Ganz alleine in dieser schrecklichen Welt! Was ist wenn sie irgend so einen Streuner trifft. Oh weh, die Arme zittert bestimmt vor Angst! ");
-        await Template.ƒS.Character.hide(Template.charaktere.grace);
-        await Template.ƒS.Character.show(Template.charaktere.isaac, Template.charaktere.isaac.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.isaac.positionLeftMiddle.x, Template.charaktere.isaac.positionLeftMiddle.y));
-        await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Kaum vorzustellen, warum sie weglaufen sollte… ");
-        await Template.ƒS.Character.hide(Template.charaktere.isaac);
-        await Template.ƒS.Character.show(Template.charaktere.grace, Template.charaktere.grace.pose.sad, Template.ƒS.positionPercent(Template.charaktere.grace.positionLeftMiddle.x, Template.charaktere.grace.positionLeftMiddle.y));
-        await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.grace, " Bitte Miss Bronte! Helfen sie mir! Bitte. ");
-        await Template.ƒS.Character.hide(Template.charaktere.bronte);
-        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
-        await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Natürlich. Wenn wir sie gerade wirklich draußen gesehen haben, kann sie ja nicht weit sein. Maire und ich schauen es uns kurz an. ");
-        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Einen Moment noch. ");
-        await Template.ƒS.Character.hide(Template.charaktere.bronte);
-        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
-        await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ja? ");
-        await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Bitte denken sie daran, dass Sie sich immer noch auf einem alten und sehr Ehrenwerten Anwesen befinden. Verhalten Sie sich dementsprechend.");
-        let beeingRespectfullDecision = await Template.ƒS.Menu.getInput(chooseBeRespectfull, "basicChoice");
-        //todo: point system (?)
-        switch (beeingRespectfullDecision) {
-            case chooseBeRespectfull.yes:
-                await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Natürlich. Meine Untersuchungen nehmen immer Rücksicht auf die Betroffenen. ");
-                await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Danke.");
-                break;
-            case chooseBeRespectfull.no:
-                await Template.ƒS.Character.hide(Template.charaktere.bronte);
-                await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.angry, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
-                await Template.ƒS.update(0.4);
-                await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Dass ist nicht akzeptabel. Meine Untersuchungen werden so geführt, wie ich es für richtig halte!");
-                await Template.ƒS.Character.hide(Template.charaktere.alaistar);
-                await Template.ƒS.Character.show(Template.charaktere.alaistar, Template.charaktere.alaistar.pose.angry, Template.ƒS.positionPercent(Template.charaktere.alaistar.positionRightMiddle.x, Template.charaktere.alaistar.positionRightMiddle.y));
-                await Template.ƒS.update(0.4);
-                await Template.ƒS.Speech.tell(Template.charaktere.alaistar, "Sie vergessen wohl, dass sie nur Gäste sind. Sollten Ihre „Untersuchungen“ unseren Frieden stören, werde ich sie auffordern zu gehen.");
-                await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Mhm…");
-                break;
-        }
-        await Template.ƒS.Character.hide(Template.charaktere.alaistar);
-        await Template.ƒS.Character.hide(Template.charaktere.grace);
-        await Template.ƒS.update(0.4);
+        // await showEmotion(emotionen.ausrufezeichen, 1);
+        // document.getElementById('speechContent').classList.add('textEffectBig');
+        // await ƒS.Speech.tell(charaktere.bronte, " !!!!! ");
+        // await ƒS.Speech.tell(charaktere.grace, " Artemis!" );
+        // document.getElementById('speechContent').classList.remove('textEffectBig');
+        // await ƒS.Character.hide(charaktere.isaac);
+        // await ƒS.Character.hide(charaktere.bronte);
+        // await ƒS.Character.hide(charaktere.maire);
+        // await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.sad, ƒS.positionPercent(charaktere.grace.positionStandard.x , charaktere.grace.positionStandard.y));
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        // await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        // await ƒS.update(0.8);
+        // await ƒS.Speech.tell(charaktere.grace, "Jemand hat meine Artemis gestohlen!");
+        // await ƒS.Character.hide(charaktere.bronte);
+        // await ƒS.Character.hide(charaktere.maire);
+        // await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.maire, " Sie fällt! Oh jemand sollte sie- Fangen… ");
+        // await ƒS.Character.animate(charaktere.grace, charaktere.grace.pose.sad, fromMiddleDown(charaktere.grace.positionStandard.x , charaktere.grace.positionStandard.y, 100));
+        // await ƒS.Character.hide(charaktere.maire);
+        // await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.maire, " Das gibt eine Beule. ");
+        // await ƒS.Character.hide(charaktere.bronte);
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.bronte, " Nein schau, ihr Kopf ist sanft auf einen der Kissen gelandet. Sie ist geübt. Mrs. Grace? Alles in Ordnung? ");
+        // await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.sad, ƒS.positionPercent(charaktere.grace.positionLeftMiddle.x , charaktere.grace.positionLeftMiddle.y));
+        // await ƒS.update(0.8);
+        // await ƒS.Speech.tell(charaktere.grace, " Ich… oh… Nein! Meine Artemis wurde gestohlen! ");
+        // await ƒS.Character.hide(charaktere.bronte);
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.angry, ƒS.positionPercent(charaktere.alaistar.positionRightMiddle.x , charaktere.alaistar.positionRightMiddle.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.alaistar, " Gestohlen? Die Katze. Grace stell dich doch bitte nicht so an. Und rede deutlich! ");
+        // await ƒS.Character.hide(charaktere.alaistar);
+        // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.neutral, ƒS.positionPercent(charaktere.alaistar.positionRightMiddle.x , charaktere.alaistar.positionRightMiddle.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.grace, " Bestimmt gestohlen! Ich war im Arbeitszimmer, wo sie immer ist, wenn Mrs. May-Porter sie nicht in den Garten lässt und dort war sie nicht! ");
+        // await ƒS.Character.hide(charaktere.alaistar);
+        // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.angry, ƒS.positionPercent(charaktere.alaistar.positionRightMiddle.x , charaktere.alaistar.positionRightMiddle.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.alaistar, " Aber Schwester. Das ist doch lächerlich. Sie wird hier irgendwo im Haus sein. Sieh doch wie viel Angst du der armen Stella einjagst! ");
+        // await ƒS.Speech.tell(charaktere.grace, " Nein! Sie wurde gestohlen! Ich weiß es einfach. ");
+        // await ƒS.Character.hide(charaktere.alaistar);
+        // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.neutral, ƒS.positionPercent(charaktere.alaistar.positionRightMiddle.x , charaktere.alaistar.positionRightMiddle.y));
+        // await ƒS.Character.hide(charaktere.bronte);
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.bronte, " Entschuldigung Mr. Blackburn. Meine Begleitung und ich haben draußen bei der Ankunft tatsächlich eine Katze gesehen. ");
+        // await ƒS.Speech.tell(charaktere.bronte, " Wenn es Ihnen nichts ausmacht, könnten wir kurz raus gehen und schauen, ob wir sie finden.  ");
+        // await ƒS.Speech.tell(charaktere.grace, " Oh meine arme Artemis… Ganz alleine in dieser schrecklichen Welt! Was ist wenn sie irgend so einen Streuner trifft. Oh weh, die Arme zittert bestimmt vor Angst! ");
+        // await ƒS.Character.hide(charaktere.grace);
+        // await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.neutral, ƒS.positionPercent(charaktere.isaac.positionLeftMiddle.x , charaktere.isaac.positionLeftMiddle.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.isaac, " Kaum vorzustellen, warum sie weglaufen sollte… ");
+        // await ƒS.Character.hide(charaktere.isaac);
+        // await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.sad, ƒS.positionPercent(charaktere.grace.positionLeftMiddle.x , charaktere.grace.positionLeftMiddle.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.grace, " Bitte Miss Bronte! Helfen sie mir! Bitte. ");
+        // await ƒS.Character.hide(charaktere.bronte);
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.bronte, " Natürlich. Wenn wir sie gerade wirklich draußen gesehen haben, kann sie ja nicht weit sein. Maire und ich schauen es uns kurz an. ");
+        // await ƒS.Speech.tell(charaktere.alaistar, " Einen Moment noch. ");
+        // await ƒS.Character.hide(charaktere.bronte);
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        // await ƒS.update(0.4);
+        // await ƒS.Speech.tell(charaktere.bronte, " Ja? ");
+        // await ƒS.Speech.tell(charaktere.alaistar, " Bitte denken sie daran, dass Sie sich immer noch auf einem alten und sehr Ehrenwerten Anwesen befinden. Verhalten Sie sich dementsprechend.");
+        // let beeingRespectfullDecision = await ƒS.Menu.getInput(chooseBeRespectfull, "basicChoice");
+        // //todo: point system (?)
+        // switch (beeingRespectfullDecision) {
+        //     case chooseBeRespectfull.yes:
+        //         await ƒS.Speech.tell(charaktere.bronte, "Natürlich. Meine Untersuchungen nehmen immer Rücksicht auf die Betroffenen. ");
+        //         await ƒS.Speech.tell(charaktere.alaistar, " Danke.");
+        //         break;
+        //     case chooseBeRespectfull.no:
+        //         await ƒS.Character.hide(charaktere.bronte);
+        //         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.angry, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
+        //         await ƒS.update(0.4);
+        //         await ƒS.Speech.tell(charaktere.bronte, "Dass ist nicht akzeptabel. Meine Untersuchungen werden so geführt, wie ich es für richtig halte!");
+        //         await ƒS.Character.hide(charaktere.alaistar);
+        //         await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.angry, ƒS.positionPercent(charaktere.alaistar.positionRightMiddle.x , charaktere.alaistar.positionRightMiddle.y));
+        //         await ƒS.update(0.4);
+        //         await ƒS.Speech.tell(charaktere.alaistar, "Sie vergessen wohl, dass sie nur Gäste sind. Sollten Ihre „Untersuchungen“ unseren Frieden stören, werde ich sie auffordern zu gehen.");
+        //         await ƒS.Speech.tell(charaktere.bronte, "Mhm…");
+        //         break;
+        // }
+        // await ƒS.Character.hide(charaktere.alaistar);
+        // await ƒS.Character.hide(charaktere.grace);
+        // await ƒS.update(0.4);
         //todo: Gemüteleiste einführen
         await Template.ƒS.Character.hide(Template.charaktere.maire);
         await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.sad, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
@@ -716,8 +726,8 @@ var Template;
         //ƒS.Speech.set("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
         //todo: Input einbauen und stylen, gleich auf DataForSave speichern
         // let test = await ƒS.Speech.getInput();
-        //return "SceneEightSaalonInterview"; 
-        //return "SceneFourSaalonDrama";
+        return "SceneTwoEntrance";
+        // return "SceneFourSaalonDrama";
         Template.dataForSave.pointAngryGrace += 20;
         await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
@@ -1550,6 +1560,18 @@ var Template;
         await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.laugh, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
         await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " hihi… nun gut, dass erklärt es natürlich. Ah, der Butler winkt uns herein.");
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, "Mhm, aber irgendwas gefällt mir an der ganzen Sache nicht. Weißt du, ich glaube ich werde den Abend heute dokumentieren.");
+        await Template.ƒS.Character.hide(Template.charaktere.bronte);
+        await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+        await Template.ƒS.update(0.4);
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "So wie bei unseren Fällen? Keine schlechte Idee und eine gute Übung. Auch wenn du es nicht notwendig hast.");
+        await Template.ƒS.Character.hide(Template.charaktere.maire);
+        await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.happy, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+        await Template.ƒS.update(0.4);
+        await Template.ƒS.Speech.tell(Template.charaktere.maire, "Genau. Und wer weiß, vielleicht wird der Abend spanneder als gedacht.");
+        Template.ƒS.Text.addClass("diaryUnlocked");
+        Template.ƒS.Text.print("<h4> Tagebuch freigeschaltet </h4> <p>Das Tagebuch von Maire steht dir jederzeit im Menü zuverfügung. Drücke <b>'M'</b> um es jederzeit zu öffnen</p>");
+        await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Oh der Butler winkt uns rein. Lass uns gehen!");
         await Template.ƒS.Sound.fade(Template.sound.themeEntrance, 0, 1, false);
         await Template.ƒS.Character.hide(Template.charaktere.maire);
         await Template.ƒS.Character.hide(Template.charaktere.remington);
