@@ -23,6 +23,9 @@ declare namespace Template {
     function EndingTwoBronteDead(): ƒS.SceneReturn;
 }
 declare namespace Template {
+    function ExtraSceneBronteMaire(): ƒS.SceneReturn;
+}
+declare namespace Template {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let emotionen: {

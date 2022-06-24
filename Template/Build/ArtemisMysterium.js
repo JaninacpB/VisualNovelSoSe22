@@ -60,6 +60,12 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    async function ExtraSceneBronteMaire() {
+    }
+    Template.ExtraSceneBronteMaire = ExtraSceneBronteMaire;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
     Template.ƒ = FudgeCore;
     Template.ƒS = FudgeStory;
     console.log("Artemis Mysterium starting");
