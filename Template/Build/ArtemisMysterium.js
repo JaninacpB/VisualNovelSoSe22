@@ -18,6 +18,48 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    async function EndingBadGraceAngry() {
+    }
+    Template.EndingBadGraceAngry = EndingBadGraceAngry;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function EndingFiveAllSurvive() {
+    }
+    Template.EndingFiveAllSurvive = EndingFiveAllSurvive;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function EndingFourBronteDead() {
+    }
+    Template.EndingFourBronteDead = EndingFourBronteDead;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function EndingOneAllSurvive() {
+    }
+    Template.EndingOneAllSurvive = EndingOneAllSurvive;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function EndingSixOdetteDead() {
+    }
+    Template.EndingSixOdetteDead = EndingSixOdetteDead;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function EndingThreeAllSurvive() {
+    }
+    Template.EndingThreeAllSurvive = EndingThreeAllSurvive;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function EndingTwoBronteDead() {
+    }
+    Template.EndingTwoBronteDead = EndingTwoBronteDead;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
     Template.ƒ = FudgeCore;
     Template.ƒS = FudgeStory;
     console.log("Artemis Mysterium starting");
@@ -779,9 +821,13 @@ var Template;
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Natürlich… Ähm ich glaube ich muss mir noch kurz die Haare richten. Maire würdest du mir helfen. ");
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Bei deinen Haaren aber die sind doch- !!! Oh, natürlich! Wir sind gleich wieder da!");
         return "SceneNineEntryhall";
-        //todo: einfügen wo minus Punkte möglich
+        //todo: einfügen wo minus Punkte möglich if Abfrage und dann methode abspielen und danach return zu badending 
         async function graceBadEnding() {
-            //todo: BadEnding erstellen 
+            await Template.ƒS.Speech.tell(Template.charaktere.grace, " Der Pudding ist da! Oh was verzieht ihr dann alle für Gesichter? ");
+            await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Ich glaube unsere Detektiv Gäste haben leider etwas die Stimmung runtergezogen mit ihren lästigen Fragen. ");
+            await Template.ƒS.Speech.tell(Template.charaktere.grace, " Ich bin sehr enttäuscht von Ihnen Miss Bronte! Ich hatte bessere Manieren von Ihnen erwartet. ");
+            await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh, dass- ");
+            await Template.ƒS.Speech.tell(Template.charaktere.grace, " Nein, bitte gehen sie alle. Ich habe Kopfschmerzen.");
         }
     }
     Template.SceneEightBInterviews = SceneEightBInterviews;
@@ -912,6 +958,12 @@ var Template;
         }
     }
     Template.SceneEightSaalonInterview = SceneEightSaalonInterview;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function SceneNineEntSceneElevenStudy() {
+    }
+    Template.SceneNineEntSceneElevenStudy = SceneNineEntSceneElevenStudy;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
@@ -1541,6 +1593,12 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
+    async function SceneTenMaireAndIsaac() {
+    }
+    Template.SceneTenMaireAndIsaac = SceneTenMaireAndIsaac;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
     async function SceneThreeSaalon() {
         let chooseWeirdPerson = {
             //todo: Pointsystem
@@ -1831,6 +1889,12 @@ var Template;
         }
     }
     Template.SceneThreeSaalon = SceneThreeSaalon;
+})(Template || (Template = {}));
+var Template;
+(function (Template) {
+    async function SceneTwelveFinal() {
+    }
+    Template.SceneTwelveFinal = SceneTwelveFinal;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {

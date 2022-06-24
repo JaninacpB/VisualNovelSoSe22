@@ -2,6 +2,27 @@ declare namespace Template {
     function EndScreen(): ƒS.SceneReturn;
 }
 declare namespace Template {
+    function EndingBadGraceAngry(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function EndingFiveAllSurvive(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function EndingFourBronteDead(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function EndingOneAllSurvive(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function EndingSixOdetteDead(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function EndingThreeAllSurvive(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function EndingTwoBronteDead(): ƒS.SceneReturn;
+}
+declare namespace Template {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let emotionen: {
@@ -243,6 +264,9 @@ declare namespace Template {
     function SceneEightSaalonInterview(): ƒS.SceneReturn;
 }
 declare namespace Template {
+    function SceneNineEntSceneElevenStudy(): ƒS.SceneReturn;
+}
+declare namespace Template {
     function SceneFiveOutside(): ƒS.SceneReturn;
 }
 declare namespace Template {
@@ -258,7 +282,13 @@ declare namespace Template {
     function SceneSixGarden(): ƒS.SceneReturn;
 }
 declare namespace Template {
+    function SceneTenMaireAndIsaac(): ƒS.SceneReturn;
+}
+declare namespace Template {
     function SceneThreeSaalon(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function SceneTwelveFinal(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function SceneTwoEntrance(): ƒS.SceneReturn;

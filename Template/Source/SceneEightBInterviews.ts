@@ -294,11 +294,14 @@ namespace Template {
 
         return "SceneNineEntryhall";
 
-        //todo: einfügen wo minus Punkte möglich
+        //todo: einfügen wo minus Punkte möglich if Abfrage und dann methode abspielen und danach return zu badending 
         async function graceBadEnding(): Promise<void> {
 
-            //todo: BadEnding erstellen 
-            
+            await ƒS.Speech.tell(charaktere.grace, " Der Pudding ist da! Oh was verzieht ihr dann alle für Gesichter? ");
+            await ƒS.Speech.tell(charaktere.alaistar, " Ich glaube unsere Detektiv Gäste haben leider etwas die Stimmung runtergezogen mit ihren lästigen Fragen. ");
+            await ƒS.Speech.tell(charaktere.grace, " Ich bin sehr enttäuscht von Ihnen Miss Bronte! Ich hatte bessere Manieren von Ihnen erwartet. ");
+            await ƒS.Speech.tell(charaktere.bronte, " Oh, dass- ");
+            await ƒS.Speech.tell(charaktere.grace, " Nein, bitte gehen sie alle. Ich habe Kopfschmerzen.");
         }
     }
 }
