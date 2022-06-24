@@ -387,11 +387,11 @@ var Template;
 var Template;
 (function (Template) {
     async function SceneFourSaalonDrama() {
-        let chooseBeRespectfull = {
-            //todo: Pointsystem
-            yes: "Ja",
-            no: "Nein"
-        };
+        //   let chooseBeRespectfull = {
+        //       //todo: Pointsystem
+        //       yes: "Ja",
+        //       no: "Nein"
+        //   }
         //todo am ende kann location einblenden weg
         await Template.ƒS.Location.show(Template.location.saalon);
         await Template.ƒS.update(0.1);

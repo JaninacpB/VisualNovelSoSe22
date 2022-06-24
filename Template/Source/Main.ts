@@ -5,11 +5,9 @@ namespace Template {
   console.log("Artemis Mysterium starting");
 
   // emotionen
-
   export let emotionen = {
     ausrufezeichen: "e-ausruf"
   }
-
 
   //define transistions
   export let transistions = {
@@ -429,13 +427,12 @@ namespace Template {
     ƒS.Progress.go(scenes);
   }
 
-
   // Helper Methodes
   export async function showEmotion(name: string, durationBreak: number): Promise<void> {
 
     document.getElementById(name).setAttribute("style", "display: inline;");
     await ƒS.Progress.delay(durationBreak);
     document.getElementById(name).setAttribute("style", "display: none;");
-
   }
+
 }

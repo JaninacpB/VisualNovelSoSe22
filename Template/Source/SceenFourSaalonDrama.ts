@@ -1,11 +1,11 @@
 namespace Template {
     export async function SceneFourSaalonDrama(): ƒS.SceneReturn {
 
-        let chooseBeRespectfull = {
-            //todo: Pointsystem
-            yes: "Ja",
-            no: "Nein"
-        }
+     //   let chooseBeRespectfull = {
+     //       //todo: Pointsystem
+     //       yes: "Ja",
+     //       no: "Nein"
+     //   }
 
         //todo am ende kann location einblenden weg
         await ƒS.Location.show(location.saalon);
