@@ -301,6 +301,8 @@ namespace Template {
                 await ƒS.Location.show(location.saalon);
                 await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
 
+                dataForSave.greetingInSaalonFinished = true; 
+
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
                 await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.happy, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
                 await ƒS.update(0.8);
@@ -380,6 +382,8 @@ namespace Template {
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
                 await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.laugh, ƒS.positionPercent(charaktere.grace.positionStandard.x, charaktere.grace.positionStandard.y));
                 await ƒS.update(0.8);
+
+                dataForSave.greetingInSaalonFinished = true; 
 
                 await ƒS.Speech.tell(charaktere.bronte, "Danke für das leckere Essen.");
 

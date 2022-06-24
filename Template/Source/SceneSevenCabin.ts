@@ -84,6 +84,8 @@ namespace Template {
                 break;
         }
 
+        dataForSave.foundCatCollarFinished = true; 
+
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.Character.hide(charaktere.maire);
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));

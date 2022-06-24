@@ -71,7 +71,6 @@ namespace Template {
 
         await ƒS.Speech.tell(charaktere.maire, " Oh weh… ich glaube er kann uns nicht leiden.");
 
-        //todo: hier unterschiedlicher Dialog
         if(dataForSave.foundRing == true){
             await ƒS.Speech.tell(charaktere.maire, "Wir hätten nicht im Garten rumschnüffeln sollen.");
 

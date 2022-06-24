@@ -34,6 +34,8 @@ namespace Template {
             await ƒS.Speech.tell(charaktere.bronte, " Arme Maire, das Essen hat sie wirklich mitgenommen.");
         }
 
+        dataForSave.lookingInTheGardenForCluesFinished = true; 
+
         await ƒS.Character.hide(charaktere.maire);
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));

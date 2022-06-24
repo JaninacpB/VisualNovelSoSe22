@@ -1,6 +1,6 @@
 namespace Template {
   export async function SceneOneInfront(): ƒS.SceneReturn {
-    console.log("FudgeStory Template Scene starting");
+    console.log("FudgeStory Scene starting");
 
     //Alle Wahlmöglichkeiten in Szene 
     let chooseCatNoise = {
@@ -14,10 +14,12 @@ namespace Template {
     //todo: Input einbauen und stylen, gleich auf DataForSave speichern
     // let test = await ƒS.Speech.getInput();
 
-    return "SceneTwoEntrance"; 
-    // return "SceneFourSaalonDrama";
-
-    dataForSave.pointAngryGrace += 20;
+    //return "SceneTwoEntrance"; 
+    //return "SceneFourSaalonDrama";
+    // return "SceneSixGarden";
+    //return "SceneEightSaalonInterview";
+    return "SceneEightBInterviews";
+    // return "EndScreen";
 
     await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
 

@@ -119,6 +119,14 @@ name {
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.326);
+  border-radius: 10px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .endScreenInvisible {
@@ -127,6 +135,14 @@ name {
 
 .endScreenVisible {
   display: flex;
+}
+
+#achivementTitle {
+  display: none;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 3em;
+  text-shadow: 3px 3px 10px white;
 }
 
 .achievment {
@@ -139,6 +155,15 @@ name {
   filter: grayscale(100%);
 }
 
+#restartButton {
+  margin: 0 auto;
+}
+
+#flexRestartButton {
+  display: none;
+  margin-top: 10px;
+}
+
 .credit {
   background-image: url("Asset/backgroundImage.png");
   text-align: center;
@@ -149,6 +174,17 @@ name {
   line-height: 60px;
 }
 
+.scaleUnlocked {
+  background-image: url("Asset/backgroundImage.png");
+  text-align: center;
+  font-size: 1.4em;
+  font-family: 'Playfair Display', serif;
+  width: 700px;
+  height: 300px;
+  line-height: 60px;
+  border: 4px solid white;
+}
+
 .diaryUnlocked {
   background-image: url("Asset/backgroundImage.png");
   text-align: center;
@@ -157,6 +193,7 @@ name {
   width: 700px;
   height: 400px;
   line-height: 60px;
+  border: 4px solid white;
 }
 
 .diaryEntrys{

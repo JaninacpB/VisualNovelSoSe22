@@ -216,6 +216,11 @@ declare namespace Template {
         mairePuked: boolean;
         maireFellInPond: boolean;
         maireHurtHerselfInCabin: boolean;
+        greetingInSaalonFinished: boolean;
+        lookingInTheGardenForCluesFinished: boolean;
+        foundCatCollarFinished: boolean;
+        stellaScreamFinished: boolean;
+        lookingForCluesFinished: boolean;
         pointDetectiv: number;
         pointFriend: number;
         pointAngryGrace: number;
@@ -226,15 +231,22 @@ declare namespace Template {
     function showCredits(): void;
     function showDiary(): void;
     function showEmotion(name: string, durationBreak: number): Promise<void>;
+    function listenerRestart(this: HTMLElement): void;
 }
 declare namespace Template {
     function SceneFourSaalonDrama(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function SceneEightBInterviews(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function SceneEightSaalonInterview(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function SceneFiveOutside(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function SceneNineEntryhall(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function SceneOneInfront(): ƒS.SceneReturn;

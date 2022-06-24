@@ -94,7 +94,7 @@ namespace Template {
     },
     black: {
       name: "black",
-      background: "Asset/background/backgrounds/black.png"
+      background: "Asset/background/black.png"
     }
   }
 
@@ -279,6 +279,14 @@ namespace Template {
     maireFellInPond: false,
     maireHurtHerselfInCabin: false,
 
+    //for diary
+    greetingInSaalonFinished: false,
+    lookingInTheGardenForCluesFinished: false,
+    foundCatCollarFinished: false,
+    stellaScreamFinished: false,
+    //todo:  an richtiger Stelle auf true setzen 
+    lookingForCluesFinished: false,
+
     //Pointsystem
     pointDetectiv: 0,
     pointFriend: 0,
@@ -301,6 +309,29 @@ namespace Template {
     ƒS.Text.addClass("diaryEntrys");
     let diaryText = "<p> Früher Abend: Wir sind vor dem Anwesen der Blackburns angekommen. Hier erschreckte uns eine Katze, bevor wir hinein gehen können. </p>";
     //todo: beenden
+    if (dataForSave.greetingInSaalonFinished) {
+      diaryText += "<p>Im Saalon treffen wir Mr. Blackburn ein konservativer und etwas herablassender Lord, dem das Anwesen gehört, seine Schwester Grace die Bronte und mich eingeladen hat und hier lebt und Isaac. Er scheint der Schwager zu sein und nicht sonderlich beliebt. </p>"
+      if (dataForSave.mairePuked) {
+        diaryText += "<p> Das Essen war fürchterlich. </p>"
+      } else {
+        diaryText += "<p> Das Essen war sehr köstlich!</p>"
+      }
+
+      if (dataForSave.lookingInTheGardenForCluesFinished) {
+        diaryText += "<p>Artemis ist verschwunden! Die Katze von Grace. Aber da wir ja draußen eine Katze gesehen haben schauen wir uns jetzt im Garten mal genauer um. Oh und ich habe ja noch gar nicht den Ring erwähnt, den wir im Gebüsch gefunden haben! O.R. Für wenn steht das wohl?</p>"
+      }
+      if (dataForSave.foundCatCollarFinished) {
+        if (dataForSave.maireFellInPond) {
+          diaryText += "<p>ARG! Ich bin in den blöden Teich gefallen und wir mussten Grace beten die Lichter anzumachen. Warum waren die eigentlich aus?</p>"
+        } else {
+          diaryText += "<p>Komischerweise waren die Lichter defekt, aber nach etwas hin und her haben wir es schließlich doch hinbekommen.</p>"
+        }
+        diaryText += "<p>In der Hütte haben wir ein Halsband gefunden! Es gehört bestimmt Artemis. Aber von ihr war keine Spurt. Und merkwürdigerweise war der Schuppen auch zu gewesen. Hat sie jemand gar eingesperrt? Aber warum?</p>"
+      }
+      if (dataForSave.stellaScreamFinished) {
+        diaryText += "<p>Dann haben wir einen Schrei gehört und sind schnell zurück ins Haus. Stella sah ganz blass aus und meinte jemand draußen gesehen zu haben. Grace welche vorhin noch aus aufgelöst war über das verschwinden der Katze war plötzlich viel ruhiger und bat uns den restlichen Abend nicht mit der Suche zu verbringen. Komisch. Vielleicht sollten wir mal mit den Anwesenden Reden und Hinweise sammeln.</p>";
+      }
+    }
     ƒS.Text.print(diaryText.toString());
   }
 
@@ -335,13 +366,12 @@ namespace Template {
         showCredits();
         break;
       case inGameMenuButtons.diary:
-         showDiary();
+        showDiary();
     }
 
   }
 
   //Shortcuts fürs Menü 
-
   document.addEventListener("keydown", hdnKeyPress);
 
   async function hdnKeyPress(_event: KeyboardEvent): Promise<void> {
@@ -415,13 +445,18 @@ namespace Template {
       { id: "SceneFiveOutside", scene: SceneFiveOutside, name: "SceneFiveOutside" },
       { id: "SceneSixGarden", scene: SceneSixGarden, name: "SceneSixGarden" },
       { id: "SceneSevenCabin", scene: SceneSevenCabin, name: "SceneSevenCabin" },
-      { id: "SceneEightSaalonInterview", scene: SceneEightSaalonInterview, name: "SceneEightSaalonInterview" }
-
-      //{id: "EndScreen", scene: EndScreen, name: "EndScreen"}
+      { id: "SceneEightSaalonInterview", scene: SceneEightSaalonInterview, name: "SceneEightSaalonInterview" },
+      { id: "SceneEightBInterviews", scene: SceneEightBInterviews, name: "SceneEightBInterviews" },
+      {id: "SceneNineEntryhall", scene: SceneNineEntryhall, name: "SceneNineEntryhall" },
+      {id: "EndScreen", scene: EndScreen, name: "EndScreen"}
     ];
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");
     dataForSave = ƒS.Progress.setData(dataForSave, uiElement);
+
+    
+    let button: HTMLElement =  document.getElementById('restartButton');
+    button.addEventListener("click", listenerRestart);
 
     // start the sequence
     ƒS.Progress.go(scenes);
@@ -429,10 +464,14 @@ namespace Template {
 
   // Helper Methodes
   export async function showEmotion(name: string, durationBreak: number): Promise<void> {
-
     document.getElementById(name).setAttribute("style", "display: inline;");
     await ƒS.Progress.delay(durationBreak);
     document.getElementById(name).setAttribute("style", "display: none;");
+  }
+
+  export function listenerRestart(this: HTMLElement){
+    console.log("Test Button was activated");
+    window.location.reload();
   }
 
 }
