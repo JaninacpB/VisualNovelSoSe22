@@ -227,7 +227,12 @@ namespace Template {
         x: 63,
         y: 110
       }
+    },
+
+    shadow: {
+      name: "Unbekannte Gestalt"
     }
+
   }
 
   export let inventory = {
@@ -244,7 +249,24 @@ namespace Template {
       description: "Ein Halsband für eine Katze oder Hund. ",
       image: "Asset/item/halsbandReal.png",
       static: true
-    }
+    },
+
+    //todo: übergeben
+
+    collar: {
+      name: "Halsband",
+      description: "Artemis Halsband",
+      image: "Asset/item/halsbandReal.png",
+      static: true
+    },
+
+    //todo: Pic and übergeben
+    pistol: {
+      name: "Pistole",
+      description: "Eine Pistole, die in Alaistars Mantel gefunden wurde. ",
+      image: "Asset/item/Testament.png",
+      static: true
+    },
 
   }
 
@@ -278,6 +300,8 @@ namespace Template {
     mairePuked: false,
     maireFellInPond: false,
     maireHurtHerselfInCabin: false,
+    tookGun: false, 
+    gotTestament: false, 
 
     //for diary
     greetingInSaalonFinished: false,
@@ -286,6 +310,11 @@ namespace Template {
     stellaScreamFinished: false,
     //todo:  an richtiger Stelle auf true setzen 
     lookingForCluesFinished: false,
+    interviewFinished: false,
+    searchedCloakFinished: false,
+    maireAndIsaacFinished: false, 
+    finalFinished: false, 
+    
 
     //Pointsystem
     pointDetectiv: 0,
@@ -448,6 +477,10 @@ namespace Template {
       { id: "SceneEightSaalonInterview", scene: SceneEightSaalonInterview, name: "SceneEightSaalonInterview" },
       { id: "SceneEightBInterviews", scene: SceneEightBInterviews, name: "SceneEightBInterviews" },
       {id: "SceneNineEntryhall", scene: SceneNineEntryhall, name: "SceneNineEntryhall" },
+      {id: "SceneTenMaireAndIsaac", scene: SceneTenMaireAndIsaac, name: "SceneTenMaireAndIsaac"},
+      {id: "SceneElevenStudy", scene: SceneElevenStudy, name: "SceneElevenStudy"},
+      {id: "SceneTwelveFinal", scene: SceneTwelveFinal, name: "SceneTwelveFinal"}, 
+
       {id: "EndScreen", scene: EndScreen, name: "EndScreen"}
     ];
 

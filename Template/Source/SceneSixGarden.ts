@@ -278,12 +278,17 @@ namespace Template {
 				await ƒS.update(0.4);
 
 				await ƒS.Speech.tell(charaktere.grace, " Licht? Oh, gehen die Laternen schon wieder nicht. Ich verstehe nichts von dieser Technik, aber wirklich zu verlässlich scheint sie mir ja nicht.");
+				await ƒS.Speech.tell(charaktere.grace, " Sie sind die letzten Tage mehrmals einfach ausgegangen.");
+				await ƒS.Speech.tell(charaktere.grace, " Dabei haben die Techniker mir hoch und heilig versprochen es wäre zuverlässig und nicht gefährlich!");
+
+
 
 				await ƒS.Character.hide(charaktere.grace);
 				await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.happy, ƒS.positionPercent(charaktere.grace.positionStandard.x, charaktere.grace.positionStandard.y));
 				await ƒS.update(0.4);
 
 				await ƒS.Speech.tell(charaktere.grace, " Aber ich lasse gleich Remington danach sehen. ");
+				await ƒS.Speech.tell(charaktere.grace, " Ich habe die Anweisungen zum Neustarten aufschreiben lassen. Besser alles wichtige auf Papier festhalten sag ich immer!  ");
 			}
 
 			await ƒS.Speech.tell(charaktere.bronte, " Okay, ich denke wir können unsere Investigation fortsetzen. Lass uns gehen!");

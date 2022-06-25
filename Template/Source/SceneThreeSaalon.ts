@@ -27,7 +27,12 @@ namespace Template {
         await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.laugh, ƒS.positionPercent(charaktere.grace.positionStandard.x, charaktere.grace.positionStandard.y));
         await ƒS.update(0.8);
 
-        await ƒS.Speech.tell(charaktere.grace, " Oh! Miss Bronte! Welch eine Freude. Und oh… welch ein ungewöhnliches Outfit sie tragen. Sind das Hosen? Wie… modern. ");
+        await ƒS.Speech.tell(charaktere.grace, " Oh! Miss ... äh... ah Bronte! ");
+        await ƒS.Speech.tell(charaktere.bronte, "Bronte. ");
+
+        await ƒS.Speech.tell(charaktere.grace, " Oh verzeihen Sie mir bitte. Ich und mein gedächtnis.  ");
+        await ƒS.Speech.tell(charaktere.grace, " Welch eine Freude, dass sie hier sind. Und oh… welch ein ungewöhnliches Outfit sie tragen. Sind das Hosen? Wie… modern. ");
+     
 
         await ƒS.Character.hide(charaktere.grace);
         await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.happy, ƒS.positionPercent(charaktere.grace.positionStandard.x, charaktere.grace.positionStandard.y));
@@ -68,7 +73,8 @@ namespace Template {
         await ƒS.update(0.4);
 
         await ƒS.Speech.tell(charaktere.bronte, "Lord Blackburn, die Freude ist ganz unsererseits, vielen Dank für die Einladung zum Abendessen. ");
-        await ƒS.Speech.tell(charaktere.alaistar, "Meine Schwester hat so von Ihnen geschwärmt, da wollte auch ich Sie kennenlernen. Ein Detektiv ist immer ein interessanter Gast. ");
+        await ƒS.Speech.tell(charaktere.alaistar, "Meine Schwester hat so von Ihnen geschwärmt und da ich gerade selber in der Stadt war wegen einigen Geschäfitlichkeiten, wollte auch ich Sie kennenlernen.");
+        await ƒS.Speech.tell(charaktere.alaistar, "Ein Detektiv ist immer ein interessanter Gast. ");
         await ƒS.Speech.tell(charaktere.alaistar, " Auch wenn Ihre Fälle sich sicherlich eher mit verlorenen Schmuckstücken und verlegten Kleidern beschäftigten.");
 
         await ƒS.Sound.play(sound.alaisterLaugh, 0.6);
@@ -155,7 +161,9 @@ namespace Template {
         await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.angry, ƒS.positionPercent(50, charaktere.alaistar.positionRightMiddle.y));
         await ƒS.update(0.4);
 
-        await ƒS.Speech.tell(charaktere.alaistar, " Wurde ja auch Zeit… Dieser Mann hat einfach keine Manieren. Bitte setzt euch alle schon Mal, ich werde Ihn kurz begrüßen und zur Eile mahnen. ");
+        await ƒS.Speech.tell(charaktere.alaistar, " Wurde ja auch Zeit… Dieser Mann hat einfach keine Manieren. ");
+        await ƒS.Speech.tell(charaktere.alaistar, "Wir waren so höflich Ihn einzuladen und so dankt er es uns...");
+        await ƒS.Speech.tell(charaktere.alaistar, "Bitte setzt euch alle schon Mal, ich werde Ihn kurz begrüßen und zur Eile mahnen. ");
 
         await ƒS.Character.hide(charaktere.alaistar);
         await ƒS.update(0.8);
@@ -182,6 +190,8 @@ namespace Template {
                 await ƒS.update(0.4);
 
                 await ƒS.Speech.tell(charaktere.maire, " Hoffentlich stecke ich mich nicht an!");
+                await ƒS.Speech.tell(charaktere.bronte, " Die roten Augen deuten entweder auf wenig Schlaf oder weinen hin... merkwürdig...");
+
                 break;
 
             //todo: detectiv punkte
@@ -248,9 +258,9 @@ namespace Template {
         await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.happy, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y));
         await ƒS.update(0.4);
 
-        await ƒS.Speech.tell(charaktere.isaac, "Sehr erfreut. Ich bin Issac. Ich habe in Gericht ein paar Mal ihre Arbeit betrachten können. Sie scheinen sehr sorgfältig zu arbeiten! ");
+        await ƒS.Speech.tell(charaktere.isaac, "Sehr erfreut. Ich bin Isaac. Ich habe in Gericht ein paar Mal ihre Arbeit betrachten können. Sie scheinen sehr sorgfältig zu arbeiten! ");
 
-        await ƒS.Speech.tell(charaktere.bronte, "Oh vielen dank. ");
+        await ƒS.Speech.tell(charaktere.bronte, "Oh vielen Dank. ");
 
         await ƒS.Speech.tell(charaktere.isaac, "Ah, ich sehe das Essen kommt, wir sollten uns setzte.");
 
@@ -314,6 +324,11 @@ namespace Template {
                 await ƒS.update(0.4);
 
                 await ƒS.Speech.tell(charaktere.grace, " Freut mich, dass es ihnen wohlbekommen ist. Mein Vater ist gebürtiger Schotte und so sind wir alle große Bewunderer der Schottischen Küche. ");
+
+                await ƒS.Speech.tell(charaktere.grace, " Auch wenn es sich natürlich nicht für Frauen von Stand gehört hat meine Mutter mir es tatsächlich beigebracht zu kochen. ");
+                await ƒS.Speech.tell(charaktere.grace, " Aber zum Glück hat sie es auch niedergeschrieben. Mein Gedächtnis lässt mich doch oft im Stich.");
+                await ƒS.Speech.tell(charaktere.grace, "Und es wäre wirklich ein Jammer gewesen, wenn das Gericht meinetwegen verloren gegangen wäre.");
+                await ƒS.Speech.tell(charaktere.grace, " Aber zum Glück gibt es ja Stift und Papier. Haha ");
 
                 await ƒS.Speech.tell(charaktere.grace, "Jetzt wo um unseren körperlichen Leib gesorgt ist, lasst uns den restlichen Abend genießen. Oh Miss Bronte ich habe noch eine kleine Überraschung für sie! Warten sie kurz. ");
 
@@ -400,6 +415,10 @@ namespace Template {
                 await ƒS.update(0.4);
 
                 await ƒS.Speech.tell(charaktere.grace, " Freut mich, dass es ihnen wohlbekommen ist. Mein Vater ist gebürtiger Schotte und so sind wir alle große Bewunderer der Schottischen Küche. ");
+                await ƒS.Speech.tell(charaktere.grace, " Auch wenn es sich natürlich nicht für Frauen von Stand gehört hat meine Mutter mir es tatsächlich beigebracht zu kochen. ");
+                await ƒS.Speech.tell(charaktere.grace, " Aber zum Glück hat sie es auch niedergeschrieben. Mein Gedächtnis lässt mich doch oft im Stich.");
+                await ƒS.Speech.tell(charaktere.grace, "Und es wäre wirklich ein Jammer gewesen, wenn das Gericht meinetwegen verloren gegangen wäre.");
+                await ƒS.Speech.tell(charaktere.grace, " Aber zum Glück gibt es ja Stift und Papier. Haha ");
                 await ƒS.Speech.tell(charaktere.grace, "Jetzt wo um unseren körperlichen Leib gesorgt ist, lasst uns den restlichen Abend genießen. Oh Miss Bronte ich habe noch eine kleine Überraschung für sie! Warten sie kurz. ");
 
                 await ƒS.Character.hide(charaktere.grace);

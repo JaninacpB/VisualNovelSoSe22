@@ -217,6 +217,9 @@ declare namespace Template {
                 y: number;
             };
         };
+        shadow: {
+            name: string;
+        };
     };
     let inventory: {
         ring: {
@@ -231,6 +234,18 @@ declare namespace Template {
             image: string;
             static: boolean;
         };
+        collar: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+        pistol: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
     };
     function fromLeftToRight(startX: number, startY: number, endX: number, endY: number): ƒS.AnimationDefinition;
     function fromMiddleDown(startX: number, startY: number, endY: number): ƒS.AnimationDefinition;
@@ -240,11 +255,17 @@ declare namespace Template {
         mairePuked: boolean;
         maireFellInPond: boolean;
         maireHurtHerselfInCabin: boolean;
+        tookGun: boolean;
+        gotTestament: boolean;
         greetingInSaalonFinished: boolean;
         lookingInTheGardenForCluesFinished: boolean;
         foundCatCollarFinished: boolean;
         stellaScreamFinished: boolean;
         lookingForCluesFinished: boolean;
+        interviewFinished: boolean;
+        searchedCloakFinished: boolean;
+        maireAndIsaacFinished: boolean;
+        finalFinished: boolean;
         pointDetectiv: number;
         pointFriend: number;
         pointAngryGrace: number;
@@ -258,19 +279,19 @@ declare namespace Template {
     function listenerRestart(this: HTMLElement): void;
 }
 declare namespace Template {
-    function SceneFourSaalonDrama(): ƒS.SceneReturn;
-}
-declare namespace Template {
     function SceneEightBInterviews(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function SceneEightSaalonInterview(): ƒS.SceneReturn;
 }
 declare namespace Template {
-    function SceneNineEntSceneElevenStudy(): ƒS.SceneReturn;
+    function SceneElevenStudy(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function SceneFiveOutside(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    function SceneFourSaalonDrama(): ƒS.SceneReturn;
 }
 declare namespace Template {
     function SceneNineEntryhall(): ƒS.SceneReturn;
