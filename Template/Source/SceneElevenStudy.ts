@@ -271,6 +271,8 @@ namespace Template {
 
                         await ƒS.Speech.tell(charaktere.bronte, " Oh! Hier! Ich wusste dass dort noch mehr im Halsband ist. Wenn ich es umdrehe ist hier eine Nummer! ");
                         await ƒS.Speech.tell(charaktere.odette, " Tatsächlich auf der Rückseite des Namensanhänger. ");
+                        await ƒS.Speech.tell(charaktere.odette, " In der Handschrift meiner vergesslichen Schwester. ");
+                        await ƒS.Speech.tell(charaktere.bronte, " Das erklärt warum sie so aufgebracht war über das verschwinden der Katze. Es ging ihr um den Code. Wie lautet er? ");
                         await ƒS.Speech.tell(charaktere.odette, " 279.");
                         await ƒS.Speech.tell(charaktere.odette, " !!! ");
                         await ƒS.Speech.tell(charaktere.odette, " Der Tresor, er ist offen! ");
