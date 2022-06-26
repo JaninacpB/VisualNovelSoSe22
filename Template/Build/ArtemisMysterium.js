@@ -2324,7 +2324,7 @@ var Template;
         // return "SceneEightBInterviews";
         // return "SceneNineEntryhall"; 
         // return "SceneTenMaireAndIsaac";
-        return "SceneElevenStudy";
+        // return "SceneElevenStudy";
         //  return "SceneTwelveFinal";
         // return "EndScreen";
         await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
