@@ -149,6 +149,11 @@ namespace Template {
       positionRightMiddle: {
         x: 63,
         y: 115
+      },
+      
+      positionMiddle: {
+        x: 50,
+        y: 115
       }
     },
 
@@ -168,6 +173,10 @@ namespace Template {
       },
       positionLeftMiddle: {
         x: 35,
+        y: 110
+      },
+      positionMiddle: {
+        x: 50,
         y: 110
       }
     },
@@ -225,6 +234,10 @@ namespace Template {
       },
       positionRightMiddle: {
         x: 63,
+        y: 110
+      },
+      positionMiddle: {
+        x: 50,
         y: 110
       }
     },

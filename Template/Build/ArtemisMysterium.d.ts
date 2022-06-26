@@ -144,6 +144,10 @@ declare namespace Template {
                 x: number;
                 y: number;
             };
+            positionMiddle: {
+                x: number;
+                y: number;
+            };
         };
         grace: {
             name: string;
@@ -160,6 +164,10 @@ declare namespace Template {
                 y: number;
             };
             positionLeftMiddle: {
+                x: number;
+                y: number;
+            };
+            positionMiddle: {
                 x: number;
                 y: number;
             };
@@ -213,6 +221,10 @@ declare namespace Template {
                 sad: string;
             };
             positionRightMiddle: {
+                x: number;
+                y: number;
+            };
+            positionMiddle: {
                 x: number;
                 y: number;
             };
