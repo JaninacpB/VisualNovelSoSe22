@@ -90,6 +90,10 @@ declare namespace Template {
             name: string;
             background: string;
         };
+        studyroomWindow: {
+            name: string;
+            background: string;
+        };
         black: {
             name: string;
             background: string;

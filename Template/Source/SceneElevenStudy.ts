@@ -50,9 +50,17 @@ namespace Template {
             chooseFromInventory.gun = "Pistole";
         }
 
+        await ƒS.Location.show(location.studyroom);
+        await ƒS.update(transistions.wallpaper.duration, transistions.wallpaper.alpha, transistions.wallpaper.edge);
+        await ƒS.update();
+
         await ƒS.Speech.tell(charaktere.bronte, " Okay. Wow… diese Einrichtung ist eine… Entscheidung. ");
         await ƒS.Speech.tell(charaktere.bronte, " Nicht sonderlich viel hier. ");
         await ƒS.Speech.tell(charaktere.bronte, " Ein Bücherregal an der Wand. Ein Sessel, ein Tisch und ein Fenster. Wo soll ich nur anfangen. ");
+
+        await ƒS.Location.show(location.studyroomWindow);
+
+
         await ƒS.Speech.tell(charaktere.bronte, " Oh. Was ist das? Das Fenster ist aufgegangen. ");
         await ƒS.Speech.tell(charaktere.bronte, " !!! ");
         await ƒS.Speech.tell(charaktere.bronte, " Jemand kommt durch Fenster?! Was soll ich tun?");

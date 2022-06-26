@@ -92,6 +92,12 @@ namespace Template {
       name: "studyroom",
       background: "Asset/background/studyroomBackground.png"
     },
+
+    studyroomWindow: {
+      name: "studyroom",
+      background: "Asset/background/studyroomBackground-open.png"
+    },
+
     black: {
       name: "black",
       background: "Asset/background/black.png"

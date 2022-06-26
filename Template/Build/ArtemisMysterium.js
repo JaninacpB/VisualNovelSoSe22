@@ -150,6 +150,10 @@ var Template;
             name: "studyroom",
             background: "Asset/background/studyroomBackground.png"
         },
+        studyroomWindow: {
+            name: "studyroom",
+            background: "Asset/background/studyroomBackground-open.png"
+        },
         black: {
             name: "black",
             background: "Asset/background/black.png"
@@ -1358,9 +1362,13 @@ var Template;
         if (Template.ƒS.Inventory.getAmount(Template.inventory.pistol)) {
             chooseFromInventory.gun = "Pistole";
         }
+        await Template.ƒS.Location.show(Template.location.studyroom);
+        await Template.ƒS.update(Template.transistions.wallpaper.duration, Template.transistions.wallpaper.alpha, Template.transistions.wallpaper.edge);
+        await Template.ƒS.update();
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Okay. Wow… diese Einrichtung ist eine… Entscheidung. ");
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Nicht sonderlich viel hier. ");
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ein Bücherregal an der Wand. Ein Sessel, ein Tisch und ein Fenster. Wo soll ich nur anfangen. ");
+        await Template.ƒS.Location.show(Template.location.studyroomWindow);
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh. Was ist das? Das Fenster ist aufgegangen. ");
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " !!! ");
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Jemand kommt durch Fenster?! Was soll ich tun?");
@@ -2315,8 +2323,8 @@ var Template;
         // return "SceneEightSaalonInterview";
         // return "SceneEightBInterviews";
         // return "SceneNineEntryhall"; 
-        return "SceneTenMaireAndIsaac";
-        // return "SceneElevenStudy";
+        // return "SceneTenMaireAndIsaac";
+        return "SceneElevenStudy";
         //  return "SceneTwelveFinal";
         // return "EndScreen";
         await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
