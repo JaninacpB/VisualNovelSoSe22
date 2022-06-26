@@ -354,6 +354,7 @@ var Template;
         mairePuked: false,
         maireFellInPond: false,
         maireHurtHerselfInCabin: false,
+        lookedAtCoats: false,
         tookGun: false,
         gotTestament: false,
         //for diary
@@ -408,6 +409,28 @@ var Template;
             }
             if (Template.dataForSave.stellaScreamFinished) {
                 diaryText += "<p>Dann haben wir einen Schrei gehört und sind schnell zurück ins Haus. Stella sah ganz blass aus und meinte jemand draußen gesehen zu haben. Grace welche vorhin noch aus aufgelöst war über das verschwinden der Katze war plötzlich viel ruhiger und bat uns den restlichen Abend nicht mit der Suche zu verbringen. Komisch. Vielleicht sollten wir mal mit den Anwesenden Reden und Hinweise sammeln.</p>";
+            }
+            // todo: entfernen? 
+            // if(dataForSave.lookingForCluesFinished){
+            //   diaryText += "<p>  </p>";
+            // }
+            if (Template.dataForSave.interviewFinished) {
+                diaryText += "<p> Isaac hat uns von seiner verstorbenen Frau Odette erzählt. Sie ist in der Themse vor Jahren ertrunken. Die Familie war wohl auch nicht begeistert von der Hochzeit. Gerade Remington schien nicht gut auf ihn zusprechen zu sein. </p>";
+            }
+            if (Template.dataForSave.searchedCloakFinished) {
+                diaryText += "<p>Ich schlug Bronte vor die Mäntel in der Halle zu durchsuchen.</p>";
+                if (Template.dataForSave.lookedAtCoats) {
+                    diaryText += "<p>Bronte fand die Idee gut und wir haben es uns genauer angeschauen. Es gab 4 Mäntel hier. Vermutlich die von Alaistar, Grace, Stella und Isaac.</p>";
+                    if (Template.dataForSave.tookGun) {
+                        diaryText += "<p>In Alaistars Tasche war eine Pistole! Was will er damit? Zum Jagen war die nicht gedacht und das Anwesen scheint ja eigentlich nicht sonderlich bedrohlich. Wir haben sie mitgenommen.</p>";
+                    }
+                }
+                else {
+                    diaryText += "<p>Bronte fand die Idee jedoch nicht gut daher haben wir es gelassen. Vielleicht war das gut, denn kurz danach kam Isaac. Der wäre sicherlich nicht erfreut gewesen.</p>";
+                }
+            }
+            if (Template.dataForSave.maireAndIsaacFinished) {
+                diaryText += "<p>Isaac erzählte mir wie sehr er Odette vermisst und er tut mir echt Leid. Er schien sie so zu lieben wie ich Bronte. Die ist mittlerweile alleine im Haus unterwegs und ich hoffe-  Was war das?</p>";
             }
         }
         Template.ƒS.Text.print(diaryText.toString());
@@ -1047,6 +1070,7 @@ var Template;
         await Template.ƒS.Character.hide(Template.charaktere.maire);
         await Template.ƒS.Character.hide(Template.charaktere.bronte);
         await Template.ƒS.update(0.8);
+        Template.dataForSave.interviewFinished = true;
         return "SceneNineEntryhall";
         //todo: Ende 
         async function graceBadEnding() {
@@ -2055,6 +2079,7 @@ var Template;
         let userChooseSearchCloaks = await Template.ƒS.Menu.getInput(chooseSearchCloaks, "BasicChoice");
         switch (userChooseSearchCloaks) {
             case chooseSearchCloaks.yes:
+                Template.dataForSave.lookedAtCoats = true;
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ich denke, dass ist eine gute Idee. Wir sollten nur schnell sein, nicht dass uns jemand erwischt. ");
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
                 await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.sad, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
@@ -2291,6 +2316,7 @@ var Template;
         await Template.ƒS.update(0.8);
         await Template.ƒS.Character.hide(Template.charaktere.bronte);
         await Template.ƒS.update(1);
+        Template.dataForSave.searchedCloakFinished = true;
         return "SceneTenMaireAndIsaac";
         async function checkIfLoopShouldContinue() {
             console.log(counterHowManyCloaks);
@@ -2918,6 +2944,7 @@ var Template;
         await Template.ƒS.Character.hide(Template.charaktere.maire);
         await Template.ƒS.Character.hide(Template.charaktere.isaac);
         await Template.ƒS.update(0.4);
+        Template.dataForSave.maireAndIsaacFinished = true;
         return "SceneElevenStudy";
     }
     Template.SceneTenMaireAndIsaac = SceneTenMaireAndIsaac;

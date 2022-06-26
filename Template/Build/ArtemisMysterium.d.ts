@@ -271,6 +271,7 @@ declare namespace Template {
         mairePuked: boolean;
         maireFellInPond: boolean;
         maireHurtHerselfInCabin: boolean;
+        lookedAtCoats: boolean;
         tookGun: boolean;
         gotTestament: boolean;
         greetingInSaalonFinished: boolean;

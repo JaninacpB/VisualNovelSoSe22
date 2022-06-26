@@ -319,6 +319,7 @@ namespace Template {
     mairePuked: false,
     maireFellInPond: false,
     maireHurtHerselfInCabin: false,
+    lookedAtCoats: false, 
     tookGun: false, 
     gotTestament: false, 
 
@@ -378,6 +379,32 @@ namespace Template {
       }
       if (dataForSave.stellaScreamFinished) {
         diaryText += "<p>Dann haben wir einen Schrei gehört und sind schnell zurück ins Haus. Stella sah ganz blass aus und meinte jemand draußen gesehen zu haben. Grace welche vorhin noch aus aufgelöst war über das verschwinden der Katze war plötzlich viel ruhiger und bat uns den restlichen Abend nicht mit der Suche zu verbringen. Komisch. Vielleicht sollten wir mal mit den Anwesenden Reden und Hinweise sammeln.</p>";
+      } 
+      // todo: entfernen? 
+      // if(dataForSave.lookingForCluesFinished){
+      //   diaryText += "<p>  </p>";
+      // }
+      if(dataForSave.interviewFinished){
+        diaryText += "<p> Isaac hat uns von seiner verstorbenen Frau Odette erzählt. Sie ist in der Themse vor Jahren ertrunken. Die Familie war wohl auch nicht begeistert von der Hochzeit. Gerade Remington schien nicht gut auf ihn zusprechen zu sein. </p>";
+      }  
+      if(dataForSave.searchedCloakFinished){
+        diaryText += "<p>Ich schlug Bronte vor die Mäntel in der Halle zu durchsuchen.</p>";
+
+        if(dataForSave.lookedAtCoats){
+          diaryText += "<p>Bronte fand die Idee gut und wir haben es uns genauer angeschauen. Es gab 4 Mäntel hier. Vermutlich die von Alaistar, Grace, Stella und Isaac.</p>";
+
+          
+        if(dataForSave.tookGun){
+          diaryText += "<p>In Alaistars Tasche war eine Pistole! Was will er damit? Zum Jagen war die nicht gedacht und das Anwesen scheint ja eigentlich nicht sonderlich bedrohlich. Wir haben sie mitgenommen.</p>";
+        }
+
+        }else {
+          diaryText += "<p>Bronte fand die Idee jedoch nicht gut daher haben wir es gelassen. Vielleicht war das gut, denn kurz danach kam Isaac. Der wäre sicherlich nicht erfreut gewesen.</p>";
+        }
+
+      }  
+      if(dataForSave.maireAndIsaacFinished){
+        diaryText += "<p>Isaac erzählte mir wie sehr er Odette vermisst und er tut mir echt Leid. Er schien sie so zu lieben wie ich Bronte. Die ist mittlerweile alleine im Haus unterwegs und ich hoffe-  Was war das?</p>";
       }
     }
     ƒS.Text.print(diaryText.toString());

@@ -321,6 +321,8 @@ namespace Template {
         switch (userChooseSearchCloaks) {
             case chooseSearchCloaks.yes:
 
+                dataForSave.lookedAtCoats = true;
+
                 await ƒS.Speech.tell(charaktere.bronte, " Ich denke, dass ist eine gute Idee. Wir sollten nur schnell sein, nicht dass uns jemand erwischt. ");
 
                 await ƒS.Character.hide(charaktere.maire);
@@ -657,6 +659,8 @@ namespace Template {
 
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.update(1);
+
+        dataForSave.searchedCloakFinished = true; 
 
         return "SceneTenMaireAndIsaac";
 

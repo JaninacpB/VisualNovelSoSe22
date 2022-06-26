@@ -738,6 +738,8 @@ namespace Template {
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.update(0.8);
 
+        dataForSave.interviewFinished = true;
+
         return "SceneNineEntryhall";
 
         //todo: Ende 

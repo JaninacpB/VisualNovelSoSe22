@@ -164,7 +164,7 @@ namespace Template {
         await ƒS.Character.hide(charaktere.isaac);
         await ƒS.update(0.4);
 
-
+        dataForSave.maireAndIsaacFinished = true;
 
         return "SceneElevenStudy"; 
 
