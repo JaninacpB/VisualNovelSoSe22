@@ -38,7 +38,7 @@ namespace Artemis {
 
     saloonAfterScrem: "Asset/sound/frederic-chopin-nocturne-21-classical-remix-7611.mp3",
 
-    final: "/Template/Asset/sound/tenseFinalMusik.mp3",
+    final: "Asset/sound/tenseFinalMusik.mp3",
 
     endingSad: "Asset/sound/pianoSadEnding.mp3",
 

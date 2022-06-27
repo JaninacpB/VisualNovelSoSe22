@@ -187,7 +187,7 @@ var Artemis;
         themeSaloon: "Asset/sound/peter-tchaikovsky-march-from-nutcracker-classical-remix-7691.mp3",
         dramaInSaloon: "Asset/sound/classical-piano-peter-tchaikovsky-chant-sans-paroles-opus-40-6-21872.mp3",
         saloonAfterScrem: "Asset/sound/frederic-chopin-nocturne-21-classical-remix-7611.mp3",
-        final: "/Template/Asset/sound/tenseFinalMusik.mp3",
+        final: "Asset/sound/tenseFinalMusik.mp3",
         endingSad: "Asset/sound/pianoSadEnding.mp3",
         endingHappy: "Asset/sound/PianoEndingHappy.mp3",
         endingReallyBad: "Asset/sound/EndingReallyBad.mp3",
