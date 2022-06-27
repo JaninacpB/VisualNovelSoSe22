@@ -59,6 +59,11 @@ namespace Template {
             await ƒS.Speech.tell("Artemis", " Miau. ");
             await ƒS.Speech.tell(charaktere.bronte, " Damit hätte sich wohl auch das letzte Mysterium gelöst.");
 
+            if(dataForSave.pointAngryMaire <= 1){
+                //todo: Bonus Szene 
+                return "ExtraSceneBronteMaire"; 
+            }
+
             //todo final ÜBERALL!!
 
         } else if (userchooseFinalChoice == chooseFinalChoice.infrontOfOdette) {
@@ -130,6 +135,7 @@ namespace Template {
             await ƒS.Speech.tell(charaktere.maire, " Ich weiß. Ich weiß doch Bronte. Ich liebe dich auch. Bitte halte durch!");
 
         } else if (userchooseFinalChoice == chooseFinalChoice.nothing && dataForSave.tookGun) {
+            //todo: fixen 
             await ƒS.Speech.tell(charaktere.alaistar, " Auf Wiedersehen ");
             await ƒS.Speech.tell(charaktere.odette, " AH! ");
             await ƒS.Speech.tell(charaktere.alaistar, " Was… wo… ");
@@ -165,7 +171,7 @@ namespace Template {
             await ƒS.Speech.tell(charaktere.isaac, " ODETTE! Wie nein… ");
             await ƒS.Speech.tell(charaktere.isaac, " Liebste… ");
             await ƒS.Speech.tell(charaktere.odette, " Isaac… Es… ");
-            await ƒS.Speech.tell(charaktere.odette, " tut… Leid… ");
+            await ƒS.Speech.tell(charaktere.odette, " Tut… Leid… ");
             await ƒS.Speech.tell(charaktere.isaac, " Nein sprich nicht… ich… ");
             await ƒS.Speech.tell(charaktere.isaac, " Nein… bitte bleib ");
             await ƒS.Speech.tell(charaktere.isaac, " Verlass mich nicht erneut! ");

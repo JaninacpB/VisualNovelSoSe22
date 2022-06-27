@@ -14,5 +14,8 @@ namespace Template {
         await ƒS.Speech.tell(charaktere.maire, " Naw… Bronte ich liebe dich auch. ");
         await ƒS.Speech.tell(charaktere.bronte, " Oh schau… die Sonne geht auf. ");
         await ƒS.Speech.tell(charaktere.maire, " Oh… wie schön.");
+
+        return "EndScreen"; 
+
     }
 }

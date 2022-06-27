@@ -179,6 +179,7 @@ namespace Template {
         }
 
         if (pointsRecap >= 3) {
+            dataForSave.pointDetectiv += 1;
             await ƒS.Character.hide(charaktere.maire);
             await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.laugh, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y))
             await ƒS.update(0.4);
@@ -412,7 +413,8 @@ namespace Template {
                                     break;
 
                                 case chooseWhoGun.alaistar:
-                                    //todo: detectiv point
+
+                                    dataForSave.pointDetectiv += 1; 
                                     await ƒS.Speech.tell(charaktere.bronte, "Dunkler teurer Mantel mit einer Brille. Dieser Mantel gehört zu Mr. Blackburn. Aber ich weiß nicht warum er eine Waffe braucht. ");
 
                                     break;
@@ -423,6 +425,10 @@ namespace Template {
                             let userTakeGun = await ƒS.Menu.getInput(takeGun, "BasicChoice");
                             switch (userTakeGun) {
                                 case takeGun.yes:
+
+                                    // todo: Inventar hinzufügen
+                                    dataForSave.tookGun = true; 
+
                                     await ƒS.Speech.tell(charaktere.bronte, " Ja. Ich habe ein schlechtes Gefühl… Lass ihn mitnehmen. ");
 
                                     break;

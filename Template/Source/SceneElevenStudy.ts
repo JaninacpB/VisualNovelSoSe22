@@ -193,8 +193,10 @@ namespace Template {
                     let userchooseWhoHideTestament = await ƒS.Menu.getInput(chooseWhoHideTestament, "BasicChoice");
 
                     switch (userchooseWhoHideTestament) {
-                        //todo: Detektiv Point
+
                         case chooseWhoHideTestament.alaistar:
+
+                            dataForSave.pointDetectiv += 1;
 
                             await ƒS.Speech.tell(charaktere.bronte, " Natürlich der Alleinerbe Alaistar Balckburn hatte am meisten durch ein weiteres Testament zu verlieren.");
                             break;
@@ -274,8 +276,9 @@ namespace Template {
 
                 switch (userchooseFromInventory) {
 
-                    //todo: Detektiv points
                     case chooseFromInventory.collar:
+
+                        dataForSave.pointDetectiv += 1;
 
                         await ƒS.Speech.tell(charaktere.bronte, " Oh! Hier! Ich wusste dass dort noch mehr im Halsband ist. Wenn ich es umdrehe ist hier eine Nummer! ");
                         await ƒS.Speech.tell(charaktere.odette, " Tatsächlich auf der Rückseite des Namensanhänger. ");
@@ -303,13 +306,13 @@ namespace Template {
             case chooseSomethingThatHelps.no:
 
                 await ƒS.Speech.tell(charaktere.bronte, " Tut mir leid, ich glaube ich habe nichts dabei was uns helfen könnte. ");
-                await ƒS.Speech.tell(charaktere.odette, " Oh schade, aber-");                
+                await ƒS.Speech.tell(charaktere.odette, " Oh schade, aber-");
 
                 break;
 
         }
 
-        return "SceneTwelveFinal"; 
+        return "SceneTwelveFinal";
 
     }
 }

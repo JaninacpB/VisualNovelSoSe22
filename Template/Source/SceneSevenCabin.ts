@@ -40,6 +40,7 @@ namespace Template {
         let userChooseHowToGetToRoof = await ƒS.Menu.getInput(chooseHowToGetToRoof, "basicChoice");
         switch (userChooseHowToGetToRoof) {
             case chooseHowToGetToRoof.bronte:
+
                 await ƒS.Character.hide(charaktere.bronte);
                 await ƒS.Character.hide(charaktere.maire);
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
@@ -47,15 +48,13 @@ namespace Template {
                 await ƒS.update(0.4);
 
                 await ƒS.Speech.tell(charaktere.bronte, "Ein Moment das habe ich gleich! Perfekt. Gutes Auge Maire! Das ist ein Halsband.");
-                //todo: öffne inventory
+                //todo: öffne inventory halsband bekommen
 
                 break;
 
             case chooseHowToGetToRoof.maire:
 
-                //Maire machen lassen: 
-                //todo: Freundschaft Minus
-
+                dataForSave.pointAngryMaire += 1; 
                 dataForSave.maireHurtHerselfInCabin = true;
 
                 await ƒS.Character.hide(charaktere.bronte);
@@ -70,7 +69,7 @@ namespace Template {
 
                 await ƒS.Speech.tell(charaktere.maire, " Okay… ich… autsch! Mein Knöchel! Aber hier… ein Halsband. ");
 
-                // todo: Inventory öffnen
+                // todo: Inventory öffnen Halsband bekommen
 
                 await ƒS.Character.hide(charaktere.bronte);
                 await ƒS.Character.hide(charaktere.maire);

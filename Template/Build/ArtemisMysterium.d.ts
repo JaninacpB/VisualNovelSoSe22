@@ -265,6 +265,7 @@ declare namespace Template {
     };
     function fromLeftToRight(startX: number, startY: number, endX: number, endY: number): ƒS.AnimationDefinition;
     function fromMiddleDown(startX: number, startY: number, endY: number): ƒS.AnimationDefinition;
+    function fromMiddleSinking(startX: number, startY: number, endY: number, timeDuration: number): ƒS.AnimationDefinition;
     let dataForSave: {
         foundRing: boolean;
         spiedThroughWindow: boolean;
@@ -284,7 +285,7 @@ declare namespace Template {
         maireAndIsaacFinished: boolean;
         finalFinished: boolean;
         pointDetectiv: number;
-        pointFriend: number;
+        pointAngryMaire: number;
         pointAngryGrace: number;
         Achievment: {
             saveTheCat: boolean;

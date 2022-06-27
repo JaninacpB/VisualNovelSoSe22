@@ -75,6 +75,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Naw… Bronte ich liebe dich auch. ");
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh schau… die Sonne geht auf. ");
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Oh… wie schön.");
+        return "EndScreen";
     }
     Template.ExtraSceneBronteMaire = ExtraSceneBronteMaire;
 })(Template || (Template = {}));
@@ -346,6 +347,16 @@ var Template;
         };
     }
     Template.fromMiddleDown = fromMiddleDown;
+    //maire sinking into water
+    function fromMiddleSinking(startX, startY, endY, timeDuration) {
+        return {
+            start: { translation: Template.ƒS.positionPercent(startX, startY) },
+            end: { translation: Template.ƒS.positionPercent(startX, endY) },
+            duration: timeDuration,
+            playmode: Template.ƒS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
+    Template.fromMiddleSinking = fromMiddleSinking;
     Template.dataForSave = {
         //Sachen die Gespeichert werden müssen
         //StoryTracker
@@ -369,9 +380,13 @@ var Template;
         maireAndIsaacFinished: false,
         finalFinished: false,
         //Pointsystem
+        // 8 möglich
         pointDetectiv: 0,
-        pointFriend: 0,
+        // 5 möglich
+        pointAngryMaire: 0,
+        //3 max bevor Ende 
         pointAngryGrace: 0,
+        //todo:
         Achievment: {
             saveTheCat: false
         }
@@ -537,6 +552,7 @@ var Template;
             { id: "SceneTenMaireAndIsaac", scene: Template.SceneTenMaireAndIsaac, name: "SceneTenMaireAndIsaac" },
             { id: "SceneElevenStudy", scene: Template.SceneElevenStudy, name: "SceneElevenStudy" },
             { id: "SceneTwelveFinal", scene: Template.SceneTwelveFinal, name: "SceneTwelveFinal" },
+            { id: "ExtraSceneBronteMaire", scene: Template.ExtraSceneBronteMaire, name: "ExtraSceneBronteMaire" },
             { id: "EndScreen", scene: Template.EndScreen, name: "EndScreen" }
         ];
         let uiElement = document.querySelector("[type=interface]");
@@ -554,7 +570,6 @@ var Template;
     }
     Template.showEmotion = showEmotion;
     function listenerRestart() {
-        console.log("Test Button was activated");
         window.location.reload();
     }
     Template.listenerRestart = listenerRestart;
@@ -1150,7 +1165,6 @@ var Template;
         await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
         await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Gut. Wir haben ein Hinweis auf den Verbleib der Katze gefunden. Sie ist in");
-        //Auswahl1 todo: detectives points
         let userChooseWhathappendToCat = await Template.ƒS.Menu.getInput(chooseWhathappendToCat, "basicChoice");
         switch (userChooseWhathappendToCat) {
             case chooseWhathappendToCat.fellInWater:
@@ -1164,6 +1178,7 @@ var Template;
                 await rightChoiceFirstChoice();
                 break;
             case chooseWhathappendToCat.closedIn:
+                Template.dataForSave.pointDetectiv += 1;
                 await rightChoiceFirstChoice();
                 break;
         }
@@ -1214,6 +1229,7 @@ var Template;
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh äh… ich meinte...");
             //wichtig kein Break hier! soll anderen Dialog auslösen! 
             case chooseWhereIsCat.fleedThroughRoof:
+                Template.dataForSave.pointDetectiv += 1;
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.4);
@@ -1223,15 +1239,15 @@ var Template;
         await Template.ƒS.Character.hide(Template.charaktere.isaac);
         await Template.ƒS.Character.show(Template.charaktere.grace, Template.charaktere.grace.pose.think, Template.ƒS.positionPercent(Template.charaktere.grace.positionMiddle.x, Template.charaktere.grace.positionMiddle.y));
         await Template.ƒS.update(0.4);
+        //  dataForSave.pointDetectiv += 1; 
         //todo: Number correct maybe
-        if (Template.dataForSave.pointDetectiv < -2) {
+        if (Template.dataForSave.pointDetectiv < 2) {
             await Template.ƒS.Speech.tell(Template.charaktere.grace, "Mhm… Ihren anderen Fall haben sie eleganter gelöst… Sie scheinen heute etwas verwirrt zu sein.");
         }
         //todo: maire punkte prüfe
-        if (Template.dataForSave.pointFriend < -2) {
+        if (Template.dataForSave.pointAngryMaire > 2) {
             await Template.ƒS.Speech.tell(Template.charaktere.maire, " Sie hat einen Punkt… ");
         }
-        //todo: if point detective
         await Template.ƒS.Character.hide(Template.charaktere.grace);
         await Template.ƒS.Character.show(Template.charaktere.grace, Template.charaktere.grace.pose.laugh, Template.ƒS.positionPercent(Template.charaktere.grace.positionMiddle.x, Template.charaktere.grace.positionMiddle.y));
         await Template.ƒS.update(0.4);
@@ -1497,8 +1513,8 @@ var Template;
                     await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ein weiteres  Testament? Oh, jetzt macht es natürlich etwas mehr Sinn. Es gab natürlich jemand, der Interesse hatte ein weiteres Testament verschwinden zu lassen.");
                     let userchooseWhoHideTestament = await Template.ƒS.Menu.getInput(chooseWhoHideTestament, "BasicChoice");
                     switch (userchooseWhoHideTestament) {
-                        //todo: Detektiv Point
                         case chooseWhoHideTestament.alaistar:
+                            Template.dataForSave.pointDetectiv += 1;
                             await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Natürlich der Alleinerbe Alaistar Balckburn hatte am meisten durch ein weiteres Testament zu verlieren.");
                             break;
                         case chooseWhoHideTestament.grace:
@@ -1557,8 +1573,8 @@ var Template;
             case chooseSomethingThatHelps.yes:
                 let userchooseFromInventory = await Template.ƒS.Menu.getInput(chooseFromInventory, "BasicChoice");
                 switch (userchooseFromInventory) {
-                    //todo: Detektiv points
                     case chooseFromInventory.collar:
+                        Template.dataForSave.pointDetectiv += 1;
                         await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh! Hier! Ich wusste dass dort noch mehr im Halsband ist. Wenn ich es umdrehe ist hier eine Nummer! ");
                         await Template.ƒS.Speech.tell(Template.charaktere.odette, " Tatsächlich auf der Rückseite des Namensanhänger. ");
                         await Template.ƒS.Speech.tell(Template.charaktere.odette, " In der Handschrift meiner vergesslichen Schwester. ");
@@ -1647,16 +1663,29 @@ var Template;
         await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.happy, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
         await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " O und R…. oh! Wir kennen jemanden zu dem R. passen würde!");
-        //todo: Punkte System 
         //todo: Isaac Dialog
         let userChoosePersonToRing = await Template.ƒS.Menu.getInput(choosePerson, "basicChoice");
         switch (userChoosePersonToRing) {
             case choosePerson.Butler:
+                Template.dataForSave.pointAngryMaire += 1;
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.4);
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Gute Schlussfolgerung… Der Butler heißt Remington. Aber ob der Vorname passt?");
                 break;
+            case choosePerson.Isaac:
+                await Template.ƒS.Character.hide(Template.charaktere.maire);
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.sad, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+                await Template.ƒS.Character.hide(Template.charaktere.bronte);
+                await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.sad, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+                await Template.ƒS.update(0.4);
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ah! Äh… nein das passt nicht. Er heißt da Isaac mit Vorname.");
+                await Template.ƒS.Character.hide(Template.charaktere.maire);
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.happy, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+                await Template.ƒS.Character.hide(Template.charaktere.bronte);
+                await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
+                await Template.ƒS.update(0.4);
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Aber der Butler passt! Es hat sich mit Remington vorgestellt! Und sein Vorname wissen wir nicht!");
             default:
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
                 await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.sad, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
@@ -1686,6 +1715,7 @@ var Template;
         let userChooseWhatToDoInfrontGarden = await Template.ƒS.Menu.getInput(chooseWhatToDoInfrontGarden, "basicChoice");
         switch (userChooseWhatToDoInfrontGarden) {
             case chooseWhatToDoInfrontGarden.go:
+                Template.dataForSave.pointAngryMaire += 1;
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.4);
@@ -1985,6 +2015,7 @@ var Template;
                 break;
         }
         if (pointsRecap >= 3) {
+            Template.dataForSave.pointDetectiv += 1;
             await Template.ƒS.Character.hide(Template.charaktere.maire);
             await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.laugh, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
             await Template.ƒS.update(0.4);
@@ -2148,7 +2179,7 @@ var Template;
                                     await Template.ƒS.Speech.tell(Template.charaktere.maire, " Mhm… ich weiß ja nicht. Der Mantel scheint eher zu Mr. Blackburn zu gehören. Er ist der einzige mit einer Brille. ");
                                     break;
                                 case chooseWhoGun.alaistar:
-                                    //todo: detectiv point
+                                    Template.dataForSave.pointDetectiv += 1;
                                     await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Dunkler teurer Mantel mit einer Brille. Dieser Mantel gehört zu Mr. Blackburn. Aber ich weiß nicht warum er eine Waffe braucht. ");
                                     break;
                             }
@@ -2156,6 +2187,8 @@ var Template;
                             let userTakeGun = await Template.ƒS.Menu.getInput(takeGun, "BasicChoice");
                             switch (userTakeGun) {
                                 case takeGun.yes:
+                                    // todo: Inventar hinzufügen
+                                    Template.dataForSave.tookGun = true;
                                     await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Ja. Ich habe ein schlechtes Gefühl… Lass ihn mitnehmen. ");
                                     break;
                                 case takeGun.no:
@@ -2351,9 +2384,9 @@ var Template;
         //todo: Input einbauen und stylen, gleich auf DataForSave speichern
         // let test = await ƒS.Speech.getInput();
         //return "SceneTwoEntrance";
-        return "SceneThreeSaalon";
-        return "SceneFourSaalonDrama";
-        // return "SceneSixGarden";
+        // return "SceneThreeSaalon";
+        // return "SceneFourSaalonDrama";
+        return "SceneSixGarden";
         // return "SceneEightSaalonInterview";
         // return "SceneEightBInterviews";
         // return "SceneNineEntryhall"; 
@@ -2554,11 +2587,10 @@ var Template;
                 await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.update(0.4);
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, "Ein Moment das habe ich gleich! Perfekt. Gutes Auge Maire! Das ist ein Halsband.");
-                //todo: öffne inventory
+                //todo: öffne inventory halsband bekommen
                 break;
             case chooseHowToGetToRoof.maire:
-                //Maire machen lassen: 
-                //todo: Freundschaft Minus
+                Template.dataForSave.pointAngryMaire += 1;
                 Template.dataForSave.maireHurtHerselfInCabin = true;
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
@@ -2568,7 +2600,7 @@ var Template;
                 await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.embarrassed, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.update(0.4);
                 await Template.ƒS.Speech.tell(Template.charaktere.maire, " Okay… ich… autsch! Mein Knöchel! Aber hier… ein Halsband. ");
-                // todo: Inventory öffnen
+                // todo: Inventory öffnen Halsband bekommen
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
@@ -2665,7 +2697,6 @@ var Template;
                         await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                         await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.happy, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                         await Template.ƒS.update(0.4);
-                        //todo: Laterne Licht
                         await Template.ƒS.Location.show(Template.location.gardenLight);
                         await Template.ƒS.Speech.tell(Template.charaktere.maire, "Oh wow!");
                         await Template.ƒS.Character.hide(Template.charaktere.maire);
@@ -2681,6 +2712,7 @@ var Template;
             case chooseWhatToDoGardenDark.goFurther:
                 //Weitergehen 
                 Template.dataForSave.maireFellInPond = true;
+                Template.dataForSave.pointAngryMaire += 1;
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
@@ -2690,22 +2722,27 @@ var Template;
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
                 await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.update(0.4);
-                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Wenn du meinst Bronte...  Pass nur auf hier ist");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " Wenn du meinst Bronte...  Pass nur auf hier ist.");
                 // <platsch>wasserbecken…
+                await Template.ƒS.Character.animate(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.fromMiddleSinking(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y, 230, 0.2));
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
-                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.sad, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.shout, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.4);
-                await Template.ƒS.Speech.tell(Template.charaktere.maire, " AH! Ich ertrinke… Bronte ich… Ich… ich kann stehen… Aber meine ganzen Kleider… Tolle Idee von dir…");
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, " AH! Ich ertrinke… Bronte ich… Ich… ");
+                await Template.ƒS.Character.animate(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.fromMiddleSinking(Template.charaktere.maire.positionStandard.x, 230, Template.charaktere.maire.positionStandard.y, 1));
+                await Template.ƒS.Character.hide(Template.charaktere.maire);
+                await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.embarrassed, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
+                await Template.ƒS.update(0.4);
+                await Template.ƒS.Speech.tell(Template.charaktere.maire, "Ich kann stehen… Aber meine ganzen Kleider… Tolle Idee von dir…");
                 await Template.ƒS.Character.hide(Template.charaktere.bronte);
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.sad, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.4);
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Oh weh, dass tut mir Leid, ich wollte dich gerade warnen. Lass uns schnell zurück ins Warme gehen.");
+                await Template.ƒS.Speech.tell(Template.charaktere.bronte, " (Sie sieht sehr wüttend aus.)");
                 await goBack();
                 break;
             case chooseWhatToDoGardenDark.goBack:
-                // Zurückgehen (Methode)
                 await goBack();
                 break;
         }
@@ -2798,7 +2835,7 @@ var Template;
                 await Template.ƒS.Character.hide(Template.charaktere.grace);
                 await Template.ƒS.Character.show(Template.charaktere.grace, Template.charaktere.grace.pose.angry, Template.ƒS.positionPercent(Template.charaktere.grace.positionStandard.x, Template.charaktere.grace.positionStandard.y));
                 await Template.ƒS.update(0.4);
-                //todo: Minus Punkte Grace		
+                Template.dataForSave.pointAngryGrace += 1;
                 await Template.ƒS.Speech.tell(Template.charaktere.grace, "Aber… Oh sind das etwa Blüten meiner Seerosen! Oh weh. Die sind preisgekrönt! Das wird Monate dauern, die wieder so hinzubekommen. Passen sie doch besser auf! ");
             }
             else {
@@ -2963,13 +3000,11 @@ var Template;
 (function (Template) {
     async function SceneThreeSaalon() {
         let chooseWeirdPerson = {
-            //todo: Pointsystem
             stella: "Stella",
             grace: "Grace",
             lordBlackburn: "Lord Blackburn"
         };
         let chooseHaggis = {
-            //todo: Pointsystem
             lie: "Lüge",
             truth: "Erzähle Wahrheit"
         };
@@ -3080,7 +3115,6 @@ var Template;
         await Template.ƒS.update(0.4);
         await Template.ƒS.Speech.tell(Template.charaktere.maire, " Was für… Charaktere. Ich hätte mich wirklich besser anziehen sollen. Aber selbst mein bestes Kleid würde neben Lady Stella wie ein Putzlappen wirken. ");
         await Template.ƒS.Speech.tell(Template.charaktere.maire, "Aber… findest du nicht auch, dass einer der drei merkwürdig ist?");
-        // todo: Point detectiv 
         let weirdPersonDecision = await Template.ƒS.Menu.getInput(chooseWeirdPerson, "basicChoice");
         switch (weirdPersonDecision) {
             case chooseWeirdPerson.stella:
@@ -3092,8 +3126,8 @@ var Template;
                 await Template.ƒS.update(0.4);
                 await Template.ƒS.Speech.tell(Template.charaktere.maire, " Hoffentlich stecke ich mich nicht an!");
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Die roten Augen deuten entweder auf wenig Schlaf oder weinen hin... merkwürdig...");
+                Template.dataForSave.pointDetectiv += 1;
                 break;
-            //todo: detectiv punkte
             case chooseWeirdPerson.grace:
                 await Template.ƒS.Character.show(Template.charaktere.bronte, Template.charaktere.bronte.pose.think, Template.ƒS.positionPercent(Template.charaktere.bronte.positionStandard.x, Template.charaktere.bronte.positionStandard.y));
                 await Template.ƒS.update(0.4);
@@ -3211,6 +3245,7 @@ var Template;
                 break;
             case chooseHaggis.truth:
                 Template.dataForSave.mairePuked = true;
+                Template.dataForSave.pointAngryMaire += 1;
                 await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Der Paunch – Magen eines Schafes – wird mit Herz, Niere, Leber und anderen Innereien gefüllt. Und das ergibt dann eine Art Wurst. Sehr lecker eigentlich, wenn auch ungewöhnlich. ");
                 await Template.ƒS.Character.hide(Template.charaktere.maire);
                 await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.fear, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
@@ -3325,6 +3360,10 @@ var Template;
             await Template.ƒS.Speech.tell(Template.charaktere.maire, " Schau wenn ich gefunden habe! ");
             await Template.ƒS.Speech.tell("Artemis", " Miau. ");
             await Template.ƒS.Speech.tell(Template.charaktere.bronte, " Damit hätte sich wohl auch das letzte Mysterium gelöst.");
+            if (Template.dataForSave.pointAngryMaire <= 1) {
+                //todo: Bonus Szene 
+                return "ExtraSceneBronteMaire";
+            }
             //todo final ÜBERALL!!
         }
         else if (userchooseFinalChoice == chooseFinalChoice.infrontOfOdette) {
@@ -3394,6 +3433,7 @@ var Template;
             await Template.ƒS.Speech.tell(Template.charaktere.maire, " Ich weiß. Ich weiß doch Bronte. Ich liebe dich auch. Bitte halte durch!");
         }
         else if (userchooseFinalChoice == chooseFinalChoice.nothing && Template.dataForSave.tookGun) {
+            //todo: fixen 
             await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Auf Wiedersehen ");
             await Template.ƒS.Speech.tell(Template.charaktere.odette, " AH! ");
             await Template.ƒS.Speech.tell(Template.charaktere.alaistar, " Was… wo… ");
@@ -3428,7 +3468,7 @@ var Template;
             await Template.ƒS.Speech.tell(Template.charaktere.isaac, " ODETTE! Wie nein… ");
             await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Liebste… ");
             await Template.ƒS.Speech.tell(Template.charaktere.odette, " Isaac… Es… ");
-            await Template.ƒS.Speech.tell(Template.charaktere.odette, " tut… Leid… ");
+            await Template.ƒS.Speech.tell(Template.charaktere.odette, " Tut… Leid… ");
             await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Nein sprich nicht… ich… ");
             await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Nein… bitte bleib ");
             await Template.ƒS.Speech.tell(Template.charaktere.isaac, " Verlass mich nicht erneut! ");

@@ -2,14 +2,12 @@ namespace Template {
     export async function SceneThreeSaalon(): ƒS.SceneReturn {
 
         let chooseWeirdPerson = {
-            //todo: Pointsystem
             stella: "Stella",
             grace: "Grace",
             lordBlackburn: "Lord Blackburn"
         }
 
         let chooseHaggis = {
-            //todo: Pointsystem
             lie: "Lüge",
             truth: "Erzähle Wahrheit"
         }
@@ -174,8 +172,6 @@ namespace Template {
         await ƒS.Speech.tell(charaktere.maire, " Was für… Charaktere. Ich hätte mich wirklich besser anziehen sollen. Aber selbst mein bestes Kleid würde neben Lady Stella wie ein Putzlappen wirken. ");
         await ƒS.Speech.tell(charaktere.maire, "Aber… findest du nicht auch, dass einer der drei merkwürdig ist?");
         
-
-        // todo: Point detectiv 
         let weirdPersonDecision = await ƒS.Menu.getInput(chooseWeirdPerson, "basicChoice");
         switch (weirdPersonDecision) {
             case chooseWeirdPerson.stella:
@@ -192,9 +188,10 @@ namespace Template {
                 await ƒS.Speech.tell(charaktere.maire, " Hoffentlich stecke ich mich nicht an!");
                 await ƒS.Speech.tell(charaktere.bronte, " Die roten Augen deuten entweder auf wenig Schlaf oder weinen hin... merkwürdig...");
 
+                dataForSave.pointDetectiv += 1;
+
                 break;
 
-            //todo: detectiv punkte
             case chooseWeirdPerson.grace:
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
                 await ƒS.update(0.4);
@@ -370,6 +367,7 @@ namespace Template {
             case chooseHaggis.truth:
 
                 dataForSave.mairePuked = true;
+                dataForSave.pointAngryMaire += 1;
 
                 await ƒS.Speech.tell(charaktere.bronte, " Der Paunch – Magen eines Schafes – wird mit Herz, Niere, Leber und anderen Innereien gefüllt. Und das ergibt dann eine Art Wurst. Sehr lecker eigentlich, wenn auch ungewöhnlich. ");
 

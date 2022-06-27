@@ -310,6 +310,16 @@ namespace Template {
     };
   }
 
+    //maire sinking into water
+    export function fromMiddleSinking (startX: number, startY: number, endY: number, timeDuration: number): ƒS.AnimationDefinition {
+      return {
+        start: { translation: ƒS.positionPercent(startX, startY) },
+        end: { translation: ƒS.positionPercent(startX, endY) },
+        duration: timeDuration,
+        playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+      };
+    }
+
   export let dataForSave = {
     //Sachen die Gespeichert werden müssen
 
@@ -337,10 +347,14 @@ namespace Template {
     
 
     //Pointsystem
+    // 8 möglich
     pointDetectiv: 0,
-    pointFriend: 0,
+    // 5 möglich
+    pointAngryMaire: 0,
+    //3 max bevor Ende 
     pointAngryGrace: 0,
 
+    //todo:
     Achievment: {
       saveTheCat: false
     }
@@ -527,6 +541,8 @@ namespace Template {
       {id: "SceneElevenStudy", scene: SceneElevenStudy, name: "SceneElevenStudy"},
       {id: "SceneTwelveFinal", scene: SceneTwelveFinal, name: "SceneTwelveFinal"}, 
 
+      {id: "ExtraSceneBronteMaire", scene: ExtraSceneBronteMaire, name: "ExtraSceneBronteMaire"},
+
       {id: "EndScreen", scene: EndScreen, name: "EndScreen"}
     ];
 
@@ -549,7 +565,6 @@ namespace Template {
   }
 
   export function listenerRestart(this: HTMLElement){
-    console.log("Test Button was activated");
     window.location.reload();
   }
 

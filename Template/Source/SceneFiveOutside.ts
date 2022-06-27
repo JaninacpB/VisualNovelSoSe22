@@ -34,7 +34,7 @@ namespace Template {
             await ƒS.Speech.tell(charaktere.bronte, " Arme Maire, das Essen hat sie wirklich mitgenommen.");
         }
 
-        dataForSave.lookingInTheGardenForCluesFinished = true; 
+        dataForSave.lookingInTheGardenForCluesFinished = true;
 
         await ƒS.Character.hide(charaktere.maire);
         await ƒS.Character.hide(charaktere.bronte);
@@ -84,11 +84,12 @@ namespace Template {
 
         await ƒS.Speech.tell(charaktere.maire, " O und R…. oh! Wir kennen jemanden zu dem R. passen würde!");
 
-        //todo: Punkte System 
         //todo: Isaac Dialog
         let userChoosePersonToRing = await ƒS.Menu.getInput(choosePerson, "basicChoice");
         switch (userChoosePersonToRing) {
             case choosePerson.Butler:
+
+                dataForSave.pointAngryMaire += 1;
 
                 await ƒS.Character.hide(charaktere.bronte);
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
@@ -96,6 +97,23 @@ namespace Template {
 
                 await ƒS.Speech.tell(charaktere.bronte, " Gute Schlussfolgerung… Der Butler heißt Remington. Aber ob der Vorname passt?");
                 break;
+            
+            case choosePerson.Isaac:
+                await ƒS.Character.hide(charaktere.maire);
+                await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.sad, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
+                await ƒS.Character.hide(charaktere.bronte);
+                await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
+                await ƒS.update(0.4);
+
+                await ƒS.Speech.tell(charaktere.bronte, " Ah! Äh… nein das passt nicht. Er heißt da Isaac mit Vorname.");
+
+                await ƒS.Character.hide(charaktere.maire);
+                await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.happy, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
+                await ƒS.Character.hide(charaktere.bronte);
+                await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
+                await ƒS.update(0.4);
+
+                await ƒS.Speech.tell(charaktere.maire, " Aber der Butler passt! Es hat sich mit Remington vorgestellt! Und sein Vorname wissen wir nicht!");
 
             default:
 
@@ -137,6 +155,8 @@ namespace Template {
         switch (userChooseWhatToDoInfrontGarden) {
 
             case chooseWhatToDoInfrontGarden.go:
+
+                dataForSave.pointAngryMaire += 1; 
 
                 await ƒS.Character.hide(charaktere.bronte);
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
@@ -180,7 +200,7 @@ namespace Template {
 
         await ƒS.Character.hide(charaktere.maire);
         await ƒS.Character.hide(charaktere.bronte);
-        await ƒS.update(0.8); 
+        await ƒS.update(0.8);
 
         await ƒS.Sound.fade(sound.themeinfrontManorNight, 0, 0.4);
 

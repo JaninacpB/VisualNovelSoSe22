@@ -16,18 +16,18 @@ namespace Template {
 
 
     //return "SceneTwoEntrance";
-    return "SceneThreeSaalon";  
-  return "SceneFourSaalonDrama";
-    // return "SceneSixGarden";
+    // return "SceneThreeSaalon";
+    // return "SceneFourSaalonDrama";
+     return "SceneSixGarden";
     // return "SceneEightSaalonInterview";
     // return "SceneEightBInterviews";
-   // return "SceneNineEntryhall"; 
-   // return "SceneTenMaireAndIsaac";
-   // return "SceneElevenStudy";
+    // return "SceneNineEntryhall"; 
+    // return "SceneTenMaireAndIsaac";
+    // return "SceneElevenStudy";
     //  return "SceneTwelveFinal";
     // return "EndScreen";
 
-    await ƒS.Sound.fade(sound.themeinfrontManor, 0.4, 1, true); 
+    await ƒS.Sound.fade(sound.themeinfrontManor, 0.4, 1, true);
 
     await ƒS.Location.show(location.infrontOfManorDay);
     await ƒS.update(transistions.wallpaper.duration, transistions.wallpaper.alpha, transistions.wallpaper.edge);

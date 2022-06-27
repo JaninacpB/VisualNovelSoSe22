@@ -75,7 +75,6 @@ namespace Template {
 						await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
 						await ƒS.update(0.4);
 
-						//todo: Laterne Licht
 						await ƒS.Location.show(location.gardenLight);
 						await ƒS.Speech.tell(charaktere.maire, "Oh wow!");
 
@@ -97,6 +96,7 @@ namespace Template {
 				//Weitergehen 
 
 				dataForSave.maireFellInPond = true;
+				dataForSave.pointAngryMaire += 1; 
 
 				await ƒS.Character.hide(charaktere.maire);
 				await ƒS.Character.hide(charaktere.bronte);
@@ -110,28 +110,38 @@ namespace Template {
 				await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
 				await ƒS.update(0.4);
 
-				await ƒS.Speech.tell(charaktere.maire, " Wenn du meinst Bronte...  Pass nur auf hier ist");
+				await ƒS.Speech.tell(charaktere.maire, " Wenn du meinst Bronte...  Pass nur auf hier ist.");
 				// <platsch>wasserbecken…
+				
+				await ƒS.Character.animate(charaktere.maire, charaktere.maire.pose.fear, fromMiddleSinking(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y, 230, 0.2));
+
 
 				await ƒS.Character.hide(charaktere.maire);
 				await ƒS.Character.hide(charaktere.bronte);
-				await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.sad, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
 				await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
 				await ƒS.update(0.4);
 
-				await ƒS.Speech.tell(charaktere.maire, " AH! Ich ertrinke… Bronte ich… Ich… ich kann stehen… Aber meine ganzen Kleider… Tolle Idee von dir…");
+				await ƒS.Speech.tell(charaktere.maire, " AH! Ich ertrinke… Bronte ich… Ich… ");
+
+				await ƒS.Character.animate(charaktere.maire, charaktere.maire.pose.fear, fromMiddleSinking(charaktere.maire.positionStandard.x , 230, charaktere.maire.positionStandard.y, 1));
+
+				await ƒS.Character.hide(charaktere.maire);
+				await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.embarrassed, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
+				await ƒS.update(0.4);
+
+				await ƒS.Speech.tell(charaktere.maire, "Ich kann stehen… Aber meine ganzen Kleider… Tolle Idee von dir…");
 
 				await ƒS.Character.hide(charaktere.bronte);
 				await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
 				await ƒS.update(0.4);
 
 				await ƒS.Speech.tell(charaktere.bronte, " Oh weh, dass tut mir Leid, ich wollte dich gerade warnen. Lass uns schnell zurück ins Warme gehen.");
+				await ƒS.Speech.tell(charaktere.bronte, " (Sie sieht sehr wüttend aus.)");
 				await goBack();
 				break;
 
 			case chooseWhatToDoGardenDark.goBack:
 
-				// Zurückgehen (Methode)
 				await goBack();
 				break;
 		}
@@ -257,7 +267,9 @@ namespace Template {
 				await ƒS.Character.hide(charaktere.grace);
 				await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.angry, ƒS.positionPercent(charaktere.grace.positionStandard.x, charaktere.grace.positionStandard.y));
 				await ƒS.update(0.4);
-				//todo: Minus Punkte Grace		
+				
+				dataForSave.pointAngryGrace += 1; 
+
 				await ƒS.Speech.tell(charaktere.grace, "Aber… Oh sind das etwa Blüten meiner Seerosen! Oh weh. Die sind preisgekrönt! Das wird Monate dauern, die wieder so hinzubekommen. Passen sie doch besser auf! ");
 			
 			} else {
@@ -280,8 +292,6 @@ namespace Template {
 				await ƒS.Speech.tell(charaktere.grace, " Licht? Oh, gehen die Laternen schon wieder nicht. Ich verstehe nichts von dieser Technik, aber wirklich zu verlässlich scheint sie mir ja nicht.");
 				await ƒS.Speech.tell(charaktere.grace, " Sie sind die letzten Tage mehrmals einfach ausgegangen.");
 				await ƒS.Speech.tell(charaktere.grace, " Dabei haben die Techniker mir hoch und heilig versprochen es wäre zuverlässig und nicht gefährlich!");
-
-
 
 				await ƒS.Character.hide(charaktere.grace);
 				await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.happy, ƒS.positionPercent(charaktere.grace.positionStandard.x, charaktere.grace.positionStandard.y));

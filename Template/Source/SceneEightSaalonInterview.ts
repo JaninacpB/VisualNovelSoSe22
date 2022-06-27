@@ -82,8 +82,6 @@ namespace Template {
 
         await ƒS.Speech.tell(charaktere.bronte, "Gut. Wir haben ein Hinweis auf den Verbleib der Katze gefunden. Sie ist in");
 
-        //Auswahl1 todo: detectives points
-
         let userChooseWhathappendToCat = await ƒS.Menu.getInput(chooseWhathappendToCat, "basicChoice");
         switch (userChooseWhathappendToCat) {
             case chooseWhathappendToCat.fellInWater:
@@ -102,6 +100,7 @@ namespace Template {
                 break;
 
             case chooseWhathappendToCat.closedIn:
+                dataForSave.pointDetectiv += 1;
                 await rightChoiceFirstChoice();
                 break;
 
@@ -176,6 +175,7 @@ namespace Template {
             //wichtig kein Break hier! soll anderen Dialog auslösen! 
 
             case chooseWhereIsCat.fleedThroughRoof:
+                dataForSave.pointDetectiv += 1;
                 await ƒS.Character.hide(charaktere.bronte);
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
                 await ƒS.update(0.4);
@@ -187,18 +187,18 @@ namespace Template {
         await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.think, ƒS.positionPercent(charaktere.grace.positionMiddle.x, charaktere.grace.positionMiddle.y));
         await ƒS.update(0.4);
 
+        //  dataForSave.pointDetectiv += 1; 
+
         //todo: Number correct maybe
-        if (dataForSave.pointDetectiv < -2) {
+        if (dataForSave.pointDetectiv < 2) {
             await ƒS.Speech.tell(charaktere.grace, "Mhm… Ihren anderen Fall haben sie eleganter gelöst… Sie scheinen heute etwas verwirrt zu sein.");
         }
 
         //todo: maire punkte prüfe
-        if (dataForSave.pointFriend < -2) {
+        if (dataForSave.pointAngryMaire > 2) {
             await ƒS.Speech.tell(charaktere.maire, " Sie hat einen Punkt… ");
         }
 
-        //todo: if point detective
-        
         await ƒS.Character.hide(charaktere.grace);
         await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.laugh, ƒS.positionPercent(charaktere.grace.positionMiddle.x, charaktere.grace.positionMiddle.y));
         await ƒS.update(0.4);
@@ -244,7 +244,7 @@ namespace Template {
         await ƒS.Speech.tell(charaktere.grace, " Perfekt. Ich lasse mal den Nachtisch holen! ");
 
         await ƒS.Character.hide(charaktere.grace);
-        await ƒS.update(0.8); 
+        await ƒS.update(0.8);
 
         await ƒS.Character.hide(charaktere.maire);
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
