@@ -20,7 +20,7 @@ namespace Template {
         await ƒS.update(0.4);
 
         await ƒS.Speech.tell(charaktere.remington, "und ist nun unter der Obhut von Lord Blackburn, welcher seine ehrenwerte Schwester Lady Blackburn hier wohnen lässt.");
-        await ƒS.Speech.tell(charaktere.remington, "Er hat natürlich das gesamte Erbe vermacht bekommen uns sich mit Hingabe hierdrum gekümmert. ");
+        await ƒS.Speech.tell(charaktere.remington, "Er hat natürlich das gesamte Erbe vermacht bekommen und sich mit Hingabe hierdrum gekümmert. ");
 
         await ƒS.Character.hide(charaktere.remington); 
         await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.angry, ƒS.positionPercent(charaktere.remington.positionStandard.x , charaktere.remington.positionStandard.y));
@@ -61,7 +61,7 @@ namespace Template {
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
         await ƒS.update(0.4);
 
-        await ƒS.Speech.tell(charaktere.remington, " Wie Sie wünschen. Geben sie mir einen Moment. Ich werde Sie den Anwesenden Ankündigen. Nutzen Sie die Zeit gerne um sich… herzurichten. ");
+        await ƒS.Speech.tell(charaktere.remington, " Wie Sie wünschen. Geben sie mir einen Moment. Ich werde Sie den Anwesenden ankündigen. Nutzen Sie die Zeit gerne um sich… herzurichten. ");
         
         await ƒS.Character.hide(charaktere.remington); 
         await ƒS.update(0.8);

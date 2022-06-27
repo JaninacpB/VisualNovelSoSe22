@@ -300,6 +300,9 @@ namespace Template {
 
 			await ƒS.Location.show(location.gardenLight);
 			await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
+		
+			await ƒS.Sound.fade(sound.themeinfrontManorNight, 0, 0.5, true);
+		
 		}
 	}
 }

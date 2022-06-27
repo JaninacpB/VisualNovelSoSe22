@@ -13,6 +13,9 @@ namespace Template {
         await ƒS.Sound.fade(sound.themeSaloon, 0, 0.3);
         await ƒS.Sound.play(sound.dramaInSaloon, 0.1, true);
 
+        await ƒS.Character.hide(charaktere.isaac);
+        await ƒS.Character.hide(charaktere.maire);
+        await ƒS.Character.hide(charaktere.bronte);
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
         await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.sad, ƒS.positionPercent(charaktere.isaac.positionStandard.x , charaktere.isaac.positionStandard.y));
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
@@ -158,7 +161,7 @@ namespace Template {
         document.getElementById("meterScale").setAttribute("style", "display: block;");
 
         ƒS.Text.addClass("scaleUnlocked");
-        ƒS.Text.print("<h4> Gemütleiste freigeschaltet </h4> <p>Achte auf die Gemütsleiste um bei deinen Gastgebern nicht negativ aufzufallen. Das Abendteuer könnte sonst schnell vorbei sein. ");
+        ƒS.Text.print("<h4> Gemütleiste freigeschaltet </h4> <p>Achte auf die Gemütsleiste um bei deinen Gastgebern nicht negativ aufzufallen. Das Abenteuer könnte sonst schnell vorbei sein. ");
 
         await ƒS.Character.hide(charaktere.maire);
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.sad, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
@@ -170,6 +173,8 @@ namespace Template {
         await ƒS.Character.hide(charaktere.maire);
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.update(0.8);
+
+        await ƒS.Sound.fade(sound.dramaInSaloon, 0, 0);
 
         return "SceneFiveOutside";
     }

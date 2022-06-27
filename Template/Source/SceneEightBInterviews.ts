@@ -740,6 +740,8 @@ namespace Template {
 
         dataForSave.interviewFinished = true;
 
+        await ƒS.Sound.fade(sound.saloonAfterScrem, 0, 0.5, true);
+
         return "SceneNineEntryhall";
 
         //todo: Ende 

@@ -38,7 +38,7 @@ namespace Template {
         await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.happy, ƒS.positionPercent(charaktere.grace.positionStandard.x, charaktere.grace.positionStandard.y));
         await ƒS.update(0.4);
 
-        await ƒS.Speech.tell(charaktere.bronte, " Vielen Dank. Sie sehen auch fantastisch aus Lady Blackburn. Darf ich Ihnen meine Begleitung vorstellen, dass hier ist Miss MacGinnis. ");
+        await ƒS.Speech.tell(charaktere.bronte, " Vielen Dank. Sie sehen auch fantastisch aus Lady Blackburn. Darf ich Ihnen meine Begleitung vorstellen, das hier ist Miss MacGinnis. ");
 
         await ƒS.Character.hide(charaktere.maire);
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.happy, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
@@ -99,7 +99,7 @@ namespace Template {
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(10, 110));
         await ƒS.update(0.4);
 
-        await ƒS.Speech.tell(charaktere.grace, "Oh Stella! Komm schnell rüber meine Liebe. Dann sind wir ja fast alle komplett. Komm schnell kleines und stell dich vor. Miss Bronte, dies ist meine Cousine, Stella Blackburn. ");
+        await ƒS.Speech.tell(charaktere.grace, "Oh Stella! Komm schnell rüber meine Liebe. Dann sind wir ja fast alle komplett. Komm schnell Kleines und stell dich vor. Miss Bronte, dies ist meine Cousine, Stella Blackburn. ");
 
         await ƒS.Character.hide(charaktere.grace);
         await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.happy, ƒS.positionPercent(charaktere.grace.positionLeftMiddle.x, charaktere.grace.positionLeftMiddle.y));
@@ -163,7 +163,7 @@ namespace Template {
 
         await ƒS.Speech.tell(charaktere.alaistar, " Wurde ja auch Zeit… Dieser Mann hat einfach keine Manieren. ");
         await ƒS.Speech.tell(charaktere.alaistar, "Wir waren so höflich Ihn einzuladen und so dankt er es uns...");
-        await ƒS.Speech.tell(charaktere.alaistar, "Bitte setzt euch alle schon Mal, ich werde Ihn kurz begrüßen und zur Eile mahnen. ");
+        await ƒS.Speech.tell(charaktere.alaistar, "Bitte setzt euch alle schonmal, ich werde Ihn kurz begrüßen und zur Eile mahnen. ");
 
         await ƒS.Character.hide(charaktere.alaistar);
         await ƒS.update(0.8);
@@ -227,6 +227,7 @@ namespace Template {
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.update(0.4);
 
+        await ƒS.Character.hide(charaktere.isaac);
         await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.neutral, ƒS.positionPercent(85, charaktere.isaac.positionStandard.y));
         await ƒS.update(0.4);
 
@@ -258,11 +259,11 @@ namespace Template {
         await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.happy, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y));
         await ƒS.update(0.4);
 
-        await ƒS.Speech.tell(charaktere.isaac, "Sehr erfreut. Ich bin Isaac. Ich habe in Gericht ein paar Mal ihre Arbeit betrachten können. Sie scheinen sehr sorgfältig zu arbeiten! ");
+        await ƒS.Speech.tell(charaktere.isaac, "Sehr erfreut. Ich bin Isaac. Ich habe im Gericht ein paar Mal ihre Arbeit betrachten können. Sie scheinen sehr sorgfältig zu arbeiten! ");
 
         await ƒS.Speech.tell(charaktere.bronte, "Oh vielen Dank. ");
 
-        await ƒS.Speech.tell(charaktere.isaac, "Ah, ich sehe das Essen kommt, wir sollten uns setzte.");
+        await ƒS.Speech.tell(charaktere.isaac, "Ah, ich sehe das Essen kommt, wir sollten uns setzen.");
 
         await ƒS.Character.hide(charaktere.isaac);
         await ƒS.update(0.8);
@@ -325,7 +326,7 @@ namespace Template {
 
                 await ƒS.Speech.tell(charaktere.grace, " Freut mich, dass es ihnen wohlbekommen ist. Mein Vater ist gebürtiger Schotte und so sind wir alle große Bewunderer der Schottischen Küche. ");
 
-                await ƒS.Speech.tell(charaktere.grace, " Auch wenn es sich natürlich nicht für Frauen von Stand gehört hat meine Mutter mir es tatsächlich beigebracht zu kochen. ");
+                await ƒS.Speech.tell(charaktere.grace, " Auch wenn es sich natürlich nicht für Frauen von Stand gehört, hat mir meine Mutter beigebracht zu kochen. ");
                 await ƒS.Speech.tell(charaktere.grace, " Aber zum Glück hat sie es auch niedergeschrieben. Mein Gedächtnis lässt mich doch oft im Stich.");
                 await ƒS.Speech.tell(charaktere.grace, "Und es wäre wirklich ein Jammer gewesen, wenn das Gericht meinetwegen verloren gegangen wäre.");
                 await ƒS.Speech.tell(charaktere.grace, " Aber zum Glück gibt es ja Stift und Papier. Haha ");
@@ -335,6 +336,7 @@ namespace Template {
                 await ƒS.Character.hide(charaktere.grace);
                 await ƒS.update(0.8);
 
+                await ƒS.Character.hide(charaktere.isaac);
                 await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.happy, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y));
                 await ƒS.update(0.8);
 
@@ -424,6 +426,8 @@ namespace Template {
                 await ƒS.Character.hide(charaktere.grace);
                 await ƒS.update(0.8);
 
+
+                await ƒS.Character.hide(charaktere.isaac);
                 await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.happy, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y));
                 await ƒS.update(0.8);
 
@@ -442,10 +446,11 @@ namespace Template {
 
                 await ƒS.Speech.tell(charaktere.isaac, " Oh wo wir gerade über sie sprechen… ");
 
+                await ƒS.Character.hide(charaktere.maire);
                 await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
                 await ƒS.update(0.8);
 
-                await ƒS.Speech.tell(charaktere.maire, " Bronte… Du kennst doch meinen Magen… das nächste Mal lüge mich einfach an. Ich habe mich ja komplett zum Deppen gemacht. Jetzt denken alle Irren hätten keine Manieren. ");
+                await ƒS.Speech.tell(charaktere.maire, " Bronte… Du kennst doch meinen Magen… das nächste Mal lüge mich einfach an. Ich habe mich ja komplett zum Deppen gemacht. Jetzt denken alle Iren hätten keine Manieren. ");
                 await ƒS.Speech.tell(charaktere.bronte, " Dass tut mir sehr Leid… Aber ich denke niemand ist es wirklich aufgefallen. (Sie scheint es mir echt böse zu nehmen, ich sollte in nächster Zeit netter zu ihr sein).");
 
                 break;

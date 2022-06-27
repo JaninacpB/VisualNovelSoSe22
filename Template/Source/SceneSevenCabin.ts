@@ -93,7 +93,7 @@ namespace Template {
         await ƒS.update(0.4);
 
         await ƒS.Speech.tell(charaktere.bronte, " Hier ist eine Inschrift drauf. Artemis.");
-        await ƒS.Speech.tell(charaktere.bronte, " Es fühlt sich aber merkwürdig an, als wäre nocht etwas...");
+        await ƒS.Speech.tell(charaktere.bronte, " Es fühlt sich aber merkwürdig an, als wäre noch etwas...");
         await ƒS.Speech.tell(charaktere.bronte, " Drunter-");
         //todo: SCHREI 
 
@@ -116,6 +116,8 @@ namespace Template {
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.Character.hide(charaktere.maire);
         await ƒS.update(0.8);
+
+        await ƒS.Sound.fade(sound.themeinfrontManorNight, 0, 0.5, true);
 
         return "SceneEightSaalonInterview";
     }

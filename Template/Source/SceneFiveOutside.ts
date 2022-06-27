@@ -42,7 +42,7 @@ namespace Template {
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
         await ƒS.update(0.4);
 
-        await ƒS.Speech.tell(charaktere.bronte, " Also vorhin ist sie in Richtung des Gebüsches gelaufe.");
+        await ƒS.Speech.tell(charaktere.bronte, " Also vorhin ist sie in Richtung des Gebüsches gelaufen.");
 
         if (dataForSave.foundRing == true) {
 
@@ -85,6 +85,7 @@ namespace Template {
         await ƒS.Speech.tell(charaktere.maire, " O und R…. oh! Wir kennen jemanden zu dem R. passen würde!");
 
         //todo: Punkte System 
+        //todo: Isaac Dialog
         let userChoosePersonToRing = await ƒS.Menu.getInput(choosePerson, "basicChoice");
         switch (userChoosePersonToRing) {
             case choosePerson.Butler:
@@ -180,6 +181,8 @@ namespace Template {
         await ƒS.Character.hide(charaktere.maire);
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.update(0.8); 
+
+        await ƒS.Sound.fade(sound.themeinfrontManorNight, 0, 0.4);
 
         return "SceneSixGarden";
     }
