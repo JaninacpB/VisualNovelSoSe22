@@ -1,4 +1,4 @@
-namespace Template {
+namespace Artemis {
     export async function SceneTenMaireAndIsaac(): ƒS.SceneReturn {
 
         await ƒS.Location.show(location.infrontOfManorNight);

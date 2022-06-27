@@ -1,4 +1,4 @@
-namespace Template {
+namespace Artemis {
 	export async function SceneSixGarden(): ƒS.SceneReturn {
 
 		let chooseWhatToDoGardenDark = {

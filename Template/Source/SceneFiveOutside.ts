@@ -1,4 +1,4 @@
-namespace Template {
+namespace Artemis {
     export async function SceneFiveOutside(): ƒS.SceneReturn {
 
         //Alle Wahlmöglichkeiten in Szene 

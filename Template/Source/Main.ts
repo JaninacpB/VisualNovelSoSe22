@@ -1,4 +1,4 @@
-namespace Template {
+namespace Artemis {
   export import ƒ = FudgeCore;
   export import ƒS = FudgeStory;
 
@@ -38,6 +38,14 @@ namespace Template {
 
     saloonAfterScrem: "Asset/sound/frederic-chopin-nocturne-21-classical-remix-7611.mp3",
 
+    final: "/Template/Asset/sound/tenseFinalMusik.mp3",
+
+    endingSad: "Asset/sound/pianoSadEnding.mp3",
+
+    endingHappy: "Asset/sound/PianoEndingHappy.mp3",
+
+    endingReallyBad: "Asset/sound/EndingReallyBad.mp3",
+
     //SFX
     catMeow: "Asset/sound/cat-meow-6226.mp3",
 
@@ -48,7 +56,11 @@ namespace Template {
     alaisterLaugh: "Asset/sound/fx/alaistarLaugh.wav",
 
     dinnerSound: "Asset/sound/fx/dinnerdishesmp3-14762.wav",
-    waterGlass: "Asset/sound/fx/water-filled-cup-9901.mp3"
+    waterGlass: "Asset/sound/fx/water-filled-cup-9901.mp3",
+
+    stellaScream: "Asset/sound/fx/StellaScream.mp3",
+
+    gunShoot: "Asset/sound/fx/gunshootOne.mp3"
   }
 
   export let location = {
@@ -119,6 +131,10 @@ namespace Template {
       },
       positionStandard: {
         x: 15,
+        y: 110
+      },
+      positionMiddle: {
+        x: 50,
         y: 110
       }
     },
@@ -213,6 +229,14 @@ namespace Template {
       pose: {
         happy: "Asset/character/odette/odette-happy.png",
         angry: "Asset/character/odette/odette.angry.png"
+      },
+      positionStandard: {
+        x: 84,
+        y: 110
+      },
+      positionMiddle: {
+        x: 50,
+        y: 110
       }
     },
 
@@ -542,6 +566,10 @@ namespace Template {
       {id: "SceneTwelveFinal", scene: SceneTwelveFinal, name: "SceneTwelveFinal"}, 
 
       {id: "ExtraSceneBronteMaire", scene: ExtraSceneBronteMaire, name: "ExtraSceneBronteMaire"},
+
+      {id: "EndingOneAllSurvive", scene: EndingOneAllSurvive, name: "EndingOneAllSurvive"},
+      {id: "EndingTwoBronteDead", scene: EndingTwoBronteDead, name: "EndingTwoBronteDead"},
+      {id: "EndingThreeOdetteDead", scene: EndingThreeOdetteDead, name: "EndingThreeOdetteDead"},
 
       {id: "EndScreen", scene: EndScreen, name: "EndScreen"}
     ];

@@ -1,4 +1,4 @@
-namespace Template {
+namespace Artemis {
     export async function SceneTwoEntrance(): ƒS.SceneReturn {
         await ƒS.Sound.play(sound.themeEntrance, 0.1, true); 
 

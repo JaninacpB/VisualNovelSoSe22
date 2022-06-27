@@ -1,4 +1,4 @@
-namespace Template {
+namespace Artemis {
     export async function SceneSevenCabin(): ƒS.SceneReturn {
 
         await ƒS.Location.show(location.cabin);
@@ -94,7 +94,8 @@ namespace Template {
         await ƒS.Speech.tell(charaktere.bronte, " Hier ist eine Inschrift drauf. Artemis.");
         await ƒS.Speech.tell(charaktere.bronte, " Es fühlt sich aber merkwürdig an, als wäre noch etwas...");
         await ƒS.Speech.tell(charaktere.bronte, " Drunter-");
-        //todo: SCHREI 
+        
+        await ƒS.Sound.fade(sound.stellaScream, 0.8, 1, false);
 
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.Character.hide(charaktere.maire);

@@ -1,4 +1,4 @@
-namespace Template {
+namespace Artemis {
   export async function SceneOneInfront(): ƒS.SceneReturn {
     console.log("FudgeStory Scene starting");
 
@@ -18,13 +18,19 @@ namespace Template {
     //return "SceneTwoEntrance";
     // return "SceneThreeSaalon";
     // return "SceneFourSaalonDrama";
-     return "SceneSixGarden";
+    // return "SceneSixGarden";
+    
     // return "SceneEightSaalonInterview";
     // return "SceneEightBInterviews";
     // return "SceneNineEntryhall"; 
     // return "SceneTenMaireAndIsaac";
     // return "SceneElevenStudy";
-    //  return "SceneTwelveFinal";
+    // return "SceneTwelveFinal";
+
+   // return "EndingOneAllSurvive"
+    // return "EndingTwoBronteDead";
+   // return "EndingThreeOdetteDead";
+
     // return "EndScreen";
 
     await ƒS.Sound.fade(sound.themeinfrontManor, 0.4, 1, true);

@@ -1,4 +1,4 @@
-namespace Template {
+namespace Artemis {
     export async function SceneTwelveFinal(): ƒS.SceneReturn {
 
         let chooseFinalChoice = {
@@ -11,6 +11,8 @@ namespace Template {
             yes: "Ja",
             no: "Nein"
         }
+
+        await ƒS.Sound.fade(sound.final, 0.7, 1, true);
 
         await ƒS.Speech.tell(charaktere.alaistar, " Schwester. ");
         await ƒS.Speech.tell(charaktere.odette, " !!! ");
@@ -25,9 +27,15 @@ namespace Template {
 
         //todo: Maire und Isaac Anzeigen + Sound
 
-        if (dataForSave.tookGun) {
+        if (!dataForSave.tookGun) {
+
+            await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
+
             await ƒS.Speech.tell(charaktere.maire, "Ein Schuss!  ");
         } else {
+
+            await ƒS.Sound.fade(sound.stellaScream, 0.8, 1, false);
+
             await ƒS.Speech.tell(charaktere.maire, "Ein Schrei!  ");
         }
 
@@ -35,7 +43,7 @@ namespace Template {
 
             await ƒS.Speech.tell(charaktere.bronte, " Nein! ");
             await ƒS.Speech.tell(charaktere.alaistar, " Wo… nein… arg! ");
-            await ƒS.Speech.tell(charaktere.bronte, " Suchen sie diese? Ein sehr schöner Revolver. Auch wenn ich die Kugeln aus Sicherheit entfern habe. ");
+            await ƒS.Speech.tell(charaktere.bronte, " Suchen sie dies? Ein sehr schöner Revolver. Auch wenn ich die Kugeln aus Sicherheit entfern habe. ");
             await ƒS.Speech.tell(charaktere.alaistar, " Nein! ");
             await ƒS.Speech.tell(charaktere.maire, " Bronte! Was… ");
             await ƒS.Speech.tell(charaktere.isaac, " !!! ");
@@ -59,10 +67,12 @@ namespace Template {
             await ƒS.Speech.tell("Artemis", " Miau. ");
             await ƒS.Speech.tell(charaktere.bronte, " Damit hätte sich wohl auch das letzte Mysterium gelöst.");
 
-            if(dataForSave.pointAngryMaire <= 1){
-                //todo: Bonus Szene 
-                return "ExtraSceneBronteMaire"; 
+            if (dataForSave.pointAngryMaire <= 1) {
+                //todo: Bonus Szene charaktere Ausblenden
+                return "ExtraSceneBronteMaire";
             }
+
+            return "EndingOneAllSurvive";
 
             //todo final ÜBERALL!!
 
@@ -79,9 +89,18 @@ namespace Template {
             await ƒS.Speech.tell(charaktere.bronte, " Ist… okay… ");
             await ƒS.Speech.tell(charaktere.maire, " Bitte nicht. Wir brauchen einen Arzt! Sofort! ");
             await ƒS.Speech.tell(charaktere.odette, " Ich… Ich versuche jemand zu holen, aber… Hier ist so viel Blut. ");
-            await ƒS.Speech.tell(charaktere.maire, " nein… beeile dich! Geh schon, GEH! ");
+            await ƒS.Speech.tell(charaktere.maire, " nein… beeile dich! Geh schon!");
+
+            document.getElementById('speechContent').classList.add('textEffectBig');
+            await ƒS.Speech.tell(charaktere.maire, "GEH!");
+            document.getElementById('speechContent').classList.remove('textEffectBig');
+
             await ƒS.Speech.tell(charaktere.bronte, " Maire… *hust*… Ich… liebe… dich… ");
             await ƒS.Speech.tell(charaktere.maire, " Ich weiß. Ich weiß doch Bronte. Ich liebe dich auch. Bitte halte durch!");
+
+            await ƒS.Sound.fade(sound.final, 0, 3);
+
+            return "EndingTwoBronteDead";
 
         } else if (userchooseFinalChoice == chooseFinalChoice.attack && dataForSave.tookGun) {
             await ƒS.Speech.tell(charaktere.bronte, " ARG! ");
@@ -97,13 +116,17 @@ namespace Template {
             await ƒS.Speech.tell(charaktere.maire, " Ich verstehe nicht… Wie… ");
             await ƒS.Speech.tell(charaktere.bronte, " Ich erkläre dir gleich alles. Lassen wir den beiden etwas Zeit für sich. Und wir sollten ohnehin die Polizei rufen. ");
 
+            await ƒS.Sound.fade(sound.final, 0, 3);
+
+            // todo: new Musik
+
             if (!dataForSave.gotTestament) {
                 await ƒS.Speech.tell(charaktere.bronte, "Oh und ich denke ich sollte mein Dietrichset hole, wir müssen einen Safe knacken. ");
                 await ƒS.Speech.tell(charaktere.bronte, "Und wenn ich mich nicht ganz irre wird diese Wohnung dann an die jüngste Tochter gehen.");
             } else {
                 await ƒS.Speech.tell(charaktere.bronte, " Ich denke wir können das Haustelefon nutzen. ");
                 await ƒS.Speech.tell(charaktere.bronte, " Die neue Inhaberhin wird wohl nichts dagegen habe. Schau- ");
-                await ƒS.Speech.tell(charaktere.bronte, " Ich habe es hier schwazr auf weiß. Das echte Testamant von Lady Blackburn. ");
+                await ƒS.Speech.tell(charaktere.bronte, " Ich habe es hier schwarz auf weiß. Das echte Testamant von Lady Blackburn. ");
                 await ƒS.Speech.tell(charaktere.bronte, " Sie teilt ihr Geld mit all ihren Kindern, nicht nur Alaistar Blackburn. ");
                 await ƒS.Speech.tell(charaktere.bronte, "Dass schien ihm gar nicht zu gefallen.");
             }
@@ -113,10 +136,14 @@ namespace Template {
             await ƒS.Speech.tell("Artemis", " Miau ");
             await ƒS.Speech.tell(charaktere.bronte, " Gerade rechtzeitig zurückgekommen.");
 
+            return "EndingOneAllSurvive";
+
         } else if (userchooseFinalChoice == chooseFinalChoice.attack) {
             await ƒS.Speech.tell(charaktere.bronte, " Nein! ");
             await ƒS.Speech.tell(charaktere.alaistar, " BLEIB WEG!  ");
-            // todo: ~~Schuss~~
+
+            await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
+
             await ƒS.Speech.tell(charaktere.bronte, " AH! ");
             await ƒS.Speech.tell(charaktere.maire, " Bronte?! NEIN! ");
             await ƒS.Speech.tell(charaktere.alaistar, " Wer.. Arg! Nein… sie hätte weg bleiben sollen! ");
@@ -130,12 +157,22 @@ namespace Template {
             }
             await ƒS.Speech.tell(charaktere.maire, " Bitte nicht. Wir brauchen einen Arzt! Sofort! ");
             await ƒS.Speech.tell(charaktere.odette, " Ich… Ich versuche jemand zu holen, aber… Hier ist so viel Blut. ");
-            await ƒS.Speech.tell(charaktere.maire, " nein… beeile dich! Geh schon, GEH! ");
+            await ƒS.Speech.tell(charaktere.maire, " Nein… beeile dich! Geh schon!");
+
+            document.getElementById('speechContent').classList.add('textEffectBig');
+            await ƒS.Speech.tell(charaktere.maire, "GEH!");
+            document.getElementById('speechContent').classList.remove('textEffectBig');
+
+
             await ƒS.Speech.tell(charaktere.bronte, " Maire… *hust*… Ich… liebe… dich… ");
             await ƒS.Speech.tell(charaktere.maire, " Ich weiß. Ich weiß doch Bronte. Ich liebe dich auch. Bitte halte durch!");
 
+            await ƒS.Sound.fade(sound.final, 0, 3);
+
+            return "EndingTwoBronteDead";
+
         } else if (userchooseFinalChoice == chooseFinalChoice.nothing && dataForSave.tookGun) {
-            //todo: fixen 
+
             await ƒS.Speech.tell(charaktere.alaistar, " Auf Wiedersehen ");
             await ƒS.Speech.tell(charaktere.odette, " AH! ");
             await ƒS.Speech.tell(charaktere.alaistar, " Was… wo… ");
@@ -147,7 +184,10 @@ namespace Template {
             await ƒS.Speech.tell(charaktere.isaac, " Odette! ");
             await ƒS.Speech.tell(charaktere.odette, " Issac! Oh Götter! ");
             await ƒS.Speech.tell(charaktere.maire, " Die tote Frau… ich… verstehe nicht. ");
-            await ƒS.Speech.tell(charaktere.bronte, " ich erkläre dir alles später. Lass uns erst einmal Mr. Blackburn hier -sagen wir an de Schreibtisch binden – und dann die Polizei rufen. ");
+            await ƒS.Speech.tell(charaktere.bronte, " Ich erkläre dir alles später. Lass uns erst einmal Mr. Blackburn hier -sagen wir an de Schreibtisch binden – und dann die Polizei rufen. ");
+
+            await ƒS.Sound.fade(sound.final, 0, 3);
+            //todo: new musik
 
             if (dataForSave.gotTestament) {
                 await ƒS.Speech.tell(charaktere.bronte, " Die Polizei wird bestimmt ziemlich interessant sein an dem echten Testament der Familie Blackburn. ");
@@ -160,9 +200,13 @@ namespace Template {
             await ƒS.Speech.tell("Artemis", " Miau. ");
             await ƒS.Speech.tell(charaktere.maire, " Welch ereignisreicher Abend…");
 
+            return "EndingOneAllSurvive";
+
         } else if (userchooseFinalChoice == chooseFinalChoice.nothing) {
             await ƒS.Speech.tell(charaktere.odette, " AH!  ");
-            //~~SCHUSS~~
+
+            await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
+
             await ƒS.Speech.tell(charaktere.odette, " a… oh… ");
             await ƒS.Speech.tell(charaktere.bronte, " NEIN! ");
             await ƒS.Speech.tell(charaktere.maire, " Bronte! Was wo- Wer? ");
@@ -180,7 +224,7 @@ namespace Template {
             await ƒS.Speech.tell(charaktere.bronte, " Ja… ich… ");
             await ƒS.Speech.tell(charaktere.alaistar, " Wir bleiben jetzt alle ganz ruhig. ");
             await ƒS.Speech.tell(charaktere.maire, " Oh Götter… er hat eine Waffe! ");
-            
+
             if (dataForSave.gotTestament) {
                 await ƒS.Speech.tell(charaktere.alaistar, " Miss Bronte geben sie mir das Testament. Jetzt! ");
 
@@ -195,25 +239,37 @@ namespace Template {
                         await ƒS.Speech.tell(charaktere.isaac, " Odette… ich kann sie nicht… nicht hierlassen! ");
                         await ƒS.Speech.tell(charaktere.bronte, " Bitte Maire, Isaac. Wir sollten gehen.");
 
+                        //todo: Ende
+                        await ƒS.Sound.fade(sound.final, 0, 1); 
+                        return "EndingThreeOdetteDead";
+
                         break;
                     case chooseIfGiveTestament.no:
                         await ƒS.Speech.tell(charaktere.bronte, " Nein! ");
                         await ƒS.Speech.tell(charaktere.alaistar, " Miss Bronte! Tun Sie keine Dummheiten. ");
                         await ƒS.Speech.tell(charaktere.bronte, " Ich werde Sie hiermit nicht durchkommen lassen! Ich-");
 
-                        // todo: 3 Schüsse und dann Ende 
-                        break;
+                        await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
+                        await ƒS.Progress.delay(0.3);
+                        await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
+                        await ƒS.Progress.delay(0.3);
+                        await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
+
+                        return "EndScreen";
                 }
             } else {
 
                 await ƒS.Speech.tell(charaktere.alaistar, " Es tut mir sehr Leid, aber ich muss meine Familie schützen. ");
                 await ƒS.Speech.tell(charaktere.bronte, " Mr. Blackburn, tun sie nichts-");
-                // todo: 3 Schüsse und dann Ende 
+
+                await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
+                await ƒS.Progress.delay(0.3);
+                await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
+                await ƒS.Progress.delay(0.3);
+                await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
+                return "Endscreen";
 
             }
-
         }
-
-
     }
 }

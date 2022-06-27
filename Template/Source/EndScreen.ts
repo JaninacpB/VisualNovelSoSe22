@@ -1,4 +1,4 @@
-namespace Template {
+namespace Artemis {
     export async function EndScreen(): ƒS.SceneReturn {
 
         // Bilder einblenden und Canvas entfernen
@@ -14,7 +14,5 @@ namespace Template {
         speech[0].setAttribute("style", "vicibility: hidden;");
 
         //todo: färbe ein welche ausgelöst wurden maybe local Storage 
-
-        await ƒS.Sound.fade(sound.themeinfrontManor, 0.1, 1, true); 
     }
 }

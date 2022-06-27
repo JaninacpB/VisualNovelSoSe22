@@ -1,31 +1,22 @@
-declare namespace Template {
+declare namespace Artemis {
     function EndScreen(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     function EndingBadGraceAngry(): ƒS.SceneReturn;
 }
-declare namespace Template {
-    function EndingFiveAllSurvive(): ƒS.SceneReturn;
-}
-declare namespace Template {
-    function EndingFourBronteDead(): ƒS.SceneReturn;
-}
-declare namespace Template {
+declare namespace Artemis {
     function EndingOneAllSurvive(): ƒS.SceneReturn;
 }
-declare namespace Template {
-    function EndingSixOdetteDead(): ƒS.SceneReturn;
+declare namespace Artemis {
+    function EndingThreeOdetteDead(): ƒS.SceneReturn;
 }
-declare namespace Template {
-    function EndingThreeAllSurvive(): ƒS.SceneReturn;
-}
-declare namespace Template {
+declare namespace Artemis {
     function EndingTwoBronteDead(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     function ExtraSceneBronteMaire(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let emotionen: {
@@ -50,12 +41,18 @@ declare namespace Template {
         themeSaloon: string;
         dramaInSaloon: string;
         saloonAfterScrem: string;
+        final: string;
+        endingSad: string;
+        endingHappy: string;
+        endingReallyBad: string;
         catMeow: string;
         goingThrouBushes: string;
         knockDoor: string;
         alaisterLaugh: string;
         dinnerSound: string;
         waterGlass: string;
+        stellaScream: string;
+        gunShoot: string;
     };
     let location: {
         infrontOfManorDay: {
@@ -112,6 +109,10 @@ declare namespace Template {
                 think: string;
             };
             positionStandard: {
+                x: number;
+                y: number;
+            };
+            positionMiddle: {
                 x: number;
                 y: number;
             };
@@ -201,6 +202,14 @@ declare namespace Template {
             pose: {
                 happy: string;
                 angry: string;
+            };
+            positionStandard: {
+                x: number;
+                y: number;
+            };
+            positionMiddle: {
+                x: number;
+                y: number;
             };
         };
         remington: {
@@ -296,42 +305,42 @@ declare namespace Template {
     function showEmotion(name: string, durationBreak: number): Promise<void>;
     function listenerRestart(this: HTMLElement): void;
 }
-declare namespace Template {
+declare namespace Artemis {
     function SceneEightBInterviews(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     function SceneEightSaalonInterview(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     function SceneElevenStudy(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     function SceneFiveOutside(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     function SceneFourSaalonDrama(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     function SceneNineEntryhall(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     function SceneOneInfront(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     function SceneSevenCabin(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     function SceneSixGarden(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     function SceneTenMaireAndIsaac(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     function SceneThreeSaalon(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     function SceneTwelveFinal(): ƒS.SceneReturn;
 }
-declare namespace Template {
+declare namespace Artemis {
     function SceneTwoEntrance(): ƒS.SceneReturn;
 }

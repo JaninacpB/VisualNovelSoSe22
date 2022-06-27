@@ -1,4 +1,4 @@
-namespace Template {
+namespace Artemis {
     export async function ExtraSceneBronteMaire(): ƒS.SceneReturn {
         await ƒS.Speech.tell(charaktere.bronte, " Maire… du siehst müde aus. ");
         await ƒS.Speech.tell(charaktere.maire, " Ja… ich bin ein wenig erschöpft… ");

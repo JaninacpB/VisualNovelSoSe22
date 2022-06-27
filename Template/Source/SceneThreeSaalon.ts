@@ -1,4 +1,4 @@
-namespace Template {
+namespace Artemis {
     export async function SceneThreeSaalon(): ƒS.SceneReturn {
 
         let chooseWeirdPerson = {
@@ -234,6 +234,7 @@ namespace Template {
         await ƒS.update(0.4);
 
         await ƒS.Speech.tell(charaktere.grace, "Nun… Als Gerichtsvertreter wird man wohl nicht pünktlich entlassen. Aber so ist die Mittelschicht wohl. ");
+        await ƒS.Speech.tell(charaktere.grace, "Und Familie ist wohl oder übel Familie... ");
 
         await ƒS.Character.hide(charaktere.grace);
         await ƒS.Character.hide(charaktere.isaac);
@@ -278,7 +279,6 @@ namespace Template {
         await ƒS.Speech.tell(charaktere.bronte, "Es ist tatsächlich Schottisch…");
 
         let haggisDecision = await ƒS.Menu.getInput(chooseHaggis, "basicChoice");
-        //todo: point system 
         switch (haggisDecision) {
             case chooseHaggis.lie:
 
@@ -376,8 +376,6 @@ namespace Template {
                 await ƒS.update(0.4);
 
                 await ƒS.Speech.tell(charaktere.maire, " Ich glaube mir wird schlecht…");
-
-                //todo: sound food wie oben
 
                 await ƒS.Character.hide(charaktere.bronte);
                 await ƒS.Character.hide(charaktere.maire);
