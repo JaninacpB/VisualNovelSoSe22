@@ -44,10 +44,6 @@ dialog {
   background-color: rgba(0, 0, 0, 0.309);
 }
 
-dialog.basicChoice {
-  display: flex;
-  justify-content: center ;
-}
 
 button {
   padding: 1em;

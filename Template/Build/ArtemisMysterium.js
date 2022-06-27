@@ -103,7 +103,7 @@ var Template;
     Template.sound = {
         //Themes
         //Scene 1
-        themeinfrontManor: "",
+        themeinfrontManor: "Asset/sound/infrontOfManorScene1PianoElegeant.mp3",
         themeinfrontManorNight: "Asset/sound/forest-chorus-12444.mp3",
         themeEntrance: "Asset/sound/peter-tchaikovsky-neapolitan-song-opus-Entry.mp3",
         themeSaloon: "Asset/sound/peter-tchaikovsky-march-from-nutcracker-classical-remix-7691.mp3",
@@ -2353,7 +2353,7 @@ var Template;
         // return "SceneElevenStudy";
         //  return "SceneTwelveFinal";
         // return "EndScreen";
-        await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.1, 1, true);
+        await Template.ƒS.Sound.fade(Template.sound.themeinfrontManor, 0.4, 1, true);
         await Template.ƒS.Location.show(Template.location.infrontOfManorDay);
         await Template.ƒS.update(Template.transistions.wallpaper.duration, Template.transistions.wallpaper.alpha, Template.transistions.wallpaper.edge);
         await Template.ƒS.update();
@@ -3467,7 +3467,7 @@ var Template;
         await Template.ƒS.Character.hide(Template.charaktere.maire);
         await Template.ƒS.Character.show(Template.charaktere.maire, Template.charaktere.maire.pose.neutral, Template.ƒS.positionPercent(Template.charaktere.maire.positionStandard.x, Template.charaktere.maire.positionStandard.y));
         await Template.ƒS.update(0.4);
-        await Template.ƒS.Speech.tell(Template.charaktere.remington, "und ist nun unter der Obhut und Lord Blackburn, welcher seine ehrenwerte Schwester Lady Blackburn hier wohnen lässt.");
+        await Template.ƒS.Speech.tell(Template.charaktere.remington, "und ist nun unter der Obhut von Lord Blackburn, welcher seine ehrenwerte Schwester Lady Blackburn hier wohnen lässt.");
         await Template.ƒS.Speech.tell(Template.charaktere.remington, "Er hat natürlich das gesamte Erbe vermacht bekommen uns sich mit Hingabe hierdrum gekümmert. ");
         await Template.ƒS.Character.hide(Template.charaktere.remington);
         await Template.ƒS.Character.show(Template.charaktere.remington, Template.charaktere.remington.pose.angry, Template.ƒS.positionPercent(Template.charaktere.remington.positionStandard.x, Template.charaktere.remington.positionStandard.y));

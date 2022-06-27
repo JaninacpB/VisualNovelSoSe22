@@ -19,7 +19,7 @@ namespace Template {
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y));
         await ƒS.update(0.4);
 
-        await ƒS.Speech.tell(charaktere.remington, "und ist nun unter der Obhut und Lord Blackburn, welcher seine ehrenwerte Schwester Lady Blackburn hier wohnen lässt.");
+        await ƒS.Speech.tell(charaktere.remington, "und ist nun unter der Obhut von Lord Blackburn, welcher seine ehrenwerte Schwester Lady Blackburn hier wohnen lässt.");
         await ƒS.Speech.tell(charaktere.remington, "Er hat natürlich das gesamte Erbe vermacht bekommen uns sich mit Hingabe hierdrum gekümmert. ");
 
         await ƒS.Character.hide(charaktere.remington); 

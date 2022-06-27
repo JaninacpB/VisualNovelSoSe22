@@ -26,7 +26,7 @@ namespace Template {
   export let sound = {
     //Themes
     //Scene 1
-    themeinfrontManor: "",
+    themeinfrontManor: "Asset/sound/infrontOfManorScene1PianoElegeant.mp3",
 
     themeinfrontManorNight: "Asset/sound/forest-chorus-12444.mp3",
 
