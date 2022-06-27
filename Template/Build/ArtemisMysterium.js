@@ -2493,7 +2493,7 @@ var Artemis;
         // return "SceneTwelveFinal";
         // return "EndingOneAllSurvive"
         // return "EndingTwoBronteDead";
-        return "EndingThreeOdetteDead";
+        // return "EndingThreeOdetteDead";
         // return "EndScreen";
         await Artemis.ƒS.Sound.fade(Artemis.sound.themeinfrontManor, 0.4, 1, true);
         await Artemis.ƒS.Location.show(Artemis.location.infrontOfManorDay);
