@@ -426,7 +426,9 @@ namespace Artemis {
                             switch (userTakeGun) {
                                 case takeGun.yes:
 
-                                    // todo: Inventar hinzufügen
+                                    await ƒS.Inventory.add(inventory.pistol);
+                                    await ƒS.Inventory.open();
+                                    
                                     dataForSave.tookGun = true; 
 
                                     await ƒS.Speech.tell(charaktere.bronte, " Ja. Ich habe ein schlechtes Gefühl… Lass ihn mitnehmen. ");
@@ -681,6 +683,5 @@ namespace Artemis {
                 stillInLoop = false;
             }
         }
-
     }
 }

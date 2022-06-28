@@ -19,13 +19,15 @@ namespace Artemis {
     // return "SceneThreeSaalon";
     // return "SceneFourSaalonDrama";
     // return "SceneSixGarden";
+
+    // return "SceneSevenCabin";
     
     // return "SceneEightSaalonInterview";
     // return "SceneEightBInterviews";
     // return "SceneNineEntryhall"; 
     // return "SceneTenMaireAndIsaac";
-    // return "SceneElevenStudy";
-    // return "SceneTwelveFinal";
+   // return "SceneElevenStudy";
+  //  return "SceneTwelveFinal";
 
    // return "EndingOneAllSurvive"
     // return "EndingTwoBronteDead";

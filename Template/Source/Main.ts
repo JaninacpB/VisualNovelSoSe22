@@ -38,6 +38,8 @@ namespace Artemis {
 
     saloonAfterScrem: "Asset/sound/frederic-chopin-nocturne-21-classical-remix-7611.mp3",
 
+    study: "Asset/sound/SoundStudy.mp3",
+
     final: "Asset/sound/tenseFinalMusik.mp3",
 
     endingSad: "Asset/sound/pianoSadEnding.mp3",
@@ -58,7 +60,11 @@ namespace Artemis {
     dinnerSound: "Asset/sound/fx/dinnerdishesmp3-14762.wav",
     waterGlass: "Asset/sound/fx/water-filled-cup-9901.mp3",
 
-    stellaScream: "Asset/sound/fx/StellaScream.mp3",
+    stellaScream: "Asset/sound/fx/stella-Scream.mp3",
+
+    //todo: einfügen:
+
+    graceScream: "Asset/sound/fx/GraceScream.mp3",
 
     gunShoot: "Asset/sound/fx/gunshootOne.mp3"
   }
@@ -120,7 +126,7 @@ namespace Artemis {
 
     bronte: {
       name: "Brontë",
-      origin: ƒS.ORIGIN.BOTTOMCENTER, //Ankerpunkt im Bild
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         happy: "Asset/character/bronte/Bronte-happy.png",
         angry: "Asset/character/bronte/Bronte-angry.png",
@@ -287,15 +293,7 @@ namespace Artemis {
       static: true
     },
 
-    cat: {
-      name: "Halsband",
-      description: "Ein Halsband für eine Katze oder Hund. ",
-      image: "Asset/item/halsbandReal.png",
-      static: true
-    },
-
     //todo: übergeben
-
     collar: {
       name: "Halsband",
       description: "Artemis Halsband",
@@ -303,13 +301,20 @@ namespace Artemis {
       static: true
     },
 
-    //todo: Pic and übergeben
+    //todo: and übergeben
     pistol: {
       name: "Pistole",
       description: "Eine Pistole, die in Alaistars Mantel gefunden wurde. ",
-      image: "Asset/item/Testament.png",
+      image: "Asset/item/pistole.png",
       static: true
     },
+
+    testament: {
+      name: "Testament",
+      description: "Das echte Testament! Auf der Rückseite der Besitzurkunde des Hauses.",
+      image: "Asset/item/Testament.png",
+      static: true
+    }
 
   }
 
@@ -594,6 +599,10 @@ namespace Artemis {
 
   export function listenerRestart(this: HTMLElement){
     window.location.reload();
+  }
+
+  export function deleteInventory(name: string){
+    document.getElementById(name).remove(); 
   }
 
 }

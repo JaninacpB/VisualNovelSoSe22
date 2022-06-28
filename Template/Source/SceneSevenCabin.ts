@@ -48,7 +48,9 @@ namespace Artemis {
                 await ƒS.update(0.4);
 
                 await ƒS.Speech.tell(charaktere.bronte, "Ein Moment das habe ich gleich! Perfekt. Gutes Auge Maire! Das ist ein Halsband.");
-                //todo: öffne inventory halsband bekommen
+                
+                await ƒS.Inventory.add(inventory.collar);
+                await ƒS.Inventory.open();
 
                 break;
 
@@ -69,7 +71,8 @@ namespace Artemis {
 
                 await ƒS.Speech.tell(charaktere.maire, " Okay… ich… autsch! Mein Knöchel! Aber hier… ein Halsband. ");
 
-                // todo: Inventory öffnen Halsband bekommen
+                await ƒS.Inventory.add(inventory.collar);
+                await ƒS.Inventory.open();
 
                 await ƒS.Character.hide(charaktere.bronte);
                 await ƒS.Character.hide(charaktere.maire);

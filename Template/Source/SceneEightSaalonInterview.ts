@@ -110,7 +110,9 @@ namespace Artemis {
         switch (userChooseGiveCollar) {
 
             case chooseGiveCollar.yes:
-                // Ja todo: Halsband aus Inventar löschen  
+            
+                deleteInventory(inventory.collar.name); 
+
                 await ƒS.Speech.tell(charaktere.bronte, "Natürlich. Hier");
                 await ƒS.Character.hide(charaktere.grace);
                 await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.happy, ƒS.positionPercent(charaktere.grace.positionLeftMiddle.x, charaktere.grace.positionLeftMiddle.y));

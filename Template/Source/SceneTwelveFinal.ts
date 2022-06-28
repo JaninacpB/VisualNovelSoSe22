@@ -12,32 +12,67 @@ namespace Artemis {
             no: "Nein"
         }
 
+        await ƒS.Sound.fade(sound.study, 0, 1);
+
         await ƒS.Sound.fade(sound.final, 0.7, 1, true);
 
         await ƒS.Speech.tell(charaktere.alaistar, " Schwester. ");
         await ƒS.Speech.tell(charaktere.odette, " !!! ");
         await ƒS.Speech.tell(charaktere.alaistar, " Miss Bronte, Grace würde gerne etwas mit Ihnen besprechen. ");
+
+        await ƒS.Character.hide(charaktere.bronte);
+        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+        await ƒS.update(0.4);  
+
         await ƒS.Speech.tell(charaktere.bronte, " Ich denke ich bleiben lieber hier. Es muss eine ganzschöne Überraschung sein ihre Schwester zu sehen. ");
         await ƒS.Speech.tell(charaktere.alaistar, " Gehen Sie. ");
+
+        await ƒS.Character.hide(charaktere.bronte);
+        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.angry, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+        await ƒS.update(0.4);  
+
         await ƒS.Speech.tell(charaktere.bronte, " Nein. ");
         await ƒS.Speech.tell(charaktere.odette, " Alaistar bitte, es gibt keinen Grund- ");
+
+        await ƒS.Character.hide(charaktere.bronte);
+        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+        await ƒS.update(0.4);  
+
         await ƒS.Speech.tell(charaktere.bronte, " (Er will etwas aus seiner Jacke ziehen. Was soll ich tun?)");
 
         let userchooseFinalChoice = await ƒS.Menu.getInput(chooseFinalChoice, "BasicChoice");
 
-        //todo: Maire und Isaac Anzeigen + Sound
+        await ƒS.Character.hide(charaktere.bronte);
+        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+        await ƒS.update(0.4);  
+
+        await ƒS.Character.hide(charaktere.bronte);
+        await ƒS.update(2); 
+
+        await ƒS.Location.show(location.infrontOfManorNight);
+
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
+        await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.cry, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y))
+        await ƒS.update(0.1);  
+
 
         if (!dataForSave.tookGun) {
 
             await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
 
-            await ƒS.Speech.tell(charaktere.maire, "Ein Schuss!  ");
+            await ƒS.Speech.tell(charaktere.maire, "Ein Schuss!  "); 
+
         } else {
 
             await ƒS.Sound.fade(sound.stellaScream, 0.8, 1, false);
 
             await ƒS.Speech.tell(charaktere.maire, "Ein Schrei!  ");
         }
+
+        await ƒS.Character.hide(charaktere.isaac);
+        await ƒS.Character.hide(charaktere.maire);
+        await ƒS.Location.show(location.studyroom); 
+        await ƒS.update(0.2); 
 
         if (userchooseFinalChoice == chooseFinalChoice.infrontOfOdette && dataForSave.tookGun) {
 
@@ -79,7 +114,15 @@ namespace Artemis {
         } else if (userchooseFinalChoice == chooseFinalChoice.infrontOfOdette) {
 
             await ƒS.Speech.tell(charaktere.maire, " NEIN! ");
+
+            await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+            await ƒS.update(0.4);  
+
             await ƒS.Speech.tell(charaktere.bronte, " Oh… oh weh…");
+
+            await ƒS.Character.hide(charaktere.bronte);
+            await ƒS.update(4);  
+
             //todo: fällt
             await ƒS.Speech.tell(charaktere.maire, " Bronte bitte… nein! Bitte schau mich an! ");
             await ƒS.Speech.tell(charaktere.alaistar, " Nein… ich… ich wollte nicht sie treffen ich…  ");

@@ -41,6 +41,7 @@ declare namespace Artemis {
         themeSaloon: string;
         dramaInSaloon: string;
         saloonAfterScrem: string;
+        study: string;
         final: string;
         endingSad: string;
         endingHappy: string;
@@ -52,6 +53,7 @@ declare namespace Artemis {
         dinnerSound: string;
         waterGlass: string;
         stellaScream: string;
+        graceScream: string;
         gunShoot: string;
     };
     let location: {
@@ -253,12 +255,6 @@ declare namespace Artemis {
             image: string;
             static: boolean;
         };
-        cat: {
-            name: string;
-            description: string;
-            image: string;
-            static: boolean;
-        };
         collar: {
             name: string;
             description: string;
@@ -266,6 +262,12 @@ declare namespace Artemis {
             static: boolean;
         };
         pistol: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+        testament: {
             name: string;
             description: string;
             image: string;
@@ -304,6 +306,7 @@ declare namespace Artemis {
     function showDiary(): void;
     function showEmotion(name: string, durationBreak: number): Promise<void>;
     function listenerRestart(this: HTMLElement): void;
+    function deleteInventory(name: string): void;
 }
 declare namespace Artemis {
     function SceneEightBInterviews(): ƒS.SceneReturn;
