@@ -234,7 +234,12 @@ namespace Artemis {
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         happy: "Asset/character/odette/odette-happy.png",
-        angry: "Asset/character/odette/odette.angry.png"
+        angry: "Asset/character/odette/odette.angry.png",
+        gleefull: "Asset/character/odette/odette-glücklich.png",
+        sad: "Asset/character/odette/odette-sad.png",
+        scream: "Asset/character/odette/odette-scream.png",
+        think: "Asset/character/odette/odette-think.png",
+        shadow: "Asset/character/odette/odette-silouette.png"
       },
       positionStandard: {
         x: 84,

@@ -47,6 +47,8 @@ namespace Artemis {
         await ƒS.update(0.4);  
 
         await ƒS.Character.hide(charaktere.bronte);
+        await ƒS.Character.hide(charaktere.odette);
+        await ƒS.Character.hide(charaktere.alaistar);
         await ƒS.update(2); 
 
         await ƒS.Location.show(location.infrontOfManorNight);

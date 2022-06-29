@@ -204,6 +204,11 @@ declare namespace Artemis {
             pose: {
                 happy: string;
                 angry: string;
+                gleefull: string;
+                sad: string;
+                scream: string;
+                think: string;
+                shadow: string;
             };
             positionStandard: {
                 x: number;

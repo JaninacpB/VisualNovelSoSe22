@@ -86,6 +86,9 @@ namespace Artemis {
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
                 await ƒS.update(0.4);  
 
+                await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.shadow, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                await ƒS.update(1);  
+
                 await ƒS.Speech.tell(charaktere.bronte, " Hallo? ");
                 await ƒS.Speech.tell(charaktere.shadow, " !!! ");
 
@@ -102,6 +105,9 @@ namespace Artemis {
                 await ƒS.Character.hide(charaktere.bronte);
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.angry, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
                 await ƒS.update(0.4);  
+
+                await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.shadow, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                await ƒS.update(1);  
 
                 await ƒS.Speech.tell(charaktere.bronte, " Ich bin bewaffnet. Keine Falsche Bewegung. ");
                 await ƒS.Speech.tell(charaktere.shadow, " !!! ");
@@ -122,6 +128,9 @@ namespace Artemis {
             case chooseHide.hide:
 
                 await ƒS.Character.hide(charaktere.bronte);
+                await ƒS.update(1);  
+
+                await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.shadow, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
                 await ƒS.update(1);  
 
                 await ƒS.Speech.tell(charaktere.shadow, " Mhm… Ich verstehe das nicht. Er muss es geändert haben. ");
@@ -171,6 +180,11 @@ namespace Artemis {
         await ƒS.update(0.4);  
 
         await ƒS.Speech.tell(charaktere.bronte, " Ich bin Bronte. Ein Gast des Hauses Blackburn und wie es scheint auch Geisterjägerin. Wenn ich mich nicht irre dann sind Sie- ");
+        
+        await ƒS.Character.hide(charaktere.odette);
+        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.angry, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+        await ƒS.update(1);  
+        
         await ƒS.Speech.tell(charaktere.bronte, " Odette Blackburn. ");
 
         await ƒS.Character.hide(charaktere.bronte);
@@ -178,6 +192,11 @@ namespace Artemis {
         await ƒS.update(0.4);  
 
         await ƒS.Speech.tell(charaktere.bronte, " Verstorben vor einer ganzen Weile wenn ich mich richtig erinnere. ");
+
+        await ƒS.Character.hide(charaktere.odette);
+        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.scream, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+        await ƒS.update(0.4);  
+
         await ƒS.Speech.tell(charaktere.odette, " !!! ");
 
         await ƒS.Character.hide(charaktere.bronte);
@@ -185,6 +204,11 @@ namespace Artemis {
         await ƒS.update(0.4);  
 
         await ƒS.Speech.tell(charaktere.bronte, " Und sie haben der guten Stella einen ganz schön bösen Streich gespielt, oder ist sie etwa Teil dieses Spieles? Sie muss noch sehr jung gewesen sein, als Sie angeblich in der Themse verschwunden sind. ");
+
+        await ƒS.Character.hide(charaktere.odette);
+        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.sad, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+        await ƒS.update(0.4);  
+
         await ƒS.Speech.tell(charaktere.odette, " Ich… oh… Nein, Stella hat nichts mit all dem zu tun. ");
 
         await ƒS.Character.hide(charaktere.bronte);
@@ -195,6 +219,8 @@ namespace Artemis {
 
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+        await ƒS.Character.hide(charaktere.odette);
+        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.think, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
         await ƒS.update(0.4);  
 
         await ƒS.Speech.tell(charaktere.odette, " Isaac… Er… Oh… Bitte Sie müssen mir helfen. Sie sind eine Detektivin oder nicht? Ich habe ihr Bild vor einiger Zeit in der Zeitung gesehen. ");
@@ -205,7 +231,17 @@ namespace Artemis {
 
         await ƒS.Speech.tell(charaktere.bronte, " Dieser Fall wird immer seltsamer… ");
         await ƒS.Speech.tell(charaktere.bronte, " Ich muss gestehen, dass ich den Fall immer noch nicht komplett begreife. Wenn Sie mir helfen können, Klarheit zu schaffen, dann verspreche ich zumindest darüber nachzudenken Ihnen zu helfen. ");
+        
+        await ƒS.Character.hide(charaktere.odette);
+        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.angry, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+        await ƒS.update(0.4);  
+        
         await ƒS.Speech.tell(charaktere.odette, " Dass muss mir wohl erst einmal genügen. ");
+
+        await ƒS.Character.hide(charaktere.odette);
+        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.think, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+        await ƒS.update(0.4);  
+
         await ƒS.Speech.tell(charaktere.odette, " Was wollen sie wissen?");
 
 
@@ -220,6 +256,11 @@ namespace Artemis {
                     await ƒS.update(0.4);  
 
                     await ƒS.Speech.tell(charaktere.bronte, " Nun wo ist Artemis? Ich nehme an sie haben die Katze in den Schuppen gesperrt? ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.sad, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Oh ja, das war leider ich. Die gute Seele hat mich wiedererkannt. Kam auf mich zustürzt und hat nicht aufgehört zu Miauen. Da habe ich sie in den Schuppen gesperrt. ");
                    
                     await ƒS.Character.hide(charaktere.bronte);
@@ -227,8 +268,18 @@ namespace Artemis {
                     await ƒS.update(0.4);  
                    
                     await ƒS.Speech.tell(charaktere.bronte, " Aber wie kam Artemis aus dem Arbeitszimmer? ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.think, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Oh, ich habe versucht über das Fenster hereinzukommen, wurde aber von Remington gestört, der sauber gemacht hat. ");
                     await ƒS.Speech.tell(charaktere.odette, " Ich habe die Flucht ergriffen bevor er mich sah, aber dabei das Fenster vergessen und Artemis ist mir gefolgt. ");
+                    
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.sad, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Ich habe sie im Schuppen eingesperrt. ");
 
                     await ƒS.Character.hide(charaktere.bronte);
@@ -256,9 +307,24 @@ namespace Artemis {
                     await ƒS.update(0.4);  
 
                     await ƒS.Speech.tell(charaktere.bronte, " Warum jagen sie Stella solch einen Schrecken ein? ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.sad, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Oh, das war keine Absicht. Ich wusste nicht, dass Besuch im Haus ist und war deshalb unvorsichtig. Nachts bin ich einmal in ihr Zimmer eingebrochen und sie hat mich gesehen. ");
+                   
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.angry, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+                   
                     await ƒS.Speech.tell(charaktere.odette, " Oder zumindest eine Gestalt. Die Arme hat sich ziemlich erschreckt und wohl noch nicht ganz davon erholt. ");
                     await ƒS.Speech.tell(charaktere.bronte, " Und heute Abend? ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.think, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Auch das war nicht geplant. Die Laternen gingen an, obwohl ich sie manipuliert hatte und auf meinem Weg durch den Garten sah sie mich durchs Fenster. ");
                     await ƒS.Speech.tell(charaktere.odette, " Zum Glück konnte nur sie mich sehen. ");
 
@@ -279,9 +345,29 @@ namespace Artemis {
                     await ƒS.update(0.4);  
 
                     await ƒS.Speech.tell(charaktere.bronte, " Nun… Wieso leben Sie noch? ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.think, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Ja… dass ist eine lange Geschichte. Ich habe nicht viel Zeit daher halte ich mich kurz. ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.sad, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Mein Bruder riet mir vor einigen Jahren meine Nase nicht zu tief in fremde Angelegenheiten zu stecken und machte mir klar, dass er bereit wäre drastische Maßnahmen durchzuführen. ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.angry, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Er hatte Angst um sein Erbe und Geld war ihm schon immer wichtiger als alles andere. Aber er hatte noch immer die Kontakte und Mittel wirklich schreckliche Sachen zu tun. ");
+                    
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.think, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+                    
                     await ƒS.Speech.tell(charaktere.odette, " Also kam ich ihm zuvor. Ließ es aussehen als hätte die Themse mich fortgerissen. Es war töricht und doch würde ich es jederzeit wieder tun. ");
 
                     await ƒS.Character.hide(charaktere.bronte);
@@ -295,6 +381,11 @@ namespace Artemis {
                     await ƒS.update(0.4);  
 
                     await ƒS.Speech.tell(charaktere.bronte, " Er wusste nichts davon? ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.sad, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Nein. Mein Bruder ließ ihn beschatten und ich konnte es nicht riskieren bei ihm gesehen zu werden. ");
                     await ƒS.Speech.tell(charaktere.odette, " Er hätte mich gesucht, sofern ich ein Lebenszeichen geschickt hätte. Und so blieb ich versteckt. ");
 
@@ -303,7 +394,17 @@ namespace Artemis {
                     await ƒS.update(0.4);  
 
                     await ƒS.Speech.tell(charaktere.bronte, " Und warteten auf ihre Rückkehr? ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.scream, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Oh nein… ich hatte mich damit abgefunden ein einfaches Leben zu führen. Keine Gefahr für niemanden zu sein. Aber dann- ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.angry, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, "  Verstarb Doktor Johansson. Der Notar, welcher auch das Testament meines Vaters angefertigt hatte. Und das meiner Mutter. ");
                     await ƒS.Speech.tell(charaktere.bronte, " Und was genau hat sein tot mit all diesem zu tun? ");
 
@@ -345,6 +446,11 @@ namespace Artemis {
                             await ƒS.update(0.4);  
 
                             await ƒS.Speech.tell(charaktere.bronte, " Nein, dass passt nicht. ");
+
+                            await ƒS.Character.hide(charaktere.odette);
+                            await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.sad, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                            await ƒS.update(0.4);  
+
                             await ƒS.Speech.tell(charaktere.odette, " Mein Bruder Alistair. Er war es.");
                             break;
                     }
@@ -356,8 +462,18 @@ namespace Artemis {
                     await ƒS.update(0.4);  
 
                     await ƒS.Speech.tell(charaktere.bronte, " Ihre Mutter hat ihm nicht das Vermögen vermacht? ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.think, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Nein. Zumindest nicht alles. Er kommt ein Drittel von dem Vermögen meines Vaters und nur ein wenig von dem Vermögen was meine Mutter in Heirat eingebracht hat. ");
                     await ƒS.Speech.tell(charaktere.bronte, " Und das war eine Menge? ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.sad, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Eine ganze Menge. Mein Vater hatte viele Schulden bevor der Hochzeit. Sie rettete ihn finanziell. ");
 
                     await ƒS.Character.hide(charaktere.bronte);
@@ -365,6 +481,11 @@ namespace Artemis {
                     await ƒS.update(0.4);  
 
                     await ƒS.Speech.tell(charaktere.bronte, " Und wenn ich es recht verstehe, dann vermachte ihre Mutter ihnen den Rest? Ihr Bruder bekam Wind davon und bedrohte Sie? ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.angry, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Ja. Er bekam das Original in die Finger und versteckte es. ");
 
                     await ƒS.Character.hide(charaktere.bronte);
@@ -372,6 +493,11 @@ namespace Artemis {
                     await ƒS.update(0.4);  
 
                     await ƒS.Speech.tell(charaktere.bronte, " Er zerstörte es nicht? ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.think, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Dass nahm ich zuerst auch an. Für die letzten Jahre glaubte ich das Testament sei zerstört, aber dann erreichte mich der Brief von Doktor Johanson. ");
 
                     await ƒS.Character.hide(charaktere.bronte);
@@ -382,9 +508,16 @@ namespace Artemis {
 
                     await ƒS.Character.hide(charaktere.bronte);
                     await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
-                    await ƒS.update(0.4);  
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.sad, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);   
 
                     await ƒS.Speech.tell(charaktere.odette, " Nein und mein Bruder schüchterte ihn zu Lebzeiten zu sehr ein, als dass er etwas versucht hätte zu unternehmen. Aber als er verstarb ließ er in Auftrag geben mir einen Brief zu senden. ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.sad, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Er schrieb, dass meine Mutter das Testament auf einem wichtigen Dokument geschrieben hätte. Alaistar konnte nicht riskieren diese Urkunde zu verlieren, daher muss es das Testament noch geben! ");
                     await ƒS.Speech.tell(charaktere.bronte, " Ich verstehe… ");
 
@@ -393,6 +526,11 @@ namespace Artemis {
                     await ƒS.update(0.4);  
 
                     await ƒS.Speech.tell(charaktere.bronte, " Du willst es finden und so dein rechtmäßiges Erbe bekommen? ");
+
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.angry, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);  
+
                     await ƒS.Speech.tell(charaktere.odette, " Ich will vor allem frei von der Tyrannei meines Bruders sein. Ich kenne seine Freunde, die Leute, die eher seine Angestellten sind. ");
 
                     await ƒS.Character.hide(charaktere.bronte);
@@ -416,7 +554,9 @@ namespace Artemis {
 
                     await ƒS.Character.hide(charaktere.bronte);
                     await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
-                    await ƒS.update(0.4);  
+                    await ƒS.Character.hide(charaktere.odette);
+                    await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.think, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                    await ƒS.update(0.4);   
 
                     await ƒS.Speech.tell(charaktere.odette, " Ich suche ein Dokument, was mir hilft aus diesem Schlamassel heraus zu kommen. ");
 
@@ -445,10 +585,17 @@ namespace Artemis {
         await ƒS.update(0.4);  
 
         await ƒS.Speech.tell(charaktere.bronte, " Okay, ich helfe dir. ");
+
+        await ƒS.Character.hide(charaktere.odette);
+        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.gleefull, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+        await ƒS.update(0.4);  
+
         await ƒS.Speech.tell(charaktere.odette, " Wirklich! Vielen Dank. ");
 
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+        await ƒS.Character.hide(charaktere.odette);
+        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.angry, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
         await ƒS.update(0.4);  
 
         await ƒS.Speech.tell(charaktere.bronte, " Ich weiß nicht, ob du die Wahrheit sagst, aber das lässt sich überprüfen, wenn wir das Testament finden. ");
@@ -456,6 +603,8 @@ namespace Artemis {
 
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+        await ƒS.Character.hide(charaktere.odette);
+        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.think, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
         await ƒS.update(0.4);  
 
         await ƒS.Speech.tell(charaktere.odette, " Ja, meine Mutter lagerte hier immer die teuersten Schmuckstücke. Grace und ich beide haben daher auch immer Zugriff gehabt. Wenn ich mich richtig erinnere, müsste er hier hinter dem Bücherregal sein. ");
@@ -465,12 +614,16 @@ namespace Artemis {
 
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
-        await ƒS.update(0.4);  
+        await ƒS.Character.hide(charaktere.odette);
+        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.scream, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+        await ƒS.update(0.4);    
 
         await ƒS.Speech.tell(charaktere.bronte, " Oh! ");
 
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+        await ƒS.Character.hide(charaktere.odette);
+        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.angry, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
         await ƒS.update(0.4);  
 
         await ƒS.Speech.tell(charaktere.bronte, " Hier ist ein Tresor! Mhm eine Zahlenkombination. ");
@@ -500,33 +653,54 @@ namespace Artemis {
 
                         await ƒS.Character.hide(charaktere.bronte);
                         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+                        await ƒS.Character.hide(charaktere.odette);
+                        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.happy, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
                         await ƒS.update(0.4);  
 
                         await ƒS.Speech.tell(charaktere.odette, " Tatsächlich auf der Rückseite des Namensanhänger. ");
+
+                        await ƒS.Character.hide(charaktere.odette);
+                        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.think, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                        await ƒS.update(0.4);  
+
                         await ƒS.Speech.tell(charaktere.odette, " In der Handschrift meiner vergesslichen Schwester. ");
 
                         await ƒS.Character.hide(charaktere.bronte);
                         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
                         await ƒS.update(0.4);  
 
-                        await ƒS.Speech.tell(charaktere.bronte, " Das erklärt warum sie so aufgebracht war über das verschwinden der Katze. Es ging ihr um den Code. Wie lautet er? ");
+                        await ƒS.Speech.tell(charaktere.bronte, " Das erklärt warum sie so aufgebracht war über das Verschwinden der Katze. Es ging ihr um den Code. Wie lautet er? ");
                         await ƒS.Speech.tell(charaktere.odette, " 279.");
 
                         await ƒS.Character.hide(charaktere.bronte);
                         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+                        await ƒS.Character.hide(charaktere.odette);
+                        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.scream, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
                         await ƒS.update(0.4);  
 
                         await ƒS.Speech.tell(charaktere.odette, " !!! ");
+
+                        await ƒS.Character.hide(charaktere.odette);
+                        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.gleefull, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                        await ƒS.update(0.4);  
+
                         await ƒS.Speech.tell(charaktere.odette, " Der Tresor, er ist offen! ");
 
                         await ƒS.Character.hide(charaktere.bronte);
                         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
-                        await ƒS.update(0.4);  
+                        await ƒS.Character.hide(charaktere.odette);
+                        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.think, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                        await ƒS.update(0.4);   
 
                         await ƒS.Speech.tell(charaktere.bronte, " Schmuck, ein paar Scheine und hier! Die Besitzurkunde des Hauses. ");
 
+                        await ƒS.Inventory.add(inventory.testament);
+                        await ƒS.Inventory.open(); 
+
                         await ƒS.Character.hide(charaktere.bronte);
                         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+                        await ƒS.Character.hide(charaktere.odette);
+                        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.happy, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
                         await ƒS.update(0.4);  
 
                         await ƒS.Speech.tell(charaktere.bronte, " Deine Mutter war ziemlich clever. ");
@@ -539,6 +713,8 @@ namespace Artemis {
 
                         await ƒS.Character.hide(charaktere.bronte);
                         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+                        await ƒS.Character.hide(charaktere.odette);
+                        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.scream, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
                         await ƒS.update(0.4);  
 
                         break;
@@ -555,6 +731,8 @@ namespace Artemis {
 
                         await ƒS.Character.hide(charaktere.bronte);
                         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+                        await ƒS.Character.hide(charaktere.odette);
+                        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.scream, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
                         await ƒS.update(0.4);  
 
                         break;
@@ -573,7 +751,9 @@ namespace Artemis {
 
                 await ƒS.Character.hide(charaktere.bronte);
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
-                await ƒS.update(0.4);  
+                await ƒS.Character.hide(charaktere.odette);
+                await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.scream, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+                await ƒS.update(0.4);   
 
                 break;
 
