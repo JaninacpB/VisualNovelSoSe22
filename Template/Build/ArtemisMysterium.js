@@ -2793,7 +2793,7 @@ var Artemis;
         // return "SceneEightBInterviews";
         // return "SceneNineEntryhall"; 
         // return "SceneTenMaireAndIsaac";
-        return "SceneElevenStudy";
+        // return "SceneElevenStudy";
         //  return "SceneTwelveFinal";
         // return "EndingOneAllSurvive"
         // return "EndingTwoBronteDead";
