@@ -78,7 +78,7 @@ namespace Artemis {
         await ƒS.Speech.tell(charaktere.bronte, " !!! ");
         await ƒS.Speech.tell(charaktere.bronte, " Jemand kommt durch Fenster?! Was soll ich tun?");
 
-        let userchooseHide = await ƒS.Menu.getInput(chooseHide, "BasicChoice");
+        let userchooseHide = await ƒS.Menu.getInput(chooseHide, "basicChoice");
         switch (userchooseHide) {
             case chooseHide.greet:
 
@@ -142,7 +142,7 @@ namespace Artemis {
                 await ƒS.Speech.tell(charaktere.shadow, " Hallo? ");
                 await ƒS.Speech.tell(charaktere.shadow, " Stella?");
 
-                let userchooseContinueHide = await ƒS.Menu.getInput(chooseContinueHide, "BasicChoice");
+                let userchooseContinueHide = await ƒS.Menu.getInput(chooseContinueHide, "basicChoice");
                 switch (userchooseContinueHide) {
                     case chooseContinueHide.continue:
 
@@ -247,7 +247,7 @@ namespace Artemis {
 
         while (countDialogAlreadyDid != 4) {
 
-            let userchooseKnow = await ƒS.Menu.getInput(chooseKnow, "BasicChoice");
+            let userchooseKnow = await ƒS.Menu.getInput(chooseKnow, "basicChoice");
             switch (userchooseKnow) {
                 case chooseKnow.cat:
 
@@ -422,7 +422,7 @@ namespace Artemis {
                     await ƒS.Speech.tell(charaktere.bronte, " Ein weiteres  Testament? Oh, jetzt macht es natürlich etwas mehr Sinn. Es gab natürlich jemand, der Interesse hatte ein weiteres Testament verschwinden zu lassen.");
 
 
-                    let userchooseWhoHideTestament = await ƒS.Menu.getInput(chooseWhoHideTestament, "BasicChoice");
+                    let userchooseWhoHideTestament = await ƒS.Menu.getInput(chooseWhoHideTestament, "basicChoice");
 
                     switch (userchooseWhoHideTestament) {
 
@@ -630,14 +630,14 @@ namespace Artemis {
         await ƒS.Speech.tell(charaktere.odette, " Mhm… Es ist nicht mehr der Geburtstag meiner Mutter. Alaistar hat wohl geändert. Mist! ");
         await ƒS.Speech.tell(charaktere.bronte, " Ich frage mich… Ob ich vielleicht ein Item dabeihabe, was uns helfen könnte");
 
-        let userchooseSomethingThatHelps = await ƒS.Menu.getInput(chooseSomethingThatHelps, "BasicChoice");
+        let userchooseSomethingThatHelps = await ƒS.Menu.getInput(chooseSomethingThatHelps, "basicChoice");
 
         switch (userchooseSomethingThatHelps) {
 
             case chooseSomethingThatHelps.yes:
 
 
-                let userchooseFromInventory = await ƒS.Menu.getInput(chooseFromInventory, "BasicChoice");
+                let userchooseFromInventory = await ƒS.Menu.getInput(chooseFromInventory, "basicChoice");
 
                 switch (userchooseFromInventory) {
 

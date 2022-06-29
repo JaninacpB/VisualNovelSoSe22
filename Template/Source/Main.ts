@@ -42,6 +42,12 @@ namespace Artemis {
 
     final: "Asset/sound/tenseFinalMusik.mp3",
 
+    finalGood: "Asset/sound/dance-of-the-sugar-plum-fairy-pyotr-ilyich-tchaikovsky-201s-11937.mp3",
+
+    finalTranquille: "/Template/Asset/sound/suspense-piano-loop-90165.mp3",
+
+    finalSad: "/Template/Asset/sound/teardrops-sad-song-piano-and-softpad-2763.mp3",
+
     endingSad: "Asset/sound/pianoSadEnding.mp3",
 
     endingHappy: "Asset/sound/PianoEndingHappy.mp3",
@@ -154,7 +160,9 @@ namespace Artemis {
         fear: "Asset/character/maire/Assestentin-fear.png",
         happy: "Asset/character/maire/Assestentin-happy.png",
         sad: "Asset/character/maire/Assestentin-sad.png",
-        laugh: "Asset/character/maire/Assestentin-laugh.png"
+        laugh: "Asset/character/maire/Assestentin-laugh.png",
+        cry: "Asset/character/maire/Assestentin-horror-cry.png",
+        shooked: "Asset/character/maire/Assestentin-horror.png"
       },
       positionStandard: {
         x: 84,
@@ -168,7 +176,10 @@ namespace Artemis {
       pose: {
         angry: "Asset/character/alaistar/Alaistar-angry.png",
         happy: "Asset/character/alaistar/Alaistar-happy.png",
-        neutral: "Asset/character/alaistar/Alaistar-neutral.png"
+        neutral: "Asset/character/alaistar/Alaistar-neutral.png",
+        confussed: "Asset/character/alaistar/Alaistar-confussed.png",
+        evil: "Asset/character/alaistar/Alaistar-evil.png",
+        emotionalDrained: "Asset/character/alaistar/Alaistar-drained.png"
       },
       positionStandard: {
         x: 50,

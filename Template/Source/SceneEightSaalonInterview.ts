@@ -271,7 +271,7 @@ namespace Artemis {
 
         await ƒS.Speech.tell(charaktere.maire, " Mhm… und sie will nicht, dass wir weiter investigieren. Was machen wir jetzt?");
 
-        let userChooseWhatDoAfterExplainingCat = await ƒS.Menu.getInput(chooseWhatDoAfterExplainingCat, "BasicChoice");
+        let userChooseWhatDoAfterExplainingCat = await ƒS.Menu.getInput(chooseWhatDoAfterExplainingCat, "basicChoice");
         switch (userChooseWhatDoAfterExplainingCat) {
             case chooseWhatDoAfterExplainingCat.stop:
 

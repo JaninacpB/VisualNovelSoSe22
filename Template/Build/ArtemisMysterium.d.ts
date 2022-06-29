@@ -43,6 +43,9 @@ declare namespace Artemis {
         saloonAfterScrem: string;
         study: string;
         final: string;
+        finalGood: string;
+        finalTranquille: string;
+        finalSad: string;
         endingSad: string;
         endingHappy: string;
         endingReallyBad: string;
@@ -129,6 +132,8 @@ declare namespace Artemis {
                 happy: string;
                 sad: string;
                 laugh: string;
+                cry: string;
+                shooked: string;
             };
             positionStandard: {
                 x: number;
@@ -142,6 +147,9 @@ declare namespace Artemis {
                 angry: string;
                 happy: string;
                 neutral: string;
+                confussed: string;
+                evil: string;
+                emotionalDrained: string;
             };
             positionStandard: {
                 x: number;

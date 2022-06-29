@@ -152,7 +152,7 @@ var Artemis;
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Naw… Bronte ich liebe dich auch. ");
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Oh schau… die Sonne geht auf. ");
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Oh… wie schön.");
-        return "EndScreen";
+        return "EndingOneAllSurvive";
     }
     Artemis.ExtraSceneBronteMaire = ExtraSceneBronteMaire;
 })(Artemis || (Artemis = {}));
@@ -189,6 +189,9 @@ var Artemis;
         saloonAfterScrem: "Asset/sound/frederic-chopin-nocturne-21-classical-remix-7611.mp3",
         study: "Asset/sound/SoundStudy.mp3",
         final: "Asset/sound/tenseFinalMusik.mp3",
+        finalGood: "Asset/sound/dance-of-the-sugar-plum-fairy-pyotr-ilyich-tchaikovsky-201s-11937.mp3",
+        finalTranquille: "/Template/Asset/sound/suspense-piano-loop-90165.mp3",
+        finalSad: "/Template/Asset/sound/teardrops-sad-song-piano-and-softpad-2763.mp3",
         endingSad: "Asset/sound/pianoSadEnding.mp3",
         endingHappy: "Asset/sound/PianoEndingHappy.mp3",
         endingReallyBad: "Asset/sound/EndingReallyBad.mp3",
@@ -276,7 +279,9 @@ var Artemis;
                 fear: "Asset/character/maire/Assestentin-fear.png",
                 happy: "Asset/character/maire/Assestentin-happy.png",
                 sad: "Asset/character/maire/Assestentin-sad.png",
-                laugh: "Asset/character/maire/Assestentin-laugh.png"
+                laugh: "Asset/character/maire/Assestentin-laugh.png",
+                cry: "Asset/character/maire/Assestentin-horror-cry.png",
+                shooked: "Asset/character/maire/Assestentin-horror.png"
             },
             positionStandard: {
                 x: 84,
@@ -289,7 +294,10 @@ var Artemis;
             pose: {
                 angry: "Asset/character/alaistar/Alaistar-angry.png",
                 happy: "Asset/character/alaistar/Alaistar-happy.png",
-                neutral: "Asset/character/alaistar/Alaistar-neutral.png"
+                neutral: "Asset/character/alaistar/Alaistar-neutral.png",
+                confussed: "Asset/character/alaistar/Alaistar-confussed.png",
+                evil: "Asset/character/alaistar/Alaistar-evil.png",
+                emotionalDrained: "Asset/character/alaistar/Alaistar-drained.png"
             },
             positionStandard: {
                 x: 50,
@@ -718,7 +726,7 @@ var Artemis;
         };
         let stillInLoop = true;
         while (stillInLoop) {
-            let userchooseWhoToInterview = await Artemis.ƒS.Menu.getInput(chooseWhoToInterview, "BasicChoice");
+            let userchooseWhoToInterview = await Artemis.ƒS.Menu.getInput(chooseWhoToInterview, "basicChoice");
             switch (userchooseWhoToInterview) {
                 case chooseWhoToInterview.stella:
                     await Artemis.ƒS.Character.show(Artemis.charaktere.stella, Artemis.charaktere.stella.pose.sad, Artemis.ƒS.positionPercent(Artemis.charaktere.stella.positionMiddle.x, Artemis.charaktere.stella.positionMiddle.y));
@@ -726,7 +734,7 @@ var Artemis;
                     await Artemis.ƒS.Speech.tell(Artemis.charaktere.stella, " Oh… wie kann ich helfen? ");
                     let stellaLoop = true;
                     while (stellaLoop) {
-                        let userChooseStellaTalk = await Artemis.ƒS.Menu.getInput(stellaTalk, "BasicChoice");
+                        let userChooseStellaTalk = await Artemis.ƒS.Menu.getInput(stellaTalk, "basicChoice");
                         await Artemis.ƒS.Character.hide(Artemis.charaktere.stella);
                         await Artemis.ƒS.Character.show(Artemis.charaktere.stella, Artemis.charaktere.stella.pose.sad, Artemis.ƒS.positionPercent(Artemis.charaktere.stella.positionMiddle.x, Artemis.charaktere.stella.positionMiddle.y));
                         await Artemis.ƒS.update(0.4);
@@ -813,7 +821,7 @@ var Artemis;
                     await Artemis.ƒS.update(0.4);
                     await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Ja, was ist los?");
                     while (alaistarLoop) {
-                        let userChooseAlaistarTalk = await Artemis.ƒS.Menu.getInput(alaistarTalk, "BasicChoice");
+                        let userChooseAlaistarTalk = await Artemis.ƒS.Menu.getInput(alaistarTalk, "basicChoice");
                         switch (userChooseAlaistarTalk) {
                             case alaistarTalk.artemis:
                                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Wie ist eigentlich ihre Beziehung zu Artemis?  ");
@@ -879,7 +887,7 @@ var Artemis;
                     let roomLoop = true;
                     await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Lass uns den Raum genauer ansehen!");
                     while (roomLoop) {
-                        let userChooseRoomOption = await Artemis.ƒS.Menu.getInput(roomOptions, "BasicChoice");
+                        let userChooseRoomOption = await Artemis.ƒS.Menu.getInput(roomOptions, "basicChoice");
                         switch (userChooseRoomOption) {
                             case roomOptions.food:
                                 if (Artemis.dataForSave.mairePuked) {
@@ -975,7 +983,7 @@ var Artemis;
                     await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
                     await Artemis.ƒS.update(0.4);
                     while (issacLoop) {
-                        let userIsaacTalk = await Artemis.ƒS.Menu.getInput(isaacTalk, "BasicChoice");
+                        let userIsaacTalk = await Artemis.ƒS.Menu.getInput(isaacTalk, "basicChoice");
                         switch (userIsaacTalk) {
                             case isaacTalk.family:
                                 await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
@@ -1407,7 +1415,7 @@ var Artemis;
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Irgendwas stimmt hier doch nicht… Die Katze wurde eingesperrt aber Lady Grace scheint gar nicht daran interessiert zu sein.");
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Oder um das Wohlbehagen von Artemis, obwohl sie vorhin so besorgt um sie war. ");
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Mhm… und sie will nicht, dass wir weiter investigieren. Was machen wir jetzt?");
-        let userChooseWhatDoAfterExplainingCat = await Artemis.ƒS.Menu.getInput(chooseWhatDoAfterExplainingCat, "BasicChoice");
+        let userChooseWhatDoAfterExplainingCat = await Artemis.ƒS.Menu.getInput(chooseWhatDoAfterExplainingCat, "basicChoice");
         switch (userChooseWhatDoAfterExplainingCat) {
             case chooseWhatDoAfterExplainingCat.stop:
                 await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
@@ -1532,7 +1540,7 @@ var Artemis;
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Oh. Was ist das? Das Fenster ist aufgegangen. ");
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " !!! ");
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Jemand kommt durch Fenster?! Was soll ich tun?");
-        let userchooseHide = await Artemis.ƒS.Menu.getInput(chooseHide, "BasicChoice");
+        let userchooseHide = await Artemis.ƒS.Menu.getInput(chooseHide, "basicChoice");
         switch (userchooseHide) {
             case chooseHide.greet:
                 await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
@@ -1577,7 +1585,7 @@ var Artemis;
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.shadow, " … ");
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.shadow, " Hallo? ");
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.shadow, " Stella?");
-                let userchooseContinueHide = await Artemis.ƒS.Menu.getInput(chooseContinueHide, "BasicChoice");
+                let userchooseContinueHide = await Artemis.ƒS.Menu.getInput(chooseContinueHide, "basicChoice");
                 switch (userchooseContinueHide) {
                     case chooseContinueHide.continue:
                         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " … ");
@@ -1648,7 +1656,7 @@ var Artemis;
         await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.odette, " Was wollen sie wissen?");
         while (countDialogAlreadyDid != 4) {
-            let userchooseKnow = await Artemis.ƒS.Menu.getInput(chooseKnow, "BasicChoice");
+            let userchooseKnow = await Artemis.ƒS.Menu.getInput(chooseKnow, "basicChoice");
             switch (userchooseKnow) {
                 case chooseKnow.cat:
                     await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
@@ -1766,7 +1774,7 @@ var Artemis;
                     await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
                     await Artemis.ƒS.update(0.4);
                     await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ein weiteres  Testament? Oh, jetzt macht es natürlich etwas mehr Sinn. Es gab natürlich jemand, der Interesse hatte ein weiteres Testament verschwinden zu lassen.");
-                    let userchooseWhoHideTestament = await Artemis.ƒS.Menu.getInput(chooseWhoHideTestament, "BasicChoice");
+                    let userchooseWhoHideTestament = await Artemis.ƒS.Menu.getInput(chooseWhoHideTestament, "basicChoice");
                     switch (userchooseWhoHideTestament) {
                         case chooseWhoHideTestament.alaistar:
                             Artemis.dataForSave.pointDetectiv += 1;
@@ -1910,10 +1918,10 @@ var Artemis;
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Hier ist ein Tresor! Mhm eine Zahlenkombination. ");
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.odette, " Mhm… Es ist nicht mehr der Geburtstag meiner Mutter. Alaistar hat wohl geändert. Mist! ");
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ich frage mich… Ob ich vielleicht ein Item dabeihabe, was uns helfen könnte");
-        let userchooseSomethingThatHelps = await Artemis.ƒS.Menu.getInput(chooseSomethingThatHelps, "BasicChoice");
+        let userchooseSomethingThatHelps = await Artemis.ƒS.Menu.getInput(chooseSomethingThatHelps, "basicChoice");
         switch (userchooseSomethingThatHelps) {
             case chooseSomethingThatHelps.yes:
-                let userchooseFromInventory = await Artemis.ƒS.Menu.getInput(chooseFromInventory, "BasicChoice");
+                let userchooseFromInventory = await Artemis.ƒS.Menu.getInput(chooseFromInventory, "basicChoice");
                 switch (userchooseFromInventory) {
                     case chooseFromInventory.collar:
                         Artemis.dataForSave.pointDetectiv += 1;
@@ -2362,7 +2370,7 @@ var Artemis;
         await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.think, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
         await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Okay. Als wir beim Anwesen angekommen sind, ist…");
-        let userChooseWhatHapppendFirst = await Artemis.ƒS.Menu.getInput(chooseWhatHapppendFirst, "BasicChoice");
+        let userChooseWhatHapppendFirst = await Artemis.ƒS.Menu.getInput(chooseWhatHapppendFirst, "basicChoice");
         switch (userChooseWhatHapppendFirst) {
             case chooseWhatHapppendFirst.house:
                 break;
@@ -2373,7 +2381,7 @@ var Artemis;
                 break;
         }
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Danach, hat der Butler uns erzählt das...");
-        let userChooseWhatButlerTold = await Artemis.ƒS.Menu.getInput(chooseWhatButlerTold, "BasicChoice");
+        let userChooseWhatButlerTold = await Artemis.ƒS.Menu.getInput(chooseWhatButlerTold, "basicChoice");
         switch (userChooseWhatButlerTold) {
             case chooseWhatButlerTold.alaistarInheritance:
                 pointsRecap += 1;
@@ -2384,7 +2392,7 @@ var Artemis;
                 break;
         }
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Im Saalon wirkte eine Person fehl am Platz...");
-        let userchooseWhoWrongInSaalon = await Artemis.ƒS.Menu.getInput(chooseWhoWrongInSaalon, "BasicChoice");
+        let userchooseWhoWrongInSaalon = await Artemis.ƒS.Menu.getInput(chooseWhoWrongInSaalon, "basicChoice");
         switch (userchooseWhoWrongInSaalon) {
             case chooseWhoWrongInSaalon.alaistarGarce:
                 break;
@@ -2395,7 +2403,7 @@ var Artemis;
                 break;
         }
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Die Katze ist verschwunden und wir haben herausgefunden, dass ...");
-        let userChooseWhatHappendCat = await Artemis.ƒS.Menu.getInput(chooseWhatHappendCat, "BasicChoice");
+        let userChooseWhatHappendCat = await Artemis.ƒS.Menu.getInput(chooseWhatHappendCat, "basicChoice");
         switch (userChooseWhatHappendCat) {
             case chooseWhatHappendCat.catTrapped:
                 pointsRecap += 1;
@@ -2404,7 +2412,7 @@ var Artemis;
                 break;
         }
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Doch das seltsamste Verhalten danach war von...");
-        let userChooseWhoActedWeird = await Artemis.ƒS.Menu.getInput(chooseWhoActedWeird, "BasicChoice");
+        let userChooseWhoActedWeird = await Artemis.ƒS.Menu.getInput(chooseWhoActedWeird, "basicChoice");
         switch (userChooseWhoActedWeird) {
             case chooseWhoActedWeird.grace:
                 break;
@@ -2514,7 +2522,7 @@ var Artemis;
         await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.think, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
         await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Ja, der Butler hat die Mäntel doch vorhin aufgehängt. Dort vorne hängen sie. Wenn gerade keiner da ist, könnten wir sie vielleicht durchsuchen…");
-        let userChooseSearchCloaks = await Artemis.ƒS.Menu.getInput(chooseSearchCloaks, "BasicChoice");
+        let userChooseSearchCloaks = await Artemis.ƒS.Menu.getInput(chooseSearchCloaks, "basicChoice");
         switch (userChooseSearchCloaks) {
             case chooseSearchCloaks.yes:
                 Artemis.dataForSave.lookedAtCoats = true;
@@ -2524,7 +2532,7 @@ var Artemis;
                 await Artemis.ƒS.update(0.4);
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Okay, dann schnell. Mhm… Also wir haben hier 4 Jacken. Welche sollen wir zuerst anschauen?");
                 while (stillInLoop) {
-                    let userChooseWhichCloak = await Artemis.ƒS.Menu.getInput(chooseWhichCloak, "BasicChoice");
+                    let userChooseWhichCloak = await Artemis.ƒS.Menu.getInput(chooseWhichCloak, "basicChoice");
                     switch (userChooseWhichCloak) {
                         case chooseWhichCloak.grace:
                             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ein schwerer Damenmantel aus einem teuren Pelz.  ");
@@ -2568,7 +2576,7 @@ var Artemis;
                             await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
                             await Artemis.ƒS.update(0.4);
                             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Wer würde so ein Revolver einfach in seinem Mantel dabeihaben?");
-                            let userChooseWhoGun = await Artemis.ƒS.Menu.getInput(chooseWhoGun, "BasicChoice");
+                            let userChooseWhoGun = await Artemis.ƒS.Menu.getInput(chooseWhoGun, "basicChoice");
                             switch (userChooseWhoGun) {
                                 case chooseWhoGun.grace:
                                 case chooseWhoGun.isaac:
@@ -2584,7 +2592,7 @@ var Artemis;
                                     break;
                             }
                             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, "Wir können denn nicht hierlassen, oder? Sollen wir ihn mitnehmen?");
-                            let userTakeGun = await Artemis.ƒS.Menu.getInput(takeGun, "BasicChoice");
+                            let userTakeGun = await Artemis.ƒS.Menu.getInput(takeGun, "basicChoice");
                             switch (userTakeGun) {
                                 case takeGun.yes:
                                     await Artemis.ƒS.Inventory.add(Artemis.inventory.pistol);
@@ -2794,7 +2802,7 @@ var Artemis;
         // return "SceneNineEntryhall"; 
         // return "SceneTenMaireAndIsaac";
         // return "SceneElevenStudy";
-        //  return "SceneTwelveFinal";
+        return "SceneTwelveFinal";
         // return "EndingOneAllSurvive"
         // return "EndingTwoBronteDead";
         // return "EndingThreeOdetteDead";
@@ -3725,25 +3733,32 @@ var Artemis;
             no: "Nein"
         };
         await Artemis.ƒS.Sound.fade(Artemis.sound.study, 0, 1);
-        await Artemis.ƒS.Sound.fade(Artemis.sound.final, 0.7, 1, true);
-        await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Schwester. ");
-        await Artemis.ƒS.Speech.tell(Artemis.charaktere.odette, " !!! ");
-        await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Miss Bronte, Grace würde gerne etwas mit Ihnen besprechen. ");
-        await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
-        await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.sad, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
-        await Artemis.ƒS.update(0.4);
-        await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ich denke ich bleiben lieber hier. Es muss eine ganzschöne Überraschung sein ihre Schwester zu sehen. ");
-        await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Gehen Sie. ");
-        await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
-        await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.angry, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
-        await Artemis.ƒS.update(0.4);
-        await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Nein. ");
-        await Artemis.ƒS.Speech.tell(Artemis.charaktere.odette, " Alaistar bitte, es gibt keinen Grund- ");
-        await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
-        await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.shout, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
-        await Artemis.ƒS.update(0.4);
-        await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " (Er will etwas aus seiner Jacke ziehen. Was soll ich tun?)");
-        let userchooseFinalChoice = await Artemis.ƒS.Menu.getInput(chooseFinalChoice, "BasicChoice");
+        Artemis.ƒS.Sound.fade(Artemis.sound.final, 0.7, 1, true);
+        // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.evil, ƒS.positionPercent( charaktere.alaistar.positionMiddle.x, charaktere.alaistar.positionMiddle.y));
+        // await ƒS.update(2);  
+        // await ƒS.Speech.tell(charaktere.alaistar, " Schwester. ");
+        // await ƒS.Speech.tell(charaktere.odette, " !!! ");
+        // await ƒS.Speech.tell(charaktere.alaistar, " Miss Bronte, Grace würde gerne etwas mit Ihnen besprechen. ");
+        // await ƒS.Character.hide(charaktere.bronte);
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
+        // await ƒS.Character.hide(charaktere.odette);
+        // await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.sad, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+        // await ƒS.update(0.4);  
+        // await ƒS.Speech.tell(charaktere.bronte, " Ich denke ich bleiben lieber hier. Es muss eine ganzschöne Überraschung sein ihre Schwester zu sehen. ");
+        // await ƒS.Character.hide(charaktere.alaistar);
+        // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.angry, ƒS.positionPercent( charaktere.alaistar.positionMiddle.x, charaktere.alaistar.positionMiddle.y));
+        // await ƒS.update(0.4);  
+        // await ƒS.Speech.tell(charaktere.alaistar, " Gehen Sie. ");
+        // await ƒS.Character.hide(charaktere.bronte);
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.angry, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+        // await ƒS.update(0.4);  
+        // await ƒS.Speech.tell(charaktere.bronte, " Nein. ");
+        // await ƒS.Speech.tell(charaktere.odette, " Alaistar bitte, es gibt keinen Grund- ");
+        // await ƒS.Character.hide(charaktere.bronte);
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+        // await ƒS.update(0.4);  
+        // await ƒS.Speech.tell(charaktere.bronte, " (Er will etwas aus seiner Jacke ziehen. Was soll ich tun?)");
+        let userchooseFinalChoice = await Artemis.ƒS.Menu.getInput(chooseFinalChoice, "basicChoice");
         await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
         await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.shout, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
         await Artemis.ƒS.update(0.4);
@@ -3756,11 +3771,11 @@ var Artemis;
         await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.cry, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
         await Artemis.ƒS.update(0.1);
         if (!Artemis.dataForSave.tookGun) {
-            await Artemis.ƒS.Sound.fade(Artemis.sound.gunShoot, 0.8, 1, false);
+            Artemis.ƒS.Sound.fade(Artemis.sound.gunShoot, 1, 1, false);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, "Ein Schuss!  ");
         }
         else {
-            await Artemis.ƒS.Sound.fade(Artemis.sound.stellaScream, 0.8, 1, false);
+            Artemis.ƒS.Sound.fade(Artemis.sound.stellaScream, 0.8, 1, false);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, "Ein Schrei!  ");
         }
         await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
@@ -3768,146 +3783,476 @@ var Artemis;
         await Artemis.ƒS.Location.show(Artemis.location.studyroom);
         await Artemis.ƒS.update(0.2);
         if (userchooseFinalChoice == chooseFinalChoice.infrontOfOdette && Artemis.dataForSave.tookGun) {
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Nein! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.shout, Artemis.ƒS.positionPercent(50, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.confussed, Artemis.ƒS.positionPercent(15, Artemis.charaktere.alaistar.positionMiddle.y));
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.scream, Artemis.ƒS.positionPercent(85, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " NEIN! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.emotionalDrained, Artemis.ƒS.positionPercent(15, Artemis.charaktere.alaistar.positionMiddle.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Wo… nein… arg! ");
+            Artemis.ƒS.Sound.fade(Artemis.sound.final, 0, 4, true);
+            Artemis.ƒS.Sound.fade(Artemis.sound.finalGood, 0.8, 4, true);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(50, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Suchen sie dies? Ein sehr schöner Revolver. Auch wenn ich die Kugeln aus Sicherheit entfern habe. ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.angry, Artemis.ƒS.positionPercent(15, Artemis.charaktere.alaistar.positionMiddle.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Nein! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.fear, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
+            await Artemis.ƒS.update(1);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Bronte! Was… ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.cry, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " !!! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.crying, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " Wie… Oh Götter. ");
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " Odette… Ich… Wie… ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.gleefull, Artemis.ƒS.positionPercent(Artemis.charaktere.odette.positionMiddle.x, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.odette, " Isaac!");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.update(1);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Maire, wenn du so lieb wärst die Polizei zu rufen. Ich denke sie werden eine schöne neue Wohnung für Mr. Blackburn besorgen. ");
             if (!Artemis.dataForSave.gotTestament) {
+                await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+                await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.laugh, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+                await Artemis.ƒS.update(0.4);
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Oh und ich denke wenn ich mein Dietrichset hole, wird auch der Safe nicht allzu lange verschlossen bleiben. ");
+                await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+                await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.think, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+                await Artemis.ƒS.update(0.4);
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Und wenn ich mich nicht ganz irre wird diese Wohnung dann an die jüngste Tochter gehen.");
             }
             else {
+                await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+                await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+                await Artemis.ƒS.update(0.4);
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Immerhin wird diese Wohnung nun wohl an die jüngste Tochter gehen. ");
-                await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ich habe es hier schwazr auf weiß. Das echte Testamant von Lady Blackburn. ");
+                await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ich habe es hier schwarz auf weiß. Das echte Testamant von Lady Blackburn. ");
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Sie teilt ihr Geld mit all ihren Kindern, nicht nur Alaistar Blackburn. ");
             }
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.embarrassed, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Ich… oh...klar, die Polizei… ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Was für ein Abend. ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.laugh, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Oh! Haha ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.think, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Maire? ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Schau wenn ich gefunden habe! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.laugh, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            Artemis.ƒS.Sound.play(Artemis.sound.catMeow, 1);
             await Artemis.ƒS.Speech.tell("Artemis", " Miau. ");
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Damit hätte sich wohl auch das letzte Mysterium gelöst.");
+            Artemis.ƒS.Sound.fade(Artemis.sound.finalGood, 0, 1, true);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Location.show(Artemis.location.black);
+            await Artemis.ƒS.update(3);
             if (Artemis.dataForSave.pointAngryMaire <= 1) {
-                //todo: Bonus Szene charaktere Ausblenden
                 return "ExtraSceneBronteMaire";
             }
             return "EndingOneAllSurvive";
-            //todo final ÜBERALL!!
         }
         else if (userchooseFinalChoice == chooseFinalChoice.infrontOfOdette) {
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " NEIN! ");
-            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.shout, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.shout, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionMiddle.x, Artemis.charaktere.bronte.positionStandard.y));
             await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Oh… oh weh…");
             await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
             await Artemis.ƒS.update(4);
-            //todo: fällt
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.fear, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.cry, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
+            await Artemis.ƒS.update(1);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " NEIN! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.shooked, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Bronte bitte… nein! Bitte schau mich an! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.sad, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.confussed, Artemis.ƒS.positionPercent(15, Artemis.charaktere.alaistar.positionMiddle.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Nein… ich… ich wollte nicht sie treffen ich…  ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.update(1);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " Alaistar! ");
-            // ~rennt hinter her~ 
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.update(1);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.shooked, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.scream, Artemis.ƒS.positionPercent(85, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.odette, " Oh Götter. Miss Bronte es tut mir so Leid… ich. ");
+            Artemis.ƒS.Sound.fade(Artemis.sound.final, 0, 4);
+            Artemis.ƒS.Sound.play(Artemis.sound.finalSad, 0.8, true);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.scream, Artemis.ƒS.positionPercent(85, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ist… okay… ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.cry, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Bitte nicht. Wir brauchen einen Arzt! Sofort! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.sad, Artemis.ƒS.positionPercent(85, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.odette, " Ich… Ich versuche jemand zu holen, aber… Hier ist so viel Blut. ");
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " nein… beeile dich! Geh schon!");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.sad, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Nein… beeile dich! Geh schon!");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.fear, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             document.getElementById('speechContent').classList.add('textEffectBig');
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, "GEH!");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.scream, Artemis.ƒS.positionPercent(85, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.shooked, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.update(2);
             document.getElementById('speechContent').classList.remove('textEffectBig');
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Maire… *hust*… Ich… liebe… dich… ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.cry, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Ich weiß. Ich weiß doch Bronte. Ich liebe dich auch. Bitte halte durch!");
-            await Artemis.ƒS.Sound.fade(Artemis.sound.final, 0, 3);
+            Artemis.ƒS.Sound.fade(Artemis.sound.finalSad, 0, 4);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Location.show(Artemis.location.black);
+            await Artemis.ƒS.update(3);
             return "EndingTwoBronteDead";
         }
         else if (userchooseFinalChoice == chooseFinalChoice.attack && Artemis.dataForSave.tookGun) {
+            await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.confussed, Artemis.ƒS.positionPercent(Artemis.charaktere.alaistar.positionMiddle.x, Artemis.charaktere.alaistar.positionMiddle.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.angry, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " ARG! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.evil, Artemis.ƒS.positionPercent(Artemis.charaktere.alaistar.positionMiddle.x, Artemis.charaktere.alaistar.positionMiddle.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Hmpf! NEIN! ARG… FASS MICH NICHT AN. ");
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " HIYEA! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.Character.animate(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.confussed, Artemis.fromMiddleDown(Artemis.charaktere.alaistar.positionStandard.x, Artemis.charaktere.alaistar.positionStandard.y, 150));
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.fear, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.cry, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
+            await Artemis.ƒS.update(1);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Bronte was ist… Oh ");
+            Artemis.ƒS.Sound.fade(Artemis.sound.final, 0, 4);
+            Artemis.ƒS.Sound.play(Artemis.sound.finalGood, 0.8, true);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Alaistar er liegt auf den Boden. Ist er bewusstlos? ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.angry, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionMiddle.x, Artemis.charaktere.bronte.positionMiddle.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Er hätte es besser wissen sollen. ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.scream, Artemis.ƒS.positionPercent(75, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.cry, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionLeftMiddle.x, Artemis.charaktere.isaac.positionLeftMiddle.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " Ich war- ");
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " !!! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.gleefull, Artemis.ƒS.positionPercent(75, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.crying, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionLeftMiddle.x, Artemis.charaktere.isaac.positionLeftMiddle.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " Odette? ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.happy, Artemis.ƒS.positionPercent(75, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionLeftMiddle.x, Artemis.charaktere.isaac.positionLeftMiddle.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.odette, " Isaac… ich… oh Götter. ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.fear, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Ich verstehe nicht… Wie… ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.laugh, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ich erkläre dir gleich alles. Lassen wir den beiden etwas Zeit für sich. Und wir sollten ohnehin die Polizei rufen. ");
-            await Artemis.ƒS.Sound.fade(Artemis.sound.final, 0, 3);
-            // todo: new Musik
             if (!Artemis.dataForSave.gotTestament) {
+                await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+                await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.think, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+                await Artemis.ƒS.update(0.4);
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Oh und ich denke ich sollte mein Dietrichset hole, wir müssen einen Safe knacken. ");
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Und wenn ich mich nicht ganz irre wird diese Wohnung dann an die jüngste Tochter gehen.");
             }
             else {
+                await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+                await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.think, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+                await Artemis.ƒS.update(0.4);
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ich denke wir können das Haustelefon nutzen. ");
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Die neue Inhaberhin wird wohl nichts dagegen habe. Schau- ");
+                await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+                await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.laugh, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+                await Artemis.ƒS.update(0.4);
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ich habe es hier schwarz auf weiß. Das echte Testamant von Lady Blackburn. ");
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Sie teilt ihr Geld mit all ihren Kindern, nicht nur Alaistar Blackburn. ");
+                await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+                await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.angry, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+                await Artemis.ƒS.update(0.4);
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Dass schien ihm gar nicht zu gefallen.");
             }
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Ich bin nur froh, dass es dir gut geht. Ich hatte kurz Angst- ");
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Mir geht es gut und schau. ");
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Mir geht es gut und schau! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.fear, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.laugh, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            Artemis.ƒS.Sound.play(Artemis.sound.catMeow, 1);
             await Artemis.ƒS.Speech.tell("Artemis", " Miau ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Gerade rechtzeitig zurückgekommen.");
+            Artemis.ƒS.Sound.fade(Artemis.sound.finalGood, 0, 4);
+            if (Artemis.dataForSave.pointAngryMaire <= 1) {
+                await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+                await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+                await Artemis.ƒS.update(4);
+                return "ExtraSceneBronteMaire";
+            }
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.update(4);
+            await Artemis.ƒS.Location.show(Artemis.location.black);
+            await Artemis.ƒS.update(4);
             return "EndingOneAllSurvive";
         }
         else if (userchooseFinalChoice == chooseFinalChoice.attack) {
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Nein! ");
+            await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.evil, Artemis.ƒS.positionPercent(Artemis.charaktere.alaistar.positionMiddle.x, Artemis.charaktere.alaistar.positionMiddle.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.sad, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Nein!");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.angry, Artemis.ƒS.positionPercent(Artemis.charaktere.alaistar.positionMiddle.x, Artemis.charaktere.alaistar.positionMiddle.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " BLEIB WEG!  ");
-            await Artemis.ƒS.Sound.fade(Artemis.sound.gunShoot, 0.8, 1, false);
+            Artemis.ƒS.Sound.play(Artemis.sound.gunShoot, 1, false);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.emotionalDrained, Artemis.ƒS.positionPercent(Artemis.charaktere.alaistar.positionMiddle.x, Artemis.charaktere.alaistar.positionMiddle.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.shout, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " AH! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.update(4);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.shooked, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.cry, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
+            await Artemis.ƒS.update(1);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Bronte?! NEIN! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.sad, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.confussed, Artemis.ƒS.positionPercent(15, Artemis.charaktere.alaistar.positionMiddle.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Wer.. Arg! Nein… sie hätte weg bleiben sollen! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.update(1);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " Was ist… Oh Götter. ");
-            // ~Alaistar rennt weg~
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " Alaistar! Bleib!");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.update(1);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.shooked, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.scream, Artemis.ƒS.positionPercent(85, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.odette, " Oh Götter. Miss Bronte es tut mir so Leid… ich. ");
+            Artemis.ƒS.Sound.fade(Artemis.sound.final, 0, 4);
+            Artemis.ƒS.Sound.play(Artemis.sound.finalSad, 0.8, true);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.scream, Artemis.ƒS.positionPercent(85, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ist… okay… ");
-            if (Artemis.dataForSave.gotTestament) {
-                await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Hier... das Testament... es war es wert. ");
-            }
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.cry, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Bitte nicht. Wir brauchen einen Arzt! Sofort! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.sad, Artemis.ƒS.positionPercent(85, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.odette, " Ich… Ich versuche jemand zu holen, aber… Hier ist so viel Blut. ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.sad, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Nein… beeile dich! Geh schon!");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.fear, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             document.getElementById('speechContent').classList.add('textEffectBig');
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, "GEH!");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.scream, Artemis.ƒS.positionPercent(85, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.shooked, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.update(2);
             document.getElementById('speechContent').classList.remove('textEffectBig');
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Maire… *hust*… Ich… liebe… dich… ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.cry, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Ich weiß. Ich weiß doch Bronte. Ich liebe dich auch. Bitte halte durch!");
-            await Artemis.ƒS.Sound.fade(Artemis.sound.final, 0, 3);
+            Artemis.ƒS.Sound.fade(Artemis.sound.finalSad, 0, 4);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Location.show(Artemis.location.black);
+            await Artemis.ƒS.update(3);
             return "EndingTwoBronteDead";
         }
         else if (userchooseFinalChoice == chooseFinalChoice.nothing && Artemis.dataForSave.tookGun) {
+            await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.evil, Artemis.ƒS.positionPercent(Artemis.charaktere.alaistar.positionMiddle.x, Artemis.charaktere.alaistar.positionMiddle.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.shout, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.scream, Artemis.ƒS.positionPercent(Artemis.charaktere.odette.positionStandard.x, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Auf Wiedersehen ");
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.odette, " AH! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.confussed, Artemis.ƒS.positionPercent(Artemis.charaktere.alaistar.positionMiddle.x, Artemis.charaktere.alaistar.positionMiddle.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Was… wo… ");
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Suchen Sie die hier? Ein schöner Revolver. Ich war aber so frei die Kugeln zu entfernen. ");
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Bronte?! Was ist los. ");
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ah Maire und Isaac. ");
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " Oh- Was- ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Suchen sie dies? Ein sehr schöner Revolver. Auch wenn ich die Kugeln aus Sicherheit entfern habe. ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.angry, Artemis.ƒS.positionPercent(Artemis.charaktere.alaistar.positionMiddle.x, Artemis.charaktere.alaistar.positionMiddle.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Nein! ");
+            Artemis.ƒS.Sound.fade(Artemis.sound.final, 0, 2);
+            Artemis.ƒS.Sound.play(Artemis.sound.finalGood, 1);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.fear, Artemis.ƒS.positionPercent(20, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
+            await Artemis.ƒS.update(1);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Bronte!? Was ist los?");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.cry, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " !!! ");
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " Odette! ");
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.odette, " Issac! Oh Götter! ");
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Die tote Frau… ich… verstehe nicht. ");
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ich erkläre dir alles später. Lass uns erst einmal Mr. Blackburn hier -sagen wir an de Schreibtisch binden – und dann die Polizei rufen. ");
-            await Artemis.ƒS.Sound.fade(Artemis.sound.final, 0, 3);
-            //todo: new musik
-            if (Artemis.dataForSave.gotTestament) {
-                await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Die Polizei wird bestimmt ziemlich interessant sein an dem echten Testament der Familie Blackburn. ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.crying, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " Wie… Oh Götter. ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.gleefull, Artemis.ƒS.positionPercent(Artemis.charaktere.odette.positionMiddle.x, Artemis.charaktere.odette.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.odette, " Isaac!");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.odette);
+            await Artemis.ƒS.update(1);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Maire, wenn du so lieb wärst die Polizei zu rufen. Ich denke sie werden eine schöne neue Wohnung für Mr. Blackburn besorgen. ");
+            if (!Artemis.dataForSave.gotTestament) {
+                await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+                await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.laugh, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+                await Artemis.ƒS.update(0.4);
+                await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Oh und ich denke wenn ich mein Dietrichset hole, wird auch der Safe nicht allzu lange verschlossen bleiben. ");
+                await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+                await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.think, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+                await Artemis.ƒS.update(0.4);
+                await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Und wenn ich mich nicht ganz irre wird diese Wohnung dann an die jüngste Tochter gehen.");
             }
             else {
-                await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Und es wird bestimmt nur eine Frage der Zeit sein bis das versteckte Testament gefunden wird. ");
+                await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+                await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+                await Artemis.ƒS.update(0.4);
+                await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Immerhin wird diese Wohnung nun wohl an die jüngste Tochter gehen. ");
+                await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ich habe es hier schwarz auf weiß. Das echte Testamant von Lady Blackburn. ");
+                await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Sie teilt ihr Geld mit all ihren Kindern, nicht nur Alaistar Blackburn. ");
             }
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Oh… äh… natürlich. Maire Oh schau! Hier hinter dem Schreibtisch! ");
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Oh. Haha ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.embarrassed, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Ich… oh...klar, die Polizei… ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Was für ein Abend. ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.laugh, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Oh! Haha ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.think, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Maire? ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Schau wenn ich gefunden habe! ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.laugh, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+            await Artemis.ƒS.update(0.4);
+            Artemis.ƒS.Sound.play(Artemis.sound.catMeow, 1);
             await Artemis.ƒS.Speech.tell("Artemis", " Miau. ");
-            await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Welch ereignisreicher Abend…");
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Damit hätte sich wohl auch das letzte Mysterium gelöst.");
+            Artemis.ƒS.Sound.fade(Artemis.sound.finalGood, 0, 1, true);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Location.show(Artemis.location.black);
+            await Artemis.ƒS.update(3);
+            if (Artemis.dataForSave.pointAngryMaire <= 1) {
+                return "ExtraSceneBronteMaire";
+            }
             return "EndingOneAllSurvive";
         }
         else if (userchooseFinalChoice == chooseFinalChoice.nothing) {
@@ -3932,7 +4277,7 @@ var Artemis;
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Oh Götter… er hat eine Waffe! ");
             if (Artemis.dataForSave.gotTestament) {
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Miss Bronte geben sie mir das Testament. Jetzt! ");
-                let userchooseFinalChoice = await Artemis.ƒS.Menu.getInput(chooseIfGiveTestament, "BasicChoice");
+                let userchooseFinalChoice = await Artemis.ƒS.Menu.getInput(chooseIfGiveTestament, "basicChoice");
                 switch (userchooseFinalChoice) {
                     case chooseIfGiveTestament.yes:
                         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Okay… Wir gehen. Aber verletzen Sie niemanden. ");
@@ -3940,7 +4285,6 @@ var Artemis;
                         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Ich… ich verstehe nicht… ");
                         await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " Odette… ich kann sie nicht… nicht hierlassen! ");
                         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Bitte Maire, Isaac. Wir sollten gehen.");
-                        //todo: Ende
                         await Artemis.ƒS.Sound.fade(Artemis.sound.final, 0, 1);
                         return "EndingThreeOdetteDead";
                         break;
@@ -3948,6 +4292,8 @@ var Artemis;
                         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Nein! ");
                         await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Miss Bronte! Tun Sie keine Dummheiten. ");
                         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ich werde Sie hiermit nicht durchkommen lassen! Ich-");
+                        await Artemis.ƒS.Location.show(Artemis.location.black);
+                        await Artemis.ƒS.update();
                         await Artemis.ƒS.Sound.fade(Artemis.sound.gunShoot, 0.8, 1, false);
                         await Artemis.ƒS.Progress.delay(0.3);
                         await Artemis.ƒS.Sound.fade(Artemis.sound.gunShoot, 0.8, 1, false);
@@ -3959,6 +4305,8 @@ var Artemis;
             else {
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Es tut mir sehr Leid, aber ich muss meine Familie schützen. ");
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Mr. Blackburn, tun sie nichts-");
+                await Artemis.ƒS.Location.show(Artemis.location.black);
+                await Artemis.ƒS.update();
                 await Artemis.ƒS.Sound.fade(Artemis.sound.gunShoot, 0.8, 1, false);
                 await Artemis.ƒS.Progress.delay(0.3);
                 await Artemis.ƒS.Sound.fade(Artemis.sound.gunShoot, 0.8, 1, false);

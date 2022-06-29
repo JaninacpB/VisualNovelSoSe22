@@ -108,7 +108,7 @@ namespace Artemis {
         await ƒS.Speech.tell(charaktere.bronte, " Okay. Als wir beim Anwesen angekommen sind, ist…");
 
 
-        let userChooseWhatHapppendFirst = await ƒS.Menu.getInput(chooseWhatHapppendFirst, "BasicChoice");
+        let userChooseWhatHapppendFirst = await ƒS.Menu.getInput(chooseWhatHapppendFirst, "basicChoice");
         switch (userChooseWhatHapppendFirst) {
             case chooseWhatHapppendFirst.house:
                 break;
@@ -123,7 +123,7 @@ namespace Artemis {
 
         await ƒS.Speech.tell(charaktere.bronte, "Danach, hat der Butler uns erzählt das...");
 
-        let userChooseWhatButlerTold = await ƒS.Menu.getInput(chooseWhatButlerTold, "BasicChoice");
+        let userChooseWhatButlerTold = await ƒS.Menu.getInput(chooseWhatButlerTold, "basicChoice");
         switch (userChooseWhatButlerTold) {
             case chooseWhatButlerTold.alaistarInheritance:
                 pointsRecap += 1;
@@ -138,7 +138,7 @@ namespace Artemis {
 
         await ƒS.Speech.tell(charaktere.bronte, "Im Saalon wirkte eine Person fehl am Platz...");
 
-        let userchooseWhoWrongInSaalon = await ƒS.Menu.getInput(chooseWhoWrongInSaalon, "BasicChoice");
+        let userchooseWhoWrongInSaalon = await ƒS.Menu.getInput(chooseWhoWrongInSaalon, "basicChoice");
         switch (userchooseWhoWrongInSaalon) {
             case chooseWhoWrongInSaalon.alaistarGarce:
                 break;
@@ -153,7 +153,7 @@ namespace Artemis {
 
         await ƒS.Speech.tell(charaktere.bronte, "Die Katze ist verschwunden und wir haben herausgefunden, dass ...");
 
-        let userChooseWhatHappendCat = await ƒS.Menu.getInput(chooseWhatHappendCat, "BasicChoice");
+        let userChooseWhatHappendCat = await ƒS.Menu.getInput(chooseWhatHappendCat, "basicChoice");
         switch (userChooseWhatHappendCat) {
             case chooseWhatHappendCat.catTrapped:
                 pointsRecap += 1;
@@ -165,7 +165,7 @@ namespace Artemis {
 
         await ƒS.Speech.tell(charaktere.bronte, "Doch das seltsamste Verhalten danach war von...");
 
-        let userChooseWhoActedWeird = await ƒS.Menu.getInput(chooseWhoActedWeird, "BasicChoice");
+        let userChooseWhoActedWeird = await ƒS.Menu.getInput(chooseWhoActedWeird, "basicChoice");
         switch (userChooseWhoActedWeird) {
             case chooseWhoActedWeird.grace:
                 break;
@@ -318,7 +318,7 @@ namespace Artemis {
 
         await ƒS.Speech.tell(charaktere.maire, " Ja, der Butler hat die Mäntel doch vorhin aufgehängt. Dort vorne hängen sie. Wenn gerade keiner da ist, könnten wir sie vielleicht durchsuchen…");
 
-        let userChooseSearchCloaks = await ƒS.Menu.getInput(chooseSearchCloaks, "BasicChoice");
+        let userChooseSearchCloaks = await ƒS.Menu.getInput(chooseSearchCloaks, "basicChoice");
         switch (userChooseSearchCloaks) {
             case chooseSearchCloaks.yes:
 
@@ -334,7 +334,7 @@ namespace Artemis {
 
                 while (stillInLoop) {
 
-                    let userChooseWhichCloak = await ƒS.Menu.getInput(chooseWhichCloak, "BasicChoice");
+                    let userChooseWhichCloak = await ƒS.Menu.getInput(chooseWhichCloak, "basicChoice");
                     switch (userChooseWhichCloak) {
                         case chooseWhichCloak.grace:
                             await ƒS.Speech.tell(charaktere.bronte, " Ein schwerer Damenmantel aus einem teuren Pelz.  ");
@@ -396,7 +396,7 @@ namespace Artemis {
 
                             await ƒS.Speech.tell(charaktere.maire, " Wer würde so ein Revolver einfach in seinem Mantel dabeihaben?");
 
-                            let userChooseWhoGun = await ƒS.Menu.getInput(chooseWhoGun, "BasicChoice");
+                            let userChooseWhoGun = await ƒS.Menu.getInput(chooseWhoGun, "basicChoice");
                             switch (userChooseWhoGun) {
                                 case chooseWhoGun.grace:
 
@@ -422,7 +422,7 @@ namespace Artemis {
 
                             await ƒS.Speech.tell(charaktere.maire, "Wir können denn nicht hierlassen, oder? Sollen wir ihn mitnehmen?");
 
-                            let userTakeGun = await ƒS.Menu.getInput(takeGun, "BasicChoice");
+                            let userTakeGun = await ƒS.Menu.getInput(takeGun, "basicChoice");
                             switch (userTakeGun) {
                                 case takeGun.yes:
 

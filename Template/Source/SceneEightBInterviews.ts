@@ -39,7 +39,7 @@ namespace Artemis {
 
         while (stillInLoop) {
 
-            let userchooseWhoToInterview = await ƒS.Menu.getInput(chooseWhoToInterview, "BasicChoice");
+            let userchooseWhoToInterview = await ƒS.Menu.getInput(chooseWhoToInterview, "basicChoice");
 
             switch (userchooseWhoToInterview) {
                 case chooseWhoToInterview.stella:
@@ -53,7 +53,7 @@ namespace Artemis {
                     let stellaLoop = true;
 
                     while (stellaLoop) {
-                        let userChooseStellaTalk = await ƒS.Menu.getInput(stellaTalk, "BasicChoice");
+                        let userChooseStellaTalk = await ƒS.Menu.getInput(stellaTalk, "basicChoice");
 
                         await ƒS.Character.hide(charaktere.stella)
                         await ƒS.Character.show(charaktere.stella, charaktere.stella.pose.sad, ƒS.positionPercent(charaktere.stella.positionMiddle.x, charaktere.stella.positionMiddle.y));
@@ -181,7 +181,7 @@ namespace Artemis {
                     await ƒS.Speech.tell(charaktere.alaistar, " Ja, was ist los?");
 
                     while (alaistarLoop) {
-                        let userChooseAlaistarTalk = await ƒS.Menu.getInput(alaistarTalk, "BasicChoice");
+                        let userChooseAlaistarTalk = await ƒS.Menu.getInput(alaistarTalk, "basicChoice");
 
                         switch (userChooseAlaistarTalk) {
                             case alaistarTalk.artemis:
@@ -282,7 +282,7 @@ namespace Artemis {
 
                     while (roomLoop) {
 
-                        let userChooseRoomOption = await ƒS.Menu.getInput(roomOptions, "BasicChoice");
+                        let userChooseRoomOption = await ƒS.Menu.getInput(roomOptions, "basicChoice");
 
                         switch (userChooseRoomOption) {
                             case roomOptions.food:
@@ -423,7 +423,7 @@ namespace Artemis {
                     await ƒS.update(0.4);
 
                     while (issacLoop) {
-                        let userIsaacTalk = await ƒS.Menu.getInput(isaacTalk, "BasicChoice");
+                        let userIsaacTalk = await ƒS.Menu.getInput(isaacTalk, "basicChoice");
 
                         switch (userIsaacTalk) {
                             case isaacTalk.family:
