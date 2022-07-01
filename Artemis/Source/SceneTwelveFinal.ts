@@ -16,76 +16,76 @@ namespace Artemis {
 
         ƒS.Sound.fade(sound.final, 0.7, 1, true);
 
-        // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.evil, ƒS.positionPercent( charaktere.alaistar.positionMiddle.x, charaktere.alaistar.positionMiddle.y));
-        // await ƒS.update(2);  
+        await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.evil, ƒS.positionPercent( charaktere.alaistar.positionMiddle.x, charaktere.alaistar.positionMiddle.y));
+        await ƒS.update(2);  
 
-        // await ƒS.Speech.tell(charaktere.alaistar, " Schwester. ");
-        // await ƒS.Speech.tell(charaktere.odette, " !!! ");
-        // await ƒS.Speech.tell(charaktere.alaistar, " Miss Bronte, Grace würde gerne etwas mit Ihnen besprechen. ");
+        await ƒS.Speech.tell(charaktere.alaistar, " Schwester. ");
+        await ƒS.Speech.tell(charaktere.odette, " !!! ");
+        await ƒS.Speech.tell(charaktere.alaistar, " Miss Bronte, Grace würde gerne etwas mit Ihnen besprechen. ");
 
-        // await ƒS.Character.hide(charaktere.bronte);
-        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
+        await ƒS.Character.hide(charaktere.bronte);
+        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
 
-        // await ƒS.Character.hide(charaktere.odette);
-        // await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.sad, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
-        // await ƒS.update(0.4);  
+        await ƒS.Character.hide(charaktere.odette);
+        await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.sad, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+        await ƒS.update(0.4);  
 
-        // await ƒS.Speech.tell(charaktere.bronte, " Ich denke ich bleiben lieber hier. Es muss eine ganzschöne Überraschung sein ihre Schwester zu sehen. ");
+        await ƒS.Speech.tell(charaktere.bronte, " Ich denke ich bleiben lieber hier. Es muss eine ganzschöne Überraschung sein ihre Schwester zu sehen. ");
 
-        // await ƒS.Character.hide(charaktere.alaistar);
-        // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.angry, ƒS.positionPercent( charaktere.alaistar.positionMiddle.x, charaktere.alaistar.positionMiddle.y));
-        // await ƒS.update(0.4);  
+        await ƒS.Character.hide(charaktere.alaistar);
+        await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.angry, ƒS.positionPercent( charaktere.alaistar.positionMiddle.x, charaktere.alaistar.positionMiddle.y));
+        await ƒS.update(0.4);  
 
-        // await ƒS.Speech.tell(charaktere.alaistar, " Gehen Sie. ");
+        await ƒS.Speech.tell(charaktere.alaistar, " Gehen Sie. ");
 
-        // await ƒS.Character.hide(charaktere.bronte);
-        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.angry, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
-        // await ƒS.update(0.4);  
+        await ƒS.Character.hide(charaktere.bronte);
+        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.angry, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+        await ƒS.update(0.4);  
 
-        // await ƒS.Speech.tell(charaktere.bronte, " Nein. ");
-        // await ƒS.Speech.tell(charaktere.odette, " Alaistar bitte, es gibt keinen Grund- ");
+        await ƒS.Speech.tell(charaktere.bronte, " Nein. ");
+        await ƒS.Speech.tell(charaktere.odette, " Alaistar bitte, es gibt keinen Grund- ");
 
-        // await ƒS.Character.hide(charaktere.bronte);
-        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
-        // await ƒS.update(0.4);  
+        await ƒS.Character.hide(charaktere.bronte);
+        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+        await ƒS.update(0.4);  
 
-        // await ƒS.Speech.tell(charaktere.bronte, " (Er will etwas aus seiner Jacke ziehen. Was soll ich tun?)");
+        await ƒS.Speech.tell(charaktere.bronte, " (Er will etwas aus seiner Jacke ziehen. Was soll ich tun?)");
 
         let userchooseFinalChoice = await ƒS.Menu.getInput(chooseFinalChoice, "basicChoice");
 
-        // await ƒS.Character.hide(charaktere.bronte);
-        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
-        // await ƒS.update(0.4);
+        await ƒS.Character.hide(charaktere.bronte);
+        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+        await ƒS.update(0.4);
 
-        // await ƒS.Character.hide(charaktere.bronte);
-        // await ƒS.Character.hide(charaktere.odette);
-        // await ƒS.Character.hide(charaktere.alaistar);
-        // await ƒS.update(2);
+        await ƒS.Character.hide(charaktere.bronte);
+        await ƒS.Character.hide(charaktere.odette);
+        await ƒS.Character.hide(charaktere.alaistar);
+        await ƒS.update(2);
 
-        // await ƒS.Location.show(location.infrontOfManorNight);
+        await ƒS.Location.show(location.infrontOfManorNight);
 
-        // await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
-        // await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.cry, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y))
-        // await ƒS.update(0.1);
+        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
+        await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.cry, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y))
+        await ƒS.update(0.1);
 
 
-        // if (!dataForSave.tookGun) {
+        if (!dataForSave.tookGun) {
 
-        //     ƒS.Sound.fade(sound.gunShoot, 1, 1, false);
+            ƒS.Sound.fade(sound.gunShoot, 1, 1, false);
 
-        //     await ƒS.Speech.tell(charaktere.maire, "Ein Schuss!  ");
+            await ƒS.Speech.tell(charaktere.maire, "Ein Schuss!  ");
 
-        // } else {
+        } else {
 
-        //     ƒS.Sound.fade(sound.stellaScream, 0.8, 1, false);
+            ƒS.Sound.fade(sound.stellaScream, 0.8, 1, false);
 
-        //     await ƒS.Speech.tell(charaktere.maire, "Ein Schrei!  ");
-        // }
+            await ƒS.Speech.tell(charaktere.maire, "Ein Schrei!  ");
+        }
 
-        // await ƒS.Character.hide(charaktere.isaac);
-        // await ƒS.Character.hide(charaktere.maire);
-        // await ƒS.Location.show(location.studyroom);
-        // await ƒS.update(0.2);
+        await ƒS.Character.hide(charaktere.isaac);
+        await ƒS.Character.hide(charaktere.maire);
+        await ƒS.Location.show(location.studyroom);
+        await ƒS.update(0.2);
 
         if (userchooseFinalChoice == chooseFinalChoice.infrontOfOdette && dataForSave.tookGun) {
 

@@ -644,6 +644,7 @@ namespace Artemis {
                     case chooseFromInventory.collar:
 
                         dataForSave.pointDetectiv += 1;
+                        dataForSave.gotTestament = true; 
 
                         await ƒS.Character.hide(charaktere.bronte);
                         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.laugh, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))

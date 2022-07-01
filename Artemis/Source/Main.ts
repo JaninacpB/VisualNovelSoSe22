@@ -410,7 +410,7 @@ namespace Artemis {
 
   export function showCredits(): void {
     ƒS.Text.addClass("credit");
-    ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder <br> <b> Tester:</b> XXX");
+    ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder <br> <b> Tester:</b> Tamara Auber XXX");
     //todo: Tester Und Musik ergänzen
   }
 

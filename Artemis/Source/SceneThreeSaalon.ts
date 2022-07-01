@@ -97,7 +97,7 @@ namespace Artemis {
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(10, 110));
         await ƒS.update(0.4);
 
-        await ƒS.Speech.tell(charaktere.grace, "Oh Stella! Komm schnell rüber meine Liebe. Dann sind wir ja fast alle komplett. Komm schnell Kleines und stell dich vor. Miss Bronte, dies ist meine Cousine, Stella Blackburn. ");
+        await ƒS.Speech.tell(charaktere.grace, "Oh Stella! Komm schnell rüber meine Liebe. Dann sind wir ja fast alle komplett. Komm schnell Kleines und stell dich vor. Miss Bronte, dies ist meine Nichte, Stella Dufour. ");
 
         await ƒS.Character.hide(charaktere.grace);
         await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.happy, ƒS.positionPercent(charaktere.grace.positionLeftMiddle.x, charaktere.grace.positionLeftMiddle.y));
@@ -166,6 +166,7 @@ namespace Artemis {
         await ƒS.Character.hide(charaktere.alaistar);
         await ƒS.update(0.8);
 
+        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
         await ƒS.update(0.4);
 
@@ -176,6 +177,7 @@ namespace Artemis {
         switch (weirdPersonDecision) {
             case chooseWeirdPerson.stella:
 
+                await ƒS.Character.hide(charaktere.bronte);
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
                 await ƒS.update(0.4);
 
@@ -193,6 +195,8 @@ namespace Artemis {
                 break;
 
             case chooseWeirdPerson.grace:
+
+                await ƒS.Character.hide(charaktere.bronte);
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
                 await ƒS.update(0.4);
 
@@ -202,6 +206,8 @@ namespace Artemis {
                 break;
 
             case chooseWeirdPerson.lordBlackburn:
+
+                await ƒS.Character.hide(charaktere.alaistar);
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
                 await ƒS.update(0.4);
 
