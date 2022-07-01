@@ -6,7 +6,6 @@ namespace Artemis {
            no: "Nein"
        }
 
-        //todo am ende kann location einblenden weg
         await ƒS.Location.show(location.saalon);
         await ƒS.update(0.1);
 
@@ -21,7 +20,7 @@ namespace Artemis {
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x , charaktere.bronte.positionStandard.y));
         await ƒS.update(0.4);
 
-        //todo: scream
+        ƒS.Sound.play(sound.graceScream, 0.8);
 
         await showEmotion(emotionen.ausrufezeichen, 1);
 

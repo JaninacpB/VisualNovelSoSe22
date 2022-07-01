@@ -53,39 +53,39 @@ namespace Artemis {
 
         let userchooseFinalChoice = await ƒS.Menu.getInput(chooseFinalChoice, "basicChoice");
 
-        await ƒS.Character.hide(charaktere.bronte);
-        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
-        await ƒS.update(0.4);
+        // await ƒS.Character.hide(charaktere.bronte);
+        // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
+        // await ƒS.update(0.4);
 
-        await ƒS.Character.hide(charaktere.bronte);
-        await ƒS.Character.hide(charaktere.odette);
-        await ƒS.Character.hide(charaktere.alaistar);
-        await ƒS.update(2);
+        // await ƒS.Character.hide(charaktere.bronte);
+        // await ƒS.Character.hide(charaktere.odette);
+        // await ƒS.Character.hide(charaktere.alaistar);
+        // await ƒS.update(2);
 
-        await ƒS.Location.show(location.infrontOfManorNight);
+        // await ƒS.Location.show(location.infrontOfManorNight);
 
-        await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
-        await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.cry, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y))
-        await ƒS.update(0.1);
+        // await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
+        // await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.cry, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y))
+        // await ƒS.update(0.1);
 
 
-        if (!dataForSave.tookGun) {
+        // if (!dataForSave.tookGun) {
 
-            ƒS.Sound.fade(sound.gunShoot, 1, 1, false);
+        //     ƒS.Sound.fade(sound.gunShoot, 1, 1, false);
 
-            await ƒS.Speech.tell(charaktere.maire, "Ein Schuss!  ");
+        //     await ƒS.Speech.tell(charaktere.maire, "Ein Schuss!  ");
 
-        } else {
+        // } else {
 
-            ƒS.Sound.fade(sound.stellaScream, 0.8, 1, false);
+        //     ƒS.Sound.fade(sound.stellaScream, 0.8, 1, false);
 
-            await ƒS.Speech.tell(charaktere.maire, "Ein Schrei!  ");
-        }
+        //     await ƒS.Speech.tell(charaktere.maire, "Ein Schrei!  ");
+        // }
 
-        await ƒS.Character.hide(charaktere.isaac);
-        await ƒS.Character.hide(charaktere.maire);
-        await ƒS.Location.show(location.studyroom);
-        await ƒS.update(0.2);
+        // await ƒS.Character.hide(charaktere.isaac);
+        // await ƒS.Character.hide(charaktere.maire);
+        // await ƒS.Location.show(location.studyroom);
+        // await ƒS.update(0.2);
 
         if (userchooseFinalChoice == chooseFinalChoice.infrontOfOdette && dataForSave.tookGun) {
 
@@ -774,27 +774,95 @@ namespace Artemis {
             return "EndingOneAllSurvive";
 
         } else if (userchooseFinalChoice == chooseFinalChoice.nothing) {
-            await ƒS.Speech.tell(charaktere.odette, " AH!  ");
 
-            await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
+            // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.evil, ƒS.positionPercent(charaktere.alaistar.positionMiddle.x, charaktere.alaistar.positionMiddle.y));
+            // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
+            // await ƒS.Character.show(charaktere.odette, charaktere.odette.pose.scream, ƒS.positionPercent(charaktere.odette.positionStandard.x, charaktere.odette.positionStandard.y))
+            // await ƒS.update(0.4);
 
-            await ƒS.Speech.tell(charaktere.odette, " a… oh… ");
-            await ƒS.Speech.tell(charaktere.bronte, " NEIN! ");
-            await ƒS.Speech.tell(charaktere.maire, " Bronte! Was wo- Wer? ");
-            await ƒS.Speech.tell(charaktere.isaac, " !!! ");
-            await ƒS.Speech.tell(charaktere.isaac, " NEIN! ");
-            await ƒS.Speech.tell(charaktere.isaac, " ODETTE! Wie nein… ");
-            await ƒS.Speech.tell(charaktere.isaac, " Liebste… ");
-            await ƒS.Speech.tell(charaktere.odette, " Isaac… Es… ");
-            await ƒS.Speech.tell(charaktere.odette, " Tut… Leid… ");
-            await ƒS.Speech.tell(charaktere.isaac, " Nein sprich nicht… ich… ");
-            await ƒS.Speech.tell(charaktere.isaac, " Nein… bitte bleib ");
-            await ƒS.Speech.tell(charaktere.isaac, " Verlass mich nicht erneut! ");
-            await ƒS.Speech.tell(charaktere.isaac, " Nein… bitte…. Bitte… ");
-            await ƒS.Speech.tell(charaktere.maire, " Wir brauchen einen Arzt! ");
-            await ƒS.Speech.tell(charaktere.bronte, " Ja… ich… ");
-            await ƒS.Speech.tell(charaktere.alaistar, " Wir bleiben jetzt alle ganz ruhig. ");
-            await ƒS.Speech.tell(charaktere.maire, " Oh Götter… er hat eine Waffe! ");
+            // ƒS.Sound.play(sound.gunShoot, 1, false);
+
+            // await ƒS.Speech.tell(charaktere.odette, " AH!  ");
+            // await ƒS.Speech.tell(charaktere.odette, " a… oh… ");
+
+            // await ƒS.Character.hide(charaktere.odette);
+            // await ƒS.update(4);
+
+            // await ƒS.Character.hide(charaktere.bronte);
+            // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
+            // await ƒS.update(0.4);
+
+            // await ƒS.Speech.tell(charaktere.bronte, " NEIN! ");
+
+            // await ƒS.Character.hide(charaktere.bronte);
+            // await ƒS.Character.hide(charaktere.alaistar);
+            // await ƒS.update(0.4);
+
+            // await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.fear, ƒS.positionPercent(20, charaktere.maire.positionStandard.y));
+            // await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.neutral, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y))
+            // await ƒS.update(1);
+
+            // await ƒS.Character.hide(charaktere.maire);
+            // await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.shooked, ƒS.positionPercent(20, charaktere.maire.positionStandard.y));
+            // await ƒS.update(0.4);
+
+            // await ƒS.Speech.tell(charaktere.maire, " Bronte! Was wo- Wer? ");
+
+            // await ƒS.Character.hide(charaktere.isaac);
+            // await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.cry, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y))
+            // await ƒS.update(0.4);
+
+            // await ƒS.Speech.tell(charaktere.isaac, " !!! ");
+            // await ƒS.Speech.tell(charaktere.isaac, " NEIN! ");
+            
+            // await ƒS.Character.hide(charaktere.isaac);
+            // await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.crying, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y))
+            // await ƒS.update(0.4);
+
+            // await ƒS.Speech.tell(charaktere.isaac, " ODETTE! Wie nein… ");
+            // await ƒS.Speech.tell(charaktere.isaac, " Liebste… ");
+            // await ƒS.Speech.tell(charaktere.odette, " Isaac… Es… ");
+            // await ƒS.Speech.tell(charaktere.odette, " Tut… Leid… ");
+
+            // await ƒS.Character.hide(charaktere.isaac);
+            // await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.cry, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y))
+            // await ƒS.update(0.4);
+
+            // await ƒS.Speech.tell(charaktere.isaac, " Nein sprich nicht… ich… ");
+            // await ƒS.Speech.tell(charaktere.isaac, " Nein… bitte bleib ");
+
+            // await ƒS.Character.hide(charaktere.isaac);
+            // await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.crying, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y))
+            // await ƒS.update(0.4);
+
+            // await ƒS.Speech.tell(charaktere.isaac, " Verlass mich nicht erneut! ");
+            // await ƒS.Speech.tell(charaktere.isaac, " Nein… bitte…. Bitte… ");
+
+            // await ƒS.Character.hide(charaktere.maire);
+            // await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.cry, ƒS.positionPercent(20, charaktere.maire.positionStandard.y));
+            // await ƒS.update(0.4);
+
+            // await ƒS.Speech.tell(charaktere.maire, " Wir brauchen einen Arzt! ");
+
+            // await ƒS.Character.hide(charaktere.maire);
+            // await ƒS.Character.hide(charaktere.isaac);
+            // await ƒS.update(0.4);
+
+            // await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(70, charaktere.bronte.positionStandard.y));
+            // await ƒS.update(0.4);
+
+            // await ƒS.Speech.tell(charaktere.bronte, " Ja… ich… ");
+
+            // await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.evil, ƒS.positionPercent(15, charaktere.alaistar.positionMiddle.y));
+            // await ƒS.update(2);
+
+            // await ƒS.Speech.tell(charaktere.alaistar, " Wir bleiben jetzt alle ganz ruhig. ");
+
+            // await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.crying, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y))
+            // await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.smallHorror, ƒS.positionPercent(85, 105));
+            // await ƒS.update(0.4);
+
+            // await ƒS.Speech.tell(charaktere.maire, " Oh Götter… er hat eine Waffe! ");
 
             if (dataForSave.gotTestament) {
                 await ƒS.Speech.tell(charaktere.alaistar, " Miss Bronte geben sie mir das Testament. Jetzt! ");
@@ -804,47 +872,106 @@ namespace Artemis {
                 switch (userchooseFinalChoice) {
                     case chooseIfGiveTestament.yes:
 
+                        await ƒS.Character.hide(charaktere.bronte);
+                        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(70, charaktere.bronte.positionStandard.y));
+                        await ƒS.update(0.4);
+
                         await ƒS.Speech.tell(charaktere.bronte, " Okay… Wir gehen. Aber verletzen Sie niemanden. ");
                         await ƒS.Speech.tell(charaktere.alaistar, " Nicht wenn sie alle Schweigen. ");
                         await ƒS.Speech.tell(charaktere.maire, " Ich… ich verstehe nicht… ");
+
+                        await ƒS.Character.hide(charaktere.isaac);
+                        await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.cry, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y))
+                        await ƒS.update(0.4);
+
                         await ƒS.Speech.tell(charaktere.isaac, " Odette… ich kann sie nicht… nicht hierlassen! ");
+                        
+                        await ƒS.Character.hide(charaktere.bronte);
+                        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.sad, ƒS.positionPercent(70, charaktere.bronte.positionStandard.y));
+                        await ƒS.update(0.4);
+
                         await ƒS.Speech.tell(charaktere.bronte, " Bitte Maire, Isaac. Wir sollten gehen.");
+
+                        await ƒS.Character.hide(charaktere.bronte);
+                        await ƒS.Character.hide(charaktere.isaac);
+                        await ƒS.Character.hide(charaktere.maire);
+                        await ƒS.update(1);
+
+                        await ƒS.Character.hide(charaktere.alaistar);
 
                         await ƒS.Sound.fade(sound.final, 0, 1);
                         return "EndingThreeOdetteDead";
 
-                        break;
                     case chooseIfGiveTestament.no:
-                        await ƒS.Speech.tell(charaktere.bronte, " Nein! ");
-                        await ƒS.Speech.tell(charaktere.alaistar, " Miss Bronte! Tun Sie keine Dummheiten. ");
+
+                        ƒS.Sound.fade(sound.final, 0, 2);
+                        await ƒS.Progress.delay(0.8);
+                        ƒS.Sound.play(sound.finalSad, 0.8);
+
+                        await ƒS.Character.hide(charaktere.bronte);
+                        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.angry, ƒS.positionPercent(70, charaktere.bronte.positionStandard.y));
+                        await ƒS.update(0.4);
+
+                        await ƒS.Speech.tell(charaktere.bronte, "Nein!");
+                        await ƒS.Speech.tell(charaktere.alaistar, "Miss Bronte! Tun Sie keine Dummheiten.");
+
+                        await ƒS.Character.hide(charaktere.bronte);
+                        await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(70, charaktere.bronte.positionStandard.y));
+                        await ƒS.update(0.4);
+
                         await ƒS.Speech.tell(charaktere.bronte, " Ich werde Sie hiermit nicht durchkommen lassen! Ich-");
 
+                        await ƒS.Character.hide(charaktere.bronte);
+                        await ƒS.Character.hide(charaktere.maire);
+                        await ƒS.Character.hide(charaktere.isaac);
+                        await ƒS.Character.hide(charaktere.alaistar);
                         await ƒS.Location.show(location.black);
-                        await ƒS.update();
-
-                        await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
-                        await ƒS.Progress.delay(0.3);
-                        await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
-                        await ƒS.Progress.delay(0.3);
-                        await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
-
+                        await ƒS.update(1);
+        
+                        await ƒS.Sound.play(sound.gunShoot, 1);
+                        await ƒS.Progress.delay(0.5);
+                        await ƒS.Sound.play(sound.gunShoot, 1);
+                        await ƒS.Progress.delay(0.5);
+                        await ƒS.Sound.play(sound.gunShoot, 1);
+        
+                        
+                        ƒS.Sound.fade(sound.finalSad, 1, 2);
+        
+                        await ƒS.Progress.delay(7);
+        
                         return "EndScreen";
                 }
             } else {
 
+                ƒS.Sound.fade(sound.final, 0, 2);
+                await ƒS.Progress.delay(0.8);
+                ƒS.Sound.play(sound.finalSad, 0.8);
+
                 await ƒS.Speech.tell(charaktere.alaistar, " Es tut mir sehr Leid, aber ich muss meine Familie schützen. ");
+
                 await ƒS.Speech.tell(charaktere.bronte, " Mr. Blackburn, tun sie nichts-");
 
+                await ƒS.Speech.hide();
+
+                await ƒS.Character.hide(charaktere.bronte);
+                await ƒS.Character.hide(charaktere.maire);
+                await ƒS.Character.hide(charaktere.isaac);
+                await ƒS.Character.hide(charaktere.alaistar);
                 await ƒS.Location.show(location.black);
-                await ƒS.update();
+                await ƒS.update(1);
 
-                await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
-                await ƒS.Progress.delay(0.3);
-                await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
-                await ƒS.Progress.delay(0.3);
-                await ƒS.Sound.fade(sound.gunShoot, 0.8, 1, false);
+                await ƒS.Sound.play(sound.gunShoot, 1);
+                await ƒS.Progress.delay(0.5);
+                await ƒS.Sound.play(sound.gunShoot, 1);
+                await ƒS.Progress.delay(0.5);
+                await ƒS.Sound.play(sound.gunShoot, 1);
 
-                return "Endscreen";
+                
+                ƒS.Sound.fade(sound.finalSad, 1, 2);
+
+                await ƒS.Progress.delay(7);
+
+                return "EndScreen";
 
             }
         }

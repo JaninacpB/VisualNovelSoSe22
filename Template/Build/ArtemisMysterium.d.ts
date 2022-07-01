@@ -134,6 +134,7 @@ declare namespace Artemis {
                 laugh: string;
                 cry: string;
                 shooked: string;
+                smallHorror: string;
             };
             positionStandard: {
                 x: number;

@@ -162,7 +162,8 @@ namespace Artemis {
         sad: "Asset/character/maire/Assestentin-sad.png",
         laugh: "Asset/character/maire/Assestentin-laugh.png",
         cry: "Asset/character/maire/Assestentin-horror-cry.png",
-        shooked: "Asset/character/maire/Assestentin-horror.png"
+        shooked: "Asset/character/maire/Assestentin-horror.png",
+        smallHorror: "/Template/Asset/character/maire/Assestentin-horror-small.png"
       },
       positionStandard: {
         x: 84,
