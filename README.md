@@ -2,8 +2,12 @@
 
 ## Links: 
 
-[Quellcode]()
+[Quellcode]() <br>
+
 [VisualNovel - Das Artemis Mysterium](https://janinacpb.github.io/VisualNovelSoSe22/Artemis/ArtemisMysterium.html)
+
+<br>
+
 [Ordner mit Daten](https://github.com/JaninacpB/VisualNovelSoSe22/tree/main/Artemis)
 
 ## Bewertungskriterien
