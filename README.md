@@ -2,13 +2,12 @@
 
 ## Links: 
 
-[Quellcode]() <br>
+[Quellcode](https://github.com/JaninacpB/VisualNovelSoSe22/tree/main/Artemis) <br>
 
-[VisualNovel - Das Artemis Mysterium](https://janinacpb.github.io/VisualNovelSoSe22/Artemis/ArtemisMysterium.html)
+[VisualNovel - Das Artemis Mysterium](https://janinacpb.github.io/VisualNovelSoSe22/Artemis/ArtemisMysterium.html) <br>
 
-<br>
-
-[Ordner mit Daten](https://github.com/JaninacpB/VisualNovelSoSe22/tree/main/Artemis)
+// todo: 
+[Ordner mit Daten]()
 
 ## Bewertungskriterien
 © Prof. Dipl.-Ing. Jirka R. Dell'Oro-Friedl, HFU  
