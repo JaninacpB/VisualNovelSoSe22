@@ -1,5 +1,7 @@
 namespace Artemis {
     export async function ExtraSceneBronteMaire(): ƒS.SceneReturn {
+        localStorage.setItem('MaireAndBronte', JSON.stringify(true));
+
         await ƒS.Speech.tell(charaktere.bronte, " Maire… du siehst müde aus. ");
         await ƒS.Speech.tell(charaktere.maire, " Ja… ich bin ein wenig erschöpft… ");
         await ƒS.Speech.tell(charaktere.bronte, " Heute war ein langer Tag. ");

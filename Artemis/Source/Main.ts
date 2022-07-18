@@ -190,7 +190,7 @@ namespace Artemis {
         x: 63,
         y: 115
       },
-      
+
       positionMiddle: {
         x: 50,
         y: 115
@@ -335,8 +335,7 @@ namespace Artemis {
 
   }
 
-
-  //Animation todo: 
+  //Animation todo löschen?
   export function fromLeftToRight(startX: number, startY: number, endX: number, endY: number): ƒS.AnimationDefinition {
     return {
       start: { translation: ƒS.positionPercent(startX, startY) },
@@ -356,15 +355,15 @@ namespace Artemis {
     };
   }
 
-    //maire sinking into water
-    export function fromMiddleSinking (startX: number, startY: number, endY: number, timeDuration: number): ƒS.AnimationDefinition {
-      return {
-        start: { translation: ƒS.positionPercent(startX, startY) },
-        end: { translation: ƒS.positionPercent(startX, endY) },
-        duration: timeDuration,
-        playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
-      };
-    }
+  //maire sinking into water
+  export function fromMiddleSinking(startX: number, startY: number, endY: number, timeDuration: number): ƒS.AnimationDefinition {
+    return {
+      start: { translation: ƒS.positionPercent(startX, startY) },
+      end: { translation: ƒS.positionPercent(startX, endY) },
+      duration: timeDuration,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+    };
+  }
 
   export let dataForSave = {
     //Sachen die Gespeichert werden müssen
@@ -375,9 +374,9 @@ namespace Artemis {
     mairePuked: false,
     maireFellInPond: false,
     maireHurtHerselfInCabin: false,
-    lookedAtCoats: false, 
-    tookGun: false, 
-    gotTestament: false, 
+    lookedAtCoats: false,
+    tookGun: false,
+    gotTestament: false,
 
     //for diary
     greetingInSaalonFinished: false,
@@ -388,9 +387,9 @@ namespace Artemis {
     lookingForCluesFinished: false,
     interviewFinished: false,
     searchedCloakFinished: false,
-    maireAndIsaacFinished: false, 
-    finalFinished: false, 
-    
+    maireAndIsaacFinished: false,
+    finalFinished: false,
+
 
     //Pointsystem
     // 8 möglich
@@ -399,19 +398,15 @@ namespace Artemis {
     pointAngryMaire: 0,
     //3 max bevor Ende 
     pointAngryGrace: 0,
-
-    //todo:
-    Achievment: {
-      saveTheCat: false
-    }
   }
 
-  // Menü 
+  export let achievments: string[] = ["cat", "angryMaire", "angryGrace", "MaireAndBronte", "collar", "pound", "haggisDisgusting", "haggisYummy"];
 
+  // Menü 
   export function showCredits(): void {
     ƒS.Text.addClass("credit");
-    ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder <br> <b> Tester:</b> Tamara Auber XXX");
-    //todo: Tester Und Musik ergänzen
+    ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder <br> <b> Tester:</b> Tamara Auber, Alexander Thier, Jan Christmeier");
+    //todo: Musik ergänzen
   }
 
   export function showDiary(): void {
@@ -439,31 +434,31 @@ namespace Artemis {
       }
       if (dataForSave.stellaScreamFinished) {
         diaryText += "<p>Dann haben wir einen Schrei gehört und sind schnell zurück ins Haus. Stella sah ganz blass aus und meinte jemand draußen gesehen zu haben. Grace welche vorhin noch aus aufgelöst war über das verschwinden der Katze war plötzlich viel ruhiger und bat uns den restlichen Abend nicht mit der Suche zu verbringen. Komisch. Vielleicht sollten wir mal mit den Anwesenden Reden und Hinweise sammeln.</p>";
-      } 
+      }
       // todo: entfernen? 
       // if(dataForSave.lookingForCluesFinished){
       //   diaryText += "<p>  </p>";
       // }
-      if(dataForSave.interviewFinished){
+      if (dataForSave.interviewFinished) {
         diaryText += "<p> Isaac hat uns von seiner verstorbenen Frau Odette erzählt. Sie ist in der Themse vor Jahren ertrunken. Die Familie war wohl auch nicht begeistert von der Hochzeit. Gerade Remington schien nicht gut auf ihn zusprechen zu sein. </p>";
-      }  
-      if(dataForSave.searchedCloakFinished){
+      }
+      if (dataForSave.searchedCloakFinished) {
         diaryText += "<p>Ich schlug Bronte vor die Mäntel in der Halle zu durchsuchen.</p>";
 
-        if(dataForSave.lookedAtCoats){
+        if (dataForSave.lookedAtCoats) {
           diaryText += "<p>Bronte fand die Idee gut und wir haben es uns genauer angeschauen. Es gab 4 Mäntel hier. Vermutlich die von Alaistar, Grace, Stella und Isaac.</p>";
 
-          
-        if(dataForSave.tookGun){
-          diaryText += "<p>In Alaistars Tasche war eine Pistole! Was will er damit? Zum Jagen war die nicht gedacht und das Anwesen scheint ja eigentlich nicht sonderlich bedrohlich. Wir haben sie mitgenommen.</p>";
-        }
 
-        }else {
+          if (dataForSave.tookGun) {
+            diaryText += "<p>In Alaistars Tasche war eine Pistole! Was will er damit? Zum Jagen war die nicht gedacht und das Anwesen scheint ja eigentlich nicht sonderlich bedrohlich. Wir haben sie mitgenommen.</p>";
+          }
+
+        } else {
           diaryText += "<p>Bronte fand die Idee jedoch nicht gut daher haben wir es gelassen. Vielleicht war das gut, denn kurz danach kam Isaac. Der wäre sicherlich nicht erfreut gewesen.</p>";
         }
 
-      }  
-      if(dataForSave.maireAndIsaacFinished){
+      }
+      if (dataForSave.maireAndIsaacFinished) {
         diaryText += "<p>Isaac erzählte mir wie sehr er Odette vermisst und er tut mir echt Leid. Er schien sie so zu lieben wie ich Bronte. Die ist mittlerweile alleine im Haus unterwegs und ich hoffe-  Was war das?</p>";
       }
     }
@@ -582,25 +577,25 @@ namespace Artemis {
       { id: "SceneSevenCabin", scene: SceneSevenCabin, name: "SceneSevenCabin" },
       { id: "SceneEightSaalonInterview", scene: SceneEightSaalonInterview, name: "SceneEightSaalonInterview" },
       { id: "SceneEightBInterviews", scene: SceneEightBInterviews, name: "SceneEightBInterviews" },
-      {id: "SceneNineEntryhall", scene: SceneNineEntryhall, name: "SceneNineEntryhall" },
-      {id: "SceneTenMaireAndIsaac", scene: SceneTenMaireAndIsaac, name: "SceneTenMaireAndIsaac"},
-      {id: "SceneElevenStudy", scene: SceneElevenStudy, name: "SceneElevenStudy"},
-      {id: "SceneTwelveFinal", scene: SceneTwelveFinal, name: "SceneTwelveFinal"}, 
+      { id: "SceneNineEntryhall", scene: SceneNineEntryhall, name: "SceneNineEntryhall" },
+      { id: "SceneTenMaireAndIsaac", scene: SceneTenMaireAndIsaac, name: "SceneTenMaireAndIsaac" },
+      { id: "SceneElevenStudy", scene: SceneElevenStudy, name: "SceneElevenStudy" },
+      { id: "SceneTwelveFinal", scene: SceneTwelveFinal, name: "SceneTwelveFinal" },
 
-      {id: "ExtraSceneBronteMaire", scene: ExtraSceneBronteMaire, name: "ExtraSceneBronteMaire"},
+      { id: "ExtraSceneBronteMaire", scene: ExtraSceneBronteMaire, name: "ExtraSceneBronteMaire" },
 
-      {id: "EndingOneAllSurvive", scene: EndingOneAllSurvive, name: "EndingOneAllSurvive"},
-      {id: "EndingTwoBronteDead", scene: EndingTwoBronteDead, name: "EndingTwoBronteDead"},
-      {id: "EndingThreeOdetteDead", scene: EndingThreeOdetteDead, name: "EndingThreeOdetteDead"},
+      { id: "EndingOneAllSurvive", scene: EndingOneAllSurvive, name: "EndingOneAllSurvive" },
+      { id: "EndingTwoBronteDead", scene: EndingTwoBronteDead, name: "EndingTwoBronteDead" },
+      { id: "EndingThreeOdetteDead", scene: EndingThreeOdetteDead, name: "EndingThreeOdetteDead" },
 
-      {id: "EndScreen", scene: EndScreen, name: "EndScreen"}
+      { id: "EndScreen", scene: EndScreen, name: "EndScreen" }
     ];
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");
     dataForSave = ƒS.Progress.setData(dataForSave, uiElement);
 
-    
-    let button: HTMLElement =  document.getElementById('restartButton');
+
+    let button: HTMLElement = document.getElementById('restartButton');
     button.addEventListener("click", listenerRestart);
 
     // start the sequence
@@ -614,12 +609,12 @@ namespace Artemis {
     document.getElementById(name).setAttribute("style", "display: none;");
   }
 
-  export function listenerRestart(this: HTMLElement){
+  export function listenerRestart(this: HTMLElement) {
     window.location.reload();
   }
 
-  export function deleteInventory(name: string){
-    document.getElementById(name).remove(); 
+  export function deleteInventory(name: string) {
+    document.getElementById(name).remove();
   }
 
 }

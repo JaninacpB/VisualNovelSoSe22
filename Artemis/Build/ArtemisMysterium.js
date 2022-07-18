@@ -2,6 +2,14 @@
 var Artemis;
 (function (Artemis) {
     async function EndScreen() {
+        if (Artemis.dataForSave.pointAngryGrace = 3) {
+            localStorage.setItem('angryGrace', JSON.stringify(true));
+        }
+        for (let i = 0; i < Artemis.achievments.length; i++) {
+            if (checkIftrue(Artemis.achievments[i])) {
+                getLocalStorrage(Artemis.achievments[i]);
+            }
+        }
         // Bilder einblenden und Canvas entfernen
         document.getElementById('endScreen').classList.add('endScreenVisible');
         document.getElementById('endScreen').classList.remove('endScreenInvisible');
@@ -11,9 +19,14 @@ var Artemis;
         let canvas = document.getElementsByTagName('scene');
         canvas[0].setAttribute("style", "height: 0px");
         speech[0].setAttribute("style", "vicibility: hidden;");
-        //todo: färbe ein welche ausgelöst wurden maybe local Storage 
     }
     Artemis.EndScreen = EndScreen;
+    function getLocalStorrage(achievment) {
+        document.getElementById(achievment).setAttribute("style", " filter: none;");
+    }
+    function checkIftrue(achievment) {
+        return JSON.parse(localStorage.getItem(achievment));
+    }
 })(Artemis || (Artemis = {}));
 var Artemis;
 (function (Artemis) {
@@ -64,6 +77,7 @@ var Artemis;
         await Artemis.ƒS.Speech.hide();
         await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
         await Artemis.ƒS.update(5);
+        localStorage.setItem('cat', JSON.stringify(true));
         return "EndScreen";
     }
     Artemis.EndingOneAllSurvive = EndingOneAllSurvive;
@@ -138,6 +152,7 @@ var Artemis;
 var Artemis;
 (function (Artemis) {
     async function ExtraSceneBronteMaire() {
+        localStorage.setItem('MaireAndBronte', JSON.stringify(true));
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Maire… du siehst müde aus. ");
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Ja… ich bin ein wenig erschöpft… ");
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Heute war ein langer Tag. ");
@@ -439,7 +454,7 @@ var Artemis;
             static: true
         }
     };
-    //Animation todo: 
+    //Animation todo löschen?
     function fromLeftToRight(startX, startY, endX, endY) {
         return {
             start: { translation: Artemis.ƒS.positionPercent(startX, startY) },
@@ -498,16 +513,13 @@ var Artemis;
         pointAngryMaire: 0,
         //3 max bevor Ende 
         pointAngryGrace: 0,
-        //todo:
-        Achievment: {
-            saveTheCat: false
-        }
     };
+    Artemis.achievments = ["cat", "angryMaire", "angryGrace", "MaireAndBronte", "collar", "pound", "haggisDisgusting", "haggisYummy"];
     // Menü 
     function showCredits() {
         Artemis.ƒS.Text.addClass("credit");
-        Artemis.ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder <br> <b> Tester:</b> Tamara Auber XXX");
-        //todo: Tester Und Musik ergänzen
+        Artemis.ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder <br> <b> Tester:</b> Tamara Auber, Alexander Thier, Jan Christmeier");
+        //todo: Musik ergänzen
     }
     Artemis.showCredits = showCredits;
     function showDiary() {
@@ -2790,9 +2802,7 @@ var Artemis;
             window: "Untersuche Fenster",
             knock: "Klopfe an der Tür"
         };
-        //ƒS.Speech.set("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
-        //todo: Input einbauen und stylen, gleich auf DataForSave speichern 
-        // let test = await ƒS.Speech.getInput();
+        Artemis.ƒS.Speech.set("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
         //return "SceneTwoEntrance";
         // return "SceneThreeSaalon";
         // return "SceneFourSaalonDrama";
@@ -2807,7 +2817,7 @@ var Artemis;
         // return "EndingOneAllSurvive"
         // return "EndingTwoBronteDead";
         // return "EndingThreeOdetteDead";
-        // return "EndScreen";
+        //return "EndScreen";
         await Artemis.ƒS.Sound.fade(Artemis.sound.themeinfrontManor, 0.4, 1, true);
         await Artemis.ƒS.Location.show(Artemis.location.infrontOfManorDay);
         await Artemis.ƒS.update(Artemis.transistions.wallpaper.duration, Artemis.transistions.wallpaper.alpha, Artemis.transistions.wallpaper.edge);
@@ -2966,6 +2976,7 @@ var Artemis;
 var Artemis;
 (function (Artemis) {
     async function SceneSevenCabin() {
+        localStorage.setItem('collar', JSON.stringify(true));
         await Artemis.ƒS.Location.show(Artemis.location.cabin);
         await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
         //todo: Music? 
@@ -3129,6 +3140,7 @@ var Artemis;
                 //Weitergehen 
                 Artemis.dataForSave.maireFellInPond = true;
                 Artemis.dataForSave.pointAngryMaire += 1;
+                localStorage.setItem('pound', JSON.stringify(true));
                 await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
                 await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
                 await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
@@ -3609,6 +3621,7 @@ var Artemis;
         let haggisDecision = await Artemis.ƒS.Menu.getInput(chooseHaggis, "basicChoice");
         switch (haggisDecision) {
             case chooseHaggis.lie:
+                localStorage.setItem('haggisYummy', JSON.stringify(true));
                 await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
                 await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
                 await Artemis.ƒS.update(0.4);
@@ -3666,6 +3679,7 @@ var Artemis;
             case chooseHaggis.truth:
                 Artemis.dataForSave.mairePuked = true;
                 Artemis.dataForSave.pointAngryMaire += 1;
+                localStorage.setItem('haggisDisgusting', JSON.stringify(true));
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Der Paunch – Magen eines Schafes – wird mit Herz, Niere, Leber und anderen Innereien gefüllt. Und das ergibt dann eine Art Wurst. Sehr lecker eigentlich, wenn auch ungewöhnlich. ");
                 await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
                 await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.fear, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
@@ -3737,6 +3751,9 @@ var Artemis;
             yes: "Ja",
             no: "Nein"
         };
+        if (Artemis.dataForSave.pointAngryMaire = 5) {
+            localStorage.setItem('cat', JSON.stringify(true));
+        }
         await Artemis.ƒS.Sound.fade(Artemis.sound.study, 0, 1);
         Artemis.ƒS.Sound.fade(Artemis.sound.final, 0.7, 1, true);
         await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.evil, Artemis.ƒS.positionPercent(Artemis.charaktere.alaistar.positionMiddle.x, Artemis.charaktere.alaistar.positionMiddle.y));

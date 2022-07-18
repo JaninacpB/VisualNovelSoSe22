@@ -197,6 +197,13 @@ name {
   filter: grayscale(100%);
 }
 
+.achievment ~ p {
+ text-align: center;
+ font-size: 1.2em;
+ width: 220px;
+ margin-top: -10px;
+}
+
 #restartButton {
   margin: 0 auto;
 }

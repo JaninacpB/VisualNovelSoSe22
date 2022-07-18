@@ -65,6 +65,8 @@ namespace Artemis {
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.update(5);
 
+        localStorage.setItem('cat', JSON.stringify(true));
+
         return "EndScreen"; 
 
     }

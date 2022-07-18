@@ -97,6 +97,8 @@ namespace Artemis {
 
 				dataForSave.maireFellInPond = true;
 				dataForSave.pointAngryMaire += 1; 
+				localStorage.setItem('pound', JSON.stringify(true));
+
 
 				await ƒS.Character.hide(charaktere.maire);
 				await ƒS.Character.hide(charaktere.bronte);

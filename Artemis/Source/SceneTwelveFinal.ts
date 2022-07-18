@@ -12,6 +12,11 @@ namespace Artemis {
             no: "Nein"
         }
 
+        if(dataForSave.pointAngryMaire = 5){
+            localStorage.setItem('cat', JSON.stringify(true));
+
+        }
+
         await ƒS.Sound.fade(sound.study, 0, 1);
 
         ƒS.Sound.fade(sound.final, 0.7, 1, true);

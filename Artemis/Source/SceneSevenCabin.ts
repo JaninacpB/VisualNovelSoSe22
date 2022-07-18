@@ -1,6 +1,8 @@
 namespace Artemis {
     export async function SceneSevenCabin(): ƒS.SceneReturn {
 
+        localStorage.setItem('collar', JSON.stringify(true));
+
         await ƒS.Location.show(location.cabin);
         await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
         //todo: Music? 

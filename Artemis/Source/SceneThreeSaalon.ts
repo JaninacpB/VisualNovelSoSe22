@@ -287,6 +287,7 @@ namespace Artemis {
         let haggisDecision = await ƒS.Menu.getInput(chooseHaggis, "basicChoice");
         switch (haggisDecision) {
             case chooseHaggis.lie:
+                localStorage.setItem('haggisYummy', JSON.stringify(true));
 
                 await ƒS.Character.hide(charaktere.bronte);
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
@@ -374,6 +375,7 @@ namespace Artemis {
 
                 dataForSave.mairePuked = true;
                 dataForSave.pointAngryMaire += 1;
+                localStorage.setItem('haggisDisgusting', JSON.stringify(true));
 
                 await ƒS.Speech.tell(charaktere.bronte, " Der Paunch – Magen eines Schafes – wird mit Herz, Niere, Leber und anderen Innereien gefüllt. Und das ergibt dann eine Art Wurst. Sehr lecker eigentlich, wenn auch ungewöhnlich. ");
 

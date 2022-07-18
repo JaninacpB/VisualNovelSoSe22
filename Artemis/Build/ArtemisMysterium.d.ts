@@ -312,10 +312,8 @@ declare namespace Artemis {
         pointDetectiv: number;
         pointAngryMaire: number;
         pointAngryGrace: number;
-        Achievment: {
-            saveTheCat: boolean;
-        };
     };
+    let achievments: string[];
     function showCredits(): void;
     function showDiary(): void;
     function showEmotion(name: string, durationBreak: number): Promise<void>;
