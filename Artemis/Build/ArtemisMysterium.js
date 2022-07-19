@@ -219,7 +219,6 @@ var Artemis;
         dinnerSound: "Asset/sound/fx/dinnerdishesmp3-14762.wav",
         waterGlass: "Asset/sound/fx/water-filled-cup-9901.mp3",
         stellaScream: "Asset/sound/fx/stella-Scream.mp3",
-        //todo: einfügen:
         graceScream: "Asset/sound/fx/GraceScream.mp3",
         gunShoot: "Asset/sound/fx/gunshootOne.mp3"
     };
@@ -427,21 +426,18 @@ var Artemis;
         }
     };
     Artemis.inventory = {
-        //todo: static doesnt work
         ring: {
             name: "Ring",
             description: "Ein Siegelring mit den Initalien O.R., im Busch vor dem Manor gefunden.",
             image: "Asset/item/ring.png",
             static: true
         },
-        //todo: übergeben
         collar: {
             name: "Halsband",
             description: "Artemis Halsband",
             image: "Asset/item/halsbandReal.png",
             static: true
         },
-        //todo: and übergeben
         pistol: {
             name: "Pistole",
             description: "Eine Pistole, die in Alaistars Mantel gefunden wurde. ",
@@ -455,16 +451,7 @@ var Artemis;
             static: true
         }
     };
-    //Animation todo löschen?
-    function fromLeftToRight(startX, startY, endX, endY) {
-        return {
-            start: { translation: Artemis.ƒS.positionPercent(startX, startY) },
-            end: { translation: Artemis.ƒS.positionPercent(endX, endY) },
-            duration: 2,
-            playmode: Artemis.ƒS.ANIMATION_PLAYMODE.PLAYONCE
-        };
-    }
-    Artemis.fromLeftToRight = fromLeftToRight;
+    //Animation
     //grace falling
     function fromMiddleDown(startX, startY, endY) {
         return {

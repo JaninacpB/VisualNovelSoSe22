@@ -288,7 +288,6 @@ declare namespace Artemis {
             static: boolean;
         };
     };
-    function fromLeftToRight(startX: number, startY: number, endX: number, endY: number): ƒS.AnimationDefinition;
     function fromMiddleDown(startX: number, startY: number, endY: number): ƒS.AnimationDefinition;
     function fromMiddleSinking(startX: number, startY: number, endY: number, timeDuration: number): ƒS.AnimationDefinition;
     let dataForSave: {

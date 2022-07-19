@@ -68,8 +68,6 @@ namespace Artemis {
 
     stellaScream: "Asset/sound/fx/stella-Scream.mp3",
 
-    //todo: einfügen:
-
     graceScream: "Asset/sound/fx/GraceScream.mp3",
 
     gunShoot: "Asset/sound/fx/gunshootOne.mp3"
@@ -302,7 +300,7 @@ namespace Artemis {
   }
 
   export let inventory = {
-    //todo: static doesnt work
+
     ring: {
       name: "Ring",
       description: "Ein Siegelring mit den Initalien O.R., im Busch vor dem Manor gefunden.",
@@ -310,7 +308,6 @@ namespace Artemis {
       static: true
     },
 
-    //todo: übergeben
     collar: {
       name: "Halsband",
       description: "Artemis Halsband",
@@ -318,7 +315,6 @@ namespace Artemis {
       static: true
     },
 
-    //todo: and übergeben
     pistol: {
       name: "Pistole",
       description: "Eine Pistole, die in Alaistars Mantel gefunden wurde. ",
@@ -335,15 +331,7 @@ namespace Artemis {
 
   }
 
-  //Animation todo löschen?
-  export function fromLeftToRight(startX: number, startY: number, endX: number, endY: number): ƒS.AnimationDefinition {
-    return {
-      start: { translation: ƒS.positionPercent(startX, startY) },
-      end: { translation: ƒS.positionPercent(endX, endY) },
-      duration: 2,
-      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
-    };
-  }
+  //Animation
 
   //grace falling
   export function fromMiddleDown(startX: number, startY: number, endY: number): ƒS.AnimationDefinition {
