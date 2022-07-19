@@ -21,8 +21,7 @@
 |  1 | Konzeption     | Die Story der Visual Novel wird in einer kurzen Inhaltsangabe beschrieben und der Konzeption beigefügt. In dieser sind jegliche Diagramme, Scribbles sowie entweder ein Storyboard, ein Drehbuch oder Ähnliches enthalten.                                                                                                                            |
 |  2 | Charakter-Konzept     | Die Charaktere sind Archetypen zu geordnet und genauer Beschrieben in den Steckbriefen.                                                                                                                                                                                |
 |  3 | Auswahlmöglichkeiten | Es gibt viele Entscheidungen und es ist nach dem Prinzip vom Branching plots erstellt worden. Die Dialoge ändern sich durch Entscheidungen, es gibt verschiedene Enden.                                                                                                                                                |
-|  4 | Branching paths      | Alle Variablen sind sinnvoll benannt und die Szenenhierarchie ist sinnvoll geordnet. In einem normalen Spieldurchlauf spielt der Spieler alle Szenen, aber durch if-Bedingungen oder
-Auswahlmöglichkeiten sind die Paths von einander getrennt. Es gibt eine extra Szene und die Epiloge die in extra Szenen liegen.                                                                                                                                                       |
+|  4 | Branching paths      | Alle Variablen sind sinnvoll benannt und die Szenenhierarchie ist sinnvoll geordnet. In einem normalen Spieldurchlauf spielt der Spieler alle Szenen, aber durch if-Bedingungen oder Auswahlmöglichkeiten sind die Paths von einander getrennt. Es gibt eine extra Szene und die Epiloge die in extra Szenen liegen.                                                                                                                                                       ||
 |  5 | Transitions            | Transitions stellen Überblendungen z.B. zwischen Szenen dar und können leicht modifiziert werden. Kommen unterschiedliche Transitions zum Einsatz?                                                                                                                                                      |
 |  6 | Novel-Pages            | Novel Pages wurden genutzt um ein Tagebuch zu erstellen, auf welches der Spieler zugreifen kann um den Plot zu folgen. Es wird währenddess spiels dynamisch gefüllt und geht auch auf 
 die Entscheidungen des Spielers ein. Es ist für den Spieler jederzeit im Menü zu öffnen.                                                                                                                                                           |
@@ -36,8 +35,8 @@ die Entscheidungen des Spielers ein. Es ist für den Spieler jederzeit im Menü 
 | 13 | Styling          | Ja es wurden alle Elemente an den Style der Novel angepasst. So hat z.B. jeder Charakter eine andere Farbe für seinen Namen und alle Buttons wurden angepasst mit Bildern.                                                                                                                                                                                  |
 | 14 | Enden          | Es gibt verschiedene Enden(6, genauere Details in der Konzeptdatei)                                                                                                                                                                                 |
 
-### Zusatz: Alle Bilder (abgesehen Buttons) wurden von mir selber gezeichnet. 
-### Zusatz: Das Alleinstellungsmerkmal der Novel sind die Achievments und die Animierten Gifs für Reaktionen der Charaktere. 
+#### Zusatz: Alle Bilder (abgesehen Buttons) wurden von mir selber gezeichnet. 
+#### Zusatz: Das Alleinstellungsmerkmal der Novel sind die Achievments und die Animierten Gifs für Reaktionen der Charaktere. 
 
 ##  Abgabeformat
 
