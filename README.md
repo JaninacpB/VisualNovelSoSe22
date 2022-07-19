@@ -36,7 +36,8 @@ die Entscheidungen des Spielers ein. Es ist für den Spieler jederzeit im Menü 
 | 13 | Styling          | Ja es wurden alle Elemente an den Style der Novel angepasst. So hat z.B. jeder Charakter eine andere Farbe für seinen Namen und alle Buttons wurden angepasst mit Bildern.                                                                                                                                                                                  |
 | 14 | Enden          | Es gibt verschiedene Enden(6, genauere Details in der Konzeptdatei)                                                                                                                                                                                 |
 
-Zusatz: Das Alleinstellungsmerkmal der Novel sind die Achievments und die Animierten Gifs für Reaktionen der Charaktere. 
+### Zusatz: Alle Bilder (abgesehen Buttons) wurden von mir selber gezeichnet. 
+### Zusatz: Das Alleinstellungsmerkmal der Novel sind die Achievments und die Animierten Gifs für Reaktionen der Charaktere. 
 
 ##  Abgabeformat
 

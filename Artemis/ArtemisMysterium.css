@@ -12,18 +12,18 @@ canvas {
   margin: auto;
 }
 
-
 html {
   background-image: url("Asset/backgroundImage.png");
   background-color: rgb(37, 37, 37);
   background-size: cover;
 }
 
+
 dialog[type=splash] {
   margin: 0px;
   padding: 0px;
-  width: 100vw;
-  height: 100vh;
+  /*width: 100vw;*/
+  /*height: 100vh;*/
   color: white;
   border: none;
   cursor: pointer;
@@ -32,9 +32,13 @@ dialog[type=splash] {
   background-size: cover;
 }
 
-dialog[type=splash]>img#FudgeStoryLogo {
-  width: 100%;
-}
+ dialog[type=splash]>img#FudgeStoryLogo {
+  margin: 0 auto;
+  padding-bottom: 5px;
+  display: block;
+  width: 850px;
+} 
+
 
 dialog {
   padding: 1em;
@@ -43,7 +47,6 @@ dialog {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.309);
 }
-
 
 button {
   padding: 1em;
