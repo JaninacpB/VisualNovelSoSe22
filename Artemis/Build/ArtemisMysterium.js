@@ -488,12 +488,9 @@ var Artemis;
         lookingInTheGardenForCluesFinished: false,
         foundCatCollarFinished: false,
         stellaScreamFinished: false,
-        //todo:  an richtiger Stelle auf true setzen 
-        lookingForCluesFinished: false,
         interviewFinished: false,
         searchedCloakFinished: false,
         maireAndIsaacFinished: false,
-        finalFinished: false,
         //Pointsystem
         // 8 möglich
         pointDetectiv: 0,
@@ -506,14 +503,12 @@ var Artemis;
     // Menü 
     function showCredits() {
         Artemis.ƒS.Text.addClass("credit");
-        Artemis.ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder <br> <b> Tester:</b> Tamara Auber, Alexander Thier, Jan Christmeier");
-        //todo: Musik ergänzen
+        Artemis.ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder freesound.org <br> <b> Tester:</b> Tamara Auber, Alexander Thier, Jan Christmeier");
     }
     Artemis.showCredits = showCredits;
     function showDiary() {
         Artemis.ƒS.Text.addClass("diaryEntrys");
         let diaryText = "<p> Früher Abend: Wir sind vor dem Anwesen der Blackburns angekommen. Hier erschreckte uns eine Katze, bevor wir hinein gehen können. </p>";
-        //todo: beenden
         if (Artemis.dataForSave.greetingInSaalonFinished) {
             diaryText += "<p>Im Saalon treffen wir Mr. Blackburn ein konservativer und etwas herablassender Lord, dem das Anwesen gehört, seine Schwester Grace die Bronte und mich eingeladen hat und hier lebt und Isaac. Er scheint der Schwager zu sein und nicht sonderlich beliebt. </p>";
             if (Artemis.dataForSave.mairePuked) {
@@ -537,10 +532,6 @@ var Artemis;
             if (Artemis.dataForSave.stellaScreamFinished) {
                 diaryText += "<p>Dann haben wir einen Schrei gehört und sind schnell zurück ins Haus. Stella sah ganz blass aus und meinte jemand draußen gesehen zu haben. Grace welche vorhin noch aus aufgelöst war über das verschwinden der Katze war plötzlich viel ruhiger und bat uns den restlichen Abend nicht mit der Suche zu verbringen. Komisch. Vielleicht sollten wir mal mit den Anwesenden Reden und Hinweise sammeln.</p>";
             }
-            // todo: entfernen? 
-            // if(dataForSave.lookingForCluesFinished){
-            //   diaryText += "<p>  </p>";
-            // }
             if (Artemis.dataForSave.interviewFinished) {
                 diaryText += "<p> Isaac hat uns von seiner verstorbenen Frau Odette erzählt. Sie ist in der Themse vor Jahren ertrunken. Die Familie war wohl auch nicht begeistert von der Hochzeit. Gerade Remington schien nicht gut auf ihn zusprechen zu sein. </p>";
             }

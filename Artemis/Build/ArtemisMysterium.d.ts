@@ -303,11 +303,9 @@ declare namespace Artemis {
         lookingInTheGardenForCluesFinished: boolean;
         foundCatCollarFinished: boolean;
         stellaScreamFinished: boolean;
-        lookingForCluesFinished: boolean;
         interviewFinished: boolean;
         searchedCloakFinished: boolean;
         maireAndIsaacFinished: boolean;
-        finalFinished: boolean;
         pointDetectiv: number;
         pointAngryMaire: number;
         pointAngryGrace: number;
