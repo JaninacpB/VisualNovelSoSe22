@@ -204,6 +204,15 @@ name {
  margin-top: -10px;
 }
 
+.scoreDetectiv{
+  padding: 0 5% 0 5%;
+  text-align: center;
+}
+
+#detectivPoints {
+  font-size: 2em;
+}
+
 #restartButton {
   margin: 0 auto;
 }

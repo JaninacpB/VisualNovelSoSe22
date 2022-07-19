@@ -18,6 +18,8 @@ namespace Artemis {
         document.getElementById('flexRestartButton').setAttribute("style", "display: flex");
         document.getElementById('achivementTitle').setAttribute("style", "display: block");
 
+        document.getElementById('detectivPoints').innerHTML = dataForSave.pointDetectiv + "";
+
 
         let speech: HTMLCollection = document.getElementsByTagName('speech');
         let canvas: HTMLCollection = document.getElementsByTagName('scene');

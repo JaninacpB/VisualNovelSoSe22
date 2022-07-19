@@ -15,6 +15,7 @@ var Artemis;
         document.getElementById('endScreen').classList.remove('endScreenInvisible');
         document.getElementById('flexRestartButton').setAttribute("style", "display: flex");
         document.getElementById('achivementTitle').setAttribute("style", "display: block");
+        document.getElementById('detectivPoints').innerHTML = Artemis.dataForSave.pointDetectiv + "";
         let speech = document.getElementsByTagName('speech');
         let canvas = document.getElementsByTagName('scene');
         canvas[0].setAttribute("style", "height: 0px");
