@@ -22,7 +22,7 @@ namespace Artemis {
 		await ƒS.Location.show(location.gardenDark);
 		await ƒS.update(transistions.standard.duration, "Asset/Transition/18.png", transistions.standard.edge);
 
-		await ƒS.Sound.fade(sound.themeinfrontManorNight, 0.1, 0.2, true);
+		await ƒS.Sound.fade(sound.themeinfrontManorNight, 0.3, 1, true);
 
 		await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
 		await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));

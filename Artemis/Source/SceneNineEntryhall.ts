@@ -577,7 +577,7 @@ namespace Artemis {
 
             await ƒS.Speech.tell(charaktere.isaac, " Mhm…");
 
-            dataForSave.pointAngryGrace -= 1; 
+            dataForSave.pointAngryGrace += 1; 
             if (dataForSave.pointAngryGrace >= 4) {
                 await issacBadEnding(); 
                 return "EndingBadGraceAngry"; 

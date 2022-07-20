@@ -2,8 +2,11 @@
 var Artemis;
 (function (Artemis) {
     async function EndScreen() {
-        if (Artemis.dataForSave.pointAngryGrace = 4) {
+        if (Artemis.dataForSave.pointAngryGrace == 4) {
             localStorage.setItem('angryGrace', JSON.stringify(true));
+        }
+        if (Artemis.dataForSave.pointAngryMaire == 5) {
+            localStorage.setItem('angryMaire', JSON.stringify(true));
         }
         for (let i = 0; i < Artemis.achievments.length; i++) {
             if (checkIftrue(Artemis.achievments[i])) {
@@ -2133,7 +2136,7 @@ var Artemis;
         let userChoosePersonToRing = await Artemis.ƒS.Menu.getInput(choosePerson, "basicChoice");
         switch (userChoosePersonToRing) {
             case choosePerson.Butler:
-                Artemis.dataForSave.pointAngryMaire += 1;
+                Artemis.dataForSave.pointDetectiv += 1;
                 await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
                 await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
                 await Artemis.ƒS.update(0.4);
@@ -2757,7 +2760,7 @@ var Artemis;
             await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.sad, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
             await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " Mhm…");
-            Artemis.dataForSave.pointAngryGrace -= 1;
+            Artemis.dataForSave.pointAngryGrace += 1;
             if (Artemis.dataForSave.pointAngryGrace >= 4) {
                 await issacBadEnding();
                 return "EndingBadGraceAngry";
@@ -3161,7 +3164,7 @@ var Artemis;
         };
         await Artemis.ƒS.Location.show(Artemis.location.gardenDark);
         await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
-        await Artemis.ƒS.Sound.fade(Artemis.sound.themeinfrontManorNight, 0.1, 0.2, true);
+        await Artemis.ƒS.Sound.fade(Artemis.sound.themeinfrontManorNight, 0.3, 1, true);
         await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
         await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
         await Artemis.ƒS.update(0.8);
@@ -3826,9 +3829,6 @@ var Artemis;
             yes: "Ja",
             no: "Nein"
         };
-        if (Artemis.dataForSave.pointAngryMaire = 5) {
-            localStorage.setItem('cat', JSON.stringify(true));
-        }
         await Artemis.ƒS.Sound.fade(Artemis.sound.study, 0, 1);
         Artemis.ƒS.Sound.fade(Artemis.sound.final, 0.5, 1, true);
         await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.evil, Artemis.ƒS.positionPercent(Artemis.charaktere.alaistar.positionMiddle.x, Artemis.charaktere.alaistar.positionMiddle.y));
@@ -3868,11 +3868,11 @@ var Artemis;
         await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.cry, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
         await Artemis.ƒS.update(0.1);
         if (!Artemis.dataForSave.tookGun) {
-            Artemis.ƒS.Sound.fade(Artemis.sound.gunShoot, 1, 1, false);
+            Artemis.ƒS.Sound.play(Artemis.sound.gunShoot, 1, false);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, "Ein Schuss!  ");
         }
         else {
-            Artemis.ƒS.Sound.fade(Artemis.sound.stellaScream, 0.8, 1, false);
+            Artemis.ƒS.Sound.play(Artemis.sound.stellaScream, 0.8, false);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, "Ein Schrei!  ");
         }
         await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);

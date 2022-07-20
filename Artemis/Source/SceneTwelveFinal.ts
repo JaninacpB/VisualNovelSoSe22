@@ -12,11 +12,6 @@ namespace Artemis {
             no: "Nein"
         }
 
-        if(dataForSave.pointAngryMaire = 5){
-            localStorage.setItem('cat', JSON.stringify(true));
-
-        }
-
         await ƒS.Sound.fade(sound.study, 0, 1);
 
         ƒS.Sound.fade(sound.final, 0.5, 1, true);
@@ -76,13 +71,13 @@ namespace Artemis {
 
         if (!dataForSave.tookGun) {
 
-            ƒS.Sound.fade(sound.gunShoot, 1, 1, false);
+            ƒS.Sound.play(sound.gunShoot, 1, false);
 
             await ƒS.Speech.tell(charaktere.maire, "Ein Schuss!  ");
 
         } else {
 
-            ƒS.Sound.fade(sound.stellaScream, 0.8, 1, false);
+            ƒS.Sound.play(sound.stellaScream, 0.8, false);
 
             await ƒS.Speech.tell(charaktere.maire, "Ein Schrei!  ");
         }

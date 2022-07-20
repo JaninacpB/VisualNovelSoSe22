@@ -89,7 +89,7 @@ namespace Artemis {
         switch (userChoosePersonToRing) {
             case choosePerson.Butler:
 
-                dataForSave.pointAngryMaire += 1;
+                dataForSave.pointDetectiv += 1;
 
                 await ƒS.Character.hide(charaktere.bronte);
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));

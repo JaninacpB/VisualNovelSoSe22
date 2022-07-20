@@ -1,9 +1,13 @@
 namespace Artemis {
     export async function EndScreen(): ƒS.SceneReturn {
 
-        if(dataForSave.pointAngryGrace = 4){
+        if(dataForSave.pointAngryGrace == 4){
             localStorage.setItem('angryGrace', JSON.stringify(true));
 
+        }
+
+        if(dataForSave.pointAngryMaire == 5){
+            localStorage.setItem('angryMaire', JSON.stringify(true));
         }
 
         for (let i = 0; i < achievments.length; i++) {
