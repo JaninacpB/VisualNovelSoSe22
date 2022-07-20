@@ -1,9 +1,10 @@
 namespace Artemis {
     export async function SceneTenMaireAndIsaac(): ƒS.SceneReturn {
 
+        ƒS.Sound.play(sound.maireAndIsaac, 0.4, true); 
+
         await ƒS.Location.show(location.infrontOfManorNight);
-        await ƒS.update(transistions.wallpaper.duration, transistions.wallpaper.alpha, transistions.wallpaper.edge);
-        await ƒS.update();
+        await ƒS.update(transistions.standard.duration, "Asset/Transition/18.png", transistions.standard.edge);
 
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.happy, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
         await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.neutral, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y))
@@ -163,6 +164,8 @@ namespace Artemis {
         await ƒS.Character.hide(charaktere.maire);
         await ƒS.Character.hide(charaktere.isaac);
         await ƒS.update(0.4);
+
+        ƒS.Sound.fade(sound.maireAndIsaac, 0, 2); 
 
         dataForSave.maireAndIsaacFinished = true;
 

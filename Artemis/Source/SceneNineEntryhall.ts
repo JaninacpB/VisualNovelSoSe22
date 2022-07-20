@@ -65,8 +65,10 @@ namespace Artemis {
         let counterHowManyCloaks = 0;
         let stillInLoop = true;
 
+        ƒS.Sound.play(sound.themeEntryhall, 0.4, true);
+
         await ƒS.Location.show(location.entrance);
-        await ƒS.update(transistions.wallpaper.duration, transistions.wallpaper.alpha, transistions.wallpaper.edge);
+        await ƒS.update(transistions.standard.duration, transistions.standard.alpha, transistions.standard.edge);
         await ƒS.update();
 
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
@@ -575,7 +577,11 @@ namespace Artemis {
 
             await ƒS.Speech.tell(charaktere.isaac, " Mhm…");
 
-            // todo: -1 Grace und eventuell end Szene mit Grace 
+            dataForSave.pointAngryGrace -= 1; 
+            if (dataForSave.pointAngryGrace >= 4) {
+                await issacBadEnding(); 
+                return "EndingBadGraceAngry"; 
+            }
 
         } else {
 
@@ -670,6 +676,8 @@ namespace Artemis {
 
         dataForSave.searchedCloakFinished = true; 
 
+        ƒS.Sound.fade(sound.themeEntryhall, 0, 2); 
+
         return "SceneTenMaireAndIsaac";
 
         async function checkIfLoopShouldContinue(): Promise<void> {
@@ -683,5 +691,46 @@ namespace Artemis {
                 stillInLoop = false;
             }
         }
+
+        async function issacBadEnding(): Promise<void> {
+
+            await ƒS.Speech.tell(charaktere.isaac, "Ich finde es nicht richtig, dass hier einfach in den privaten Sachen der Anwesenden rumwühlt.");
+
+            await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.neutral, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y));
+            await ƒS.Character.hide(charaktere.isaac);
+            await ƒS.update(0.4);
+
+            await ƒS.Speech.tell(charaktere.isaac, "Selbst gegenüber Grace und Alaistar ist das nicht fair.");
+            await ƒS.Speech.tell(charaktere.isaac, "Grace!");
+
+            await ƒS.Character.hide(charaktere.bronte);
+            await ƒS.Character.hide(charaktere.maire);
+            await ƒS.update(0.8);
+        
+            await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.think, ƒS.positionPercent(20, charaktere.grace.positionLeftMiddle.y));
+            await ƒS.update(0.8);
+        
+            await ƒS.Speech.tell(charaktere.grace, " Ja, Isaac? ");
+            await ƒS.Speech.tell(charaktere.isaac, "Miss Bronte hat angefangen in unseren persönlichen Sachen herum zu wühlen. ");
+        
+            await ƒS.Character.hide(charaktere.grace);
+            await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.angry, ƒS.positionPercent(20, charaktere.grace.positionLeftMiddle.y));
+            await ƒS.update(0.8);
+        
+            await ƒS.Speech.tell(charaktere.grace, " Ich bin sehr enttäuscht von Ihnen Miss Bronte! Ich hatte bessere Manieren von Ihnen erwartet. ");
+            await ƒS.Speech.tell(charaktere.bronte, " Oh, dass- ");
+            await ƒS.Speech.tell(charaktere.grace, " Nein, bitte gehen sie alle. Ich habe Kopfschmerzen.");
+        
+            await ƒS.Character.hide(charaktere.grace);
+            await ƒS.Character.hide(charaktere.isaac);
+            await ƒS.update(0.8);
+        
+            ƒS.Sound.fade(sound.saloonAfterScrem, 0, 1, true);
+        
+            await ƒS.Location.show(location.black);
+            await ƒS.update(5);
+        
+        }
+
     }
 }

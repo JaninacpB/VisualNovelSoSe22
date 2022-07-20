@@ -2,7 +2,7 @@
 var Artemis;
 (function (Artemis) {
     async function EndScreen() {
-        if (Artemis.dataForSave.pointAngryGrace = 3) {
+        if (Artemis.dataForSave.pointAngryGrace = 4) {
             localStorage.setItem('angryGrace', JSON.stringify(true));
         }
         for (let i = 0; i < Artemis.achievments.length; i++) {
@@ -32,6 +32,17 @@ var Artemis;
 var Artemis;
 (function (Artemis) {
     async function EndingBadGraceAngry() {
+        await Artemis.ƒS.Sound.fade(Artemis.sound.endingSad, 0.4, 1, true);
+        await Artemis.ƒS.Location.show(Artemis.location.black);
+        await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
+        await Artemis.ƒS.update(2);
+        await Artemis.ƒS.Speech.setTickerDelays(80);
+        await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, "Und so verließen wir das Manor Blackburn und sollten nie herausfinden, was hinter all den merkwürdigen Gegebenheiten war.");
+        await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, "Ich frag mich was passiert wäre, wenn wir dageblieben wären...");
+        await Artemis.ƒS.Progress.delay(1);
+        await Artemis.ƒS.Speech.hide();
+        await Artemis.ƒS.update(5);
+        return "EndScreen";
     }
     Artemis.EndingBadGraceAngry = EndingBadGraceAngry;
 })(Artemis || (Artemis = {}));
@@ -40,8 +51,7 @@ var Artemis;
     async function EndingOneAllSurvive() {
         await Artemis.ƒS.Sound.fade(Artemis.sound.endingHappy, 0.4, 1, true);
         await Artemis.ƒS.Location.show(Artemis.location.black);
-        await Artemis.ƒS.update(Artemis.transistions.wallpaper.duration, Artemis.transistions.wallpaper.alpha, Artemis.transistions.wallpaper.edge);
-        await Artemis.ƒS.update(2);
+        await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
         await Artemis.ƒS.Speech.setTickerDelays(80);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Und so endete ein weiterer Fall.");
         await Artemis.ƒS.Character.show(Artemis.charaktere.odette, Artemis.charaktere.odette.pose.happy, Artemis.ƒS.positionPercent(65, Artemis.charaktere.odette.positionMiddle.y));
@@ -88,8 +98,7 @@ var Artemis;
     async function EndingThreeOdetteDead() {
         await Artemis.ƒS.Sound.fade(Artemis.sound.endingSad, 0.4, 1, true);
         await Artemis.ƒS.Location.show(Artemis.location.black);
-        await Artemis.ƒS.update(Artemis.transistions.wallpaper.duration, Artemis.transistions.wallpaper.alpha, Artemis.transistions.wallpaper.edge);
-        await Artemis.ƒS.update(2);
+        await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
         await Artemis.ƒS.Speech.setTickerDelays(80);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, "Bronte spricht nur selten über diesen Tag.");
         await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.cry, Artemis.ƒS.positionPercent(50, Artemis.charaktere.isaac.positionStandard.y));
@@ -123,8 +132,7 @@ var Artemis;
     async function EndingTwoBronteDead() {
         await Artemis.ƒS.Sound.fade(Artemis.sound.endingSad, 0.4, 1, true);
         await Artemis.ƒS.Location.show(Artemis.location.black);
-        await Artemis.ƒS.update(Artemis.transistions.wallpaper.duration, Artemis.transistions.wallpaper.alpha, Artemis.transistions.wallpaper.edge);
-        await Artemis.ƒS.update(2);
+        await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
         await Artemis.ƒS.Speech.setTickerDelays(80);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, "Es war der dunkelste Tag in meinem Leben.");
         await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.alaistar.positionMiddle.x, Artemis.charaktere.alaistar.positionMiddle.y));
@@ -154,20 +162,66 @@ var Artemis;
 (function (Artemis) {
     async function ExtraSceneBronteMaire() {
         localStorage.setItem('MaireAndBronte', JSON.stringify(true));
+        await Artemis.ƒS.Sound.fade(Artemis.sound.endingHappy, 0.7, 1, true);
+        await Artemis.ƒS.Location.show(Artemis.location.infrontOfManorNight);
+        await Artemis.ƒS.update(1);
+        await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+        await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.think, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+        await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+        await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+        await Artemis.ƒS.update(0.8);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Maire… du siehst müde aus. ");
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Ja… ich bin ein wenig erschöpft… ");
+        await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+        await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.laugh, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+        await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Heute war ein langer Tag. ");
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Ja… ");
+        await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+        await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+        await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ich bin so froh, dass es dir gut geht. ");
+        await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+        await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.fear, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+        await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Ich auch. Aber ich hatte auch so Angst um dich! ");
+        await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+        await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.think, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+        await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Oh… ja, wir waren in einer brenzlichen Lage. Aber zumindest geht es uns beiden gut. ");
+        await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+        await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+        await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Ja… ");
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "  Maire. ");
+        await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+        await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+        await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Ja? ");
+        await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+        await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.laugh, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+        await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Ich liebe dich. ");
+        await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+        await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.laugh, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+        await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Naw… Bronte ich liebe dich auch. ");
+        await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+        await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
+        await Artemis.ƒS.update(0.4);
+        await Artemis.ƒS.Location.show(Artemis.location.infrontOfManorDay);
+        await Artemis.ƒS.update(1);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Oh schau… die Sonne geht auf. ");
+        await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+        await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
+        await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Oh… wie schön.");
+        await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+        await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+        await Artemis.ƒS.update(3);
+        Artemis.ƒS.Sound.fade(Artemis.sound.endingHappy, 0, 1, true);
+        await Artemis.ƒS.Location.show(Artemis.location.black);
+        await Artemis.ƒS.update(1);
         return "EndingOneAllSurvive";
     }
     Artemis.ExtraSceneBronteMaire = ExtraSceneBronteMaire;
@@ -183,14 +237,9 @@ var Artemis;
     };
     //define transistions
     Artemis.transistions = {
-        inToOut: {
+        standard: {
             duration: 1,
-            alpha: "Asset/Transition/02.png",
-            edge: 1 //härtegrad
-        },
-        wallpaper: {
-            duration: 1,
-            alpha: "Asset/Transition/transistionWallpaper.png",
+            alpha: "Asset/Transition/17.png",
             edge: 1
         }
     };
@@ -203,11 +252,13 @@ var Artemis;
         themeSaloon: "Asset/sound/peter-tchaikovsky-march-from-nutcracker-classical-remix-7691.mp3",
         dramaInSaloon: "Asset/sound/classical-piano-peter-tchaikovsky-chant-sans-paroles-opus-40-6-21872.mp3",
         saloonAfterScrem: "Asset/sound/frederic-chopin-nocturne-21-classical-remix-7611.mp3",
+        themeEntryhall: "Asset/sound/classical-piano-peter-tchaikovsky-mazurka-opus-39-10-21877.mp3",
+        maireAndIsaac: "Asset/sound/trois-gymnopedie-gymnopedie-no-1-erik-satie-351s-12664.mp3",
         study: "Asset/sound/SoundStudy.mp3",
         final: "Asset/sound/tenseFinalMusik.mp3",
         finalGood: "Asset/sound/dance-of-the-sugar-plum-fairy-pyotr-ilyich-tchaikovsky-201s-11937.mp3",
-        finalTranquille: "/Template/Asset/sound/suspense-piano-loop-90165.mp3",
-        finalSad: "/Template/Asset/sound/teardrops-sad-song-piano-and-softpad-2763.mp3",
+        finalTranquille: "Asset/sound/suspense-piano-loop-90165.mp3",
+        finalSad: "Asset/sound/teardrops-sad-song-piano-and-softpad-2763.mp3",
         endingSad: "Asset/sound/pianoSadEnding.mp3",
         endingHappy: "Asset/sound/PianoEndingHappy.mp3",
         endingReallyBad: "Asset/sound/EndingReallyBad.mp3",
@@ -297,7 +348,7 @@ var Artemis;
                 laugh: "Asset/character/maire/Assestentin-laugh.png",
                 cry: "Asset/character/maire/Assestentin-horror-cry.png",
                 shooked: "Asset/character/maire/Assestentin-horror.png",
-                smallHorror: "/Template/Asset/character/maire/Assestentin-horror-small.png"
+                smallHorror: "Asset/character/maire/Assestentin-horror-small.png"
             },
             positionStandard: {
                 x: 84,
@@ -503,7 +554,7 @@ var Artemis;
     // Menü 
     function showCredits() {
         Artemis.ƒS.Text.addClass("credit");
-        Artemis.ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder freesound.org <br> <b> Tester:</b> Tamara Auber, Alexander Thier, Jan Christmeier");
+        Artemis.ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder freesound.org <br> <b> Transistions: </b>free to use https://lemmasoft.renai.us/forums/viewtopic.php?f=52&t=37628<br> <b> Tester:</b> Tamara Auber, Alexander Thier, Jan Christmeier");
     }
     Artemis.showCredits = showCredits;
     function showDiary() {
@@ -659,6 +710,7 @@ var Artemis;
             { id: "EndingOneAllSurvive", scene: Artemis.EndingOneAllSurvive, name: "EndingOneAllSurvive" },
             { id: "EndingTwoBronteDead", scene: Artemis.EndingTwoBronteDead, name: "EndingTwoBronteDead" },
             { id: "EndingThreeOdetteDead", scene: Artemis.EndingThreeOdetteDead, name: "EndingThreeOdetteDead" },
+            { id: "EndingBadGraceAngry", scene: Artemis.EndingBadGraceAngry, name: "EndingBadGraceAngry" },
             { id: "EndScreen", scene: Artemis.EndScreen, name: "EndScreen" }
         ];
         let uiElement = document.querySelector("[type=interface]");
@@ -858,8 +910,9 @@ var Artemis;
                                 await Artemis.ƒS.update(0.4);
                                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " (Er sieht ziemlich sauer aus, ich glaube das Thema ist nicht gut bei ihm angekommen) ");
                                 Artemis.dataForSave.pointAngryGrace += 1;
-                                if (Artemis.dataForSave.pointAngryGrace >= 3) {
-                                    graceBadEnding();
+                                if (Artemis.dataForSave.pointAngryGrace >= 4) {
+                                    await graceBadEnding();
+                                    return "EndingBadGraceAngry";
                                 }
                                 alaistarTalk.isaac = "";
                                 break;
@@ -1198,14 +1251,32 @@ var Artemis;
         Artemis.dataForSave.interviewFinished = true;
         await Artemis.ƒS.Sound.fade(Artemis.sound.saloonAfterScrem, 0, 0.5, true);
         return "SceneNineEntryhall";
-        //todo: Ende 
         async function graceBadEnding() {
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.update(0.8);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.grace, Artemis.charaktere.grace.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.grace.positionLeftMiddle.x, Artemis.charaktere.grace.positionLeftMiddle.y));
+            await Artemis.ƒS.update(0.8);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.grace, " Der Pudding ist da! Oh was verzieht ihr dann alle für Gesichter? ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.grace);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.grace, Artemis.charaktere.grace.pose.sad, Artemis.ƒS.positionPercent(Artemis.charaktere.grace.positionLeftMiddle.x, Artemis.charaktere.grace.positionLeftMiddle.y));
+            await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.angry, Artemis.ƒS.positionPercent(Artemis.charaktere.alaistar.positionRightMiddle.x, Artemis.charaktere.alaistar.positionRightMiddle.y));
+            await Artemis.ƒS.update(0.8);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Ich glaube unsere Detektiv Gäste haben leider etwas die Stimmung runtergezogen mit ihren lästigen Fragen. ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.grace);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.grace, Artemis.charaktere.grace.pose.angry, Artemis.ƒS.positionPercent(Artemis.charaktere.grace.positionLeftMiddle.x, Artemis.charaktere.grace.positionLeftMiddle.y));
+            await Artemis.ƒS.update(0.8);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.grace, " Ich bin sehr enttäuscht von Ihnen Miss Bronte! Ich hatte bessere Manieren von Ihnen erwartet. ");
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Oh, dass- ");
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.grace, " Nein, bitte gehen sie alle. Ich habe Kopfschmerzen.");
-            //todo: Ende 
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.grace);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.update(0.8);
+            Artemis.ƒS.Sound.fade(Artemis.sound.saloonAfterScrem, 0, 1, true);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.grace);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.alaistar);
+            await Artemis.ƒS.Location.show(Artemis.location.black);
+            await Artemis.ƒS.update(3);
         }
     }
     Artemis.SceneEightBInterviews = SceneEightBInterviews;
@@ -1231,7 +1302,7 @@ var Artemis;
             continue: "Weitermachen"
         };
         await Artemis.ƒS.Location.show(Artemis.location.saalon);
-        await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
+        await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
         await Artemis.ƒS.Sound.fade(Artemis.sound.saloonAfterScrem, 0.1, 0.2, true);
         await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.alaistar.positionRightMiddle.x, Artemis.charaktere.alaistar.positionRightMiddle.y));
@@ -1349,12 +1420,9 @@ var Artemis;
         await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
         await Artemis.ƒS.Character.show(Artemis.charaktere.grace, Artemis.charaktere.grace.pose.think, Artemis.ƒS.positionPercent(Artemis.charaktere.grace.positionMiddle.x, Artemis.charaktere.grace.positionMiddle.y));
         await Artemis.ƒS.update(0.4);
-        //  dataForSave.pointDetectiv += 1; 
-        //todo: Number correct maybe
         if (Artemis.dataForSave.pointDetectiv < 2) {
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.grace, "Mhm… Ihren anderen Fall haben sie eleganter gelöst… Sie scheinen heute etwas verwirrt zu sein.");
         }
-        //todo: maire punkte prüfe
         if (Artemis.dataForSave.pointAngryMaire > 2) {
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Sie hat einen Punkt… ");
         }
@@ -1515,7 +1583,7 @@ var Artemis;
         }
         await Artemis.ƒS.Sound.fade(Artemis.sound.study, 0.1, 0.2, true);
         await Artemis.ƒS.Location.show(Artemis.location.studyroom);
-        await Artemis.ƒS.update(Artemis.transistions.wallpaper.duration, Artemis.transistions.wallpaper.alpha, Artemis.transistions.wallpaper.edge);
+        await Artemis.ƒS.update(Artemis.transistions.standard.duration, Artemis.transistions.standard.alpha, Artemis.transistions.standard.edge);
         await Artemis.ƒS.update();
         await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.shout, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
         await Artemis.ƒS.update(1);
@@ -1561,7 +1629,6 @@ var Artemis;
                 await Artemis.ƒS.update(0.4);
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Okay… aber komm aus den Schatten heraus, dann lasse ich die Waffe sinken. ");
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.shadow, " Okay. Hier. Bitte steck den Revolver weg. Ich tu nichts. ");
-                //todo:  show Odette
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Okay… ");
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.shadow, " Wer… wer bist du?");
                 break;
@@ -1583,7 +1650,6 @@ var Artemis;
                         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " … ");
                         await Artemis.ƒS.Speech.tell(Artemis.charaktere.shadow, " … ");
                         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " … ");
-                        // todo: <ZEIGT ODETTE>
                         await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
                         await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.shout, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
                         await Artemis.ƒS.update(1);
@@ -2018,7 +2084,7 @@ var Artemis;
             go: "Aufgeben"
         };
         await Artemis.ƒS.Location.show(Artemis.location.infrontOfManorNight);
-        await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
+        await Artemis.ƒS.update(Artemis.transistions.standard.duration, Artemis.transistions.standard.alpha, Artemis.transistions.standard.edge);
         await Artemis.ƒS.Sound.fade(Artemis.sound.themeinfrontManorNight, 0.1, 0.2, true);
         await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
         await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
@@ -2064,7 +2130,6 @@ var Artemis;
         await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
         await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " O und R…. oh! Wir kennen jemanden zu dem R. passen würde!");
-        //todo: Isaac Dialog
         let userChoosePersonToRing = await Artemis.ƒS.Menu.getInput(choosePerson, "basicChoice");
         switch (userChoosePersonToRing) {
             case choosePerson.Butler:
@@ -2333,8 +2398,9 @@ var Artemis;
         let lastCloakIsaac = false;
         let counterHowManyCloaks = 0;
         let stillInLoop = true;
+        Artemis.ƒS.Sound.play(Artemis.sound.themeEntryhall, 0.4, true);
         await Artemis.ƒS.Location.show(Artemis.location.entrance);
-        await Artemis.ƒS.update(Artemis.transistions.wallpaper.duration, Artemis.transistions.wallpaper.alpha, Artemis.transistions.wallpaper.edge);
+        await Artemis.ƒS.update(Artemis.transistions.standard.duration, Artemis.transistions.standard.alpha, Artemis.transistions.standard.edge);
         await Artemis.ƒS.update();
         await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
         await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
@@ -2691,7 +2757,11 @@ var Artemis;
             await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.sad, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
             await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, " Mhm…");
-            // todo: -1 Grace und eventuell end Szene mit Grace 
+            Artemis.dataForSave.pointAngryGrace -= 1;
+            if (Artemis.dataForSave.pointAngryGrace >= 4) {
+                await issacBadEnding();
+                return "EndingBadGraceAngry";
+            }
         }
         else {
             await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
@@ -2758,6 +2828,7 @@ var Artemis;
         await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
         await Artemis.ƒS.update(1);
         Artemis.dataForSave.searchedCloakFinished = true;
+        Artemis.ƒS.Sound.fade(Artemis.sound.themeEntryhall, 0, 2);
         return "SceneTenMaireAndIsaac";
         async function checkIfLoopShouldContinue() {
             console.log(counterHowManyCloaks);
@@ -2767,6 +2838,33 @@ var Artemis;
             else if (counterHowManyCloaks == 2) {
                 stillInLoop = false;
             }
+        }
+        async function issacBadEnding() {
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, "Ich finde es nicht richtig, dass hier einfach in den privaten Sachen der Anwesenden rumwühlt.");
+            await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.update(0.4);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, "Selbst gegenüber Grace und Alaistar ist das nicht fair.");
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, "Grace!");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+            await Artemis.ƒS.update(0.8);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.grace, Artemis.charaktere.grace.pose.think, Artemis.ƒS.positionPercent(20, Artemis.charaktere.grace.positionLeftMiddle.y));
+            await Artemis.ƒS.update(0.8);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.grace, " Ja, Isaac? ");
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.isaac, "Miss Bronte hat angefangen in unseren persönlichen Sachen herum zu wühlen. ");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.grace);
+            await Artemis.ƒS.Character.show(Artemis.charaktere.grace, Artemis.charaktere.grace.pose.angry, Artemis.ƒS.positionPercent(20, Artemis.charaktere.grace.positionLeftMiddle.y));
+            await Artemis.ƒS.update(0.8);
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.grace, " Ich bin sehr enttäuscht von Ihnen Miss Bronte! Ich hatte bessere Manieren von Ihnen erwartet. ");
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Oh, dass- ");
+            await Artemis.ƒS.Speech.tell(Artemis.charaktere.grace, " Nein, bitte gehen sie alle. Ich habe Kopfschmerzen.");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.grace);
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
+            await Artemis.ƒS.update(0.8);
+            Artemis.ƒS.Sound.fade(Artemis.sound.saloonAfterScrem, 0, 1, true);
+            await Artemis.ƒS.Location.show(Artemis.location.black);
+            await Artemis.ƒS.update(5);
         }
     }
     Artemis.SceneNineEntryhall = SceneNineEntryhall;
@@ -2781,7 +2879,7 @@ var Artemis;
             window: "Untersuche Fenster",
             knock: "Klopfe an der Tür"
         };
-        Artemis.ƒS.Speech.set("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden.");
+        await Artemis.ƒS.Speech.tell("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden. Drücke I um dein Iventar zu öffnen.");
         //return "SceneTwoEntrance";
         // return "SceneThreeSaalon";
         // return "SceneFourSaalonDrama";
@@ -2796,11 +2894,11 @@ var Artemis;
         // return "EndingOneAllSurvive"
         // return "EndingTwoBronteDead";
         // return "EndingThreeOdetteDead";
+        // return "ExtraSceneBronteMaire";
         //return "EndScreen";
         await Artemis.ƒS.Sound.fade(Artemis.sound.themeinfrontManor, 0.4, 1, true);
         await Artemis.ƒS.Location.show(Artemis.location.infrontOfManorDay);
-        await Artemis.ƒS.update(Artemis.transistions.wallpaper.duration, Artemis.transistions.wallpaper.alpha, Artemis.transistions.wallpaper.edge);
-        await Artemis.ƒS.update();
+        await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, "Oh, was für ein prächtiges Anwesen. Und wir sind hier wirklich richtig?");
         await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
         await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
@@ -2957,8 +3055,7 @@ var Artemis;
     async function SceneSevenCabin() {
         localStorage.setItem('collar', JSON.stringify(true));
         await Artemis.ƒS.Location.show(Artemis.location.cabin);
-        await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
-        //todo: Music? 
+        await Artemis.ƒS.update(Artemis.transistions.standard.duration, Artemis.transistions.standard.alpha, Artemis.transistions.standard.edge);
         let chooseHowToGetToRoof = {
             maire: "Maire machen lassen",
             bronte: "Selber machen"
@@ -3063,7 +3160,7 @@ var Artemis;
             cabin: "Hütte"
         };
         await Artemis.ƒS.Location.show(Artemis.location.gardenDark);
-        await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
+        await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
         await Artemis.ƒS.Sound.fade(Artemis.sound.themeinfrontManorNight, 0.1, 0.2, true);
         await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
         await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
@@ -3130,7 +3227,6 @@ var Artemis;
                 await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.fear, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
                 await Artemis.ƒS.update(0.4);
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Wenn du meinst Bronte...  Pass nur auf hier ist.");
-                // <platsch>wasserbecken…
                 await Artemis.ƒS.Character.animate(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.fear, Artemis.fromMiddleSinking(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y, 230, 0.2));
                 await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
                 await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
@@ -3194,6 +3290,7 @@ var Artemis;
                     break;
                 case chooseWhereWouldCatGo.cabin:
                     await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
+                    await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
                     await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
                     await Artemis.ƒS.update(0.8);
                     return 'SceneSevenCabin';
@@ -3205,7 +3302,7 @@ var Artemis;
             await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
             await Artemis.ƒS.update(0.8);
             await Artemis.ƒS.Location.show(Artemis.location.saalon);
-            await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
+            await Artemis.ƒS.update(Artemis.transistions.standard.duration, Artemis.transistions.standard.alpha, Artemis.transistions.standard.edge);
             await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
             await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
             await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
@@ -3229,12 +3326,10 @@ var Artemis;
                 await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
                 await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
                 await Artemis.ƒS.update(0.8);
-                // fade to black
                 await Artemis.ƒS.Location.show(Artemis.location.black);
-                await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
-                //todo: sound
+                await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
                 await Artemis.ƒS.Location.show(Artemis.location.saalon);
-                await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
+                await Artemis.ƒS.update(Artemis.transistions.standard.duration, Artemis.transistions.standard.alpha, Artemis.transistions.standard.edge);
                 await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
                 await Artemis.ƒS.Character.show(Artemis.charaktere.grace, Artemis.charaktere.grace.pose.think, Artemis.ƒS.positionPercent(Artemis.charaktere.grace.positionStandard.x, Artemis.charaktere.grace.positionStandard.y));
                 await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.sad, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
@@ -3273,7 +3368,7 @@ var Artemis;
             await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
             await Artemis.ƒS.update(0.8);
             await Artemis.ƒS.Location.show(Artemis.location.gardenLight);
-            await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
+            await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
             await Artemis.ƒS.Sound.fade(Artemis.sound.themeinfrontManorNight, 0, 0.5, true);
         }
     }
@@ -3282,9 +3377,9 @@ var Artemis;
 var Artemis;
 (function (Artemis) {
     async function SceneTenMaireAndIsaac() {
+        Artemis.ƒS.Sound.play(Artemis.sound.maireAndIsaac, 0.4, true);
         await Artemis.ƒS.Location.show(Artemis.location.infrontOfManorNight);
-        await Artemis.ƒS.update(Artemis.transistions.wallpaper.duration, Artemis.transistions.wallpaper.alpha, Artemis.transistions.wallpaper.edge);
-        await Artemis.ƒS.update();
+        await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
         await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
         await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
         await Artemis.ƒS.update(0.8);
@@ -3398,6 +3493,7 @@ var Artemis;
         await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
         await Artemis.ƒS.Character.hide(Artemis.charaktere.isaac);
         await Artemis.ƒS.update(0.4);
+        Artemis.ƒS.Sound.fade(Artemis.sound.maireAndIsaac, 0, 2);
         Artemis.dataForSave.maireAndIsaacFinished = true;
         return "SceneElevenStudy";
     }
@@ -3415,9 +3511,9 @@ var Artemis;
             lie: "Lüge",
             truth: "Erzähle Wahrheit"
         };
-        await Artemis.ƒS.Sound.play(Artemis.sound.themeSaloon, 0.1, true);
+        Artemis.ƒS.Sound.play(Artemis.sound.themeSaloon, 0.1, true);
         await Artemis.ƒS.Location.show(Artemis.location.saalon);
-        await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
+        await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
         await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
         await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
         await Artemis.ƒS.update(1);
@@ -3613,12 +3709,12 @@ var Artemis;
                 await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
                 await Artemis.ƒS.update(0.8);
                 await Artemis.ƒS.Location.show(Artemis.location.black);
-                await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
-                await Artemis.ƒS.Sound.play(Artemis.sound.dinnerSound, 0.5);
-                await Artemis.ƒS.Sound.play(Artemis.sound.waterGlass, 0.1);
+                await Artemis.ƒS.update(Artemis.transistions.standard.duration, Artemis.transistions.standard.alpha, Artemis.transistions.standard.edge);
+                Artemis.ƒS.Sound.play(Artemis.sound.dinnerSound, 0.5);
+                Artemis.ƒS.Sound.play(Artemis.sound.waterGlass, 0.1);
                 await Artemis.ƒS.update(0.8);
                 await Artemis.ƒS.Location.show(Artemis.location.saalon);
-                await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
+                await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
                 Artemis.dataForSave.greetingInSaalonFinished = true;
                 await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
                 await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
@@ -3668,12 +3764,12 @@ var Artemis;
                 await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
                 await Artemis.ƒS.update(0.8);
                 await Artemis.ƒS.Location.show(Artemis.location.black);
-                await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
-                await Artemis.ƒS.Sound.play(Artemis.sound.dinnerSound, 0.5);
-                await Artemis.ƒS.Sound.play(Artemis.sound.waterGlass, 0.1);
+                await Artemis.ƒS.update(Artemis.transistions.standard.duration, Artemis.transistions.standard.alpha, Artemis.transistions.standard.edge);
+                Artemis.ƒS.Sound.play(Artemis.sound.dinnerSound, 0.5);
+                Artemis.ƒS.Sound.play(Artemis.sound.waterGlass, 0.1);
                 await Artemis.ƒS.update(0.8);
                 await Artemis.ƒS.Location.show(Artemis.location.saalon);
-                await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
+                await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
                 await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
                 await Artemis.ƒS.Character.show(Artemis.charaktere.grace, Artemis.charaktere.grace.pose.laugh, Artemis.ƒS.positionPercent(Artemis.charaktere.grace.positionStandard.x, Artemis.charaktere.grace.positionStandard.y));
                 await Artemis.ƒS.update(0.8);
@@ -3734,7 +3830,7 @@ var Artemis;
             localStorage.setItem('cat', JSON.stringify(true));
         }
         await Artemis.ƒS.Sound.fade(Artemis.sound.study, 0, 1);
-        Artemis.ƒS.Sound.fade(Artemis.sound.final, 0.7, 1, true);
+        Artemis.ƒS.Sound.fade(Artemis.sound.final, 0.5, 1, true);
         await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.evil, Artemis.ƒS.positionPercent(Artemis.charaktere.alaistar.positionMiddle.x, Artemis.charaktere.alaistar.positionMiddle.y));
         await Artemis.ƒS.update(2);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Schwester. ");
@@ -4315,6 +4411,7 @@ var Artemis;
             await Artemis.ƒS.Character.show(Artemis.charaktere.alaistar, Artemis.charaktere.alaistar.pose.evil, Artemis.ƒS.positionPercent(15, Artemis.charaktere.alaistar.positionMiddle.y));
             await Artemis.ƒS.update(2);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.alaistar, " Wir bleiben jetzt alle ganz ruhig. ");
+            //todo: error? 
             await Artemis.ƒS.Character.show(Artemis.charaktere.isaac, Artemis.charaktere.isaac.pose.crying, Artemis.ƒS.positionPercent(Artemis.charaktere.isaac.positionStandard.x, Artemis.charaktere.isaac.positionStandard.y));
             await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.smallHorror, Artemis.ƒS.positionPercent(85, 105));
             await Artemis.ƒS.update(0.4);
@@ -4405,7 +4502,7 @@ var Artemis;
     async function SceneTwoEntrance() {
         await Artemis.ƒS.Sound.play(Artemis.sound.themeEntrance, 0.1, true);
         await Artemis.ƒS.Location.show(Artemis.location.entrance);
-        await Artemis.ƒS.update(Artemis.transistions.inToOut.duration, Artemis.transistions.inToOut.alpha, Artemis.transistions.inToOut.edge);
+        await Artemis.ƒS.update(Artemis.transistions.standard.duration, Artemis.transistions.standard.alpha, Artemis.transistions.standard.edge);
         await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
         await Artemis.ƒS.Character.show(Artemis.charaktere.remington, Artemis.charaktere.remington.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.remington.positionStandard.x, Artemis.charaktere.remington.positionStandard.y));
         await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));

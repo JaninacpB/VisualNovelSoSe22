@@ -250,8 +250,9 @@ namespace Artemis {
                                 await ƒS.Speech.tell(charaktere.maire, " (Er sieht ziemlich sauer aus, ich glaube das Thema ist nicht gut bei ihm angekommen) ");
 
                                 dataForSave.pointAngryGrace += 1;
-                                if (dataForSave.pointAngryGrace >= 3) {
-                                    graceBadEnding();
+                                if (dataForSave.pointAngryGrace >= 4) {
+                                    await graceBadEnding();
+                                    return "EndingBadGraceAngry"; 
                                 }
 
                                 alaistarTalk.isaac = "";
@@ -744,17 +745,44 @@ namespace Artemis {
 
         return "SceneNineEntryhall";
 
-        //todo: Ende 
         async function graceBadEnding(): Promise<void> {
 
+            await ƒS.Character.hide(charaktere.bronte);
+            await ƒS.Character.hide(charaktere.maire);
+            await ƒS.update(0.8);
+        
+            await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.happy, ƒS.positionPercent(charaktere.grace.positionLeftMiddle.x, charaktere.grace.positionLeftMiddle.y));
+            await ƒS.update(0.8);
+        
             await ƒS.Speech.tell(charaktere.grace, " Der Pudding ist da! Oh was verzieht ihr dann alle für Gesichter? ");
+        
+            await ƒS.Character.hide(charaktere.grace);
+            await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.sad, ƒS.positionPercent(charaktere.grace.positionLeftMiddle.x, charaktere.grace.positionLeftMiddle.y));
+            await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.angry, ƒS.positionPercent(charaktere.alaistar.positionRightMiddle.x, charaktere.alaistar.positionRightMiddle.y));
+            await ƒS.update(0.8);
+        
             await ƒS.Speech.tell(charaktere.alaistar, " Ich glaube unsere Detektiv Gäste haben leider etwas die Stimmung runtergezogen mit ihren lästigen Fragen. ");
+        
+            await ƒS.Character.hide(charaktere.grace);
+            await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.angry, ƒS.positionPercent(charaktere.grace.positionLeftMiddle.x, charaktere.grace.positionLeftMiddle.y));
+            await ƒS.update(0.8);
+        
             await ƒS.Speech.tell(charaktere.grace, " Ich bin sehr enttäuscht von Ihnen Miss Bronte! Ich hatte bessere Manieren von Ihnen erwartet. ");
             await ƒS.Speech.tell(charaktere.bronte, " Oh, dass- ");
             await ƒS.Speech.tell(charaktere.grace, " Nein, bitte gehen sie alle. Ich habe Kopfschmerzen.");
-
-            //todo: Ende 
-
+        
+            await ƒS.Character.hide(charaktere.grace);
+            await ƒS.Character.hide(charaktere.alaistar);
+            await ƒS.update(0.8);
+        
+            ƒS.Sound.fade(sound.saloonAfterScrem, 0, 1, true);
+        
+            await ƒS.Character.hide(charaktere.grace);
+            await ƒS.Character.hide(charaktere.alaistar);
+            await ƒS.Location.show(location.black);
+            await ƒS.update(3);
+        
         }
+
     }
 }

@@ -4,8 +4,7 @@ namespace Artemis {
         localStorage.setItem('collar', JSON.stringify(true));
 
         await ƒS.Location.show(location.cabin);
-        await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
-        //todo: Music? 
+        await ƒS.update(transistions.standard.duration, transistions.standard.alpha, transistions.standard.edge);
 
         let chooseHowToGetToRoof = {
             maire: "Maire machen lassen",

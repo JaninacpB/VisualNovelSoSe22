@@ -1,7 +1,7 @@
 namespace Artemis {
     export async function EndScreen(): ƒS.SceneReturn {
 
-        if(dataForSave.pointAngryGrace = 3){
+        if(dataForSave.pointAngryGrace = 4){
             localStorage.setItem('angryGrace', JSON.stringify(true));
 
         }

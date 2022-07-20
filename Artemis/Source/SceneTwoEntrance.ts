@@ -3,7 +3,7 @@ namespace Artemis {
         await ƒS.Sound.play(sound.themeEntrance, 0.1, true); 
 
         await ƒS.Location.show(location.entrance);
-        await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
+        await ƒS.update(transistions.standard.duration, transistions.standard.alpha, transistions.standard.edge);
     
         await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.happy, ƒS.positionPercent(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y))
         await ƒS.Character.show(charaktere.remington, charaktere.remington.pose.neutral, ƒS.positionPercent(charaktere.remington.positionStandard.x , charaktere.remington.positionStandard.y));

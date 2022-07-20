@@ -4,9 +4,8 @@ namespace Artemis {
         await ƒS.Sound.fade(sound.endingSad, 0.4, 1, true);
 
         await ƒS.Location.show(location.black);
-        await ƒS.update(transistions.wallpaper.duration, transistions.wallpaper.alpha, transistions.wallpaper.edge);
-        await ƒS.update(2);
-
+        await ƒS.update(transistions.standard.duration, "Asset/Transition/18.png", transistions.standard.edge);
+        
         await ƒS.Speech.setTickerDelays(80);
 
         await ƒS.Speech.tell(charaktere.maire, "Bronte spricht nur selten über diesen Tag.");

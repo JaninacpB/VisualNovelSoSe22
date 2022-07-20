@@ -23,12 +23,7 @@ declare namespace Artemis {
         ausrufezeichen: string;
     };
     let transistions: {
-        inToOut: {
-            duration: number;
-            alpha: string;
-            edge: number;
-        };
-        wallpaper: {
+        standard: {
             duration: number;
             alpha: string;
             edge: number;
@@ -41,6 +36,8 @@ declare namespace Artemis {
         themeSaloon: string;
         dramaInSaloon: string;
         saloonAfterScrem: string;
+        themeEntryhall: string;
+        maireAndIsaac: string;
         study: string;
         final: string;
         finalGood: string;

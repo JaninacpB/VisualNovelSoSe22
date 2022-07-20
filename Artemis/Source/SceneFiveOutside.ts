@@ -16,7 +16,7 @@ namespace Artemis {
         }
 
         await ƒS.Location.show(location.infrontOfManorNight);
-        await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
+        await ƒS.update(transistions.standard.duration, transistions.standard.alpha, transistions.standard.edge);
 
         await ƒS.Sound.fade(sound.themeinfrontManorNight, 0.1, 0.2, true);
 
@@ -84,7 +84,7 @@ namespace Artemis {
 
         await ƒS.Speech.tell(charaktere.maire, " O und R…. oh! Wir kennen jemanden zu dem R. passen würde!");
 
-        //todo: Isaac Dialog
+        
         let userChoosePersonToRing = await ƒS.Menu.getInput(choosePerson, "basicChoice");
         switch (userChoosePersonToRing) {
             case choosePerson.Butler:

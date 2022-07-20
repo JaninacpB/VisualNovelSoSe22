@@ -11,16 +11,12 @@ namespace Artemis {
 
   //define transistions
   export let transistions = {
-    inToOut: {
+    standard: {
       duration: 1,
-      alpha: "Asset/Transition/02.png",
-      edge: 1 //härtegrad
-    },
-    wallpaper: {
-      duration: 1,
-      alpha: "Asset/Transition/transistionWallpaper.png",
+      alpha: "Asset/Transition/17.png",
       edge: 1
     }
+
   }
 
   export let sound = {
@@ -38,15 +34,19 @@ namespace Artemis {
 
     saloonAfterScrem: "Asset/sound/frederic-chopin-nocturne-21-classical-remix-7611.mp3",
 
+    themeEntryhall: "Asset/sound/classical-piano-peter-tchaikovsky-mazurka-opus-39-10-21877.mp3",
+
+    maireAndIsaac: "Asset/sound/trois-gymnopedie-gymnopedie-no-1-erik-satie-351s-12664.mp3",
+
     study: "Asset/sound/SoundStudy.mp3",
 
     final: "Asset/sound/tenseFinalMusik.mp3",
 
     finalGood: "Asset/sound/dance-of-the-sugar-plum-fairy-pyotr-ilyich-tchaikovsky-201s-11937.mp3",
 
-    finalTranquille: "/Template/Asset/sound/suspense-piano-loop-90165.mp3",
+    finalTranquille: "Asset/sound/suspense-piano-loop-90165.mp3",
 
-    finalSad: "/Template/Asset/sound/teardrops-sad-song-piano-and-softpad-2763.mp3",
+    finalSad: "Asset/sound/teardrops-sad-song-piano-and-softpad-2763.mp3",
 
     endingSad: "Asset/sound/pianoSadEnding.mp3",
 
@@ -161,7 +161,7 @@ namespace Artemis {
         laugh: "Asset/character/maire/Assestentin-laugh.png",
         cry: "Asset/character/maire/Assestentin-horror-cry.png",
         shooked: "Asset/character/maire/Assestentin-horror.png",
-        smallHorror: "/Template/Asset/character/maire/Assestentin-horror-small.png"
+        smallHorror: "Asset/character/maire/Assestentin-horror-small.png"
       },
       positionStandard: {
         x: 84,
@@ -389,7 +389,7 @@ namespace Artemis {
   // Menü 
   export function showCredits(): void {
     ƒS.Text.addClass("credit");
-    ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder freesound.org <br> <b> Tester:</b> Tamara Auber, Alexander Thier, Jan Christmeier");
+    ƒS.Text.print("<b>Drehbuch:</b> Janina Bach  <br><b> Bilder: </b> Janina Bach <br> <b> Musik: </b>lizenzfrei von pixabay.com oder freesound.org <br> <b> Transistions: </b>free to use https://lemmasoft.renai.us/forums/viewtopic.php?f=52&t=37628<br> <b> Tester:</b> Tamara Auber, Alexander Thier, Jan Christmeier");
   }
 
   export function showDiary(): void {
@@ -567,6 +567,7 @@ namespace Artemis {
       { id: "EndingOneAllSurvive", scene: EndingOneAllSurvive, name: "EndingOneAllSurvive" },
       { id: "EndingTwoBronteDead", scene: EndingTwoBronteDead, name: "EndingTwoBronteDead" },
       { id: "EndingThreeOdetteDead", scene: EndingThreeOdetteDead, name: "EndingThreeOdetteDead" },
+      { id: "EndingBadGraceAngry", scene: EndingBadGraceAngry, name: "EndingBadGraceAngry"},
 
       { id: "EndScreen", scene: EndScreen, name: "EndScreen" }
     ];

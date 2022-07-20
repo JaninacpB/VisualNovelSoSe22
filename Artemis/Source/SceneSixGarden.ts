@@ -15,12 +15,12 @@ namespace Artemis {
 
 		let chooseWhereWouldCatGo = {
 			lamp: "Lampe",
-			waterpond: "Wasserbecken",
+			waterpond: "Wasserbecken", 
 			cabin: "Hütte"
 		}
 
 		await ƒS.Location.show(location.gardenDark);
-		await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
+		await ƒS.update(transistions.standard.duration, "Asset/Transition/18.png", transistions.standard.edge);
 
 		await ƒS.Sound.fade(sound.themeinfrontManorNight, 0.1, 0.2, true);
 
@@ -113,7 +113,6 @@ namespace Artemis {
 				await ƒS.update(0.4);
 
 				await ƒS.Speech.tell(charaktere.maire, " Wenn du meinst Bronte...  Pass nur auf hier ist.");
-				// <platsch>wasserbecken…
 				
 				await ƒS.Character.animate(charaktere.maire, charaktere.maire.pose.fear, fromMiddleSinking(charaktere.maire.positionStandard.x , charaktere.maire.positionStandard.y, 230, 0.2));
 
@@ -205,6 +204,7 @@ namespace Artemis {
 
 				case chooseWhereWouldCatGo.cabin:
 					await ƒS.Character.hide(charaktere.maire);
+					await ƒS.Character.hide(charaktere.maire);
 					await ƒS.Character.hide(charaktere.bronte);
 					await ƒS.update(0.8);
 
@@ -221,7 +221,7 @@ namespace Artemis {
 			await ƒS.update(0.8);
 
 			await ƒS.Location.show(location.saalon);
-			await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
+			await ƒS.update(transistions.standard.duration, transistions.standard.alpha, transistions.standard.edge);
 
 			await ƒS.Character.hide(charaktere.maire);
 			await ƒS.Character.hide(charaktere.bronte);
@@ -254,12 +254,11 @@ namespace Artemis {
 				await ƒS.Character.hide(charaktere.bronte);
 				await ƒS.update(0.8);
 
-				// fade to black
 				await ƒS.Location.show(location.black);
-				await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
-				//todo: sound
+				await ƒS.update(transistions.standard.duration, "Asset/Transition/18.png", transistions.standard.edge);
+				
 				await ƒS.Location.show(location.saalon);
-				await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
+				await ƒS.update(transistions.standard.duration, transistions.standard.alpha, transistions.standard.edge);
 
 				await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.neutral, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
 				await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.think, ƒS.positionPercent(charaktere.grace.positionStandard.x, charaktere.grace.positionStandard.y));
@@ -311,7 +310,7 @@ namespace Artemis {
 			await ƒS.update(0.8);
 
 			await ƒS.Location.show(location.gardenLight);
-			await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
+			await ƒS.update(transistions.standard.duration, "Asset/Transition/18.png", transistions.standard.edge);
 		
 			await ƒS.Sound.fade(sound.themeinfrontManorNight, 0, 0.5, true);
 		

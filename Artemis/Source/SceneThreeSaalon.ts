@@ -12,10 +12,10 @@ namespace Artemis {
             truth: "Erzähle Wahrheit"
         }
 
-        await ƒS.Sound.play(sound.themeSaloon, 0.1, true);
+        ƒS.Sound.play(sound.themeSaloon, 0.1, true);
 
         await ƒS.Location.show(location.saalon);
-        await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
+        await ƒS.update(transistions.standard.duration, "Asset/Transition/18.png", transistions.standard.edge);
 
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
 
@@ -306,15 +306,15 @@ namespace Artemis {
                 await ƒS.update(0.8);
 
                 await ƒS.Location.show(location.black);
-                await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
+                await ƒS.update(transistions.standard.duration, transistions.standard.alpha, transistions.standard.edge);
 
-                await ƒS.Sound.play(sound.dinnerSound, 0.5);
-                await ƒS.Sound.play(sound.waterGlass, 0.1);
+                ƒS.Sound.play(sound.dinnerSound, 0.5);
+                ƒS.Sound.play(sound.waterGlass, 0.1);
 
                 await ƒS.update(0.8);
 
                 await ƒS.Location.show(location.saalon);
-                await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
+                await ƒS.update(transistions.standard.duration, "Asset/Transition/18.png", transistions.standard.edge);
 
                 dataForSave.greetingInSaalonFinished = true; 
 
@@ -390,15 +390,15 @@ namespace Artemis {
                 await ƒS.update(0.8);
 
                 await ƒS.Location.show(location.black);
-                await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
+                await ƒS.update(transistions.standard.duration, transistions.standard.alpha, transistions.standard.edge);
 
-                await ƒS.Sound.play(sound.dinnerSound, 0.5);
-                await ƒS.Sound.play(sound.waterGlass, 0.1);
+                ƒS.Sound.play(sound.dinnerSound, 0.5);
+                ƒS.Sound.play(sound.waterGlass, 0.1);
 
                 await ƒS.update(0.8);
 
                 await ƒS.Location.show(location.saalon);
-                await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
+                await ƒS.update(transistions.standard.duration, "Asset/Transition/18.png", transistions.standard.edge);
 
                 await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.happy, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
                 await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.laugh, ƒS.positionPercent(charaktere.grace.positionStandard.x, charaktere.grace.positionStandard.y));
@@ -429,7 +429,6 @@ namespace Artemis {
 
                 await ƒS.Character.hide(charaktere.grace);
                 await ƒS.update(0.8);
-
 
                 await ƒS.Character.hide(charaktere.isaac);
                 await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.happy, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y));

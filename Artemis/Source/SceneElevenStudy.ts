@@ -53,7 +53,7 @@ namespace Artemis {
         await ƒS.Sound.fade(sound.study, 0.1, 0.2, true);
 
         await ƒS.Location.show(location.studyroom);
-        await ƒS.update(transistions.wallpaper.duration, transistions.wallpaper.alpha, transistions.wallpaper.edge);
+        await ƒS.update(transistions.standard.duration, transistions.standard.alpha, transistions.standard.edge);
         await ƒS.update();
 
         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))
@@ -119,7 +119,7 @@ namespace Artemis {
 
                 await ƒS.Speech.tell(charaktere.bronte, " Okay… aber komm aus den Schatten heraus, dann lasse ich die Waffe sinken. ");
                 await ƒS.Speech.tell(charaktere.shadow, " Okay. Hier. Bitte steck den Revolver weg. Ich tu nichts. ");
-                //todo:  show Odette
+               
                 await ƒS.Speech.tell(charaktere.bronte, " Okay… ");
                 await ƒS.Speech.tell(charaktere.shadow, " Wer… wer bist du?");
 
@@ -149,7 +149,7 @@ namespace Artemis {
                         await ƒS.Speech.tell(charaktere.bronte, " … ");
                         await ƒS.Speech.tell(charaktere.shadow, " … ");
                         await ƒS.Speech.tell(charaktere.bronte, " … ");
-                        // todo: <ZEIGT ODETTE>
+                        
 
                         await ƒS.Character.hide(charaktere.bronte);
                         await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.shout, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y))

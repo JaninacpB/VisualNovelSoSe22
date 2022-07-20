@@ -23,7 +23,7 @@ namespace Artemis {
         }
 
         await ƒS.Location.show(location.saalon);
-        await ƒS.update(transistions.inToOut.duration, transistions.inToOut.alpha, transistions.inToOut.edge);
+        await ƒS.update(transistions.standard.duration, "Asset/Transition/18.png", transistions.standard.edge);
 
         await ƒS.Sound.fade(sound.saloonAfterScrem, 0.1, 0.2, true);
         await ƒS.update(0.4);
@@ -189,14 +189,11 @@ namespace Artemis {
         await ƒS.Character.show(charaktere.grace, charaktere.grace.pose.think, ƒS.positionPercent(charaktere.grace.positionMiddle.x, charaktere.grace.positionMiddle.y));
         await ƒS.update(0.4);
 
-        //  dataForSave.pointDetectiv += 1; 
-
-        //todo: Number correct maybe
         if (dataForSave.pointDetectiv < 2) {
             await ƒS.Speech.tell(charaktere.grace, "Mhm… Ihren anderen Fall haben sie eleganter gelöst… Sie scheinen heute etwas verwirrt zu sein.");
         }
 
-        //todo: maire punkte prüfe
+   
         if (dataForSave.pointAngryMaire > 2) {
             await ƒS.Speech.tell(charaktere.maire, " Sie hat einen Punkt… ");
         }
@@ -319,10 +316,6 @@ namespace Artemis {
         dataForSave.stellaScreamFinished = true;
 
         return "SceneEightBInterviews";
-
-
-
-
 
         //Fehlerdialog Auswahl chooseWhathappendToCat
         async function wrongAssumptionBronteFirstChoice(): Promise<void> {

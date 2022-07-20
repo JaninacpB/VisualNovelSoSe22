@@ -19,7 +19,7 @@ namespace Artemis {
 
         await ƒS.Sound.fade(sound.study, 0, 1);
 
-        ƒS.Sound.fade(sound.final, 0.7, 1, true);
+        ƒS.Sound.fade(sound.final, 0.5, 1, true);
 
         await ƒS.Character.show(charaktere.alaistar, charaktere.alaistar.pose.evil, ƒS.positionPercent( charaktere.alaistar.positionMiddle.x, charaktere.alaistar.positionMiddle.y));
         await ƒS.update(2);  
@@ -863,7 +863,9 @@ namespace Artemis {
 
             await ƒS.Speech.tell(charaktere.alaistar, " Wir bleiben jetzt alle ganz ruhig. ");
 
-            await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.crying, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y))
+            //todo: error? 
+
+            await ƒS.Character.show(charaktere.isaac, charaktere.isaac.pose.crying, ƒS.positionPercent(charaktere.isaac.positionStandard.x, charaktere.isaac.positionStandard.y));
             await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.smallHorror, ƒS.positionPercent(85, 105));
             await ƒS.update(0.4);
 
