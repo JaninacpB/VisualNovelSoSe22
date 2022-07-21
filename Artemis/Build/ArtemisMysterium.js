@@ -2103,9 +2103,11 @@ var Artemis;
         await Artemis.ƒS.update(0.4);
         await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, " Also vorhin ist sie in Richtung des Gebüsches gelaufen.");
         if (Artemis.dataForSave.foundRing == true) {
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
             await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.think, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
             await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.bronte, "Und ziemlich schnell, immerhin haben wir sie danach nicht mehr gesehen.");
+            await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
             await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.sad, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
             await Artemis.ƒS.update(0.4);
             await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Mhm, hast du noch den Ring? ");

@@ -46,9 +46,13 @@ namespace Artemis {
 
         if (dataForSave.foundRing == true) {
 
+            await ƒS.Character.hide(charaktere.bronte);
             await ƒS.Character.show(charaktere.bronte, charaktere.bronte.pose.think, ƒS.positionPercent(charaktere.bronte.positionStandard.x, charaktere.bronte.positionStandard.y));
             await ƒS.update(0.4);
+            
             await ƒS.Speech.tell(charaktere.bronte, "Und ziemlich schnell, immerhin haben wir sie danach nicht mehr gesehen.");
+
+            await ƒS.Character.hide(charaktere.maire);
             await ƒS.Character.show(charaktere.maire, charaktere.maire.pose.sad, ƒS.positionPercent(charaktere.maire.positionStandard.x, charaktere.maire.positionStandard.y));
             await ƒS.update(0.4);
 
