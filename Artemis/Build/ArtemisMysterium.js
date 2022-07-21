@@ -5,7 +5,7 @@ var Artemis;
         if (Artemis.dataForSave.pointAngryGrace == 4) {
             localStorage.setItem('angryGrace', JSON.stringify(true));
         }
-        if (Artemis.dataForSave.pointAngryMaire == 5) {
+        if (Artemis.dataForSave.pointAngryMaire == 4) {
             localStorage.setItem('angryMaire', JSON.stringify(true));
         }
         for (let i = 0; i < Artemis.achievments.length; i++) {
@@ -544,9 +544,9 @@ var Artemis;
         //Pointsystem
         // 8 möglich
         pointDetectiv: 0,
-        // 5 möglich
+        // 4 möglich
         pointAngryMaire: 0,
-        //3 max bevor Ende 
+        //4 max bevor Ende 
         pointAngryGrace: 0,
     };
     Artemis.achievments = ["cat", "angryMaire", "angryGrace", "MaireAndBronte", "collar", "pound", "haggisDisgusting", "haggisYummy"];
@@ -2879,22 +2879,6 @@ var Artemis;
             knock: "Klopfe an der Tür"
         };
         await Artemis.ƒS.Speech.tell("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden. Drücke I um dein Iventar zu öffnen.");
-        //return "SceneTwoEntrance";
-        // return "SceneThreeSaalon";
-        // return "SceneFourSaalonDrama";
-        // return "SceneSixGarden";
-        // return "SceneSevenCabin";
-        // return "SceneEightSaalonInterview";
-        // return "SceneEightBInterviews";
-        // return "SceneNineEntryhall"; 
-        // return "SceneTenMaireAndIsaac";
-        // return "SceneElevenStudy";
-        // return "SceneTwelveFinal";
-        // return "EndingOneAllSurvive"
-        // return "EndingTwoBronteDead";
-        // return "EndingThreeOdetteDead";
-        // return "ExtraSceneBronteMaire";
-        //return "EndScreen";
         await Artemis.ƒS.Sound.fade(Artemis.sound.themeinfrontManor, 0.4, 1, true);
         await Artemis.ƒS.Location.show(Artemis.location.infrontOfManorDay);
         await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);

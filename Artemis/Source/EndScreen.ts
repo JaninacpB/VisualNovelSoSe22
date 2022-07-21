@@ -6,7 +6,7 @@ namespace Artemis {
 
         }
 
-        if(dataForSave.pointAngryMaire == 5){
+        if(dataForSave.pointAngryMaire == 4){
             localStorage.setItem('angryMaire', JSON.stringify(true));
         }
 

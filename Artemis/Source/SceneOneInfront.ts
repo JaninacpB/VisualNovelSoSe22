@@ -11,27 +11,6 @@ namespace Artemis {
     
     await ƒS.Speech.tell("Information", "Drücke 'M' um das Spielmenü zu öffnen und deinen Speicherstand zu speichern oder laden. Drücke I um dein Iventar zu öffnen.");
 
-    //return "SceneTwoEntrance";
-    // return "SceneThreeSaalon";
-    // return "SceneFourSaalonDrama";
-    // return "SceneSixGarden";
-
-    // return "SceneSevenCabin";
-
-    // return "SceneEightSaalonInterview";
-    // return "SceneEightBInterviews";
-     // return "SceneNineEntryhall"; 
-    // return "SceneTenMaireAndIsaac";
-    // return "SceneElevenStudy";
-    // return "SceneTwelveFinal";
-
-    // return "EndingOneAllSurvive"
-    // return "EndingTwoBronteDead";
-    // return "EndingThreeOdetteDead";
-    // return "ExtraSceneBronteMaire";
-
-    //return "EndScreen";
-
     await ƒS.Sound.fade(sound.themeinfrontManor, 0.4, 1, true);
 
     await ƒS.Location.show(location.infrontOfManorDay);

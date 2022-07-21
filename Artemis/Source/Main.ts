@@ -373,9 +373,9 @@ namespace Artemis {
     //Pointsystem
     // 8 möglich
     pointDetectiv: 0,
-    // 5 möglich
+    // 4 möglich
     pointAngryMaire: 0,
-    //3 max bevor Ende 
+    //4 max bevor Ende 
     pointAngryGrace: 0,
   }
 
