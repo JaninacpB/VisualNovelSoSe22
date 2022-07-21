@@ -114,6 +114,7 @@ namespace Artemis {
                 await ƒS.update(0.4);
 
                 await ƒS.Speech.tell(charaktere.maire, " Aber der Butler passt! Es hat sich mit Remington vorgestellt! Und sein Vorname wissen wir nicht!");
+                break; 
 
             default:
 
@@ -201,8 +202,6 @@ namespace Artemis {
         await ƒS.Character.hide(charaktere.maire);
         await ƒS.Character.hide(charaktere.bronte);
         await ƒS.update(0.8);
-
-        await ƒS.Sound.fade(sound.themeinfrontManorNight, 0, 0.4);
 
         return "SceneSixGarden";
     }

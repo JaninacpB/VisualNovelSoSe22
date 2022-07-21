@@ -2151,6 +2151,7 @@ var Artemis;
                 await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
                 await Artemis.ƒS.update(0.4);
                 await Artemis.ƒS.Speech.tell(Artemis.charaktere.maire, " Aber der Butler passt! Es hat sich mit Remington vorgestellt! Und sein Vorname wissen wir nicht!");
+                break;
             default:
                 await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
                 await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.sad, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
@@ -2211,7 +2212,6 @@ var Artemis;
         await Artemis.ƒS.Character.hide(Artemis.charaktere.maire);
         await Artemis.ƒS.Character.hide(Artemis.charaktere.bronte);
         await Artemis.ƒS.update(0.8);
-        await Artemis.ƒS.Sound.fade(Artemis.sound.themeinfrontManorNight, 0, 0.4);
         return "SceneSixGarden";
     }
     Artemis.SceneFiveOutside = SceneFiveOutside;
@@ -3144,7 +3144,6 @@ var Artemis;
         };
         await Artemis.ƒS.Location.show(Artemis.location.gardenDark);
         await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
-        await Artemis.ƒS.Sound.fade(Artemis.sound.themeinfrontManorNight, 0.3, 1, true);
         await Artemis.ƒS.Character.show(Artemis.charaktere.maire, Artemis.charaktere.maire.pose.neutral, Artemis.ƒS.positionPercent(Artemis.charaktere.maire.positionStandard.x, Artemis.charaktere.maire.positionStandard.y));
         await Artemis.ƒS.Character.show(Artemis.charaktere.bronte, Artemis.charaktere.bronte.pose.happy, Artemis.ƒS.positionPercent(Artemis.charaktere.bronte.positionStandard.x, Artemis.charaktere.bronte.positionStandard.y));
         await Artemis.ƒS.update(0.8);
@@ -3352,7 +3351,6 @@ var Artemis;
             await Artemis.ƒS.update(0.8);
             await Artemis.ƒS.Location.show(Artemis.location.gardenLight);
             await Artemis.ƒS.update(Artemis.transistions.standard.duration, "Asset/Transition/18.png", Artemis.transistions.standard.edge);
-            await Artemis.ƒS.Sound.fade(Artemis.sound.themeinfrontManorNight, 0, 0.5, true);
         }
     }
     Artemis.SceneSixGarden = SceneSixGarden;
