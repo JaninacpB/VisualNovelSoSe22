@@ -4,13 +4,11 @@
 
 [Quellcode](https://github.com/JaninacpB/VisualNovelSoSe22/tree/main/Artemis) <br>
 
-//todo: Konzept Dateien hinzufügen
 [VisualNovel - Das Artemis Mysterium](https://janinacpb.github.io/VisualNovelSoSe22/Artemis/ArtemisMysterium.html) <br>
 
 [Konzeptdatei + Diagramm](https://github.com/JaninacpB/VisualNovelSoSe22/tree/main/Konzeption) <br>
 
-// todo: 
-[Ordner mit Daten]()
+[Ordner mit Daten](https://drive.google.com/file/d/17D-bKqu5BV0YN7VgtxBQszLINucugQCd/view?usp=sharing)
 
 ## Bewertungskriterien
 © Prof. Dipl.-Ing. Jirka R. Dell'Oro-Friedl, HFU  
