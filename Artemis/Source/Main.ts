@@ -4,24 +4,19 @@ namespace Artemis {
 
   console.log("Artemis Mysterium starting");
 
-  // emotionen
   export let emotionen = {
     ausrufezeichen: "e-ausruf"
   }
 
-  //define transistions
   export let transistions = {
     standard: {
       duration: 1,
       alpha: "Asset/Transition/17.png",
       edge: 1
     }
-
   }
 
   export let sound = {
-    //Themes
-    //Scene 1
     themeinfrontManor: "Asset/sound/infrontOfManorScene1PianoElegeant.mp3",
 
     themeinfrontManorNight: "Asset/sound/forest-chorus-12444.mp3",
